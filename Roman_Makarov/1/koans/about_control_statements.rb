@@ -1,21 +1,18 @@
 require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 class AboutControlStatements < Neo::Koan
-
   def test_if_then_else_statements
-    if true
-      result = :true_value
-    else
-      result = :false_value
-    end
+    result = if true
+               :true_value
+             else
+               :false_value
+             end
     assert_equal __, result
   end
 
   def test_if_then_statements
     result = :default_value
-    if true
-      result = :true_value
-    end
+    result = :true_value if true
     assert_equal __, result
   end
 
@@ -39,9 +36,7 @@ class AboutControlStatements < Neo::Koan
   end
 
   def test_if_statements_with_no_else_with_false_condition_return_value
-    value = if false
-              :true_value
-            end
+    value = (:true_value if false)
     assert_equal __, value
   end
 
@@ -59,17 +54,13 @@ class AboutControlStatements < Neo::Koan
 
   def test_unless_statement
     result = :default_value
-    unless false    # same as saying 'if !false', which evaluates as 'if true'
-      result = :false_value
-    end
+    result = :false_value unless false # same as saying 'if !false', which evaluates as 'if true'
     assert_equal __, result
   end
 
   def test_unless_statement_evaluate_true
     result = :default_value
-    unless true    # same as saying 'if !true', which evaluates as 'if false'
-      result = :true_value
-    end
+    result = :true_value unless true # same as saying 'if !true', which evaluates as 'if false'
     assert_equal __, result
   end
 
@@ -84,7 +75,7 @@ class AboutControlStatements < Neo::Koan
     i = 1
     result = 1
     while i <= 10
-      result = result * i
+      result *= i
       i += 1
     end
     assert_equal __, result
@@ -95,7 +86,8 @@ class AboutControlStatements < Neo::Koan
     result = 1
     while true
       break unless i <= 10
-      result = result * i
+
+      result *= i
       i += 1
     end
     assert_equal __, result
@@ -104,9 +96,10 @@ class AboutControlStatements < Neo::Koan
   def test_break_statement_returns_values
     i = 1
     result = while i <= 10
-      break i if i % 2 == 0
-      i += 1
-    end
+               break i if i.even?
+
+               i += 1
+             end
 
     assert_equal __, result
   end
@@ -116,16 +109,17 @@ class AboutControlStatements < Neo::Koan
     result = []
     while i < 10
       i += 1
-      next if (i % 2) == 0
+      next if i.even?
+
       result << i
     end
     assert_equal __, result
   end
 
   def test_for_statement
-    array = ["fish", "and", "chips"]
+    array = %w[fish and chips]
     result = []
-    for item in array
+    array.each do |item|
       result << item.upcase
     end
     assert_equal [__, __, __], result
@@ -138,5 +132,4 @@ class AboutControlStatements < Neo::Koan
     end
     assert_equal __, sum
   end
-
 end
