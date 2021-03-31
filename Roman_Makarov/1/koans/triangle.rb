@@ -13,8 +13,21 @@
 # and
 #   about_triangle_project_2.rb
 #
+def triangle?(*sides)
+  return false if sides.any? { |side| side <= 0 }
+
+  a, b, c = sides
+  a + b > c && a + c > b && b + c > a
+end
+
 def triangle(a, b, c)
   # WRITE THIS CODE
+  raise TriangleError unless triangle?(a, b, c)
+  return :equilateral if a == b && a == c
+
+  return :isosceles if a == b || a == c || b == c
+
+  :scalene
 end
 
 # Error class used in part 2.  No need to change this code.
