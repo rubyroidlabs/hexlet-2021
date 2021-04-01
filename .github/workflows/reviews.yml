@@ -1,6 +1,5 @@
 name: Code review
-on:
-- [push, pull_request]
+on: [push, pull_request]
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -18,4 +17,3 @@ jobs:
       with:
         runners: >-
           brakeman rails_best_practices reek rubocop
-          
