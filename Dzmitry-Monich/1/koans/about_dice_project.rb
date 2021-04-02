@@ -1,10 +1,20 @@
-require File.expand_path(File.dirname(__FILE__) + '/neo')
+require File.expand_path('neo', __dir__)
 
 # Implement a DiceSet Class here:
 #
-# class DiceSet
-#   code ...
-# end
+class DiceSet
+  COUNT = (1..6).freeze
+
+  attr_reader :values
+
+  def roll(limit)
+    self.values = COUNT.to_a.sample(limit)
+  end
+
+  private
+
+  attr_writer :values
+end
 
 class AboutDiceProject < Neo::Koan
   def test_can_create_a_dice_set
@@ -18,9 +28,11 @@ class AboutDiceProject < Neo::Koan
     dice.roll(5)
     assert dice.values.is_a?(Array), "should be an array"
     assert_equal 5, dice.values.size
+    # rubocop:disable Style/HashEachMethods
     dice.values.each do |value|
       assert value >= 1 && value <= 6, "value #{value} must be between 1 and 6"
     end
+    # rubocop:enable Style/HashEachMethods
   end
 
   def test_dice_values_do_not_change_unless_explicitly_rolled
@@ -40,8 +52,7 @@ class AboutDiceProject < Neo::Koan
     dice.roll(5)
     second_time = dice.values
 
-    assert_not_equal first_time, second_time,
-      "Two rolls should not be equal"
+    assert_not_equal first_time, second_time, "Two rolls should not be equal"
 
     # THINK ABOUT IT:
     #
@@ -59,5 +70,4 @@ class AboutDiceProject < Neo::Koan
     dice.roll(1)
     assert_equal 1, dice.values.size
   end
-
 end
