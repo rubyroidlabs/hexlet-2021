@@ -1,18 +1,12 @@
 # Towers of Hanoi
 # http://en.wikipedia.org/wiki/Towers_of_hanoi
 
-$moves_count = 0
-
 class TowersOfHanoi
   attr_reader :towers
   
   def initialize
-    first_col = Array.new
-    for i in 1..3
-      first_col.unshift(i)
-    end
-
-    @towers = [first_col, [], []]
+    @towers = [(1..3).to_a.reverse, [], []]
+    @moves_count = 0
   end
   
   def rules
@@ -33,14 +27,8 @@ class TowersOfHanoi
   
   def offer_rules
     puts "Want to see the rules? (yes/no)"
-    positive = false
     ans = gets
-    (1...ans.size).map do |i|
-      if ans[i] === 'y'
-        positive = true
-      end
-    end
-    if positive
+    if ans == "yes\n"
       rules
     end
   end
@@ -49,7 +37,7 @@ class TowersOfHanoi
     @sets = towers.map do |column| 
       if column.empty? 
         column = [" ", " ", " "]
-      elsif column.length < 3 && column.length > 1
+      elsif column.length == 2
         column << " "
       elsif column.length < 2 
         column << " "
@@ -58,7 +46,7 @@ class TowersOfHanoi
         column
       end
     end
-    @towers = @towers.map{|column| column.reject{|x| x == " "} }
+    @towers = @towers.map{ |column| column.reject{|x| x == " "} }
     @sets
   end
   
@@ -79,14 +67,18 @@ class TowersOfHanoi
     end
     from_tower
   end
+
+  def get_number
+    gets.chomp.to_i
+  end
   
   def get_disk
     puts "Which disk would you like to move?"
-    disk = gets.chomp.to_i
+    disk = get_number
     
     while !1..3.to_a.include?(disk)
       puts "There's no such disk, choose another."
-      disk = gets.chomp.to_i
+      disk = get_number
     end
     disk
   end
@@ -122,10 +114,10 @@ class TowersOfHanoi
           than the disk you selected. You can choose another disk or choose 
           another tower for disk ##{disk}.\n"
     puts "Enter 1 to choose another disk, or 2 to choose another tower:"
-    user_choice = gets.chomp.to_i
+    user_choice = get_number
     while user_choice != 1 && user_choice != 2
       puts "Didn't catch that?"
-      user_choice = gets.chomp.to_i
+      user_choice = get_number
     end
     if user_choice == 1
       return 1
@@ -133,7 +125,7 @@ class TowersOfHanoi
       to_tower = nil
       while to_tower == nil
         puts "To which tower?"
-        to_tower = gets.chomp.to_i
+        to_tower = get_number
         to_tower = towers[to_tower - 1]
         if !to_tower.nil?
           break
@@ -155,14 +147,14 @@ class TowersOfHanoi
     while from_tower.last != disk
       puts "Can't take a disk if it's not at the top!"
       puts "Choose another disk to move."
-      disk = gets.chomp.to_i
+      disk = get_number
       from_tower = locate(disk)
     end
     
     to_tower = nil
     while to_tower == nil
       puts "To which tower?"
-      to_tower = gets.chomp.to_i
+      to_tower = get_number
       to_tower = towers[to_tower - 1]
       if !to_tower.nil?
         break
@@ -177,7 +169,7 @@ class TowersOfHanoi
     
     if valid_move(disk, from_tower, to_tower)
       move(disk, from_tower, to_tower)
-      $moves_count = $moves_count + 1
+      @moves_count = @moves_count + 1
     end
   end
   
@@ -189,7 +181,7 @@ class TowersOfHanoi
   def winning_message
     puts "\nYou won!!\n"
     render
-    puts "\nYou finished the game in #{$moves_count} moves!"
+    puts "\nYou finished the game in #{@moves_count} moves!"
     puts "Thanks for playing :)"
   end
   
