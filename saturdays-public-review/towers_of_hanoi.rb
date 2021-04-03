@@ -77,7 +77,7 @@ class TowersOfHanoi
     puts "Which disk would you like to move?"
     disk = gets.to_i
     
-    while !1..3.to_a.include?(disk)
+    until (1..3).include?(disk)
       puts "There's no such disk, choose another."
       disk = gets.to_i
     end
