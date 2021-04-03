@@ -3,12 +3,12 @@ require File.expand_path('neo', __dir__)
 # Implement a DiceSet Class here:
 #
 class DiceSet
-  COUNT = (1..6).freeze
+  COUNT = 1.upto(6).to_a
 
   attr_reader :values
 
   def roll(limit)
-    self.values = COUNT.to_a.sample(limit)
+    self.values = COUNT.sample(limit)
   end
 
   private

@@ -34,7 +34,7 @@ class Proxy
     super unless object.respond_to?(name)
 
     messages << name
-    object.send(name, *initial_args, &block)
+    object.public_send(name, *initial_args, &block)
   end
 
   def respond_to_missing?
