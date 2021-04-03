@@ -7,10 +7,9 @@ class TowersOfHanoi
   attr_reader :towers
   
   def initialize
-    first_col = Array.new
-    for i in 1..3
-      first_col.unshift(i)
-    end
+    @n = 3
+
+    first_col = Array.new(@n) { |x| x + 1 }.reverse
 
     @towers = [first_col, [], []]
   end
@@ -33,14 +32,8 @@ class TowersOfHanoi
   
   def offer_rules
     puts "Want to see the rules? (yes/no)"
-    positive = false
     ans = gets
-    (1...ans.size).map do |i|
-      if ans[i] === 'y'
-        positive = true
-      end
-    end
-    if positive
+    if ans.start_with?('y')
       rules
     end
   end
@@ -80,15 +73,12 @@ class TowersOfHanoi
     from_tower
   end
   
-  def get_disk
-    puts "Which disk would you like to move?"
-    disk = gets.chomp.to_i
-    
-    while !1..3.to_a.include?(disk)
-      puts "There's no such disk, choose another."
-      disk = gets.chomp.to_i
-    end
-    disk
+  def get_user_number
+    gets.chomp.to_i
+  end
+
+  def check_boundaries(disk)
+    (1..@n).to_a.include?(disk)
   end
   
   def move(disk=nil, from_tower, to_tower)
@@ -105,7 +95,7 @@ class TowersOfHanoi
     if disk.nil? && from_tower.class == Fixnum
       disk = towers[from_tower].pop
       return false if disk.nil?
-      next_disk = towers[to_tower].last
+      next_disk = to_tower.last
     else
       next_disk = to_tower.last
     end
@@ -149,27 +139,36 @@ class TowersOfHanoi
     render 
     puts "\n"
     
-    disk = get_disk
-    from_tower = locate disk
-    
+    puts "Which disk would you like to move?"
+
+    disk = get_user_number
+
+    while !check_boundaries(disk)
+      puts "There's no such di, choose another."
+      disk = get_user_number
+    end
+
+    from_tower = locate(disk)
+
     while from_tower.last != disk
       puts "Can't take a disk if it's not at the top!"
       puts "Choose another disk to move."
-      disk = gets.chomp.to_i
+      disk = get_user_number
       from_tower = locate(disk)
     end
-    
-    to_tower = nil
-    while to_tower == nil
-      puts "To which tower?"
-      to_tower = gets.chomp.to_i
-      to_tower = towers[to_tower - 1]
-      if !to_tower.nil?
-        break
+
+    puts "To which tower?"
+    tower_number = get_user_number
+    to_tower = @towers[tower_number - 1]
+
+    while tower_number > towers.size
+      to_tower = @towers[tower_number - 1]
+      if !to_tower
+        puts "There's no such tower, choose another." 
       end
-      puts "There's no such tower, choose another." 
+      tower_number = get_user_number
     end
-    
+
     while valid_move(disk, from_tower, to_tower) == false
         user_choice = turn_invalid_move_valid(disk)
         user_choice == 1 ? break : to_tower = user_choice
