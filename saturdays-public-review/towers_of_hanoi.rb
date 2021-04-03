@@ -1,22 +1,21 @@
 # Towers of Hanoi
 # http://en.wikipedia.org/wiki/Towers_of_hanoi
 
-$moves_count = 0
-
 class TowersOfHanoi
-  attr_reader :towers
+  attr_reader :towers, :correct_tower
+  attr_accessor :moves_count
   
   def initialize
-    first_col = Array.new
-    for i in 1..3
-      first_col.unshift(i)
-    end
+    @moves_count = 0
+    @correct_tower = (1..3).to_a.reverse
+    first_col = 3.downto(1).to_a
 
     @towers = [first_col, [], []]
   end
   
-  def rules
-    puts "
+  # TODO: move to constant
+  def get_rules
+    <<~RULES
       The Towers of Hanoi is a mathematical game or puzzle. It consists of 
       three rods and three disks of different sizes which can slide onto any 
       rod. The puzzle starts with the disks in a stack of descending sizes 
@@ -28,65 +27,59 @@ class TowersOfHanoi
         2. Each move consists of taking the upper disk from one of the stacks 
            and placing it on top of another stack i.e. a disk can only be moved 
            if it is the uppermost disk on a stack.
-        3. No disk may be placed on top of a smaller disk."
+        3. No disk may be placed on top of a smaller disk.
+    RULES
   end
   
   def offer_rules
     puts "Want to see the rules? (yes/no)"
-    positive = false
-    ans = gets
-    (1...ans.size).map do |i|
-      if ans[i] === 'y'
-        positive = true
-      end
-    end
-    if positive
-      rules
+    ans = gets.chomp
+    if ans == 'yes'
+      puts get_rules
     end
   end
   
-  def sets
-    @sets = towers.map do |column| 
+  def get_sets
+    sets = towers.map do |column|
       if column.empty? 
         column = [" ", " ", " "]
       elsif column.length < 3 && column.length > 1
         column << " "
-      elsif column.length < 2 
+      elsif column.length < 2
         column << " "
         column << " "
       else
         column
       end
     end
-    @towers = @towers.map{|column| column.reject{|x| x == " "} }
-    @sets
+    @towers = @towers.map{ |column| column.reject{ |x| x == " " } }
+    sets
   end
   
-  def render
+  def render_towers
     puts "1st|2nd|3rd"
-    puts " #{sets[0][2]} | #{sets[1][2]} | #{sets[2][2]}"
-    puts " #{sets[0][1]} | #{sets[1][1]} | #{sets[2][1]}"
-    puts " #{sets[0][0]} | #{sets[1][0]} | #{sets[2][0]}"
+    puts " #{get_sets[0][2]} | #{get_sets[1][2]} | #{get_sets[2][2]}"
+    puts " #{get_sets[0][1]} | #{get_sets[1][1]} | #{get_sets[2][1]}"
+    puts " #{get_sets[0][0]} | #{get_sets[1][0]} | #{get_sets[2][0]}"
   end
   
   def locate(disk)
-    if towers[0].include? disk
-      from_tower = @towers[0]
-    elsif towers[1].include? disk
-      from_tower = @towers[1]
+    if towers[0].include?(disk)
+      towers[0]
+    elsif towers[1].include?(disk)
+      towers[1]
     else
-      from_tower = @towers[2]
+      towers[2]
     end
-    from_tower
   end
   
   def get_disk
     puts "Which disk would you like to move?"
-    disk = gets.chomp.to_i
+    disk = gets.to_i
     
     while !1..3.to_a.include?(disk)
       puts "There's no such disk, choose another."
-      disk = gets.chomp.to_i
+      disk = gets.to_i
     end
     disk
   end
@@ -146,7 +139,7 @@ class TowersOfHanoi
   
   def playing_loop
     puts "Here are the towers and their disks:\n\n"
-    render 
+    render_towers
     puts "\n"
     
     disk = get_disk
@@ -177,19 +170,19 @@ class TowersOfHanoi
     
     if valid_move(disk, from_tower, to_tower)
       move(disk, from_tower, to_tower)
-      $moves_count = $moves_count + 1
+      self.moves_count += 1
     end
   end
   
   def won?
-    towers == [[], [], Array(Range.new(1, 3)).reverse] || 
-      towers == [[], Array(Range.new(1, 3)).reverse, []]
+    towers == [[], [], correct_tower] || 
+      towers == [[], correct_tower, []]
   end
   
   def winning_message
     puts "\nYou won!!\n"
-    render
-    puts "\nYou finished the game in #{$moves_count} moves!"
+    render_towers
+    puts "\nYou finished the game in #{moves_count} moves!"
     puts "Thanks for playing :)"
   end
   
@@ -198,11 +191,12 @@ class TowersOfHanoi
     offer_rules
     puts "Press enter to play!"
     gets
-    playing_loop while won? == false
+    playing_loop until won?
     winning_message
   end
 end
 
+# TODO: check
 if __FILE__ == $PROGRAM_NAME
   game = TowersOfHanoi.new
   game.play
