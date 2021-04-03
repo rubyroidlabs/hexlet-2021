@@ -166,7 +166,7 @@ class TowersOfHanoi
     
     if valid_move(disk, from_tower, to_tower)
       move(disk, from_tower, to_tower)
-      moves_count += 1
+      @moves_count += 1
     end
   end
   
