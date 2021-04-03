@@ -153,13 +153,11 @@ class TowersOfHanoi
     end
     
     to_tower = nil
-    while to_tower == nil
+    loop do
       puts "To which tower?"
-      to_tower = gets.chomp.to_i
+      to_tower = gets.to_i
       to_tower = towers[to_tower - 1]
-      if !to_tower.nil?
-        break
-      end
+      break unless to_tower.nil?
       puts "There's no such tower, choose another." 
     end
     
