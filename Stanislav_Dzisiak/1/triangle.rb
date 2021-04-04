@@ -14,12 +14,19 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  if (a == b) && (b == c) && (c == a)
-    :equilateral
-  elsif (a != b) && (b != c) && (c != a)
-    :scalene
+  sides = [a, b, c].sort
+  x, y, z = sides
+
+  if (x < 1) || (x + y <= z)
+    raise TriangleError
+  end
+
+  case sides.uniq.size
+  when 1 then :equilateral
+  when 2 then :isosceles
+  when 3 then :scalene
   else
-    :isosceles
+    raise TriangleError
   end
 end
 
