@@ -1,18 +1,13 @@
 # Towers of Hanoi
 # http://en.wikipedia.org/wiki/Towers_of_hanoi
 
-$moves_count = 0
-
 class TowersOfHanoi
-  attr_reader :towers
-  
-  def initialize
-    first_col = Array.new
-    for i in 1..3
-      first_col.unshift(i)
-    end
+  attr_accessor :moves_count, :tower_size, :towers
 
-    @towers = [first_col, [], []]
+  def initialize(tower_size = 3)
+    @moves_count = 0
+    @tower_size = tower_size
+    @towers = [completed_tower, [], []]
   end
   
   def rules
@@ -33,33 +28,27 @@ class TowersOfHanoi
   
   def offer_rules
     puts "Want to see the rules? (yes/no)"
-    positive = false
-    ans = gets
-    (1...ans.size).map do |i|
-      if ans[i] === 'y'
-        positive = true
-      end
-    end
-    if positive
+    answer = gets.chomp
+    if answer.start_with?('y')
       rules
     end
   end
   
   def sets
-    @sets = towers.map do |column| 
-      if column.empty? 
-        column = [" ", " ", " "]
-      elsif column.length < 3 && column.length > 1
-        column << " "
-      elsif column.length < 2 
-        column << " "
-        column << " "
-      else
-        column
+    sets = towers.map do |tower|
+      result = []
+      column = Array.new(@tower_size, " ")
+      column.each_index do |i|
+        if tower[i]
+          result[i] = tower[i]
+        else
+          result[i] = column[i]
+        end
       end
+      result
     end
-    @towers = @towers.map{|column| column.reject{|x| x == " "} }
-    @sets
+    self.towers = towers.map{|column| column.reject{|x| x == " "} }
+    sets
   end
   
   def render
@@ -177,19 +166,18 @@ class TowersOfHanoi
     
     if valid_move(disk, from_tower, to_tower)
       move(disk, from_tower, to_tower)
-      $moves_count = $moves_count + 1
+      @moves_count += 1
     end
   end
   
   def won?
-    towers == [[], [], Array(Range.new(1, 3)).reverse] || 
-      towers == [[], Array(Range.new(1, 3)).reverse, []]
+    towers[1..2].any?(completed_tower)
   end
   
   def winning_message
     puts "\nYou won!!\n"
     render
-    puts "\nYou finished the game in #{$moves_count} moves!"
+    puts "\nYou finished the game in #{moves_count} moves!"
     puts "Thanks for playing :)"
   end
   
@@ -198,12 +186,13 @@ class TowersOfHanoi
     offer_rules
     puts "Press enter to play!"
     gets
-    playing_loop while won? == false
+    playing_loop until won?
     winning_message
   end
-end
 
-if __FILE__ == $PROGRAM_NAME
-  game = TowersOfHanoi.new
-  game.play
+  private
+
+  def completed_tower
+    (1..tower_size).to_a.reverse
+  end
 end
