@@ -15,6 +15,9 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  x, y, z = [a,b,c].sort
+  raise TriangleError if (x <= 0) 
+  raise TriangleError if ((x + y) <= z) 
   if (a == b && a == c && c == b) 
     return :equilateral
   end
