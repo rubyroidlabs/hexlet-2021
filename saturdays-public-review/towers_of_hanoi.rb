@@ -29,7 +29,7 @@ class TowersOfHanoi
   def offer_rules
     puts "Want to see the rules? (yes/no)"
     answer = gets.chomp
-    if answer[0] == 'y'
+    if answer.start_with?('y')
       rules
     end
   end
@@ -186,7 +186,7 @@ class TowersOfHanoi
     offer_rules
     puts "Press enter to play!"
     gets
-    playing_loop while won? == false
+    playing_loop until won?
     winning_message
   end
 
