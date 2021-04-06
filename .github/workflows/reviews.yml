@@ -17,7 +17,7 @@ jobs:
     - uses: adwerx/pronto-ruby@v2.9
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_EVENT_PATH: '{ "repository": { "full_name": "rubyroidlabs/hexlet-2021" }}'
+        GITHUB_EVENT_PATH: '{ "repository": { "full_name": "Saicheg/hexlet-2021" }}'
         RUBOCOP_CONFIG: ./pronto/rubocop/rubocop.yml
       with:
         runners: >-
