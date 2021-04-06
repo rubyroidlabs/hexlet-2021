@@ -15,14 +15,14 @@
 #
 
 def validate(*sides)
-  all_zero = ->(args) { args.all?(&:zero?) }
+  any_zero = ->(args) { args.any?(&:zero?) }
   any_negative = ->(args) { args.any?(&:negative?) }
   one_bigger_or_equal_than_sum_of_others = ->(args) do
     *rest, last = args.sort
     last >= rest.sum
   end
 
-  [all_zero, any_negative, one_bigger_or_equal_than_sum_of_others]
+  [any_zero, any_negative, one_bigger_or_equal_than_sum_of_others]
     .each { |check| raise TriangleError.new if check.call(sides) }
 end
 
