@@ -1,5 +1,5 @@
 name: Code review
-on: [pull_request, push]
+on: [push, pull_request]
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -14,7 +14,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         RUBOCOP_CONFIG: ./pronto/rubocop/rubocop.yml
-        YAMLLINT_OPTS: -c ./pronto/yamllint/yamllint.yml
       with:
         runners: >-
-          brakeman rails_best_practices rails_schema rubocop
+          brakeman rails_best_practices reek rubocop
