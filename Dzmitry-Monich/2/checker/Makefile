@@ -2,7 +2,10 @@ install:
 	bundle install
 
 run:
-	ruby main.rb
+	bin/checker data/rails.csv
+
+run-f:
+	bin/checker --no-subdomains --exclude-solutions data/rails.csv
 
 test:
 	bundle exec rspec

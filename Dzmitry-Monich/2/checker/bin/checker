@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+require 'rubygems'
+require 'bundler/setup'
+require 'slop'
+require_relative '../lib/checker'
+
+opts = Slop.parse do |o|
+  o.bool '-s', '--no-subdomains', 'only first level domains'
+  o.bool '-e', '--exclude-solutions', 'without open source'
+  o.string '-f', '--filter', 'search word'
+  o.on '--version', 'print the version' do
+    puts '0.1.0'
+    exit
+  end
+  o.on '--help', 'print help' do
+    puts o
+    exit
+  end
+end
+
+abort 'no filepath to parse' if opts.arguments.empty?
+
+checker = Checker::Application.new(opts.to_hash)
+puts checker.call(opts.arguments.first)

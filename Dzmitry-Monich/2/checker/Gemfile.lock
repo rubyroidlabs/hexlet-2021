@@ -15,12 +15,14 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
+    slop (4.8.2)
 
 PLATFORMS
   x86_64-darwin-18
 
 DEPENDENCIES
   rspec (~> 3.10)
+  slop (~> 4.8)
 
 BUNDLED WITH
    2.2.15
