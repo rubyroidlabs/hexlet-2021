@@ -22,4 +22,4 @@ end
 abort 'no filepath to parse' if opts.arguments.empty?
 
 checker = Checker::Application.new(opts.to_hash)
-puts checker.call(opts.arguments.first)
+checker.call(opts.arguments.first)

@@ -4,43 +4,14 @@ describe Checker::Application do
   describe 'parse csv' do
     let(:filepath) { 'spec/fixtures/rails.csv' }
 
-    context 'correctly' do
-      it 'without filter' do
-        test_path = File.expand_path('../fixtures/rails.csv', __dir__)
+    # context 'correctly' do
+    #   it 'without filter' do
+    #     test_path = File.expand_path('../fixtures/rails.csv', __dir__)
 
-        expected = CSV.read(test_path).flatten
-        expect(subject.call(filepath)).to eq expected
-      end
-
-      # it 'with subdomains filter' do
-      #   checker = Checker::Application.new({ no_subdomains: true })
-      #   test_path = File.expand_path('../fixtures/rails_subdomains.csv', __dir__)
-
-      #   expected = CSV.read(test_path).flatten
-      #   expect(checker.call(filepath)).to eq expected
-      # end
-
-      # it 'with subdomains filter' do
-      #   checker = Checker::Application.new({ exclude_solutions: true })
-      #   test_path = File.expand_path('../fixtures/rails_constrains.csv', __dir__)
-
-      #   expected = CSV.read(test_path).flatten
-      #   expect(checker.call(filepath)).to eq expected
-      # end
-
-      # it 'with all filters' do
-      #   checker = Checker::Application.new(
-      #     {
-      #       no_subdomains: true,
-      #       exclude_solutions: true
-      #     }
-      #   )
-      #   test_path = File.expand_path('../fixtures/rails_all_filters.csv', __dir__)
-
-      #   expected = CSV.read(test_path).flatten
-      #   expect(checker.call(filepath)).to eq expected
-      # end
-    end
+    #     expected = CSV.read(test_path).flatten
+    #     expect(subject.call(filepath)).to eq expected
+    #   end
+    # end
 
     context 'with errors' do
       it 'wrong filepath' do
