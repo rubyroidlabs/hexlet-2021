@@ -3,10 +3,12 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 # Implement a DiceSet Class here:
 #
 class DiceSet
+  DICE_EDGES = 6
   attr_reader :values
 
   def roll(number)
-    @values = (1..number).to_a.shuffle
+    @values = []
+    number.downto(1) { @values << rand(DICE_EDGES) }
   end
 end
 
