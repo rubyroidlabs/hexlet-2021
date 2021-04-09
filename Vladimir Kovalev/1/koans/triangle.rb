@@ -16,17 +16,19 @@
 def triangle(a, b, c)
 	sides = [a,b,c]
 
-	sides.each do |s|
-		fail TriangleError if s <= 0
-	end
+	fail TriangleError if sides.any? { |s| s <= 0 }
 
 	x,y,z = sides.sort
 	fail TriangleError if (x + y) <= z
 
-	return :equilateral if sides.uniq.count == 1
-	return :isosceles if sides.uniq.count == 2
-	:scalene
-
+	case sides.uniq.count
+	when 1
+		:equilateral
+	when 2
+		:isosceles
+	else
+		:scalene
+	end
   # WRITE THIS CODE
 end
 
