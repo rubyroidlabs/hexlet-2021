@@ -5,7 +5,7 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 class DiceSet
   attr_accessor :values
   def roll(n)
-    self.values = (1..n).to_a.shuffle
+    self.values = Array.new(n).map { |e| rand(1..6) }
   end
 end
 
