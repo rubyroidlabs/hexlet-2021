@@ -47,7 +47,8 @@ module Checker
     end
 
     def http_responses(links)
-      HttpService.new.call(links)
+      threads_count = options[:parallel]
+      HttpService.new.call(links, threads_count)
     end
 
     def filter_urls(responses, key)

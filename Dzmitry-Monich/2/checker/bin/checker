@@ -9,6 +9,7 @@ opts = Slop.parse do |o|
   o.bool '-s', '--no-subdomains', 'only first level domains'
   o.bool '-e', '--exclude-solutions', 'without open source'
   o.string '-f', '--filter', 'search word'
+  o.integer '-p', '--parallel', 'parallel request'
   o.on '--version', 'print the version' do
     puts '0.1.0'
     exit
