@@ -28,44 +28,24 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 # More scoring examples are given in the tests below:
 #
 # Your goal is to write the score method.
-
+  
 def score(dice)
-  dice.sort!
-
-  tmp = []
-
-  dice.each_with_index do |e,i|
-    unless dice[i-1].nil? && dice[i+1].nil?
-      if dice[i-1] == e && dice[i+1] == e
-        tmp << [e,e,e]
-        dice[i] = nil
-        dice[i-1] = nil
-        dice[i+1] = nil
-      end
-    end
+  dice = dice.reduce(Array.new(7, 0)) do |tmp, e|
+    tmp[e] += 1
+    tmp
   end
 
-  tmp << dice.compact
-
-  tmp.map! do |a|
-    if a.count == 3 && a.uniq.count == 1
-      next 1000 if a.first == 1
-      next a.first * 100
-    end
-    a.map do |e|
-      case e
-      when 1
-        100
-      when 5
-        50
-      else
-        0
-      end
+  dice.map!.with_index do |size, i|
+    case i
+    when 1
+      size / 3 * 1000 + size % 3 * 100
+    when 5
+      size / 3 * 500 + size % 3 * 50
+    else
+      i * 100 * (size / 3)
     end
   end
-
-  tmp.flatten.sum
-
+  dice.sum
 end
 
 
