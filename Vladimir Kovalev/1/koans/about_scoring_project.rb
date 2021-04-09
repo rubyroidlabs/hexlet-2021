@@ -34,14 +34,18 @@ def score(dice)
 
   tmp = []
 
-  loop { 
-    x = dice.shift(3)
-    if x.empty?
-      break
-    else
-      tmp << x
+  dice.each_with_index do |e,i|
+    unless dice[i-1].nil? && dice[i+1].nil?
+      if dice[i-1] == e && dice[i+1] == e
+        tmp << [e,e,e]
+        dice[i] = nil
+        dice[i-1] = nil
+        dice[i+1] = nil
+      end
     end
-  }
+  end
+
+  tmp << dice.compact
 
   tmp.map! do |a|
     if a.count == 3 && a.uniq.count == 1
