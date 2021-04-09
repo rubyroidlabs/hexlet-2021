@@ -19,10 +19,10 @@ module Checker
           OpenStruct.new({ url: link,
                            status: url_status(res.status),
                            response: res,
-                           response_time: Time.now - start })
+                           interval: Time.now - start })
         rescue StandardError => e
           OpenStruct.new({ url: link,
-                           status: 'Errored',
+                           status: :errored,
                            message: e.message })
         end
       end
@@ -39,7 +39,7 @@ module Checker
     end
 
     def url_status(status_code)
-      status_code >= 400 ? 'Failed' : 'Success'
+      status_code >= 400 ? :failed : :success
     end
   end
 end

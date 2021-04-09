@@ -16,15 +16,17 @@ module Checker
       filtered_links = filtered_links(links)
       logger.info("filtered urls: #{filtered_links}")
 
-      responses = responses(filtered_links)
+      responses = http_responses(filtered_links)
 
       ready_responses = options[:filter] ? filter_urls(responses, options[:filter]) : responses
       ready_responses.each do |res|
         logger.info("url: #{res.url}")
         logger.info("status: #{res.status}")
-        logger.info("time: #{res.response_time}")
-        logger.info("code: #{res.response.status}") unless res.status == 'Errored'
+        logger.info("time: #{res.interval}")
+        logger.info("code: #{res.response.status}") unless res.status == :errored
       end
+
+      puts Printer.print(ready_responses)
     end
 
     private
@@ -44,7 +46,7 @@ module Checker
       Filter.filter(links, keys)
     end
 
-    def responses(links)
+    def http_responses(links)
       HttpService.new.call(links)
     end
 

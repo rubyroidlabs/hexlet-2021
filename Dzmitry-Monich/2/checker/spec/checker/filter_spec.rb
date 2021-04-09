@@ -2,7 +2,7 @@ require 'checker'
 require 'ostruct'
 
 describe Checker::Filter do
-  describe 'filter links' do
+  describe 'Links filter' do
     let(:link) { File.expand_path('../fixtures/rails.csv', __dir__) }
     let(:all_links) { CSV.read(link).flatten }
 
@@ -36,10 +36,10 @@ describe Checker::Filter do
     end
   end
 
-  describe 'filter urls' do
-    let(:url_errored) { OpenStruct.new(status: 'Errored') }
-    let(:url_empty) { OpenStruct.new(status: 'Success', response: OpenStruct.new(body: 'no')) }
-    let(:url_present) { OpenStruct.new(status: 'Success', response: OpenStruct.new(body: 'some')) }
+  describe 'Url filter' do
+    let(:url_errored) { OpenStruct.new(status: :errored) }
+    let(:url_empty) { OpenStruct.new(status: :success, response: OpenStruct.new(body: 'no')) }
+    let(:url_present) { OpenStruct.new(status: :success, response: OpenStruct.new(body: 'some')) }
     let(:responses) { [url_errored, url_empty, url_present] }
 
     it 'without filter' do
@@ -47,7 +47,7 @@ describe Checker::Filter do
       expect(Checker::Filter.filter(responses, keys)).to eq [url_empty, url_present]
     end
 
-    it 'with filter' do
+    it 'filters correctly' do
       keys = 'some'
       expect(Checker::Filter.filter(responses, keys)).to eq [url_present]
     end

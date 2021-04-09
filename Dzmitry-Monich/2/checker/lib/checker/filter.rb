@@ -24,7 +24,7 @@ module Checker
 
       def filter_urls(content, keys)
         content.select do |res|
-          res.status == 'Success' && res.response.body.include?(keys)
+          res.status == :success && res.response.body.include?(keys)
         end
       end
     end
