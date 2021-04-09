@@ -12,16 +12,18 @@ module Checker
       absolute_path = Checker.root_path.join(filepath)
       validate(absolute_path)
 
-      urls = parse_content(absolute_path)
-      filtered_urls = filter_urls(urls)
-      logger.info("filtered urls: #{filtered_urls}")
+      links = parse_content(absolute_path)
+      filtered_links = filtered_links(links)
+      logger.info("filtered urls: #{filtered_links}")
 
-      responses = responses(filtered_urls)
-      responses.each do |i|
-        logger.info("url: #{i.url}")
-        logger.info("status: #{i.status}")
-        logger.info("time: #{i.response_time}")
-        logger.info("code: #{i.response.status}") unless i.status == 'Errored'
+      responses = responses(filtered_links)
+
+      ready_responses = options[:filter] ? filter_urls(responses, options[:filter]) : responses
+      ready_responses.each do |res|
+        logger.info("url: #{res.url}")
+        logger.info("status: #{res.status}")
+        logger.info("time: #{res.response_time}")
+        logger.info("code: #{res.response.status}") unless res.status == 'Errored'
       end
     end
 
@@ -37,13 +39,17 @@ module Checker
       Parser.parse(filepath)
     end
 
-    def filter_urls(urls)
+    def filtered_links(links)
       keys = options.select { |_k, v| v == true }.keys
-      Filter.filter(urls, keys)
+      Filter.filter(links, keys)
     end
 
-    def responses(urls)
-      HttpService.new.call(urls)
+    def responses(links)
+      HttpService.new.call(links)
+    end
+
+    def filter_urls(responses, key)
+      Filter.filter(responses, key)
     end
   end
 end
