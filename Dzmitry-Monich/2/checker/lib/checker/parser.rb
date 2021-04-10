@@ -3,10 +3,6 @@ require 'csv'
 module Checker
   class Parser
     class << self
-      def parcers
-        { 'csv' => ->(content) { CSV.read(content).flatten } }
-      end
-
       def parse(filepath)
         ext_type = File.extname(filepath)[1..-1]
         validate(ext_type)
@@ -18,6 +14,10 @@ module Checker
 
       def validate(type)
         raise 'no such a parser' unless parcers.key?(type)
+      end
+
+      def parcers
+        { 'csv' => ->(content) { CSV.read(content).flatten } }
       end
     end
   end

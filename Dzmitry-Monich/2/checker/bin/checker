@@ -14,7 +14,7 @@ opts = Slop.parse do |o|
     puts '0.1.0'
     exit
   end
-  o.on '--help', 'print help' do
+  o.on '--help', 'file must be in data/ folder' do
     puts o
     exit
   end
@@ -23,4 +23,4 @@ end
 abort 'no filepath to parse' if opts.arguments.empty?
 
 checker = Checker::Application.new(opts.to_hash)
-checker.call(opts.arguments.first)
+Checker::Printer.print(checker.call(opts.arguments.first))

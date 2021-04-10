@@ -1,9 +1,8 @@
 require 'checker'
-require 'ostruct'
 
 describe Checker::Filter do
   describe 'Links filter' do
-    let(:link) { File.expand_path('../fixtures/rails.csv', __dir__) }
+    let(:link) { File.expand_path('../fixtures/filter.csv', __dir__) }
     let(:all_links) { CSV.read(link).flatten }
 
     it 'without filter' do
@@ -47,9 +46,14 @@ describe Checker::Filter do
       expect(Checker::Filter.filter(responses, keys)).to eq [url_empty, url_present]
     end
 
-    it 'filters correctly' do
+    it 'filters correctly with match' do
       keys = 'some'
       expect(Checker::Filter.filter(responses, keys)).to eq [url_present]
+    end
+
+    it 'filters correctly without match' do
+      keys = 'none'
+      expect(Checker::Filter.filter(responses, keys)).to eq []
     end
   end
 end

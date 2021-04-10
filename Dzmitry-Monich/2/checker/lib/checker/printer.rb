@@ -1,24 +1,20 @@
 module Checker
   class Printer
     class << self
-      def renderers
-        {
-          success: ->(res) { "#{res.url} - #{res.response.status} (#{format_time(res.interval)}ms)" },
-          failed: ->(res) { "#{res.url} - #{res.response.status} (#{format_time(res.interval)}ms)" },
-          errored: ->(res) { "#{res.url} - ERROR (#{res.message})" }
-        }
-      end
-
       def print(responses)
-        output = responses
-                 .map { |res| renderers[res.status].call(res) }
-                 .join("\n")
-
-        total = format_total(responses)
-        [output, total].join("\n\n")
+        urls = prepare_urls(responses)
+        total = prepare_total(responses)
+        puts [urls, total].join("\n\n")
       end
 
       private
+
+      def renderers
+        [{ check: ->(status) { %i[success failed].include?(status) },
+           fn: ->(res) { "#{res.url} - #{res.response.status} (#{format_time(res.interval)}ms)" } },
+         { check: ->(status) { status == :errored },
+           fn: ->(res) { "#{res.url} - ERROR (#{res.message})" } }]
+      end
 
       def calc_total(responses)
         init_total = { total: 0, success: 0, failed: 0, errored: 0 }
@@ -28,7 +24,13 @@ module Checker
         end
       end
 
-      def format_total(responses)
+      def prepare_urls(responses)
+        responses
+          .map { |res| renderers.find { |r| r[:check].call(res.status) }[:fn].call(res) }
+          .join("\n")
+      end
+
+      def prepare_total(responses)
         result = calc_total(responses)
         [
           "Total: #{result[:total]}",

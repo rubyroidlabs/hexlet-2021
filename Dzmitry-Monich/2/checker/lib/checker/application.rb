@@ -12,21 +12,21 @@ module Checker
       absolute_path = Checker.root_path.join(filepath)
       validate(absolute_path)
 
-      links = parse_content(absolute_path)
-      filtered_links = filtered_links(links)
+      links = Parser.parse(filepath)
+      filtered_links = filter_links(links)
       logger.info("filtered urls: #{filtered_links}")
 
       responses = http_responses(filtered_links)
 
-      ready_responses = options[:filter] ? filter_urls(responses, options[:filter]) : responses
-      ready_responses.each do |res|
+      filtered_responses = filter_urls(responses)
+      filtered_responses.each do |res|
         logger.info("url: #{res.url}")
         logger.info("status: #{res.status}")
         logger.info("time: #{res.interval}")
         logger.info("code: #{res.response.status}") unless res.status == :errored
       end
 
-      puts Printer.print(ready_responses)
+      filtered_responses
     end
 
     private
@@ -37,11 +37,7 @@ module Checker
       raise ArgumentError, 'no such a file' unless File.exist?(filepath)
     end
 
-    def parse_content(filepath)
-      Parser.parse(filepath)
-    end
-
-    def filtered_links(links)
+    def filter_links(links)
       keys = options.select { |_k, v| v == true }.keys
       Filter.filter(links, keys)
     end
@@ -51,8 +47,9 @@ module Checker
       HttpService.new.call(links, threads_count)
     end
 
-    def filter_urls(responses, key)
-      Filter.filter(responses, key)
+    def filter_urls(responses)
+      key = options[:filter]
+      key ? Filter.filter(responses, key) : responses
     end
   end
 end
