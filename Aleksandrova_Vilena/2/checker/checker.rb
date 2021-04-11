@@ -8,6 +8,6 @@ require_relative 'lib/helper'
 require_relative 'lib/ping'
 
 options = ArgsParser.parse(ARGV)
-ping = Ping.new(ARGV.first, options)
-ping.filter(options)
-ping.start
+file_path = File.join('data', ARGV.first)
+ping = Ping.new(file_path, options)
+ping.run

@@ -17,16 +17,17 @@ class Ping
 
   attr_reader :pool, :pool_size, :options, :responses
 
-  def initialize(file_name, options = {})
+  def initialize(file_path, options = {})
     @mutex     = Mutex.new
     @responses = []
     @options = options
-    file_exist?(file_name)
-    initialize_csv(file_path(file_name), options)
+    file_exist?(file_path)
+    initialize_csv(file_path, options)
     initialize_pool(options) if options.key?(:parallel)
   end
 
-  def start
+  def run
+    filter(options)
     perform
     print_results
     print_summary
@@ -43,7 +44,7 @@ class Ping
     @data.each do |url|
       if !pool.nil?
         @mutex.lock
-        @responses << @pool.do_work(url)
+        @responses << @pool.send_request(url)
         @mutex.unlock
       else
         send_request(url, param)
@@ -58,7 +59,6 @@ class Ping
   end
 
   def print_summary
-    # Total: 3, Success: 2, Failed: 0, Errored: 1
     succeed = @responses.select(&:success?).count
     failed = @responses.select(&:fail?).count
     errored = @responses.select(&:error?).count
@@ -66,13 +66,13 @@ class Ping
   end
 
   def send_request(uri, param = '')
-    #logger.debug "sending request to #{uri}"
+    logger.debug "sending request to #{uri}"
     rs = OpenStruct.new({ code: 0, message: '', time: 0, is_err: false })
     begin
       time_start = Time.now
       resp = HTTParty.get("http://#{uri}", { timeout: 3 })
       time_end = Time.now
-      return if param.empty? == false && resp.body.include?(param) == false
+      #return if param.empty? == false && resp.body.include?(param) == false
 
       rs.time = ((time_end - time_start).to_f * 1000.0).ceil(1)
       rs.code = resp.code
@@ -82,17 +82,13 @@ class Ping
       rs.message = e.to_s
     end
     @mutex.lock
-    #puts "code: #{rs.code}, msg: #{rs.message}, err: #{rs.is_err}, time: #{rs.time}"
+    logger.debug "code: #{rs.code}, msg: #{rs.message}, err: #{rs.is_err}, time: #{rs.time}"
     rs.is_err = rs.code.zero? | rs.is_err
     @responses << Response.new(url: uri, code: rs.code, message: rs.message, time: rs.time, err: rs.is_err)
     @mutex.unlock
   end
 
-  def file_exist?(file_name)
-    raise ArgumentError, 'file does not exist' unless File.exist?(file_path(file_name))
-  end
-
-  def file_path(file_name)
-    File.join('data', file_name)
+  def file_exist?(file_path)
+    raise ArgumentError, 'file does not exist' unless File.exist?(file_path)
   end
 end

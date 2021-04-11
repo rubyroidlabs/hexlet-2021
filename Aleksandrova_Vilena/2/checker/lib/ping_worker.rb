@@ -10,16 +10,15 @@ require 'httparty'
 class PingWorker
   include Logging
   include Celluloid
-  def do_work(uri, parameter = '')
-    logger.info "sending request to #{uri}"
+  def send_request(uri, param = '')
     rs = OpenStruct.new({ code: 0, message: '', time: 0, is_err: false })
     begin
       time_start = Time.now
-      resp = HTTParty.get("https://#{uri}", { timeout: 3 })
-      return if @parameter.empty? == false && response.body.include?(@parameter) == false
-
+      resp = HTTParty.get("http://#{uri}", { timeout: 3 })
       time_end = Time.now
-      rs.time = (time_end - time_start).ceil * 1000.0
+      return if param.empty? == false && resp.body.include?(param) == false
+
+      rs.time = ((time_end - time_start).to_f * 1000.0).ceil(1)
       rs.code = resp.code
       rs.message = resp.message
     rescue StandardError => e

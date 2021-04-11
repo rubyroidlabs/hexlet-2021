@@ -97,10 +97,8 @@ class Config
       @config ||= YAML.safe_load(File.read(file_path))
     end
 
-    private
-
     def file_path
-      File.join('config', CONFIG_FILE.to_s)
+      File.join(File.expand_path("..", __dir__), 'config', CONFIG_FILE.to_s)
     end
   end
 end
