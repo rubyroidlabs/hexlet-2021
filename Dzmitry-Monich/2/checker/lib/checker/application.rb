@@ -12,7 +12,7 @@ module Checker
       absolute_path = Checker.root_path.join(filepath)
       validate(absolute_path)
 
-      links = Parser.parse(filepath)
+      links = Parser.parse(absolute_path)
       filtered_links = filter_links(links)
       logger.info("filtered urls: #{filtered_links}")
 
