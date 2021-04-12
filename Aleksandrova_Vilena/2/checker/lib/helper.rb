@@ -15,7 +15,7 @@ class ArgsParser
       opts.on('-n', '--no-subdomains', 'Subdomain filter') do |o|
         options[:subdomains] = o
       end
-      opts.on('-f', '--filter PARAMETER', 'Parameter filter') do |o|
+      opts.on('-f', '--filter KEYWORD', 'Keyword filter') do |o|
         options[:filter] = o
       end
       opts.on('-r', '--exclude-solutions', 'Opensource filter') do |o|

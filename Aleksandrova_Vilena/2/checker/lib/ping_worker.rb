@@ -10,13 +10,13 @@ require 'httparty'
 class PingWorker
   include Logging
   include Celluloid
-  def send_request(uri, param = '')
+  def send_request(uri, keyword = '')
     rs = OpenStruct.new({ code: 0, message: '', time: 0, is_err: false })
     begin
       time_start = Time.now
       resp = HTTParty.get("http://#{uri}", { timeout: 3 })
       time_end = Time.now
-      return if param.empty? == false && resp.body.include?(param) == false
+      return if keyword && resp.body.include?(keyword) == false
 
       rs.time = ((time_end - time_start).to_f * 1000.0).ceil(1)
       rs.code = resp.code

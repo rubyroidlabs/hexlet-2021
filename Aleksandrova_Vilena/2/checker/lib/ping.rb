@@ -40,14 +40,14 @@ class Ping
   end
 
   def perform
-    param = @options[:filter] if @options.key?(:filter)
+    keyword = @options[:filter] if @options.key?(:filter)
     @data.each do |url|
       if !pool.nil?
         @mutex.lock
-        @responses << @pool.send_request(url)
+        @responses << @pool.send_request(url, keyword)
         @mutex.unlock
       else
-        send_request(url, param)
+        send_request(url, keyword)
       end
     end
   end
@@ -65,14 +65,14 @@ class Ping
     puts "Total: #{@responses.size}, Success: #{succeed}, Failed: #{failed}, Errored: #{errored}"
   end
 
-  def send_request(uri, param = '')
+  def send_request(uri, keyword = '')
     logger.debug "sending request to #{uri}"
     rs = OpenStruct.new({ code: 0, message: '', time: 0, is_err: false })
     begin
       time_start = Time.now
       resp = HTTParty.get("http://#{uri}", { timeout: 3 })
       time_end = Time.now
-      #return if param.empty? == false && resp.body.include?(param) == false
+      return if keyword && resp.body.include?(keyword) == false
 
       rs.time = ((time_end - time_start).to_f * 1000.0).ceil(1)
       rs.code = resp.code
@@ -81,6 +81,7 @@ class Ping
       rs.is_error = true
       rs.message = e.to_s
     end
+
     @mutex.lock
     logger.debug "code: #{rs.code}, msg: #{rs.message}, err: #{rs.is_err}, time: #{rs.time}"
     rs.is_err = rs.code.zero? | rs.is_err
