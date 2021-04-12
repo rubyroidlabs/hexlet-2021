@@ -1,0 +1,25 @@
+name: Code review
+on:
+  - push
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+          fetch-depth: 0
+      - run: |
+          git fetch --no-tags --prune origin
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+      - uses: adwerx/pronto-ruby@v2.5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUBOCOP_CONFIG: ./pronto/rubocop/rubocop.yml
+          YAMLLINT_OPTS: -c ./pronto/yamllint/yamllint.yml
+        with:
+          runners: >-
+            brakeman eslint_npm fasterer poper rails_best_practices rails_schema reek rubocop scss yamllint
+
