@@ -10,7 +10,6 @@
 # is a free form assignment, so approach it however you desire.
 # rubocop:disable Style/Documentation
 # rubocop:disable Metrics/AbcSize
-# rubocop:disable Metrics/LineLength
 # rubocop:disable Metrics/MethodLength
 
 module Greed
@@ -215,5 +214,4 @@ end
 
 # rubocop:enable Style/Documentation
 # rubocop:enable Metrics/AbcSize
-# rubocop:enable Metrics/LineLength
 # rubocop:enable Metrics/MethodLength
