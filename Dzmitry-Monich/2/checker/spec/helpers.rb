@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Stub http-request
 module Helpers
   def stub_valid_request(url, status, body = nil)
     stub_request(:get, url)

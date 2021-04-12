@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'checker'
 
+# rubocop:disable Metrics/BlockLength
 describe Checker::Application do
   describe 'application run' do
     let(:filepath) { 'spec/fixtures/application.csv' }
@@ -25,13 +28,14 @@ describe Checker::Application do
       end
 
       it 'in parallel threads' do
-        expect(Checker::Application.new(parallel: 5).call(filepath)).to match_array(
-          [
-            have_attributes(url: url_ok, status: :success),
-            have_attributes(url: url_failed, status: :failed),
-            have_attributes(url: url_error, status: :errored, message: 'wrong')
-          ]
-        )
+        expect(Checker::Application.new(parallel: 5)
+          .call(filepath)).to match_array(
+            [
+              have_attributes(url: url_ok, status: :success),
+              have_attributes(url: url_failed, status: :failed),
+              have_attributes(url: url_error, status: :errored, message: 'wrong')
+            ]
+          )
       end
     end
 
@@ -50,3 +54,4 @@ describe Checker::Application do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

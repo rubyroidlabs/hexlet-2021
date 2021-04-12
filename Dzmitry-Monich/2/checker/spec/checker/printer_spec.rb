@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'checker'
 
+# rubocop:disable Metrics/BlockLength
 describe Checker::Printer do
   describe 'Results printer' do
     let(:url_successed) do
@@ -32,3 +35,4 @@ describe Checker::Printer do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

@@ -10,7 +10,7 @@
 # is a free form assignment, so approach it however you desire.
 # rubocop:disable Style/Documentation
 # rubocop:disable Metrics/AbcSize
-# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/LineLength
 # rubocop:disable Metrics/MethodLength
 
 module Greed
@@ -178,12 +178,12 @@ module Greed
     end
 
     def score(dice)
-      three_of_kind, rest =
+      three, rest =
         dice.each_with_object(Hash.new(0)) { |item, acc| acc[item] += 1 }
             .partition { |_, v| v >= 3 }
 
-      calc_three_of_kind = ->(num) { num == 1 ? 1000 : num * 100 }
-      calc_rest = ->(array) do
+      calc_three = ->(num) { num == 1 ? 1000 : num * 100 }
+      calc_rest = lambda do |array|
         array.reduce(0) { |acc, (k, v)| acc + DATA_FOR_REST.fetch(k, 0) * v }
       end
       calc_rest_count = lambda do |array|
@@ -191,12 +191,12 @@ module Greed
              .sum { |_, v| v }
       end
 
-      return [calc_rest.call(rest), calc_rest_count.call(rest)] if three_of_kind.empty?
+      return [calc_rest.call(rest), calc_rest_count.call(rest)] if three.empty?
 
-      number, value = three_of_kind.first
+      number, value = three.first
       rest << [number, value - 3]
 
-      score = calc_three_of_kind.call(number) + calc_rest.call(rest)
+      score = calc_three.call(number) + calc_rest.call(rest)
       rest_count = calc_rest_count.call(rest)
 
       [score, rest_count]
@@ -215,5 +215,5 @@ end
 
 # rubocop:enable Style/Documentation
 # rubocop:enable Metrics/AbcSize
-# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/LineLength
 # rubocop:enable Metrics/MethodLength

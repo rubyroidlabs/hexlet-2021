@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'checker'
 
+# rubocop:disable Metrics/BlockLength
 describe Checker::Filter do
   describe 'Links filter' do
     let(:link) { File.expand_path('../fixtures/filter.csv', __dir__) }
@@ -37,13 +40,19 @@ describe Checker::Filter do
 
   describe 'Url filter' do
     let(:url_errored) { OpenStruct.new(status: :errored) }
-    let(:url_empty) { OpenStruct.new(status: :success, response: OpenStruct.new(body: 'no')) }
-    let(:url_present) { OpenStruct.new(status: :success, response: OpenStruct.new(body: 'some')) }
+    let(:url_empty) do
+      OpenStruct.new(status: :success, response: OpenStruct.new(body: 'no'))
+    end
+    let(:url_present) do
+      OpenStruct.new(status: :success, response: OpenStruct.new(body: 'some'))
+    end
     let(:responses) { [url_errored, url_empty, url_present] }
 
     it 'without filter' do
       keys = ''
-      expect(Checker::Filter.filter(responses, keys)).to eq [url_empty, url_present]
+      expect(
+        Checker::Filter.filter(responses, keys)
+      ).to eq [url_empty, url_present]
     end
 
     it 'filters correctly with match' do
@@ -57,3 +66,4 @@ describe Checker::Filter do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
