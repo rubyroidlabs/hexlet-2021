@@ -11,7 +11,7 @@ describe Checker::Application do
       before do
         stub_valid_request("https://#{url_ok}", 200)
         stub_valid_request("https://#{url_failed}", 500)
-        stub_error_request("https://#{url_error}", 'smth wrong')
+        stub_error_request("https://#{url_error}", 'wrong')
       end
 
       it 'in one thread' do
@@ -19,7 +19,7 @@ describe Checker::Application do
           [
             have_attributes(url: url_ok, status: :success),
             have_attributes(url: url_failed, status: :failed),
-            have_attributes(url: url_error, status: :errored, message: 'smth wrong')
+            have_attributes(url: url_error, status: :errored, message: 'wrong')
           ]
         )
       end
@@ -29,7 +29,7 @@ describe Checker::Application do
           [
             have_attributes(url: url_ok, status: :success),
             have_attributes(url: url_failed, status: :failed),
-            have_attributes(url: url_error, status: :errored, message: 'smth wrong')
+            have_attributes(url: url_error, status: :errored, message: 'wrong')
           ]
         )
       end

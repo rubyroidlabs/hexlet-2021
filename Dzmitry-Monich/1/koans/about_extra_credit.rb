@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # EXTRA CREDIT:
 #
 # Create a program that will play the Greed Game.
@@ -6,6 +8,10 @@
 # You already have a DiceSet class and score function you can use.
 # Write a player class and a Game class to complete the project.  This
 # is a free form assignment, so approach it however you desire.
+# rubocop:disable Style/Documentation
+# rubocop:disable Metrics/AbcSize
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/MethodLength
 
 module Greed
   class Player
@@ -54,7 +60,7 @@ module Greed
       end
 
       def input_names
-        puts "Input players names (ENTER to exit)"
+        puts 'Input players names (ENTER to exit)'
 
         names = []
         loop do
@@ -69,7 +75,7 @@ module Greed
       end
 
       def next_turn?
-        puts "Input Y to make another try of ENTER to finish"
+        puts 'Input Y to make another try of ENTER to finish'
         answer = gets.chomp.downcase
         answer == 'y' && true
       end
@@ -107,7 +113,10 @@ module Greed
 
     def flow
       result = next_turn
-      change_player and return flow if result.zero?
+      if result.zero?
+        change_player
+        return flow
+      end
       return flow if Console.next_turn?
 
       save_result
@@ -177,7 +186,7 @@ module Greed
       calc_rest = ->(array) do
         array.reduce(0) { |acc, (k, v)| acc + DATA_FOR_REST.fetch(k, 0) * v }
       end
-      calc_rest_count = ->(array) do
+      calc_rest_count = lambda do |array|
         array.reject { |k, _| DATA_FOR_REST.key?(k) }
              .sum { |_, v| v }
       end
@@ -199,7 +208,12 @@ module Greed
   end
 end
 
-if __FILE__ == $PROGRAM_NAME
+if $PROGRAM_NAME == __FILE__
   game = Greed::Game.new
   game.start
 end
+
+# rubocop:enable Style/Documentation
+# rubocop:enable Metrics/AbcSize
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/MethodLength
