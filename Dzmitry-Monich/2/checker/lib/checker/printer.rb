@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module Checker
+  # Print results of application work
   class Printer
     class << self
       def print(responses)
@@ -11,7 +14,9 @@ module Checker
 
       def renderers
         [{ check: ->(status) { %i[success failed].include?(status) },
-           fn: ->(res) { "#{res.url} - #{res.response.status} (#{format_time(res.interval)}ms)" } },
+           fn: lambda do |res|
+             "#{res.url} - #{res.response.status} (#{t_format(res.interval)}ms)"
+           end },
          { check: ->(status) { status == :errored },
            fn: ->(res) { "#{res.url} - ERROR (#{res.message})" } }]
       end
@@ -25,9 +30,9 @@ module Checker
       end
 
       def prepare_urls(responses)
-        responses
-          .map { |res| renderers.find { |r| r[:check].call(res.status) }[:fn].call(res) }
-          .join("\n")
+        responses.map do |res|
+          renderers.find { |r| r[:check].call(res.status) }[:fn].call(res)
+        end.join("\n")
       end
 
       def prepare_total(responses)
@@ -40,7 +45,7 @@ module Checker
         ].join(', ')
       end
 
-      def format_time(time)
+      def t_format(time)
         (time * 1000).round
       end
     end

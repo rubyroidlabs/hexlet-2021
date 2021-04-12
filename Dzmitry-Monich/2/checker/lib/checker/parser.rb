@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 module Checker
+  # File content parser
   class Parser
     class << self
       def parse(filepath)

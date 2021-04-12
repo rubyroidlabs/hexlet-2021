@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 require_relative './logging'
 
 module Checker
+  # Application flow
   class Application
     include Logging
 
@@ -14,16 +17,12 @@ module Checker
 
       links = Parser.parse(absolute_path)
       filtered_links = filter_links(links)
-      logger.info("filtered urls: #{filtered_links}")
 
       responses = http_responses(filtered_links)
 
       filtered_responses = filter_urls(responses)
       filtered_responses.each do |res|
-        logger.info("url: #{res.url}")
-        logger.info("status: #{res.status}")
-        logger.info("time: #{res.interval}")
-        logger.info("code: #{res.response.status}") unless res.status == :errored
+        logger.info("#{res.url}: #{res.status}: #{res.interval}")
       end
 
       filtered_responses

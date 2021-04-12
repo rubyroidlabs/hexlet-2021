@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'logger'
 
+# Just a logger
 module Logging
   def self.logger
     @logger ||= Logger.new(

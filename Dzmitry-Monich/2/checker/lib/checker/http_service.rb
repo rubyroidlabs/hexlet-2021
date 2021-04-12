@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 require 'uri'
 require 'faraday'
 # require 'faraday_middleware'
 require 'ostruct'
 
 module Checker
+  # Http-requests handling
   class HttpService
     def initialize
       @client = Faraday.new do |conn|
@@ -34,7 +37,9 @@ module Checker
       threads = []
 
       links.each_slice(chunk_size) do |chunk|
-        threads << Thread.new(chunk) { |c| c.map { |url| method(:process_link).call(url) } }
+        threads << Thread.new(chunk) do |c|
+          c.map { |url| method(:process_link).call(url) }
+        end
       end
       threads.flat_map(&:value)
     end
@@ -42,14 +47,14 @@ module Checker
     def process_link(link)
       start = Time.now
       res = client.get(prepared_link(link))
-      OpenStruct.new({ url: link,
-                       status: res.status >= 400 ? :failed : :success,
-                       response: res,
-                       interval: Time.now - start })
+      OpenStruct.new(url: link,
+                     status: res.status >= 400 ? :failed : :success,
+                     response: res,
+                     interval: Time.now - start)
     rescue StandardError => e
-      OpenStruct.new({ url: link,
-                       status: :errored,
-                       message: e.message })
+      OpenStruct.new(url: link,
+                     status: :errored,
+                     message: e.message)
     end
   end
 end
