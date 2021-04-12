@@ -30,18 +30,13 @@ module Checker
     end
 
     def parallel_request(links, count)
-      responses = []
       chunk_size = links.size / count + 1
       threads = []
 
       links.each_slice(chunk_size) do |chunk|
-        threads << Thread.new(chunk) do |c|
-          c.each { |url| responses << method(:process_link).call(url) }
-        end
+        threads << Thread.new(chunk) { |c| c.map { |url| method(:process_link).call(url) } }
       end
-      threads.each(&:join)
-
-      responses
+      threads.flat_map(&:value)
     end
 
     def process_link(link)
