@@ -1,2 +1,2 @@
 rubocop:
-  config_file: pronto/rubocop/rubocop.yml
+  config_file: .rubocop.yml
