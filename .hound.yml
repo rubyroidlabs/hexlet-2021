@@ -3,7 +3,7 @@ rubocop:
   version: 1.5.2
 
 reek:
-  enable: true
+  enabled: true
   config_file: .reek.yml
 
 eslint:
