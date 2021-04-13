@@ -1,4 +1,2 @@
-fail_on_violations: true
-
-ruby:
-  config_file: rubocop/rubocop.yml
+rubocop:
+  config_file: pronto/rubocop/rubocop.yml
