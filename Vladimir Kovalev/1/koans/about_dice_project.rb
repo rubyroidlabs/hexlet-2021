@@ -3,9 +3,9 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 # Implement a DiceSet Class here:
 #
 class DiceSet
-  attr_accessor :values
+  attr_reader :values
   def roll(n)
-    self.values = Array.new(n).map { |e| rand(1..6) }
+    @values = Array.new(n).map { |e| rand(1..6) }
   end
 end
 
