@@ -33,6 +33,7 @@ Style/DoubleNegation:
 Style/FrozenStringLiteralComment:
   Exclude:
     - 'db/migrate/*.rb'
+    - Gemfile
 
 Metrics/MethodLength:
   Max: 15
