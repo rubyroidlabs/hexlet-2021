@@ -3,6 +3,10 @@ AllCops:
     - 'db/schema.rb'
     - 'vendor/bundle/**/*'
 
+require:
+  - rubocop-rails
+  - rubocop-performance
+
 Metrics/ClassLength:
   Enabled: false
 
