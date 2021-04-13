@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require_relative 'response'
 require 'net/http'
-require = require 'celluloid/autostart'
+require 'celluloid/autostart'
 require 'celluloid/pool'
 require 'celluloid'
 require 'httparty'

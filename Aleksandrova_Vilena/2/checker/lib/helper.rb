@@ -11,28 +11,16 @@ class ArgsParser
   def self.parse(args)
     options = {}
     OptionParser.new do |opts|
-      opts.banner = 'Usage: Ping util'
-      opts.on('-n', '--no-subdomains', 'Subdomain filter') do |o|
-        options[:subdomains] = o
-      end
-      opts.on('-f', '--filter KEYWORD', 'Keyword filter') do |o|
-        options[:filter] = o
-      end
-      opts.on('-r', '--exclude-solutions', 'Opensource filter') do |o|
-        options[:opensource] = o
-      end
-      opts.on('-p', '--parallel N', 'Paralleling calculation') do |o|
-        options[:parallel] = o
-      end
+      opts.banner = 'Usage: Ping Util'
+      opts.on('-n', '--no-subdomains', 'Subdomain filter') { |o| options[:subdomains] = o }
+      opts.on('-f', '--filter KEYWORD', 'Keyword filter') { |o| options[:filter] = o }
+      opts.on('-r', '--exclude-solutions', 'Opensource filter') { |o| options[:opensource] = o }
+      opts.on('-p', '--parallel N', 'Paralleling calculation') { |o| options[:parallel] = o }
       opts.on_tail('-h', '--help', 'Help') do
         puts opts
         exit
       end
-    end.parse!(ARGV)
-    begin
-      opts.parse(args)
-    rescue StandardError => e
-      puts "Error while parsing args: #{e}"
+      opts.parse!(args)
     end
     options
   end
@@ -45,7 +33,6 @@ module CsvParser
   # @param [Object] file_path
   # @param [Hash] options
   def initialize_csv(file_path, options={})
-    logger.info 'reading csv'
     @data = CSV.read(file_path).map(&:join)
   end
 
@@ -98,7 +85,7 @@ class Config
     end
 
     def file_path
-      File.join(File.expand_path("..", __dir__), 'config', CONFIG_FILE.to_s)
+      File.join(File.expand_path('..', __dir__), 'config', CONFIG_FILE.to_s)
     end
   end
 end

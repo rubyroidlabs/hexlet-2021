@@ -34,6 +34,9 @@ class Ping
   end
 
   def initialize_pool(options)
+    thread_count = options[:parallel].to_i
+    raise ArgumentError, 'error while parsing integer' unless thread_count.is_a? Integer
+
     @pool_size = /[0-9]/.match(options[:parallel]).to_s.to_i
     logger.debug "pool size: #{@pool_size}"
     @pool = PingWorker.pool(size: @pool_size)
@@ -83,7 +86,6 @@ class Ping
     end
 
     @mutex.lock
-    logger.debug "code: #{rs.code}, msg: #{rs.message}, err: #{rs.is_err}, time: #{rs.time}"
     rs.is_err = rs.code.zero? | rs.is_err
     @responses << Response.new(url: uri, code: rs.code, message: rs.message, time: rs.time, err: rs.is_err)
     @mutex.unlock

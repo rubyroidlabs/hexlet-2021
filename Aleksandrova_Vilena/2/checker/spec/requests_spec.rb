@@ -2,16 +2,13 @@ require 'rspec'
 
 require_relative '../lib/ping'
 
-describe Ping do
+describe 'Requests with different filters' do
   ok_file_path = File.expand_path('../data/rails_test_200.csv', __dir__)
   opensource_file_path = File.expand_path('../data/rails_test_opensource.csv', __dir__)
-  summary_file_path = File.expand_path('../data/rails_test_summary.csv', __dir__)
 
   subdomains_ping = Ping.new(ok_file_path, { subdomains: true })
   opensource_ping = Ping.new(opensource_file_path, { opensource: true })
   concurrent_ping = Ping.new(opensource_file_path, { parallel: '3' })
-  summary_ping = Ping.new(summary_file_path, {})
-  filter_ping = Ping.new(ok_file_path, { filter: 'WINNIEPOOH' })
 
   subdomains_ping.run
   it 'should 1 response' do
@@ -31,7 +28,23 @@ describe Ping do
   it 'should 3 threads' do
     expect(concurrent_ping.pool_size).to eq 3
   end
+end
+
+describe 'Request with keyword filter' do
+  ok_file_path = File.expand_path('../data/rails_test_200.csv', __dir__)
+  filter_ping = Ping.new(ok_file_path, { filter: 'WINNIEPOOH' })
+  filter_ping.run
+  it 'should not find a keyword = WINNIEPOOH' do
+    total = filter_ping.responses.count
+    expect(total).to eq 0
+  end
+end
+
+describe 'Summary testing' do
+  summary_file_path = File.expand_path('../data/rails_test_summary.csv', __dir__)
+  summary_ping = Ping.new(summary_file_path, {})
   summary_ping.run
+
   it 'should summary equals' do
     total = summary_ping.responses.count
     succeeded = summary_ping.responses.select(&:success?)
@@ -45,19 +58,17 @@ describe Ping do
     expect(errored.at(0).time).to eq 0
     expect("Total: #{total}, Success: #{succeeded.count}, Failed: #{failed.count}, Errored: #{errored.count}").to eq 'Total: 4, Success: 2, Failed: 1, Errored: 1'
   end
-  filter_ping.run
-  it 'should not found keyword = WINNIEPOOH' do
-    total = filter_ping.responses.count
-    expect(total).to eq 0
+end
+
+describe 'ArgumentError testing' do
+  ok_file_path = File.expand_path('../data/rails_test_200.csv', __dir__)
+  ping = Ping.new(ok_file_path, { })
+  ping.run
+  it 'file exists?' do
+    expect { ping.file_exist?('xxxxx.csv') }.to raise_error(ArgumentError)
   end
 
-  begin
-    wrong_arg_ping = Ping.new(opensource_file_path, { parallel: 'qwerty' })
-    raise ArgumentError, 'argument error'
-  rescue StandardError => e
-    puts e.message
-  end
-  it 'should argument error' do
-    expect(e.message).to eq 'argument error'
+  it 'it should not Integer' do
+    expect { Ping.new(ok_file_path, { parallel: 'qwerty' }) }.to_not raise_error(ArgumentError)
   end
 end
