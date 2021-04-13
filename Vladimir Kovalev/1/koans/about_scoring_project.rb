@@ -30,22 +30,22 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 # Your goal is to write the score method.
   
 def score(dice)
-  dice = dice.reduce(Array.new(7, 0)) do |tmp, e|
+  dice = dice.inject(Hash.new(0)) do |tmp, e|
     tmp[e] += 1
     tmp
   end
 
-  dice.map!.with_index do |size, i|
-    case i
-    when 1
-      size / 3 * 1000 + size % 3 * 100
-    when 5
-      size / 3 * 500 + size % 3 * 50
-    else
-      i * 100 * (size / 3)
-    end
+  dice.each do |i, size|
+  case i
+  when 1
+    dice[i] = size / 3 * 1000 + size % 3 * 100
+  when 5
+    dice[i] = size / 3 * 500 + size % 3 * 50
+  else
+    dice[i] = i * 100 * (size / 3)
   end
-  dice.sum
+end
+  dice.values.sum
 end
 
 
