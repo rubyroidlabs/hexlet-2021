@@ -1,0 +1,2 @@
+rubocop:
+  config_file: pronto/rubocop/rubocop.yml
