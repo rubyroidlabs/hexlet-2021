@@ -16,4 +16,4 @@ group :test do
   gem 'webmock'
 end
 
-gem "async", "~> 1.29"
+gem 'async', '~> 1.29'

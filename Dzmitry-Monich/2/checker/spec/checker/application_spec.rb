@@ -2,7 +2,6 @@
 
 require 'checker'
 
-# rubocop:disable Metrics/BlockLength
 describe Checker::Application do
   describe 'application run' do
     let(:filepath) { 'spec/fixtures/application.csv' }
@@ -54,4 +53,3 @@ describe Checker::Application do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength

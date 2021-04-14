@@ -7,7 +7,6 @@ require 'ostruct'
 require 'async'
 
 module Checker
-  # Http-requests handling
   class HttpService
     def initialize
       @client = Faraday.new do |conn|
@@ -41,16 +40,6 @@ module Checker
       end.wait
     end
 
-    # def request(links)
-    #   responses = []
-    #   Async do |task|
-    #     links.map do |url|
-    #       task.async { responses << method(:process_link).call(url) }.wait
-    #     end
-    #     responses
-    #   end.wait
-    # end
-
     def parallel_request(links, count)
       chunk_size = links.size / count + 1
 
@@ -61,6 +50,8 @@ module Checker
       end.flat_map(&:value)
     end
 
+    # rubocop:disable Lint/RedundantCopDisableDirective
+    # rubocop:disable Rails::TimeZone
     def process_link(link)
       start = Time.now
       res = client.get(prepared_link(link))
@@ -73,5 +64,7 @@ module Checker
                      status: :errored,
                      message: e.message)
     end
+    # rubocop:enable Rails::TimeZone
+    # rubocop:enable Lint/RedundantCopDisableDirective
   end
 end

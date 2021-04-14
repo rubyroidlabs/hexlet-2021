@@ -3,7 +3,6 @@
 require_relative './logging'
 
 module Checker
-  # Application flow
   class Application
     include Logging
 

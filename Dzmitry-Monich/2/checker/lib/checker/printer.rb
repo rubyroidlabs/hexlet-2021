@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Checker
-  # Print results of application work
   class Printer
     class << self
       def print(responses)

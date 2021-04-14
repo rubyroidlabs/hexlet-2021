@@ -2,7 +2,6 @@
 
 require 'checker'
 
-# rubocop:disable Metrics/BlockLength
 describe Checker::Filter do
   describe 'Links filter' do
     let(:link) { File.expand_path('../fixtures/filter.csv', __dir__) }
@@ -66,4 +65,3 @@ describe Checker::Filter do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength

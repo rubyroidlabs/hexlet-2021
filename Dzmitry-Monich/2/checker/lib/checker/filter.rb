@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Checker
-  # Filter links and content
   class Filter
     class << self
       CONSTRAINTS = %w[github amazon gitlab].freeze
@@ -12,6 +11,8 @@ module Checker
 
       private
 
+      # rubocop:disable Lint/RedundantCopDisableDirective
+      # rubocop:disable Style/SlicingWithRange -- [n..] -> Syntax Error
       def link_filters
         {
           no_subdomains: lambda do |coll|
@@ -22,6 +23,8 @@ module Checker
           end
         }
       end
+      # rubocop:enable Style/SlicingWithRange
+      # rubocop:enable Lint/RedundantCopDisableDirective
 
       def filter_links(content, keys)
         keys.reduce(content) { |acc, key| link_filters[key].call(acc) }
