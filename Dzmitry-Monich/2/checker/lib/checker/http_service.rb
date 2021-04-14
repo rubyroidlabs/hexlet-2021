@@ -9,9 +9,7 @@ require 'async'
 module Checker
   class HttpService
     def initialize
-      @client = Faraday.new do |conn|
-        # conn.use FaradayMiddleware::FollowRedirects
-      end
+      @client = Faraday.new
     end
 
     def call(links, threads_count)
@@ -35,7 +33,7 @@ module Checker
     def request(links)
       Async do |task|
         res = []
-        links.map { |url| task.async { res << method(:process_link).call(url) } }
+        links.each { |url| task.async { res << process_link(url) } }
         res
       end.wait
     end
@@ -44,9 +42,7 @@ module Checker
       chunk_size = links.size / count + 1
 
       links.each_slice(chunk_size).map do |chunk|
-        Thread.new(chunk) do |c|
-          c.map { |url| method(:process_link).call(url) }
-        end
+        Thread.new(chunk) { |c| c.map { |url| process_link(url) } }
       end.flat_map(&:value)
     end
 

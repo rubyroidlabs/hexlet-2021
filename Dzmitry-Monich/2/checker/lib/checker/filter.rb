@@ -13,12 +13,8 @@ module Checker
 
       def link_filters
         {
-          no_subdomains: lambda do |coll|
-            coll.map { |link| link.split('.').last(2).join('.') }
-          end,
-          exclude_solutions: lambda do |coll|
-            coll.reject { |link| (link.split('.') & CONSTRAINTS).any? }
-          end
+          no_subdomains: ->(coll) { coll.map { |link| link.split('.').last(2).join('.') } },
+          exclude_solutions: ->(coll) { coll.reject { |link| (link.split('.') & CONSTRAINTS).any? } }
         }
       end
 
@@ -27,9 +23,7 @@ module Checker
       end
 
       def filter_urls(content, keys)
-        content.select do |res|
-          res.status == :success && res.response.body.include?(keys)
-        end
+        content.select { |res| res.status == :success && res.response.body.include?(keys) }
       end
     end
   end
