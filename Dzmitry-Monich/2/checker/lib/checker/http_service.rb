@@ -51,7 +51,7 @@ module Checker
     end
 
     # rubocop:disable Lint/RedundantCopDisableDirective
-    # rubocop:disable Rails::TimeZone
+    # rubocop:disable Rails/TimeZone
     def process_link(link)
       start = Time.now
       res = client.get(prepared_link(link))
@@ -64,7 +64,7 @@ module Checker
                      status: :errored,
                      message: e.message)
     end
-    # rubocop:enable Rails::TimeZone
+    # rubocop:enable Rails/TimeZone
     # rubocop:enable Lint/RedundantCopDisableDirective
   end
 end

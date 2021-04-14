@@ -11,20 +11,16 @@ module Checker
 
       private
 
-      # rubocop:disable Lint/RedundantCopDisableDirective
-      # rubocop:disable Style/SlicingWithRange -- [n..] -> Syntax Error
       def link_filters
         {
           no_subdomains: lambda do |coll|
-            coll.map { |link| link.split('.')[-2..-1].join('.') }
+            coll.map { |link| link.split('.').last(2).join('.') }
           end,
           exclude_solutions: lambda do |coll|
             coll.reject { |link| (link.split('.') & CONSTRAINTS).any? }
           end
         }
       end
-      # rubocop:enable Style/SlicingWithRange
-      # rubocop:enable Lint/RedundantCopDisableDirective
 
       def filter_links(content, keys)
         keys.reduce(content) { |acc, key| link_filters[key].call(acc) }

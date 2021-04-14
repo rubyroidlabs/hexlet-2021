@@ -3,65 +3,61 @@
 require 'checker'
 
 describe Checker::Filter do
+  subject { Checker::Filter }
+
   describe 'Links filter' do
     let(:link) { File.expand_path('../fixtures/filter.csv', __dir__) }
     let(:all_links) { CSV.read(link).flatten }
 
-    it 'without filter' do
+    it 'without filter-options (no filteration)' do
       keys = []
-      expect(Checker::Filter.filter(all_links, keys)).to eq all_links
+      expect(subject.filter(all_links, keys)).to eq all_links
     end
 
-    it 'filters via subdomains' do
+    it 'exludes subdomains' do
       keys = [:no_subdomains]
       test_path = File.expand_path('../fixtures/after_subdomains.csv', __dir__)
 
       expected = CSV.read(test_path).flatten
-      expect(Checker::Filter.filter(all_links, keys)).to eq expected
+      expect(subject.filter(all_links, keys)).to eq expected
     end
 
-    it 'filters via exclude_solutions' do
+    it 'exludes open sources' do
       keys = [:exclude_solutions]
       test_path = File.expand_path('../fixtures/after_constrains.csv', __dir__)
 
       expected = CSV.read(test_path).flatten
-      expect(Checker::Filter.filter(all_links, keys)).to eq expected
+      expect(subject.filter(all_links, keys)).to eq expected
     end
 
-    it 'filters via all filters' do
+    it 'uses both filters' do
       keys = %i[no_subdomains exclude_solutions]
       test_path = File.expand_path('../fixtures/after_all_filters.csv', __dir__)
 
       expected = CSV.read(test_path).flatten
-      expect(Checker::Filter.filter(all_links, keys)).to eq expected
+      expect(subject.filter(all_links, keys)).to eq expected
     end
   end
 
-  describe 'Url filter' do
+  describe 'Urls filter' do
     let(:url_errored) { OpenStruct.new(status: :errored) }
-    let(:url_empty) do
-      OpenStruct.new(status: :success, response: OpenStruct.new(body: 'no'))
-    end
-    let(:url_present) do
-      OpenStruct.new(status: :success, response: OpenStruct.new(body: 'some'))
-    end
+    let(:url_empty) { OpenStruct.new(status: :success, response: OpenStruct.new(body: 'no')) }
+    let(:url_present) { OpenStruct.new(status: :success, response: OpenStruct.new(body: 'some')) }
     let(:responses) { [url_errored, url_empty, url_present] }
 
-    it 'without filter' do
+    it 'without filter option' do
       keys = ''
-      expect(
-        Checker::Filter.filter(responses, keys)
-      ).to eq [url_empty, url_present]
+      expect(subject.filter(responses, keys)).to eq [url_empty, url_present]
     end
 
-    it 'filters correctly with match' do
+    it 'finds match' do
       keys = 'some'
-      expect(Checker::Filter.filter(responses, keys)).to eq [url_present]
+      expect(subject.filter(responses, keys)).to eq [url_present]
     end
 
-    it 'filters correctly without match' do
+    it 'not find match' do
       keys = 'none'
-      expect(Checker::Filter.filter(responses, keys)).to eq []
+      expect(subject.filter(responses, keys)).to eq []
     end
   end
 end

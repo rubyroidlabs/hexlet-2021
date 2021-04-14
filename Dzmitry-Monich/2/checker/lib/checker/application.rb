@@ -16,13 +16,12 @@ module Checker
 
       links = Parser.parse(absolute_path)
       filtered_links = filter_links(links)
+      logger.info("filtered linked: #{filtered_links}")
 
       responses = http_responses(filtered_links)
 
       filtered_responses = filter_urls(responses)
-      filtered_responses.each do |res|
-        logger.info("#{res.url}: #{res.status}: #{res.interval}")
-      end
+      filtered_responses.each { |res| logger.info("#{res.url}: #{res.status}: #{res.interval}") }
 
       filtered_responses
     end
