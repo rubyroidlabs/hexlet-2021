@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'webmock/rspec'
+require 'faker'
 require_relative './helpers'
 
 WebMock.disable_net_connect!(allow_localhost: true)

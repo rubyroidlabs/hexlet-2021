@@ -40,19 +40,19 @@ describe Checker::Filter do
   end
 
   describe 'Urls filter' do
-    let(:url_errored) { OpenStruct.new(status: :errored) }
-    let(:url_empty) { OpenStruct.new(status: :success, response: OpenStruct.new(body: 'no')) }
-    let(:url_present) { OpenStruct.new(status: :success, response: OpenStruct.new(body: 'some')) }
-    let(:responses) { [url_errored, url_empty, url_present] }
+    let(:res_errored) { OpenStruct.new(status: :errored) }
+    let(:res_empty) { OpenStruct.new(status: :success, response: OpenStruct.new(body: 'no')) }
+    let(:res_present) { OpenStruct.new(status: :success, response: OpenStruct.new(body: 'some')) }
+    let(:responses) { [res_errored, res_empty, res_present] }
 
     it 'without filter option' do
       keys = ''
-      expect(subject.filter(responses, keys)).to eq [url_empty, url_present]
+      expect(subject.filter(responses, keys)).to eq [res_empty, res_present]
     end
 
     it 'finds match' do
       keys = 'some'
-      expect(subject.filter(responses, keys)).to eq [url_present]
+      expect(subject.filter(responses, keys)).to eq [res_present]
     end
 
     it 'not find match' do

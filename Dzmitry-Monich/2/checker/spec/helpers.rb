@@ -17,4 +17,8 @@ module Helpers
     stub_request(:get, url)
       .to_raise(StandardError.new(message))
   end
+
+  def make_domain
+    Faker::Internet.domain_name
+  end
 end
