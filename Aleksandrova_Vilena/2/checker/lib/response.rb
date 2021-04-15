@@ -2,14 +2,15 @@
 
 ##
 class Response
-  attr_reader :url, :code, :message, :time, :err
+  attr_accessor :uri, :code, :msg, :time, :is_err, :keyword
 
   def initialize(param)
-    @url = param[:url]
+    @uri = param[:uri]
     @code = param[:code]
-    @message = param[:message]
+    @msg = param[:message]
     @time = param[:time]
-    @err = param[:err]
+    @is_err = param[:is_err]
+    @keyword = param[:keyword]
   end
 
   # @return [TrueClass, FalseClass]
@@ -19,17 +20,17 @@ class Response
 
   # @return [TrueClass, FalseClass]
   def fail?
-    @code != 200 && !@err
+    @code != 200 && !@is_err
   end
 
   def error?
-    @err
+    @is_err
   end
 
   def to_s
-    return "#{@url} - ERROR (#{@message})" if error?
-    return "#{@url} - #{@code}, #{@message} (#{@time}ms)" if message.equal?('OK')
+    return "#{@uri} - ERROR (#{@msg})" if error?
+    return "#{@uri} - #{@code}, #{@msg} (#{@time}ms)" if msg.equal?('OK')
 
-    "#{@url} - #{@code} (#{@time}ms)"
+    "#{@uri} - #{@code} (#{@time}ms)"
   end
 end

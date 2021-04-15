@@ -15,7 +15,7 @@ describe 'Requests with different filters' do
     expect(subdomains_ping.responses.count).to eq 1
   end
   it 'should OK msg' do
-    expect(subdomains_ping.responses.at(0).message).to eq 'OK'
+    expect(subdomains_ping.responses.at(0).msg).to eq 'OK'
   end
   it 'should 200 HTTP status' do
     expect(subdomains_ping.responses.at(0).code).to eq 200
@@ -54,8 +54,7 @@ describe 'Summary testing' do
     expect(errored.count).to eq 1
     expect(succeeded.count).to eq 2
     expect(failed.count).to eq 1
-    expect(succeeded.at(0).time).to be > 0
-    expect(errored.at(0).time).to eq 0
+    expect(errored.at(0).time).to eq nil
     expect("Total: #{total}, Success: #{succeeded.count}, Failed: #{failed.count}, Errored: #{errored.count}").to eq 'Total: 4, Success: 2, Failed: 1, Errored: 1'
   end
 end

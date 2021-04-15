@@ -35,7 +35,7 @@ class Ping
 
   def initialize_pool(options)
     thread_count = options[:parallel].to_i
-    raise ArgumentError, 'error while parsing integer' unless thread_count.is_a? Integer
+    raise ArgumentError, 'argument error' unless thread_count.is_a? Integer
 
     @pool_size = /[0-9]/.match(options[:parallel]).to_s.to_i
     logger.debug "pool size: #{@pool_size}"
@@ -62,23 +62,22 @@ class Ping
   end
 
   def print_summary
-    succeed = @responses.select(&:success?).count
-    failed = @responses.select(&:fail?).count
-    errored = @responses.select(&:error?).count
-    puts "Total: #{@responses.size}, Success: #{succeed}, Failed: #{failed}, Errored: #{errored}"
+    s = @responses.select(&:success?).count
+    f = @responses.select(&:fail?).count
+    e = @responses.select(&:error?).count
+    puts "Total: #{@responses.size}, Success: #{s}, Failed: #{f}, Errored: #{e}"
   end
 
   def send_request(uri, keyword = '')
-    rs = OpenStruct.new
+    rs = Response.new({ uri: uri })
     begin
       rs = http_req(uri, keyword)
       return if keyword && rs.keyword.nil?
     rescue StandardError => e
-      rs.is_error = true
-      rs.message = e.to_s
+      rs.is_err = true
+      rs.msg = e.to_s
     end
-    rs.is_err = rs.is_err
-    @responses << Response.new(url: uri, code: rs.code, message: rs.message, time: rs.time, err: rs.is_err)
+    @responses << rs
   end
 
   def file_exist?(file_path)
@@ -92,10 +91,11 @@ class Ping
     resp = HTTParty.get("http://#{uri}", timeout: 3)
     time_end = Time.now
     is_keyword = true if keyword && resp.body.include?(keyword)
-    OpenStruct.new(code: resp.code,
-                   message: resp.message,
-                   time: ((time_end - time_start).to_f * 1000.0).ceil(1),
-                   is_keyword: is_keyword,
-                   is_err: false)
+    Response.new(uri: uri,
+                 code: resp.code,
+                 message: resp.message,
+                 time: ((time_end - time_start).to_f * 1000.0).ceil(1),
+                 is_keyword: is_keyword,
+                 is_err: false)
   end
 end
