@@ -16,10 +16,6 @@ class ArgsParser
       opts.on('-f', '--filter KEYWORD', 'Keyword filter') { |o| options[:filter] = o }
       opts.on('-r', '--exclude-solutions', 'Opensource filter') { |o| options[:opensource] = o }
       opts.on('-p', '--parallel N', 'Paralleling calculation') { |o| options[:parallel] = o }
-      opts.on_tail('-h', '--help', 'Help') do
-        puts opts
-        exit
-      end
       opts.parse!(args)
     end
     options
@@ -32,7 +28,7 @@ module CsvParser
 
   # @param [Object] file_path
   # @param [Hash] options
-  def initialize_csv(file_path, options={})
+  def initialize_csv(file_path, options = {})
     @data = CSV.read(file_path).map(&:join)
   end
 

@@ -69,29 +69,33 @@ class Ping
   end
 
   def send_request(uri, keyword = '')
-    logger.debug "sending request to #{uri}"
-    rs = OpenStruct.new({ code: 0, message: '', time: 0, is_err: false })
+    rs = OpenStruct.new
     begin
-      time_start = Time.now
-      resp = HTTParty.get("http://#{uri}", { timeout: 3 })
-      time_end = Time.now
-      return if keyword && resp.body.include?(keyword) == false
-
-      rs.time = ((time_end - time_start).to_f * 1000.0).ceil(1)
-      rs.code = resp.code
-      rs.message = resp.message
+      rs = http_req(uri, keyword)
+      return if keyword && rs.keyword.nil?
     rescue StandardError => e
       rs.is_error = true
       rs.message = e.to_s
     end
-
-    @mutex.lock
-    rs.is_err = rs.code.zero? | rs.is_err
+    rs.is_err = rs.is_err
     @responses << Response.new(url: uri, code: rs.code, message: rs.message, time: rs.time, err: rs.is_err)
-    @mutex.unlock
   end
 
   def file_exist?(file_path)
     raise ArgumentError, 'file does not exist' unless File.exist?(file_path)
+  end
+
+  private
+
+  def http_req(uri, keyword)
+    time_start = Time.now
+    resp = HTTParty.get("http://#{uri}", timeout: 3)
+    time_end = Time.now
+    is_keyword = true if keyword && resp.body.include?(keyword)
+    OpenStruct.new(code: resp.code,
+                   message: resp.message,
+                   time: ((time_end - time_start).to_f * 1000.0).ceil(1),
+                   is_keyword: is_keyword,
+                   is_err: false)
   end
 end
