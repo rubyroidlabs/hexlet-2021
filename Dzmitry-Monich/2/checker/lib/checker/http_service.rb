@@ -27,10 +27,12 @@ module Checker
       url.to_s
     end
 
+    # Slowest
     # def request(links)
     #   links.map(&method(:process_link))
     # end
 
+    # Fastest
     def request(links)
       Async do |task|
         res = []
@@ -39,16 +41,18 @@ module Checker
       end.wait
     end
 
-    # def parallel_request(links, count) --> slower
+    # A little bit faster
+    # def parallel_request(links, count)
     #   Parallel.map(links, in_threads: count) { |link| process_link(link) }
     # end
 
+    # Faster
     def parallel_request(links, count)
       chunk_size = links.size / count + 1
 
-      links.each_slice(chunk_size).flat_map do |chunk|
-        chunk.map { |link| Thread.new(link) { |l| process_link(l) } }
-      end.map(&:value)
+      links.each_slice(chunk_size).map do |chunk|
+        Thread.new(chunk) { |c| c.map { |url| process_link(url) } }
+      end.flat_map(&:value)
     end
 
     # rubocop:disable Lint/RedundantCopDisableDirective
