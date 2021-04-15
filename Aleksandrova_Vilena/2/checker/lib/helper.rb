@@ -28,7 +28,7 @@ module CsvParser
 
   # @param [Object] file_path
   # @param [Hash] options
-  def initialize_csv(file_path, options={})
+  def initialize_csv(file_path, options = {})
     @data = CSV.read(file_path).map(&:join)
   end
 

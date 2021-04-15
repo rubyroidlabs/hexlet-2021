@@ -69,7 +69,7 @@ class Ping
   end
 
   def send_request(uri, keyword = '')
-    rs = Response.new({ uri: uri })
+    rs = Response.new(uri: uri)
     begin
       rs = http_req(uri, keyword)
       return if keyword && rs.keyword.nil?

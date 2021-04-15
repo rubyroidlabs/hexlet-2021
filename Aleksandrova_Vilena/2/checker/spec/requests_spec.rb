@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 require 'rspec'
 
 require_relative '../lib/ping'
 
 describe 'Requests with different filters' do
   ok_file_path = File.expand_path('../data/rails_test_200.csv', __dir__)
-  opensource_file_path = File.expand_path('../data/rails_test_opensource.csv', __dir__)
+  os_file_path = File.expand_path('../data/rails_test_opensource.csv', __dir__)
 
-  subdomains_ping = Ping.new(ok_file_path, { subdomains: true })
-  opensource_ping = Ping.new(opensource_file_path, { opensource: true })
-  concurrent_ping = Ping.new(opensource_file_path, { parallel: '3' })
+  subdomains_ping = Ping.new(ok_file_path, subdomains: true)
+  opensource_ping = Ping.new(os_file_path, opensource: true)
+  concurrent_ping = Ping.new(os_file_path, parallel: '3')
 
   subdomains_ping.run
   it 'should 1 response' do
@@ -32,7 +34,7 @@ end
 
 describe 'Request with keyword filter' do
   ok_file_path = File.expand_path('../data/rails_test_200.csv', __dir__)
-  filter_ping = Ping.new(ok_file_path, { filter: 'WINNIEPOOH' })
+  filter_ping = Ping.new(ok_file_path, filter: 'WINNIEPOOH')
   filter_ping.run
   it 'should not find a keyword = WINNIEPOOH' do
     total = filter_ping.responses.count
@@ -41,8 +43,8 @@ describe 'Request with keyword filter' do
 end
 
 describe 'Summary testing' do
-  summary_file_path = File.expand_path('../data/rails_test_summary.csv', __dir__)
-  summary_ping = Ping.new(summary_file_path, {})
+  file_path = File.expand_path('../data/rails_test_summary.csv', __dir__)
+  summary_ping = Ping.new(file_path, {})
   summary_ping.run
 
   it 'should summary equals' do
