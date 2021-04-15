@@ -17,3 +17,5 @@ group :test do
 end
 
 gem 'async', '~> 1.29'
+
+gem 'parallel', '~> 1.20'

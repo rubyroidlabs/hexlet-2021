@@ -11,7 +11,7 @@ run-f:
 	bin/checker --no-subdomains --exclude-solutions data/rails.csv
 
 run-f-t:
-	bin/checker --no-subdomains --exclude-solutions --parallel=10 data/rails.csv
+	bin/checker --no-subdomains --exclude-solutions --parallel=2 data/rails.csv
 
 run-all:
 	bin/checker --no-subdomains --exclude-solutions --filter=available data/rails.csv

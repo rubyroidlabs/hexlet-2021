@@ -5,6 +5,7 @@ require 'faraday'
 # require 'faraday_middleware'
 require 'ostruct'
 require 'async'
+# require 'parallel'
 
 module Checker
   class HttpService
@@ -38,12 +39,16 @@ module Checker
       end.wait
     end
 
+    # def parallel_request(links, count) --> slower
+    #   Parallel.map(links, in_threads: count) { |link| process_link(link) }
+    # end
+
     def parallel_request(links, count)
       chunk_size = links.size / count + 1
 
-      links.each_slice(chunk_size).map do |chunk|
-        Thread.new(chunk) { |c| c.map { |url| process_link(url) } }
-      end.flat_map(&:value)
+      links.each_slice(chunk_size).flat_map do |chunk|
+        chunk.map { |link| Thread.new(link) { |l| process_link(l) } }
+      end.map(&:value)
     end
 
     # rubocop:disable Lint/RedundantCopDisableDirective
