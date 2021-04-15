@@ -18,9 +18,7 @@ module Checker
       filtered_links = filter_links(links)
       logger.info("filtered linked: #{filtered_links}")
 
-      start = Time.now
       responses = http_responses(filtered_links)
-      logger.info("Request time: #{Time.now - start}")
 
       filtered_responses = filter_urls(responses)
       filtered_responses.each { |res| logger.info("#{res.url}: #{res.status}: #{res.interval}") }
