@@ -35,10 +35,10 @@ module CsvParser
   def filter(options)
     logger.debug "filtering with options: #{options}"
     @data = data.reject { |k| k.count('.') > 1 } if options.key?(:subdomains)
-    @data = filter_opensource(options, @data) if options.key?(:opensource)
+    @data = filter_opensource(@data) if options.key?(:opensource)
   end
 
-  def filter_opensource(options, data)
+  def filter_opensource(data)
     open_source_data = Config.get('OpenSource').map(&:downcase)
     data -= data.select do |x|
       open_source_data.find { |t| x.include?(t) }
