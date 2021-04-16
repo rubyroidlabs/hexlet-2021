@@ -12,10 +12,10 @@ class ArgsParser
     options = {}
     OptionParser.new do |opts|
       opts.banner = 'Usage: Ping Util'
-      opts.on('-n', '--no-subdomains', 'Subdomain filter') { |o| options[:subdomains] = o }
-      opts.on('-f', '--filter KEYWORD', 'Keyword filter') { |o| options[:filter] = o }
-      opts.on('-r', '--exclude-solutions', 'Opensource filter') { |o| options[:opensource] = o }
-      opts.on('-p', '--parallel N', 'Paralleling calculation') { |o| options[:parallel] = o }
+      opts.on('-n', '--no-subdomains') { |o| options[:subdomains] = o }
+      opts.on('-f', '--filter KEYWORD') { |o| options[:filter] = o }
+      opts.on('-r', '--exclude-solutions') { |o| options[:opensource] = o }
+      opts.on('-p', '--parallel N') { |o| options[:parallel] = o }
       opts.parse!(args)
     end
     options
@@ -35,12 +35,15 @@ module CsvParser
   def filter(options)
     logger.debug "filtering with options: #{options}"
     @data = data.reject { |k| k.count('.') > 1 } if options.key?(:subdomains)
+    @data = filter_opensource(options, @data) if options.key?(:opensource)
+  end
+
+  def filter_opensource(options, data)
     open_source_data = Config.get('OpenSource').map(&:downcase)
-    if options.key?(:opensource)
-      @data -= data.select do |x|
-        open_source_data.find { |t| x.include?(t) }
-      end
+    data -= data.select do |x|
+      open_source_data.find { |t| x.include?(t) }
     end
+    data
   end
 end
 

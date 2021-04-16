@@ -57,19 +57,14 @@ describe 'Summary testing' do
     expect(succeeded.count).to eq 2
     expect(failed.count).to eq 1
     expect(errored.at(0).time).to eq nil
-    expect("Total: #{total}, Success: #{succeeded.count}, Failed: #{failed.count}, Errored: #{errored.count}").to eq 'Total: 4, Success: 2, Failed: 1, Errored: 1'
   end
 end
 
 describe 'ArgumentError testing' do
   ok_file_path = File.expand_path('../data/rails_test_200.csv', __dir__)
-  ping = Ping.new(ok_file_path, { })
+  ping = Ping.new(ok_file_path, {})
   ping.run
   it 'file exists?' do
     expect { ping.file_exist?('xxxxx.csv') }.to raise_error(ArgumentError)
-  end
-
-  it 'it should not Integer' do
-    expect { Ping.new(ok_file_path, { parallel: 'qwerty' }) }.to_not raise_error(ArgumentError)
   end
 end
