@@ -5,6 +5,7 @@ require 'csv'
 require_relative 'lib/csv_reader'
 require_relative 'lib/filter'
 require_relative 'lib/http_service'
+require_relative 'lib/printer'
 
 options = {}
 OptionParser.new do |opts|
@@ -28,8 +29,9 @@ end
 
 csv_path = File.join(__dir__, ARGV.first)
 
+search_word = options.fetch(:filterword, '')
+
 csv = CsvReader.new(csv_path)
 filtered = Filter.new(csv.data, options).filtered_data
-stop_word = options.fetch(:filterword, '')
-responses = HttpService.new(filtered).responses(stop_word)
-puts responses
+responses = HttpService.new(filtered, search_word).fetch_all
+Printer.new(responses).print
