@@ -7,6 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = UrlAnalyzer::VERSION
   spec.authors       = ['Stanislav Dzisiak']
   spec.email         = ['stanislav.dzisiak@outlook.com']
+  spec.licenses      = ['MIT']
 
   spec.summary       = 'Url analyzer'
   spec.description   = 'Cli utility for url analysis.'
@@ -24,6 +25,5 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
+  spec.add_dependency 'slop', '~> 4.8.2'
 end
