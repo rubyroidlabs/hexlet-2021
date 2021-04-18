@@ -5,6 +5,7 @@
 
 require_relative 'lib/options_parser'
 require_relative 'lib/reader'
+require_relative 'lib/checker'
 
 options = OptionsParser.new.call
 
