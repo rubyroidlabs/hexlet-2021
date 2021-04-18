@@ -19,3 +19,17 @@ end
 
 file_path = File.join(__dir__, 'data', ARGV.first)
 links = Reader.from_csv(file_path, options)
+
+result = { total: 0, success: 0, failed: 0, errored: 0 }
+
+links.each do |link|
+  Checker.new(link, options).call
+  next unless link.valid?
+
+  puts link
+  result[link.status] += 1
+  result[:total] += 1
+end
+
+puts '-' * 100
+puts "Total: #{result[:total]}, Success: #{result[:success]}, Failed: #{result[:failed]}, Errored: #{result[:errored]}"
