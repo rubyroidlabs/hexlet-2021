@@ -11,9 +11,7 @@ class HttpService
   def fetch_all
     result = []
     @data.each do |url|
-      if fetch(url) != nil
-        result << fetch(url)
-      end
+      result << fetch(url) unless fetch(url).nil?
     end
     result
   end
@@ -25,6 +23,7 @@ class HttpService
       result[:url] = url
       response = Faraday.get "http://#{url}"
       return unless response.body.include?(@search_word)
+
       result[:code] = response.status
       result[:time] = Time.now.getlocal - start_time
     rescue StandardError => e
