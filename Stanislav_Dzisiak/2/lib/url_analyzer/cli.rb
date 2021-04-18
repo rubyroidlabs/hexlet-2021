@@ -12,7 +12,7 @@ module UrlAnalyzer
     def run
       parse_arguments
 
-      analyzer = Analyzer.new @path_to_csv, @options
+      analyzer = Analyzer.new @path_to_csv, @options.to_h
       begin
         result = analyzer.analyze
         puts 'The urls has been successfully analyzed.'

@@ -5,6 +5,8 @@ require 'csv'
 module UrlAnalyzer
   module Utils
     module Parser
+      # NOTE: It is possible to add parsers of other formats.
+      # For example yaml, json, etc.
       def self.parse(content, data_format)
         case data_format
         when 'csv'

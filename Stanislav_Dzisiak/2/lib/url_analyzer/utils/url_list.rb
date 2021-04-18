@@ -11,6 +11,7 @@ module UrlAnalyzer
           /github.com$/i,
           /gitlab.com$/i
         ].freeze
+        @default_scheme = 'http'
       end
 
       def urls
@@ -36,7 +37,7 @@ module UrlAnalyzer
       def normalize
         @operations.push lambda {
           @urls.map! do |url|
-            url.match?(%r{^(?!.+://).*}) ? "http://#{url}" : url
+            url.match?(%r{^(?!.+://).*}) ? "#{@default_scheme}://#{url}" : url
           end
         }
         self
