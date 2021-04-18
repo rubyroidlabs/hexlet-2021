@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Printer
-  @summary = { total: 0, success: 0, fail: 0, error: 0 }
   def initialize(data)
     @data = data
+    @summary = { total: 0, success: 0, fail: 0, error: 0 }
   end
 
   def print
