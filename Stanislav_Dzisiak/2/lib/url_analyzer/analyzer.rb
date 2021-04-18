@@ -14,26 +14,25 @@ module UrlAnalyzer
     def analyze
       data_format = File.extname(@path_to_csv)[1..]
       content = File.read @path_to_csv
-      urls = Parser.parse content, data_format
-      filtered_urls = Utils.urls_filter urls, @options
+      urls = Utils::Parser.parse content, data_format
+      url_list = Utils::UrlList.new urls
+      filtered_urls = url_list.filter(@options).normalize.urls
+
+      # filtered_urls.each do |url|
+      #   begin
+      #     Faraday.get "http://#{url}"
+      #     puts url
+      #   rescue Exception => e
+      #     puts e
+      #   end
+      # end
       puts filtered_urls
-      # urls = CSV.read(file)
-      # http://abelitsia.gr/
-      # puts @path_to_csv
-      # puts Dir.pwd
-      # puts File.expand_path('bin/console')
-      # file = File.open('/etc/hosts')
-      # file_data = file.readlines.size
-      # check incorrect urls
-      # puts file_data
-      # response = Faraday.get 'http://abelitsia.gr/'
       # response = Faraday.get 'http://jopajopa.com'
       # puts response.status
       # result = Benchmark.measure do
       #   100000.times { response.body.match? '2017' }
       # end
       # puts result
-      # puts urls
       'result'
     end
   end
