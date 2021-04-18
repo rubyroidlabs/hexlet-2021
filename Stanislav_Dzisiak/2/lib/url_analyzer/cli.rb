@@ -4,32 +4,40 @@ require 'slop'
 
 module UrlAnalyzer
   class Cli
-    @banner = <<~BANNER
-      Utility for analyzing urls.
-      usage: url-analuzer <path_to_csv> [options]
-    BANNER
+    def initialize
+      @banner = <<~BANNER
+        Utility for analyzing urls.
+        usage: url-analuzer <path_to_csv> [options]
+      BANNER
+    end
 
     def run
+      parse_options
       parse_arguments
 
       analyzer = Analyzer.new @path_to_csv, @options.to_h
-      begin
-        result = analyzer.analyze
-        puts 'The urls has been successfully analyzed.'
-        puts '---------------------------------------------'
-        puts result
-      rescue StandardError => e
-        warn "Error: #{e.message}"
-        exit 1
-      end
+      data = analyzer.analyze
+
+      puts '---------------------------------------------'
+      puts format data
+    rescue StandardError => e
+      warn "Error: #{e.message}"
+      exit 1
     end
 
     private
 
-    def parse_arguments
-      # NOTE: Here the Slop::UnknownOption error may occur when using unknown options.
-      # The utility logic allows the use of unspecified options.
-      @options = Slop.parse suppress_errors: true do |o|
+    def format(data)
+      result = "Total: #{data[:total]}"
+      result << ", Success: #{data[:success]}"
+      result << ", Failed: #{data[:failed]}"
+      result << ", Errored: #{data[:errored]}"
+      result
+    end
+
+    # rubocop:disable Metrics/MethodLength
+    def parse_options
+      @options = Slop.parse do |o|
         o.banner = @banner
         o.separator 'options:'
         o.bool '--no-subdomains', 'check only first level domains'
@@ -38,12 +46,23 @@ module UrlAnalyzer
         o.int '--parallel', 'check urls in N streams (example: --parallel=N)', default: 1
         o.separator ''
         o.separator 'other options:'
-        o.on('-v', '--version') { puts UrlAnalyzer::VERSION }
-        o.on('-h', '--help') { puts o }
+        o.on('-v', '--version') do
+          puts UrlAnalyzer::VERSION
+          exit
+        end
+        o.on('-h', '--help') do
+          puts o
+          exit
+        end
       end
+    end
+    # rubocop:enable Metrics/MethodLength
 
+    def parse_arguments
       ARGV.replace @options.arguments
       @path_to_csv = ARGV.first
+
+      raise 'missing required argument: <path_to_csv>' if @path_to_csv.nil?
     end
   end
 end

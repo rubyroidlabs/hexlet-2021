@@ -12,7 +12,7 @@ module UrlAnalyzer
         when 'csv'
           csv_parse(content).map(&:first)
         else
-          raise StandardError("Unknown data format: #{data_format}")
+          raise "Unknown data format: #{data_format}"
         end
       end
 
