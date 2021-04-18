@@ -4,6 +4,7 @@
 # Checker links
 
 require_relative 'lib/options_parser'
+require_relative 'lib/reader'
 
 options = OptionsParser.new.call
 
