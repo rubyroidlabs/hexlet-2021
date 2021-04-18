@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'Url analyzer'
   spec.description   = 'Cli utility for url analysis.'
   spec.homepage      = 'https://github.com/corsicanec82/hexlet-2021/tree/master/Stanislav_Dzisiak/2'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.4.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.7.3')
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/corsicanec82/hexlet-2021/tree/master/Stanislav_Dzisiak/2'
@@ -25,5 +25,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'faraday', '~> 1.4.0'
   spec.add_dependency 'slop', '~> 4.8.2'
 end

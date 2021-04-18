@@ -15,11 +15,11 @@ module UrlAnalyzer
       analyzer = Analyzer.new @path_to_csv, @options
       begin
         result = analyzer.analyze
-        puts 'The urls list has been successfully analyzed.'
+        puts 'The urls has been successfully analyzed.'
         puts '---------------------------------------------'
         puts result
       rescue StandardError => e
-        warn e.message
+        warn "Error: #{e.message}"
         exit 1
       end
     end
@@ -27,7 +27,9 @@ module UrlAnalyzer
     private
 
     def parse_arguments
-      @options = Slop.parse do |o|
+      # NOTE: Here the Slop::UnknownOption error may occur when using unknown options.
+      # The utility logic allows the use of unspecified options.
+      @options = Slop.parse suppress_errors: true do |o|
         o.banner = @banner
         o.separator 'options:'
         o.bool '--no-subdomains', 'check only first level domains'
