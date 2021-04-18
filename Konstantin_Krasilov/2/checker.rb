@@ -15,3 +15,6 @@ elsif ARGV.first.nil? || !ARGV.first.match?(/.csv$/)
   puts 'Please select the correct CSV file.'
   exit
 end
+
+file_path = File.join(__dir__, 'data', ARGV.first)
+links = Reader.from_csv(file_path, options)
