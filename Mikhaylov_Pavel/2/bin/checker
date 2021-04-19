@@ -22,7 +22,5 @@ raise 'Select a csv file' if ARGV.first.nil?
 
 file = ARGV.first
 
-pp options
-
 checker = Checker.new(file, options)
 checker.run
