@@ -6,7 +6,7 @@ require_relative 'link'
 module Reader
   module_function
 
-  OPEN_SOURCE = /(gitlab|phabricator|redmine|rhodecode|github|bitbucket|gogs|gitea|sourcehut)/.freeze
+  OPEN_SOURCE = /(gitlab|phabricator|redmine|rhodecode|github|bitbucket|gogs|gitea|sourcehut)/
 
   def from_csv(path, options = {})
     CSV.read(path).filter_map do |url|

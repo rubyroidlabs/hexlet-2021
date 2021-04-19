@@ -18,7 +18,7 @@ describe Checker do
 
     context 'when options key equal filter and link success contains the word' do
       it 'change link code' do
-        Checker.new(link, { filter: 'ruby' }).call
+        Checker.new(link, filter: 'ruby').call
 
         expect(link.code).to eq(200)
       end
@@ -26,7 +26,7 @@ describe Checker do
 
     context 'when options key equal filter and link success not contains the word' do
       it 'change link code, valid' do
-        Checker.new(link, { filter: 'php' }).call
+        Checker.new(link, filter: 'php').call
 
         expect(link.code).to eq(200)
         expect(link.valid).to be false

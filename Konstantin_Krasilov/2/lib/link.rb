@@ -24,11 +24,11 @@ class Link
   private
 
   def success?
-    (200...400).include?(@code)
+    (200...400).cover?(@code)
   end
 
   def failed?
-    (400...600).include?(@code)
+    (400...600).cover?(@code)
   end
 
   def errored?
