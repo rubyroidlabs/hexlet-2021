@@ -19,32 +19,35 @@ class Filter
     subdomains = []
     os = []
     @options.each_key do |key|
-      urls = result.empty? ? @data : result.flatten
       case key
       when :subdomains
-        subdomains << filter_subdomens(urls)
+        subdomains << filter_subdomains
       when :solutions
-        os << filter_by_opensource(urls)
+        os << filter_opensource
       else
         result << @data
       end
     end
-    result = if subdomains.empty?
-               os.flatten
-             elsif os.empty?
-               subdomains.flatten
-             else
-               subdomains.flatten & os.flatten
-             end
+    result = conclusion_subdomains_and_os(subdomains, os)
   end
 
-  def filter_subdomens(urls)
-    urls.reject { |url| url.count('.') > 1 }
+  def conclusion_subdomains_and_os(subdomains, os)
+    if subdomains.empty?
+      os.flatten
+    elsif os.empty?
+      subdomains.flatten
+    else
+      subdomains.flatten & os.flatten
+    end
   end
 
-  def filter_by_opensource(urls)
+  def filter_subdomains
+    @data.reject { |url| url.count('.') > 1 }
+  end
+
+  def filter_opensource
     opensources = CSV.read('os.csv').flatten
-    urls.reject do |row|
+    @data.reject do |row|
       opensources.find { |res| row.include?(res) }
     end
   end
