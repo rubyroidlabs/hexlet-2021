@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'csv'
+
 class CsvReader
   attr_reader :data
 

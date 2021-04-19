@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'optparse'
+require_relative '../lib/checker'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = 'Usage: csv-file [options]'
+  opts.on('--no-subdomains', 'Ignore all subdomens') do
+    options[:subdomains] = true
+  end
+  opts.on('--exclude-solutions', 'Ignore opensource projects') do
+    options[:solutions] = true
+  end
+  opts.on('--filter=WORD', 'Find all pages with selected "WORD"') do |w|
+    options[:filterword] = w
+  end
+end.parse!
+
+raise 'Select a csv file' if ARGV.first.nil?
+
+file = ARGV.first
+
+pp options
+
+checker = Checker.new(file, options)
+checker.run

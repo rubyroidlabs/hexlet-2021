@@ -46,7 +46,7 @@ class Filter
   end
 
   def filter_opensource
-    opensources = CSV.read('os.csv').flatten
+    opensources = CsvReader.new('os.csv').data
     @data.reject do |row|
       opensources.find { |res| row.include?(res) }
     end
