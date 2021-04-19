@@ -4,10 +4,6 @@ require 'logger'
 
 module Checker
   class Printer
-    def initialize
-      @logger = Logger.new($stdout)
-    end
-
     def print_result(request)
       return unless request
 
