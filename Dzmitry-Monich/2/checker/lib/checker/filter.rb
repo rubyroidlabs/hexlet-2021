@@ -2,29 +2,39 @@
 
 module Checker
   class Filter
-    class << self
-      CONSTRAINTS = %w[github amazon gitlab].freeze
+    CONSTRAINTS = %w[github amazon gitlab].freeze
 
-      def filter(links, keys)
-        keys.is_a?(Array) ? filter_links(links, keys) : filter_urls(links, keys)
+    def initialize(options)
+      @options = options
+    end
+
+    # def filter(links, keys)
+    #   keys.is_a?(Array) ? filter_links(links, keys) : filter_urls(links, keys)
+    # end
+
+    def links(links)
+      keys = options.select { |_k, v| v == true }.keys
+      keys.reduce(links) { |acc, key| link_filters[key].call(acc) }
+    end
+
+    def responses(responses)
+      key = options[:filter]
+      if key
+        responses.select { |res| res.status == :success && res.response.body.include?(key) }
+      else
+        responses
       end
+    end
 
-      private
+    private
 
-      def link_filters
-        {
-          no_subdomains: ->(coll) { coll.map { |link| link.split('.').last(2).join('.') } },
-          exclude_solutions: ->(coll) { coll.reject { |link| (link.split('.') & CONSTRAINTS).any? } }
-        }
-      end
+    attr_reader :options
 
-      def filter_links(content, keys)
-        keys.reduce(content) { |acc, key| link_filters[key].call(acc) }
-      end
-
-      def filter_urls(content, keys)
-        content.select { |res| res.status == :success && res.response.body.include?(keys) }
-      end
+    def link_filters
+      {
+        no_subdomains: ->(coll) { coll.map { |link| link.split('.').last(2).join('.') } },
+        exclude_solutions: ->(coll) { coll.reject { |link| (link.split('.') & CONSTRAINTS).any? } }
+      }
     end
   end
 end

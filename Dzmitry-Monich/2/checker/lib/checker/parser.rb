@@ -9,16 +9,16 @@ module Checker
         ext_type = File.extname(filepath)[1..]
         validate(ext_type)
 
-        parcers[ext_type].call(filepath)
+        parsers[ext_type].call(filepath)
       end
 
       private
 
       def validate(type)
-        raise 'no such a parser' unless parcers.key?(type)
+        raise "no parser for this type: #{type}" unless parsers.key?(type)
       end
 
-      def parcers
+      def parsers
         { 'csv' => ->(content) { CSV.read(content).flatten } }
       end
     end

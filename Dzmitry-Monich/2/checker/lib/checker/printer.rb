@@ -13,9 +13,7 @@ module Checker
 
       def renderers
         [{ check: ->(status) { %i[success failed].include?(status) },
-           fn: lambda do |res|
-             "#{res.url} - #{res.response.status} (#{t_format(res.interval)}ms)"
-           end },
+           fn: ->(res) { "#{res.url} - #{res.response.status} (#{t_format(res.interval)}ms)" } },
          { check: ->(status) { status == :errored },
            fn: ->(res) { "#{res.url} - ERROR (#{res.message})" } }]
       end

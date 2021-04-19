@@ -7,6 +7,7 @@ describe Checker::Application do
   let(:url_ok) { '200.com' }
   let(:url_failed) { '500.com' }
   let(:url_error) { 'error-url.com' }
+  subject { Checker::Application }
 
   context 'when Application run correctly' do
     before do
@@ -16,7 +17,7 @@ describe Checker::Application do
     end
 
     it 'in one thread' do
-      expect(subject.call(filepath)).to match_array(
+      expect(subject.new(filepath).call).to match_array(
         [
           have_attributes(url: url_ok, status: :success),
           have_attributes(url: url_failed, status: :failed),
@@ -26,8 +27,7 @@ describe Checker::Application do
     end
 
     it 'in parallel threads' do
-      expect(Checker::Application.new(parallel: 5)
-        .call(filepath)).to match_array(
+      expect(subject.new(filepath, parallel: 5).call).to match_array(
           [
             have_attributes(url: url_ok, status: :success),
             have_attributes(url: url_failed, status: :failed),
@@ -40,14 +40,14 @@ describe Checker::Application do
   context 'when Application run with errors' do
     it 'file not exists' do
       no_file_path = 'spec/fixtures/rai.csv'
-      expect { subject.call(no_file_path) }
-        .to raise_error(ArgumentError, 'no such a file')
+      expect { subject.new(no_file_path).call }
+        .to raise_error(ArgumentError, "no file on path: #{no_file_path}")
     end
 
     it 'parser not exists (wrong file extention)' do
       no_parser_path = 'spec/fixtures/filter.json'
-      expect { subject.call(no_parser_path) }
-        .to raise_error('no such a parser')
+      expect { subject.new(no_parser_path).call }
+        .to raise_error('no parser for this type: json')
     end
   end
 end

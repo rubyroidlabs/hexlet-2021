@@ -10,32 +10,32 @@ describe Checker::Filter do
     let(:all_links) { CSV.read(link).flatten }
 
     it 'without filter-options (no filteration)' do
-      keys = []
-      expect(subject.filter(all_links, keys)).to eq all_links
+      opts = {}
+      expect(subject.new(opts).links(all_links)).to eq all_links
     end
 
     it 'exludes subdomains' do
-      keys = [:no_subdomains]
+      opts = { no_subdomains: true }
       test_path = File.expand_path('../fixtures/after_subdomains.csv', __dir__)
 
       expected = CSV.read(test_path).flatten
-      expect(subject.filter(all_links, keys)).to eq expected
+      expect(subject.new(opts).links(all_links)).to eq expected
     end
 
     it 'exludes open sources' do
-      keys = [:exclude_solutions]
+      opts = { exclude_solutions: true }
       test_path = File.expand_path('../fixtures/after_constrains.csv', __dir__)
 
       expected = CSV.read(test_path).flatten
-      expect(subject.filter(all_links, keys)).to eq expected
+      expect(subject.new(opts).links(all_links)).to eq expected
     end
 
     it 'uses both filters' do
-      keys = %i[no_subdomains exclude_solutions]
+      opts = { no_subdomains: true, exclude_solutions: true }
       test_path = File.expand_path('../fixtures/after_all_filters.csv', __dir__)
 
       expected = CSV.read(test_path).flatten
-      expect(subject.filter(all_links, keys)).to eq expected
+      expect(subject.new(opts).links(all_links)).to eq expected
     end
   end
 
@@ -46,18 +46,18 @@ describe Checker::Filter do
     let(:responses) { [res_errored, res_empty, res_present] }
 
     it 'without filter option' do
-      keys = ''
-      expect(subject.filter(responses, keys)).to eq [res_empty, res_present]
+      opts = { filter: nil }
+      expect(subject.new(opts).responses(responses)).to eq [res_errored, res_empty, res_present]
     end
 
     it 'finds match' do
-      keys = 'some'
-      expect(subject.filter(responses, keys)).to eq [res_present]
+      opts = { filter: 'some' }
+      expect(subject.new(opts).responses(responses)).to eq [res_present]
     end
 
     it 'not find match' do
-      keys = 'none'
-      expect(subject.filter(responses, keys)).to eq []
+      opts = { filter: 'none' }
+      expect(subject.new(opts).responses(responses)).to eq []
     end
   end
 end

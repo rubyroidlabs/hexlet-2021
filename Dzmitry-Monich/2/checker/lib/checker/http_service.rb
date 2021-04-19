@@ -9,17 +9,19 @@ require 'async'
 
 module Checker
   class HttpService
-    def initialize
+    def initialize(links, threads_count)
       @client = Faraday.new
+      @links = links
+      @threads_count = threads_count
     end
 
-    def call(links, threads_count)
-      threads_count ? parallel_request(links, threads_count) : request(links)
+    def call
+      threads_count ? parallel_request : request
     end
 
     private
 
-    attr_reader :client
+    attr_reader :client, :links, :threads_count
 
     def prepared_link(link)
       url = URI::HTTP.build(host: link)
@@ -33,7 +35,7 @@ module Checker
     # end
 
     # Fastest
-    def request(links)
+    def request
       Async do |task|
         res = []
         links.each { |url| task.async { res << process_link(url) } }
@@ -47,8 +49,8 @@ module Checker
     # end
 
     # Faster
-    def parallel_request(links, count)
-      chunk_size = links.size / count + 1
+    def parallel_request
+      chunk_size = links.size / threads_count + 1
 
       links.each_slice(chunk_size).map do |chunk|
         Thread.new(chunk) { |c| c.map { |url| process_link(url) } }
