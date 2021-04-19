@@ -7,7 +7,6 @@ describe Link do
 
   describe '.new' do
     it 'creates new object with given uri and valid' do
-
       expect(link.uri).to be_an(URI)
       expect(link.valid).to be true
     end

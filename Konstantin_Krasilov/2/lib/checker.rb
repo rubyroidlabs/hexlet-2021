@@ -11,7 +11,7 @@ class Checker
 
   def call
     get(@link.uri)
-    if (300...400).include?(@response&.code.to_i) && @options.key?(:filter)
+    if (300...400).cover?(@response&.code.to_i) && @options.key?(:filter)
       get(URI(@response[:location]), ssl: @response[:location].match?(/https/))
     end
 

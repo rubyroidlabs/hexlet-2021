@@ -6,7 +6,7 @@ class OptionsParser
   def call
     parse
   rescue OptionParser::InvalidOption, OptionParser::MissingArgument => e
-    @options.merge!({ error: e.message })
+    @options.merge!(error: e.message)
   end
 
   private
@@ -24,7 +24,7 @@ class OptionsParser
         @options[:subdomains] = true
       end
       opts.on('-f', '--filter=sales', 'Searches for a specific word in page content') do |word|
-        @options[:filter] = word.gsub('=', '')
+        @options[:filter] = word.delete('=')
       end
       @options[:help] = opts.help
     end.parse!
