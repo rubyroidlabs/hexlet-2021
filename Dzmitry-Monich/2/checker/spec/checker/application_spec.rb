@@ -28,12 +28,12 @@ describe Checker::Application do
 
     it 'in parallel threads' do
       expect(subject.new(filepath, parallel: 5).call).to match_array(
-          [
-            have_attributes(url: url_ok, status: :success),
-            have_attributes(url: url_failed, status: :failed),
-            have_attributes(url: url_error, status: :errored, message: 'err')
-          ]
-        )
+        [
+          have_attributes(url: url_ok, status: :success),
+          have_attributes(url: url_failed, status: :failed),
+          have_attributes(url: url_error, status: :errored, message: 'err')
+        ]
+      )
     end
   end
 
