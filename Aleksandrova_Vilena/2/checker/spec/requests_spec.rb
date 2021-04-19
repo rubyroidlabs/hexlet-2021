@@ -67,7 +67,7 @@ describe 'Ping with summary check' do
       errored = summary_ping.responses.select(&:error?)
       failed = summary_ping.responses.select(&:fail?)
       expect(total).to eq 4
-      expect(errored.count).to be > 0
+      expect(errored.count).not_to eq 0
       expect(succeeded.count).to eq 2
       expect(failed.count).to eq 1
       expect(errored.at(0).time).to eq nil
