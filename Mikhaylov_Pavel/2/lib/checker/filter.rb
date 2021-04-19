@@ -7,7 +7,7 @@ class Filter
   end
 
   def filtered_data
-    if @options.empty?
+    if !@options.key?(:subdomains) && !@options.key?(:solutions)
       @data
     else
       filter_by_options
@@ -15,7 +15,6 @@ class Filter
   end
 
   def filter_by_options
-    result = []
     subdomains = []
     os = []
     @options.each_key do |key|
@@ -24,11 +23,9 @@ class Filter
         subdomains << filter_subdomains
       when :solutions
         os << filter_opensource
-      else
-        result << @data
       end
     end
-    result = conclusion_subdomains_and_os(subdomains, os)
+    conclusion_subdomains_and_os(subdomains, os)
   end
 
   def conclusion_subdomains_and_os(subdomains, os)
