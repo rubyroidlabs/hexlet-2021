@@ -3,7 +3,6 @@
 require 'rspec'
 
 require_relative '../lib/helper'
-require 'rspec'
 
 RSpec.describe 'ArgsParser: --subdomains' do
   # let(:exec) { File.expand_path('../checker.rb', File.dirname(__FILE__)) }
