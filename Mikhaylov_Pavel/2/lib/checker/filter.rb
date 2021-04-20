@@ -7,10 +7,10 @@ class Filter
   end
 
   def filtered_data
-    if !@options.key?(:subdomains) && !@options.key?(:solutions)
-      @data
-    else
+    if @options.key?(:subdomains) || @options.key?(:solutions)
       filter_by_options
+    else
+      @data
     end
   end
 
