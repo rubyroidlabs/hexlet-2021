@@ -2,49 +2,58 @@
 
 module Checker
   class Printer
-    class << self
-      def print(responses)
-        urls = prepare_urls(responses)
-        total = prepare_total(responses)
-        puts [urls, total].join("\n\n")
-      end
+    def initialize(responses)
+      @responses = responses
+      @total = { total: 0, success: 0, failed: 0, errored: 0 }
+    end
 
-      private
+    def call
+      urls = prepare_urls
+      total = prepare_total
+      puts [urls, total].join("\n\n")
+    end
 
-      def renderers
-        [{ check: ->(status) { %i[success failed].include?(status) },
-           fn: ->(res) { "#{res.url} - #{res.response.status} (#{t_format(res.interval)}ms)" } },
-         { check: ->(status) { status == :errored },
-           fn: ->(res) { "#{res.url} - ERROR (#{res.message})" } }]
-      end
+    private
 
-      def calc_total(responses)
-        init_total = { total: 0, success: 0, failed: 0, errored: 0 }
-        responses.each_with_object(init_total) do |res, acc|
-          acc[res.status] += 1
-          acc[:total] += 1
-        end
-      end
+    attr_reader :responses, :total
 
-      def prepare_urls(responses)
-        responses.map do |res|
-          renderers.find { |r| r[:check].call(res.status) }[:fn].call(res)
-        end.join("\n")
-      end
+    def renderers
+      [
+        {
+          check: ->(status) { %i[success failed].include?(status) },
+          fn: ->(res) { "#{res.url} - #{res.response.status} (#{t_format(res.interval)}ms)" }
+        },
+        {
+          check: ->(status) { status == :errored },
+          fn: ->(res) { "#{res.url} - ERROR (#{res.message})" }
+        }
+      ]
+    end
 
-      def prepare_total(responses)
-        result = calc_total(responses)
-        [
-          "Total: #{result[:total]}",
-          "Success: #{result[:success]}",
-          "Failed: #{result[:failed]}",
-          "Errored: #{result[:errored]}"
-        ].join(', ')
+    def total_result
+      @total_result ||= responses.each_with_object(total) do |res, acc|
+        acc[res.status] += 1
+        acc[:total] += 1
       end
+    end
 
-      def t_format(time)
-        (time * 1000).round
-      end
+    def prepare_urls
+      responses.map do |res|
+        renderers.find { |r| r.fetch(:check).call(res.status) }.fetch(:fn).call(res)
+      end.join("\n")
+    end
+
+    def prepare_total
+      [
+        "Total: #{total_result[:total]}",
+        "Success: #{total_result[:success]}",
+        "Failed: #{total_result[:failed]}",
+        "Errored: #{total_result[:errored]}"
+      ].join(', ')
+    end
+
+    def t_format(time)
+      (time * 1000).round
     end
   end
 end

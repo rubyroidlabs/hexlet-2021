@@ -9,7 +9,7 @@ module Checker
         ext_type = File.extname(filepath)[1..]
         validate(ext_type)
 
-        parsers[ext_type].call(filepath)
+        parsers.fetch(ext_type).call(filepath)
       end
 
       private
@@ -19,7 +19,7 @@ module Checker
       end
 
       def parsers
-        { 'csv' => ->(content) { CSV.read(content).flatten } }
+        { 'csv' => ->(filepath) { CSV.read(filepath).flatten } }
       end
     end
   end

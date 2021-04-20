@@ -2,10 +2,8 @@
 
 require 'uri'
 require 'faraday'
-# require 'faraday_middleware'
 require 'ostruct'
 require 'async'
-# require 'parallel'
 
 module Checker
   class HttpService
@@ -29,12 +27,6 @@ module Checker
       url.to_s
     end
 
-    # Slowest
-    # def request(links)
-    #   links.map(&method(:process_link))
-    # end
-
-    # Fastest
     def request
       Async do |task|
         res = []
@@ -43,12 +35,6 @@ module Checker
       end.wait
     end
 
-    # A little bit faster
-    # def parallel_request(links, count)
-    #   Parallel.map(links, in_threads: count) { |link| process_link(link) }
-    # end
-
-    # Faster
     def parallel_request
       chunk_size = links.size / threads_count + 1
 
@@ -73,5 +59,15 @@ module Checker
     end
     # rubocop:enable Rails/TimeZone
     # rubocop:enable Lint/RedundantCopDisableDirective
+
+    # Slowest
+    # def request(links)
+    #   links.map(&method(:process_link))
+    # end
+
+    # Not so fast as expected
+    # def parallel_request(links, count)
+    #   Parallel.map(links, in_threads: count) { |link| process_link(link) }
+    # end
   end
 end

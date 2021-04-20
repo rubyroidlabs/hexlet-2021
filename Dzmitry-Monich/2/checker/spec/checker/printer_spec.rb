@@ -31,6 +31,6 @@ describe Checker::Printer do
       "#{url_errored} - ERROR (getaddrinfo)\n\n" \
       "Total: 3, Success: 1, Failed: 1, Errored: 1\n"
 
-    expect { Checker::Printer.print(responses) }.to output(expected).to_stdout
+    expect { Checker::Printer.new(responses).call }.to output(expected).to_stdout
   end
 end

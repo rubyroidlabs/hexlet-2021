@@ -7,13 +7,14 @@ module Checker
     include Logging
 
     def initialize(filepath, options = {})
-      @absolute_path = Checker.root_path.join(filepath)
-      validate(filepath)
-
+      @filepath = filepath
       @options = options
     end
 
     def call
+      absolute_path = Checker.root_path.join(filepath)
+      validate(absolute_path)
+
       links = Parser.parse(absolute_path)
 
       filter = Filter.new(options)
@@ -30,9 +31,9 @@ module Checker
 
     private
 
-    attr_reader :options, :filepath, :absolute_path
+    attr_reader :options, :filepath
 
-    def validate(filepath)
+    def validate(absolute_path)
       raise ArgumentError, "no file on path: #{filepath}" unless File.exist?(absolute_path)
     end
   end

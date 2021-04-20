@@ -8,13 +8,9 @@ module Checker
       @options = options
     end
 
-    # def filter(links, keys)
-    #   keys.is_a?(Array) ? filter_links(links, keys) : filter_urls(links, keys)
-    # end
-
     def links(links)
       keys = options.select { |_k, v| v == true }.keys
-      keys.reduce(links) { |acc, key| link_filters[key].call(acc) }
+      keys.reduce(links) { |acc, key| link_filters.fetch(key).call(acc) }
     end
 
     def responses(responses)

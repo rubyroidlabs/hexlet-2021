@@ -7,47 +7,64 @@ describe Checker::Application do
   let(:url_ok) { '200.com' }
   let(:url_failed) { '500.com' }
   let(:url_error) { 'error-url.com' }
-  subject { Checker::Application }
 
-  context 'when Application run correctly' do
+  context 'Application runs correctly' do
+    subject { Checker::Application.new(filepath, parallel: parallel) }
+
     before do
       stub_valid_request("https://#{url_ok}", 200)
       stub_valid_request("https://#{url_failed}", 500)
       stub_error_request("https://#{url_error}", 'err')
     end
 
-    it 'in one thread' do
-      expect(subject.new(filepath).call).to match_array(
-        [
-          have_attributes(url: url_ok, status: :success),
-          have_attributes(url: url_failed, status: :failed),
-          have_attributes(url: url_error, status: :errored, message: 'err')
-        ]
-      )
+    context 'in one thread' do
+      let(:parallel) { nil }
+
+      it 'runs correctly' do
+        expect(subject.call).to match_array(
+          [
+            have_attributes(url: url_ok, status: :success),
+            have_attributes(url: url_failed, status: :failed),
+            have_attributes(url: url_error, status: :errored, message: 'err')
+          ]
+        )
+      end
     end
 
-    it 'in parallel threads' do
-      expect(subject.new(filepath, parallel: 5).call).to match_array(
-        [
-          have_attributes(url: url_ok, status: :success),
-          have_attributes(url: url_failed, status: :failed),
-          have_attributes(url: url_error, status: :errored, message: 'err')
-        ]
-      )
+    context 'in parallel threads' do
+      let(:parallel) { 5 }
+
+      it 'runs correctly' do
+        expect(subject.call).to match_array(
+          [
+            have_attributes(url: url_ok, status: :success),
+            have_attributes(url: url_failed, status: :failed),
+            have_attributes(url: url_error, status: :errored, message: 'err')
+          ]
+        )
+      end
     end
   end
 
-  context 'when Application run with errors' do
-    it 'file not exists' do
-      no_file_path = 'spec/fixtures/rai.csv'
-      expect { subject.new(no_file_path).call }
-        .to raise_error(ArgumentError, "no file on path: #{no_file_path}")
+  context 'Application runs with errors' do
+    subject { Checker::Application.new(filepath) }
+
+    context 'when file not exists' do
+      let(:filepath) { 'spec/fixtures/rai.csv' }
+
+      it 'raises error' do
+        expect { subject.call }
+          .to raise_error(ArgumentError, "no file on path: #{filepath}")
+      end
     end
 
-    it 'parser not exists (wrong file extention)' do
-      no_parser_path = 'spec/fixtures/filter.json'
-      expect { subject.new(no_parser_path).call }
-        .to raise_error('no parser for this type: json')
+    context 'when parser not exists (wrong file extention)' do
+      let(:filepath) { 'spec/fixtures/filter.json' }
+
+      it 'raises error' do
+        expect { subject.call }
+          .to raise_error('no parser for this type: json')
+      end
     end
   end
 end
