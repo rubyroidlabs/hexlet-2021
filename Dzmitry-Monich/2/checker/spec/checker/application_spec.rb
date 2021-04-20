@@ -8,7 +8,7 @@ describe Checker::Application do
   let(:url_failed) { '500.com' }
   let(:url_error) { 'error-url.com' }
 
-  context 'Application runs correctly' do
+  context 'When Application runs correctly' do
     subject { Checker::Application.new(filepath, parallel: parallel) }
 
     before do
@@ -17,7 +17,7 @@ describe Checker::Application do
       stub_error_request("https://#{url_error}", 'err')
     end
 
-    context 'in one thread' do
+    context 'with one thread' do
       let(:parallel) { nil }
 
       it 'runs correctly' do
@@ -31,7 +31,7 @@ describe Checker::Application do
       end
     end
 
-    context 'in parallel threads' do
+    context 'with parallel threads' do
       let(:parallel) { 5 }
 
       it 'runs correctly' do
@@ -46,10 +46,10 @@ describe Checker::Application do
     end
   end
 
-  context 'Application runs with errors' do
+  context 'When Application runs with errors' do
     subject { Checker::Application.new(filepath) }
 
-    context 'when file not exists' do
+    context 'if file not exists' do
       let(:filepath) { 'spec/fixtures/rai.csv' }
 
       it 'raises error' do
@@ -58,7 +58,7 @@ describe Checker::Application do
       end
     end
 
-    context 'when parser not exists (wrong file extention)' do
+    context 'if parser not exists (wrong file extention)' do
       let(:filepath) { 'spec/fixtures/filter.json' }
 
       it 'raises error' do

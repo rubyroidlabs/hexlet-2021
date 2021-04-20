@@ -26,7 +26,7 @@ describe Checker::Printer do
   let(:res_errored) { OpenStruct.new(status: :errored, message: 'getaddrinfo', url: url_errored) }
   let(:responses) { [res_successed, res_failed, res_errored] }
 
-  it 'Printer outputs results correctly' do
+  it 'outputs results correctly' do
     expected = "#{url_successed} - 200 (679ms)\n#{url_failed} - 301 (1027ms)\n" \
       "#{url_errored} - ERROR (getaddrinfo)\n\n" \
       "Total: 3, Success: 1, Failed: 1, Errored: 1\n"

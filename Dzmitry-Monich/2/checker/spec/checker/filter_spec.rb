@@ -3,61 +3,79 @@
 require 'checker'
 
 describe Checker::Filter do
-  subject { Checker::Filter }
+  subject { Checker::Filter.new(opts) }
 
-  describe 'Links filter' do
-    let(:link) { File.expand_path('../fixtures/filter.csv', __dir__) }
-    let(:all_links) { CSV.read(link).flatten }
+  describe '#links' do
+    let(:filepath) { File.expand_path('../fixtures/filter.csv', __dir__) }
+    let(:all_links) { CSV.read(filepath).flatten }
 
-    it 'without filter-options (no filteration)' do
-      opts = {}
-      expect(subject.new(opts).links(all_links)).to eq all_links
+    context 'whithout filter options' do
+      let(:opts) { {} }
+
+      it 'not filters data' do
+        expect(subject.links(all_links)).to eq all_links
+      end
     end
 
-    it 'exludes subdomains' do
-      opts = { no_subdomains: true }
-      test_path = File.expand_path('../fixtures/after_subdomains.csv', __dir__)
+    context 'whith option no-subdomains' do
+      let(:opts) { { no_subdomains: true } }
+      let(:test_path) { File.expand_path('../fixtures/after_subdomains.csv', __dir__) }
 
-      expected = CSV.read(test_path).flatten
-      expect(subject.new(opts).links(all_links)).to eq expected
+      it 'exludes subdomains' do
+        expected = CSV.read(test_path).flatten
+        expect(subject.links(all_links)).to eq expected
+      end
     end
 
-    it 'exludes open sources' do
-      opts = { exclude_solutions: true }
-      test_path = File.expand_path('../fixtures/after_constrains.csv', __dir__)
+    context 'whith option exclude-solution' do
+      let(:opts) { { exclude_solutions: true } }
+      let(:test_path) { File.expand_path('../fixtures/after_constrains.csv', __dir__) }
 
-      expected = CSV.read(test_path).flatten
-      expect(subject.new(opts).links(all_links)).to eq expected
+      it 'exludes open sources' do
+        expected = CSV.read(test_path).flatten
+        expect(subject.links(all_links)).to eq expected
+      end
     end
 
-    it 'uses both filters' do
-      opts = { no_subdomains: true, exclude_solutions: true }
-      test_path = File.expand_path('../fixtures/after_all_filters.csv', __dir__)
+    context 'whith both filters' do
+      let(:opts) { { no_subdomains: true, exclude_solutions: true } }
+      let(:test_path) { File.expand_path('../fixtures/after_all_filters.csv', __dir__) }
 
-      expected = CSV.read(test_path).flatten
-      expect(subject.new(opts).links(all_links)).to eq expected
+      it 'filters all' do
+        expected = CSV.read(test_path).flatten
+        expect(subject.links(all_links)).to eq expected
+      end
     end
   end
 
-  describe 'Urls filter' do
+  describe '#responses' do
     let(:res_errored) { OpenStruct.new(status: :errored) }
     let(:res_empty) { OpenStruct.new(status: :success, response: OpenStruct.new(body: 'no')) }
     let(:res_present) { OpenStruct.new(status: :success, response: OpenStruct.new(body: 'some')) }
     let(:responses) { [res_errored, res_empty, res_present] }
 
-    it 'without filter option' do
-      opts = { filter: nil }
-      expect(subject.new(opts).responses(responses)).to eq [res_errored, res_empty, res_present]
+    context 'without filter' do
+      let(:opts) { { filter: nil } }
+
+      it 'not filters data' do
+        expect(subject.responses(responses)).to eq [res_errored, res_empty, res_present]
+      end
     end
 
-    it 'finds match' do
-      opts = { filter: 'some' }
-      expect(subject.new(opts).responses(responses)).to eq [res_present]
+    context 'whith filtered data' do
+      let(:opts) { { filter: 'some' } }
+
+      it 'finds match' do
+        expect(subject.responses(responses)).to eq [res_present]
+      end
     end
 
-    it 'not find match' do
-      opts = { filter: 'none' }
-      expect(subject.new(opts).responses(responses)).to eq []
+    context 'whithout filtered data' do
+      let(:opts) { { filter: 'none' } }
+
+      it 'not find match' do
+        expect(subject.responses(responses)).to eq []
+      end
     end
   end
 end
