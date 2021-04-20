@@ -3,9 +3,11 @@
 require 'csv'
 
 class CsvReader
-  attr_reader :data
-
   def initialize(path)
-    @data = CSV.read(path).flatten
+    @path = path
+  end
+
+  def read_data
+    CSV.read(@path).flatten
   end
 end

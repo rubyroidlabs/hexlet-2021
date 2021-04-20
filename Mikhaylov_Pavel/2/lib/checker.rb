@@ -23,7 +23,7 @@ class Checker
   end
 
   def filter_data
-    Filter.new(csv_data.data, @options).filtered_data
+    Filter.new(csv_data.read_data, @options).filtered_data
   end
 
   def responses
