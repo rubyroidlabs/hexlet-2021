@@ -16,25 +16,25 @@ class Filter
 
   def filter_by_options
     subdomains = []
-    os = []
+    open_source = []
     @options.each_key do |key|
       case key
       when :subdomains
         subdomains << filter_subdomains
       when :solutions
-        os << filter_opensource
+        open_source << filter_opensource
       end
     end
-    conclusion_subdomains_and_os(subdomains, os)
+    conclusion_subdomains_and_os(subdomains, open_source)
   end
 
-  def conclusion_subdomains_and_os(subdomains, os)
+  def conclusion_subdomains_and_os(subdomains, open_source)
     if subdomains.empty?
-      os.flatten
-    elsif os.empty?
+      open_source.flatten
+    elsif open_source.empty?
       subdomains.flatten
     else
-      subdomains.flatten & os.flatten
+      subdomains.flatten & open_source.flatten
     end
   end
 
