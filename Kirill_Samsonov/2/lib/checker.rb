@@ -1,5 +1,5 @@
+# frozen_string_literal: true
 require 'net/http'
-require 'pry'
 require_relative './reader'
 require_relative './output'
 
@@ -23,14 +23,10 @@ class Checker
 
   def check_domains(domains)
     result = { total: 0, success: 0, failed: 0, errored: 0 }
-
     domains.each do |domain|
-      begin
         # Didn't find out how to make destructuring in es6 style. This looks ugly
         response, elapsed_time = check_domain(domain).values_at(:response, :elapsed_time)
-
         next if skip_domain?(response)
-
         code = response.code.to_i
         if success_status?(code)
           result[:success] += 1
