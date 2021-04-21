@@ -40,10 +40,9 @@ module CsvParser
 
   def filter_opensource(data)
     open_source_data = Config.get('OpenSource').map(&:downcase)
-    data -= data.select do |x|
+    data.reject! do |x|
       open_source_data.find { |t| x.include?(t) }
     end
-    data
   end
 end
 
