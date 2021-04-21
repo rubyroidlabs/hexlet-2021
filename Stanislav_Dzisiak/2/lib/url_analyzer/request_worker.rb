@@ -10,16 +10,14 @@ module UrlAnalyzer
     include Celluloid
 
     def send_request(url, head_only, timeout = 3)
-      timeout = 3
       http_verb = head_only ? :head : :get
       result = { url: url }
 
       begin
         response = nil
         time = Benchmark.measure do
-          response = Faraday.method(http_verb).call(url) do |request|
-            request.options.timeout = timeout
-          end
+          configure_request = proc { |request| request.options.timeout = timeout }
+          response = Faraday.method(http_verb).call url, &configure_request
         end
         result[:time] = (time.real * 1000).round
         result[:status] = response.status
