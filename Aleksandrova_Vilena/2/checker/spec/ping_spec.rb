@@ -26,7 +26,7 @@ end
 
 RSpec.describe Ping do
   describe '#run' do
-    let(:file) { File.expand_path('../data/rails_test_opensource.csv', __dir__) }
+    let(:file) { File.expand_path('../data/rails_test_os.csv', __dir__) }
     subject { described_class.new(file, opensource: true) }
     context '--opensource filter' do
       before { subject.run }
@@ -39,7 +39,7 @@ end
 
 RSpec.describe Ping do
   describe '#run' do
-    let(:file) { File.expand_path('../data/rails_test_opensource.csv', __dir__) }
+    let(:file) { File.expand_path('../data/rails_test_summary.csv', __dir__) }
     subject { described_class.new(file, parallel: '3') }
     context '--parallel filter' do
       before { subject.run }
