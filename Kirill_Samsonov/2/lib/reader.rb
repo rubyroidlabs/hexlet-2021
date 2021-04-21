@@ -7,12 +7,12 @@ class Reader
   end
 
   def read
-      file = File.open(@file_name)
-      file.readlines.map(&:chomp)
-    rescue StandardError => e
-      puts e.message
-      exit(1)
-    ensure
-      file.close unless file&.nil?
+    file = File.open(@file_name)
+    file.readlines.map(&:chomp)
+  rescue StandardError => e
+    puts e.message
+    exit(1)
+  ensure
+    file.close unless file&.nil?
   end
 end
