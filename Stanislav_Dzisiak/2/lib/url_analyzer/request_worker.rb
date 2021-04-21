@@ -9,13 +9,15 @@ module UrlAnalyzer
   class RequestWorker
     include Celluloid
 
-    def send_request(url, timeout: 3)
+    def send_request(url, head_only, timeout = 3)
+      timeout = 3
+      http_verb = head_only ? :head : :get
       result = { url: url }
 
       begin
         response = nil
         time = Benchmark.measure do
-          response = Faraday.get(url) do |request|
+          response = Faraday.method(http_verb).call(url) do |request|
             request.options.timeout = timeout
           end
         end

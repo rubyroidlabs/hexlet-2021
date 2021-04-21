@@ -16,6 +16,7 @@ module UrlAnalyzer
 
       def urls
         @operations.each(&:call)
+        @operations = []
         @urls
       end
 

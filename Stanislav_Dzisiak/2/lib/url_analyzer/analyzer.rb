@@ -25,9 +25,10 @@ module UrlAnalyzer
 
     def send_requests(urls)
       request_pool = RequestWorker.pool size: @options[:parallel]
+      head_only = @options[:filter].empty?
 
       futures = urls.map do |url|
-        request_pool.future.send_request url
+        request_pool.future.send_request url, head_only
       end
 
       futures.each(&handle_future)
@@ -37,19 +38,18 @@ module UrlAnalyzer
       proc do |future|
         data = future.value
 
-        unless data[:error].nil?
-          if @options[:filter].empty?
-            @result_data[:total] += 1
-            @result_data[:errored] += 1
-          end
-          next
+        unless @options[:filter].empty?
+          next unless data[:error].nil?
+          next unless data[:body].match?(/#{@options[:filter]}/i)
         end
 
-        next unless data[:body].match?(/#{@options[:filter]}/i)
-
         @result_data[:total] += 1
-        @result_data[:success] += 1 if data[:status].between? 200, 399
-        @result_data[:failed] += 1 if data[:status].between? 400, 599
+        if data[:error].nil?
+          @result_data[:success] += 1 if data[:status].between? 200, 399
+          @result_data[:failed] += 1 if data[:status].between? 400, 599
+        else
+          @result_data[:errored] += 1
+        end
 
         log data
       end
