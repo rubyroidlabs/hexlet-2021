@@ -125,7 +125,7 @@ class UrlCache
     def fetch(url)
       f = self::filename(url)
       puts "#{Time.now.to_i - File.atime(f).to_i} < #{60 * 60}" if Options.verbose
-      if self::exist?(f) && (Time.now.to_i - File.atime(f).to_i) < 60 * 60
+      if self.exist?(f) && (Time.now.to_i - File.atime(f).to_i) < 60 * 60
         YAML.load(IO.read(f))
       else
         false
@@ -141,8 +141,8 @@ class UrlCache
     end
 
     def push(url, data)
-      FileUtils.rm self::filename(url) if self::exist?(self::filename(url))
-      IO.write(self::filename(url), data.to_yaml)
+      FileUtils.rm self.filename(url) if self.exist?(self.filename(url))
+      IO.write(self.filename(url), data.to_yaml)
     end
 
     def exist?(file)
