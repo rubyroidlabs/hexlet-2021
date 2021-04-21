@@ -9,9 +9,13 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
     celluloid (0.18.0)
       timers (~> 4)
+    crack (0.4.5)
+      rexml
     diff-lcs (1.4.4)
     faraday (1.4.1)
       faraday-excon (~> 1.1)
@@ -22,10 +26,12 @@ GEM
     faraday-excon (1.1.0)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.1.0)
+    hashdiff (1.0.1)
     multipart-post (2.1.1)
     parallel (1.20.1)
     parser (3.0.1.0)
       ast (~> 2.4.1)
+    public_suffix (4.0.6)
     rainbow (3.0.0)
     rake (13.0.3)
     regexp_parser (2.1.1)
@@ -64,6 +70,11 @@ GEM
     slop (4.8.2)
     timers (4.3.3)
     unicode-display_width (2.0.0)
+    vcr (6.0.0)
+    webmock (3.12.2)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
 
 PLATFORMS
   x86_64-linux
@@ -78,6 +89,8 @@ DEPENDENCIES
   rubocop-rspec (~> 2.2.0)
   slop (~> 4.8.2)
   url_analyzer!
+  vcr (~> 6.0.0)
+  webmock (~> 3.12.2)
 
 BUNDLED WITH
    2.2.15

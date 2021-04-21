@@ -22,7 +22,7 @@ module UrlAnalyzer
         result[:time] = (time.real * 1000).round
         result[:status] = response.status
         result[:body] = response.body
-      rescue Faraday::ConnectionFailed, Faraday::TimeoutError => e
+      rescue StandardError => e
         result[:error] = e.message
       end
 

@@ -2,9 +2,15 @@
 
 module UrlAnalyzer
   class Analyzer
-    def initialize(path_to_csv, options)
+    def initialize(path_to_csv, options = {})
       @path_to_csv = path_to_csv
-      @options = options
+      @options = {
+        parallel: 1,
+        filter: '',
+        no_subdomains: false,
+        exclude_solutions: false,
+        **options
+      }
       @result_data = { total: 0, success: 0, failed: 0, errored: 0 }
     end
 
@@ -43,15 +49,18 @@ module UrlAnalyzer
           next unless data[:body].match?(/#{@options[:filter]}/i)
         end
 
-        @result_data[:total] += 1
-        if data[:error].nil?
-          @result_data[:success] += 1 if data[:status].between? 200, 399
-          @result_data[:failed] += 1 if data[:status].between? 400, 599
-        else
-          @result_data[:errored] += 1
-        end
-
+        aggregate_result data
         log data
+      end
+    end
+
+    def aggregate_result(data)
+      @result_data[:total] += 1
+      if data[:error].nil?
+        @result_data[:success] += 1 if data[:status].between? 200, 399
+        @result_data[:failed] += 1 if data[:status].between? 400, 599
+      else
+        @result_data[:errored] += 1
       end
     end
 
