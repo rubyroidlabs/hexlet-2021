@@ -52,3 +52,5 @@ other options:
     -v, --version        
     -h, --help
 ```
+
+[![asciicast](https://asciinema.org/a/geMCtpKb4uHnHmX5vU1YYS6bn.svg)](https://asciinema.org/a/geMCtpKb4uHnHmX5vU1YYS6bn)
