@@ -7,7 +7,7 @@ module UrlAnalyzer
     def initialize
       @banner = <<~BANNER
         Utility for analyzing urls.
-        usage: url-analuzer <path_to_csv> [options]
+        usage: checker <path_to_csv> [options]
       BANNER
     end
 
