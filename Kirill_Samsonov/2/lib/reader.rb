@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Reader
   def initialize(source, options)
     @file_name = source

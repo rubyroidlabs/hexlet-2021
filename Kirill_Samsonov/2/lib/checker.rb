@@ -37,7 +37,6 @@ class Checker
       rescue StandardError => e
         result[:errored] += 1
         yield ({ domain: domain, error: true, message: e.message })
-      end
     end
 
     result[:total] = result[:success] + result[:failed] + result[:errored]
