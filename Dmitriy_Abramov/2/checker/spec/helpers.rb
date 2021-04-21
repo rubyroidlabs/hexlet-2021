@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/checker'
+require_relative '../lib/app'
 
 module Helpers
   def run_app(options = {})

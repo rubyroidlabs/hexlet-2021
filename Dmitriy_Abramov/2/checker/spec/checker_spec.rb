@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/checker'
+require_relative '../lib/app'
 require_relative 'helpers'
 
 describe Checker do
@@ -14,12 +14,8 @@ describe Checker do
   end
 
   describe 'invalid file' do
-    it 'returns an error without file' do
-      expect { Checker::App.new({}) }.to raise_error(RuntimeError)
-    end
-
     it 'returns an error with unknown file' do
-      expect { Checker::App.new({ file: 'est.csv' }) }.to raise_error(RuntimeError)
+      expect { run_app(file: 'fail.csv') }.to raise_error
     end
   end
 

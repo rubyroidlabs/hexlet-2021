@@ -12,16 +12,16 @@ module Checker
 
     def initialize(options)
       @options = options
-      validate_options
 
       @requests = Hash.new { |hash, key| hash[key] = [] }
       @printer = Printer.new
-      load_hosts
     end
 
     def run
+      load_hosts
+
       if @options[:parallel]
-        process_requests_parallel(@options[:parallel])
+        process_requests_parallel
       else
         process_requests
       end
@@ -57,11 +57,11 @@ module Checker
       @hosts.each { |url| request(url) }
     end
 
-    def process_requests_parallel(threads)
+    def process_requests_parallel
       queue = Queue.new
       @hosts.each { |url| queue << url }
 
-      Array.new(threads) do
+      Array.new(@options[:parallel]) do
         Thread.new do
           until queue.empty?
             next_url = queue.pop
@@ -86,11 +86,6 @@ module Checker
 
     def solution?(host_name)
       @solutions.any? { |solution| host_name.include?(solution) }
-    end
-
-    def validate_options
-      raise 'no file provided' unless @options[:file]
-      raise 'number of threads must be greater than 1' if @options[:parallel] && @options[:parallel] < 2
     end
   end
 end
