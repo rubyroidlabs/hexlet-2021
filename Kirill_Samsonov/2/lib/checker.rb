@@ -28,17 +28,12 @@ class Checker
         response, elapsed_time = check_domain(domain).values_at(:response, :elapsed_time)
         next if skip_domain?(response)
         code = response.code.to_i
-        if success_status?(code)
-          result[:success] += 1
-        else
-          result[:failed] += 1
-        end
+        success_status?(code) ? result[:success] += 1 : result[:failed] += 1
         yield ({ domain: domain, status: response.code, latency: elapsed_time })
       rescue StandardError => e
         result[:errored] += 1
         yield ({ domain: domain, error: true, message: e.message })
     end
-
     result[:total] = result[:success] + result[:failed] + result[:errored]
     result
   end
