@@ -12,7 +12,7 @@ class Reader
       puts e.message
       exit(1)
     ensure
-      file.close unless file.nil?
+      file.close unless file&.nil?
     end
   end
 end

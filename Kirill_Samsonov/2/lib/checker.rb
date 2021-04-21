@@ -49,9 +49,9 @@ class Checker
   end
 
   def check_domain(name)
-    start_time = Time.now
+    start_time = Time.now.utc
     response = Net::HTTP.get_response(name, '/')
-    elapsed_time = ((Time.now - start_time) * 1000).round
+    elapsed_time = ((Time.now.utc - start_time) * 1000).round
     { response: response, elapsed_time: elapsed_time }
   end
 
