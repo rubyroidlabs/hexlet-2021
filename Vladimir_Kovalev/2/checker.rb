@@ -195,5 +195,4 @@ end
   print " #{info(Db.result[i])} "
   puts "done"
 end
-
 puts Db.out
