@@ -21,6 +21,18 @@ module Checker
       @response&.parsed_response
     end
 
+    def success?
+      status == :success
+    end
+
+    def failed?
+      status == :failed
+    end
+
+    def error?
+      status == :error
+    end
+
     private
 
     def perform

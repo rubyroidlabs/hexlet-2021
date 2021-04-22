@@ -4,11 +4,9 @@ module Printer
   def print_result(request)
     return unless request
 
-    if request.status == :success || request.status == :failed
-      puts "#{request.host_name} - #{request.code} (#{request.duration} ms)\n"
-    end
+    puts "#{request.host_name} - #{request.code} (#{request.duration} ms)\n" if request.success? || request.failed?
 
-    puts "#{request.host_name} - ERROR (#{request.error_message})\n" if request.status == :error
+    puts "#{request.host_name} - ERROR (#{request.error_message})\n" if request.error?
   end
 
   def print_final_result(requests)

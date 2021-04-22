@@ -39,7 +39,7 @@ describe Checker::FilterService do
 
     before do
       allow(request).to receive(:content).and_return('body')
-      allow(request).to receive(:status).and_return(:success)
+      allow(request).to receive(:success?).and_return(true)
     end
 
     it "don't change hosts list" do

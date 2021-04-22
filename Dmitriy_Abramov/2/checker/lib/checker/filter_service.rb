@@ -23,9 +23,7 @@ module Checker
 
     def selected_content?(response)
       if @options[:filter]
-        response.status == :error ||
-          response.status == :failed ||
-          (response.status == :success && response.content&.include?(@options[:filter]))
+        response.success? && response.content&.include?(@options[:filter])
       else
         true
       end
