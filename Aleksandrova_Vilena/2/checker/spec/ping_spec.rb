@@ -12,7 +12,7 @@ RSpec.describe Ping do
     context 'errors' do
       before { subject.run }
       it 'file does not exist' do
-        expect { subject.file_exist?('xxxxx.csv') }.to raise_error(ArgumentError)
+        expect { subject.file_exist?('xxxx.csv') }.to raise_error(ArgumentError)
       end
     end
 
