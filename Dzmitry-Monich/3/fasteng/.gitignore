@@ -1,0 +1,8 @@
+/.bundle/
+/vendor/bundle
+.DS_Store
+*.gem
+/tmp/
+/.rubocop.yml
+.env
+.solargraph.yml
