@@ -47,8 +47,8 @@ class Ping
   def perform
     keyword = @options[:filter] if @options.key?(:filter)
     @data.each do |url|
-      @mutex.lock
       resp = @pool.send_request(url, keyword)
+      @mutex.lock
       @responses << resp unless resp.nil?
       @mutex.unlock
     end
