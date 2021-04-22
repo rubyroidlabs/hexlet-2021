@@ -9,6 +9,13 @@ RSpec.describe Ping do
     let(:file) { File.expand_path('../data/rails_test_200.csv', __dir__) }
     subject { described_class.new(file, subdomains: true) }
 
+    context 'errors' do
+      before { subject.run }
+      it 'file does not exist' do
+        expect { subject.file_exist?('xxxxx.csv') }.to raise_error(ArgumentError)
+      end
+    end
+
     context '--subdomains filter' do
       before { subject.run }
       it '1 response' do
@@ -75,17 +82,6 @@ RSpec.describe Ping do
       expect(subject.responses.select(&:success?).count).to eq 2
       expect(subject.responses.select(&:fail?).count).to eq 1
       expect(subject.responses.select(&:error?).at(0).time).to eq nil
-    end
-  end
-end
-
-RSpec.describe Ping do
-  let(:file) { File.expand_path('../data/rails_test_200.csv', __dir__) }
-  subject { described_class.new(file, {}) }
-  describe '#file_exists?' do
-    it 'file does not exist' do
-      subject.run
-      expect { subject.file_exist?('xxxxx.csv') }.to raise_error(ArgumentError)
     end
   end
 end

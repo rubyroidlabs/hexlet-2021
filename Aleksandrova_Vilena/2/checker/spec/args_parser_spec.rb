@@ -2,37 +2,34 @@
 
 require 'rspec'
 
-require_relative '../lib/helper'
+require_relative '../lib/args_parser'
 
 RSpec.describe ArgsParser do
   subject { described_class.parse(args) }
   let(:args) { %w[-n test_out.csv] }
 
-  it ':subdomains' do
+  it 'parses with :subdomains arg' do
     expect(subject).to eq Hash[:subdomains, false]
   end
-end
 
-RSpec.describe ArgsParser do
-  subject { described_class.parse(args) }
-  let(:args) { %w[-r test_out.csv] }
-  it ':opensource' do
-    expect(subject).to eq Hash[:opensource, true]
+  context ':opensource' do
+    let(:args) { %w[-r test_out.csv] }
+    it 'parses with  :opensource arg' do
+      expect(subject).to eq Hash[:opensource, true]
+    end
   end
-end
 
-RSpec.describe ArgsParser do
-  subject { described_class.parse(args) }
-  let(:args) { %w[-p=3 test_out.csv] }
-  it ':parallel' do
-    expect(subject).to eq Hash[:parallel, '=3']
+  context ':parallel' do
+    let(:args) { %w[-p=3 test_out.csv] }
+    it 'parses with  :parallel arg' do
+      expect(subject).to eq Hash[:parallel, '=3']
+    end
   end
-end
 
-RSpec.describe ArgsParser do
-  subject { described_class.parse(args) }
-  let(:args) { %w[-f=KEYWORD test_out.csv] }
-  it ':filter KEYWORD' do
-    expect(subject).to eq Hash[:filter, '=KEYWORD']
+  context 'KEYWORD' do
+    let(:args) { %w[-f=KEYWORD test_out.csv] }
+    it 'parses with :filter KEYWORD' do
+      expect(subject).to eq Hash[:filter, '=KEYWORD']
+    end
   end
 end

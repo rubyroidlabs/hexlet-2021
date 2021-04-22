@@ -6,11 +6,12 @@ require 'celluloid/autostart'
 require 'celluloid/pool'
 require 'celluloid'
 require 'httparty'
-require_relative 'helper'
+require_relative 'logging'
+require_relative 'csv_parser'
 require_relative 'response'
 require_relative 'ping_worker'
 
-##
+# Ping
 class Ping
   include Logging
   include CsvParser
