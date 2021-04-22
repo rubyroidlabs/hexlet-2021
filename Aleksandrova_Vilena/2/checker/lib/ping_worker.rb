@@ -25,6 +25,8 @@ class PingWorker
     rs
   end
 
+  private
+
   def http_req(uri, keyword)
     resp = {}
     time = Benchmark.realtime do

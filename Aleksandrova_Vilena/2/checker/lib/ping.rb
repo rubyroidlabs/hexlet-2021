@@ -33,6 +33,25 @@ class Ping
     print_summary
   end
 
+  def print_results
+    @responses.each do |x|
+      puts x.to_s
+    end
+  end
+
+  def print_summary
+    s = @responses.select(&:success?).count
+    f = @responses.select(&:fail?).count
+    e = @responses.select(&:error?).count
+    puts "Total: #{@responses.size}, Success: #{s}, Failed: #{f}, Errored: #{e}"
+  end
+
+  def file_exist?(file_path)
+    raise ArgumentError, 'file does not exist' unless File.exist?(file_path)
+  end
+
+  private
+
   def initialize_pool(options)
     return PingWorker.pool(size: 1) if options.key?(:parallel) == false
 
@@ -52,22 +71,5 @@ class Ping
       @responses << resp unless resp.nil?
       @mutex.unlock
     end
-  end
-
-  def print_results
-    @responses.each do |x|
-      puts x.to_s
-    end
-  end
-
-  def print_summary
-    s = @responses.select(&:success?).count
-    f = @responses.select(&:fail?).count
-    e = @responses.select(&:error?).count
-    puts "Total: #{@responses.size}, Success: #{s}, Failed: #{f}, Errored: #{e}"
-  end
-
-  def file_exist?(file_path)
-    raise ArgumentError, 'file does not exist' unless File.exist?(file_path)
   end
 end
