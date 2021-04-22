@@ -8,19 +8,9 @@ module Checker
 
     def initialize(host_name)
       @host_name = host_name
+      @uri = URI.parse("http://#{@host_name}")
+
       perform
-    end
-
-    def error?
-      @status == :error
-    end
-
-    def success?
-      @status == :success
-    end
-
-    def failed?
-      @status == :failed
     end
 
     def code
@@ -34,10 +24,8 @@ module Checker
     private
 
     def perform
-      host = "http://#{@host_name}"
-      uri = URI.parse(host)
       start_time = Time.now.utc
-      @response = HTTParty.get(uri)
+      @response = HTTParty.get(@uri)
       end_time = Time.now.utc
       @duration = format_time(start_time, end_time)
     rescue StandardError => e
