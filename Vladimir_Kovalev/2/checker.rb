@@ -99,15 +99,13 @@ class Db
       @@result.map { |e| e[1][:code] }.each do |e|
         case e
         when /^[23]/
-          out[:Total] += 1
           out[:Success] += 1
         when /^[45]/
-          out[:Total] += 1
           out[:Failed] += 1
         else
-          out[:Total] += 1
           out[:Errored] += 1
         end
+        out[:Total] += 1
       end
       out
     end
@@ -123,10 +121,10 @@ class UrlCache
   @@cache_dir = File.join(Dir.pwd, @@cache_dir_name)
   class << self
     def fetch(url)
-      f = self::filename(url)
+      f = self.filename(url)
       puts "#{Time.now.to_i - File.atime(f).to_i} < #{60 * 60}" if Options.verbose
       if self.exist?(f) && (Time.now.to_i - File.atime(f).to_i) < 60 * 60
-        YAML.load(IO.read(f))
+        YAML.safe_load(IO.read(f))
       else
         false
       end
@@ -160,31 +158,38 @@ class Body
   end
 
   def match_keyword?(keyword)
+    !@body.scan(/#{keyword}/).empty?
   end
 end
 
-def info(h)
-  print "#{h[:code]} (#{h[:time]})"
+def info(row)
+  print " #{row[:code]} (#{row[:time]}) "
 end
 
 1.upto(Db.total) do |i|
   print "#{100 / Db.total * i}% - #{Db.result[i][:host]} - "
 
+  cached = UrlCache.fetch(Db.result[i][:host])
   if cached = UrlCache.fetch(Db.result[i][:host])
     Db.result[i] = cached
     puts " cached #{info(Db.result[i])}"
     next
   end
 
-  uri = URI::HTTP.build(:host => Db.result[i][:host])
+  uri = URI::HTTP.build(host: Db.result[i][:host])
   res = nil
 
   begin
     time = Benchmark.measure do
       res = Net::HTTP.get_response(uri)
     end
+    time_string = if time.real.truncate.positive?
+        "#{time.real.truncate}s"
+      else
+        "#{time.real.to_s.split(".")[1][0..2]}ms"
+      end
     Db.result[i].merge!({ code: res.code,
-                          time: time.real.truncate > 0 ? "#{time.real.truncate}s" : "#{time.real.to_s.split(".")[1][0..2]}ms",
+                          time: time_string,
                           body: Body.new(res.body) })
   rescue => e
     Db.result[i].merge!({ code: e.message })
@@ -192,7 +197,7 @@ end
     UrlCache.push(Db.result[i][:host], Db.result[i])
   end
 
-  print " #{info(Db.result[i])} "
+  info(Db.result[i])
   puts "done"
 end
 puts Db.out
