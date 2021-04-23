@@ -18,7 +18,6 @@ class Printer
         @summary[:error] += 1
       end
       @summary[:total] += 1
-      Summary::Request.to_s(url_data)
     end
     Summary::Conclusion.to_s(@summary)
   end

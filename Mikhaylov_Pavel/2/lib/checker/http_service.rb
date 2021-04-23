@@ -11,7 +11,11 @@ class HttpService
   def fetch_all
     result = []
     @data.each do |url|
-      result << fetch(url) unless fetch(url).nil?
+      fetched_url = fetch(url)
+      unless fetched_url.nil?
+        Summary::Request.to_s(fetched_url)
+        result << fetched_url
+      end
     end
     result
   end
