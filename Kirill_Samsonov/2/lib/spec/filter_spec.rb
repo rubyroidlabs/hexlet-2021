@@ -5,8 +5,20 @@ require_relative '../filter'
 describe Filter do
   subject { Filter.new(options) }
 
-  let(:domains) { ['mydomain.com', 'anotherdomain.com', 'o.anotherdomain.com', 'google.com'] }
-  let(:no_subdomains) { ['mydomain.com', 'anotherdomain.com', 'google.com'] }
+  let(:no_subdomains) {
+    [
+      instance_double('Domain', name: 'mydomain.com', subdomain?: false),
+      instance_double('Domain', name: 'mynewdomain.com', subdomain?: false),
+      instance_double('Domain', name: 'mynewdomain2.com', subdomain?: false),
+      instance_double('Domain', name: 'mydomain.com', subdomain?: false)
+    ]
+  }
+  let(:domains) {
+    [
+      *no_subdomains,
+      instance_double('Domain', name: 'a.mydomain.com', subdomain?: true)
+    ]
+  }
 
   describe 'without filters' do
     let(:options) { {} }
