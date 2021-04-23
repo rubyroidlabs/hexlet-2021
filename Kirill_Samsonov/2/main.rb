@@ -21,5 +21,11 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-checker = Checker.new(ARGV.first, options)
-checker.run
+begin
+  checker = Checker.new(ARGV.first, options)
+  checker.run
+rescue Errno::ENOENT
+  puts "File #{ARGV.first} doesn't exist."
+rescue Errno::EACCES
+  puts "Can't read from #{ARGV.first}. No permission."
+end
