@@ -13,21 +13,19 @@ class Checker
   end
 
   def run
-    csv_data
-    responses
     print_out
   end
 
-  def csv_data
+  def csv
     CsvReader.new(@csv_path)
   end
 
-  def filter_data
-    Filter.new(csv_data.read_data, @options).filtered_data
+  def filtered_data
+    Filter.new(csv.data, @options).apply_filter
   end
 
   def responses
-    HttpService.new(filter_data, search_word).fetch_all
+    HttpService.new(filtered_data, search_word).fetch_all
   end
 
   def print_out

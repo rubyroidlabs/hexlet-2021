@@ -7,7 +7,7 @@ class CsvReader
     @path = path
   end
 
-  def read_data
+  def data
     CSV.read(@path).flatten
   end
 end

@@ -6,7 +6,7 @@ class Filter
     @options = options
   end
 
-  def filtered_data
+  def apply_filter
     if @options.key?(:subdomains) || @options.key?(:solutions)
       filter_by_options
     else
@@ -43,7 +43,7 @@ class Filter
   end
 
   def filter_opensource
-    opensources = CsvReader.new('os.csv').read_data
+    opensources = CsvReader.new('os.csv').data
     @data.reject do |row|
       opensources.find { |res| row.include?(res) }
     end
