@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Summary
+module Summary
   class Request
     def self.to_s(url_data)
       if url_data.key?(:code)
