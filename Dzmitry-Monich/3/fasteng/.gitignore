@@ -6,3 +6,4 @@
 /.rubocop.yml
 .env
 .solargraph.yml
+/log/*

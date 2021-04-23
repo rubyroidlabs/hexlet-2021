@@ -5,4 +5,4 @@ require 'rubygems'
 require 'bundler/setup'
 require_relative '../lib/fasteng'
 
-Fasteng::App.new.init.listen
+Fasteng::App.new.init.run

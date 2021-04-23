@@ -2,14 +2,14 @@
 
 require 'logger'
 
-class DatabaseConnector
-  class << self
+module Fasteng
+  module DatabaseHandler
+    module_function
+
     def sync
       ActiveRecord::Base.logger = Logger.new('log/db.log')
       setup
     end
-
-    private
 
     def setup
       env = ENV['DB_ENV'] || 'development'

@@ -13,7 +13,7 @@ module Fasteng
       @client = Telegram::Bot::Client
     end
 
-    def listen
+    def run
       client.run(ENV['BOT_TOKEN']) do |bot|
         logger.info('Bot has been started')
 
@@ -24,12 +24,18 @@ module Fasteng
     end
 
     def init
-      DatabaseConnector.sync
+      DatabaseHandler.sync
+      require_models
+      Dictionary.setup
       self
     end
 
     private
 
-    attr_reader :client, :dictionary
+    attr_reader :client
+
+    def require_models
+      Dir["#{Fasteng.root_path}/models/**/*.rb"].each { |file| require file }
+    end
   end
 end
