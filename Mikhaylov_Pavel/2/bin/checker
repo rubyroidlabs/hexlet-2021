@@ -21,5 +21,4 @@ end.parse!
 raise StandardError, 'Select a csv file' if ARGV.first.nil?
 raise StandardError, 'File not found' unless File.exist?(ARGV.first)
 
-checker = Checker.new(ARGV.first, options)
-checker.run
+Checker.new(ARGV.first, options).run
