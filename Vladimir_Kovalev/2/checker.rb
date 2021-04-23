@@ -1,11 +1,14 @@
 require "csv"
-require "net/http"
 require "benchmark"
+require "net/http"
 require "digest"
 require "yaml"
 require "optparse"
 require "singleton"
 require "fileutils"
+require "domainatrix"
+
+Dir["./lib/*.rb"].each { |file| require_relative file }
 
 class Options
   include Singleton
@@ -63,111 +66,21 @@ unless File.exist? ARGV[0]
   exit
 end
 
-class Db
-  class << self
-    def load_file(csv_file)
-      @@all_data = CSV.read(csv_file).uniq
-    end
-
-    def csv
-      @@all_data
-    end
-
-    def subdomains_clear
-      @@all_data.reject! do |e|
-        e.count(".") > 2
-      end
-    end
-
-    def total
-      @@all_data.count
-    end
-
-    def populate
-      @@result = {}
-      @@all_data.each.with_index(1) do |e, i|
-        @@result[i] = { host: e[0] }
-      end
-    end
-
-    def result
-      @@result
-    end
-
-    def out
-      out = { Total: 0, Success: 0, Failed: 0, Errored: 0 }
-      @@result.map { |e| e[1][:code] }.each do |e|
-        case e
-        when /^[23]/
-          out[:Success] += 1
-        when /^[45]/
-          out[:Failed] += 1
-        else
-          out[:Errored] += 1
-        end
-        out[:Total] += 1
-      end
-      out
-    end
-  end
-end
-
 Db.load_file ARGV[0]
 Db.subdomains_clear if Options.nosubdomains
 Db.populate
-
-class UrlCache
-  @@cache_dir_name = ".cache"
-  @@cache_dir = File.join(Dir.pwd, @@cache_dir_name)
-  class << self
-    def fetch(url)
-      f = self.filename(url)
-      puts "#{Time.now.to_i - File.atime(f).to_i} < #{60 * 60}" if Options.verbose
-      if self.exist?(f) && (Time.now.to_i - File.atime(f).to_i) < 60 * 60
-        YAML.safe_load(IO.read(f))
-      else
-        false
-      end
-    end
-
-    def hash_of_file(url)
-      Digest::MD5.hexdigest url
-    end
-
-    def filename(url)
-      File.join(@@cache_dir, hash_of_file(url))
-    end
-
-    def push(url, data)
-      FileUtils.rm self.filename(url) if self.exist?(self.filename(url))
-      IO.write(self.filename(url), data.to_yaml)
-    end
-
-    def exist?(file)
-      Dir.mkdir @@cache_dir unless Dir.exist? @@cache_dir
-      File.exist? file
-    end
-  end
-end
-
-class Body
-  attr_reader :body
-
-  def initialize(body)
-    @body = body
-  end
-
-  def match_keyword?(keyword)
-    !@body.scan(/#{keyword}/).empty?
-  end
-end
 
 def info(row)
   print " #{row[:code]} (#{row[:time]}) "
 end
 
+def print_percent(step)
+  print "#{100 / Db.total * step}% - "
+end
+
 1.upto(Db.total) do |i|
-  print "#{100 / Db.total * i}% - #{Db.result[i][:host]} - "
+  print_percent(i) unless Options.filter
+  print "#{Db.result[i][:host]} - "
 
   cached = UrlCache.fetch(Db.result[i][:host])
   if cached = UrlCache.fetch(Db.result[i][:host])
