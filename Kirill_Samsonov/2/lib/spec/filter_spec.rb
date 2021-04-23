@@ -6,7 +6,7 @@ describe Filter do
   subject { Filter.new(options) }
 
   let(:domains) { ['mydomain.com', 'anotherdomain.com', 'o.anotherdomain.com', 'google.com'] }
-  let(:no_subdomains) { ['mydomain.com', 'anotherdomain.com','google.com']}
+  let(:no_subdomains) { ['mydomain.com', 'anotherdomain.com', 'google.com'] }
 
   describe 'without filters' do
     let(:options) { {} }
