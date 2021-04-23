@@ -23,7 +23,7 @@ describe Filter do
   describe 'without filters' do
     let(:options) { {} }
 
-    it "don't change hosts list" do
+    it "don't change domains list" do
       expect(subject.filter_domains(domains)).to eq domains
     end
   end
