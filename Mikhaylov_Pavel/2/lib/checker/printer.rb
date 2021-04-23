@@ -11,11 +11,9 @@ class Printer
     @data.each do |url_data|
       if url_data.key?(:code)
         code = url_data[:code]
-        if code.between?(200, 400)
-          @summary[:success] += 1
-        elsif code >= 400
-          @summary[:fail] += 1
-        end
+
+        @summary[:success] += 1 if code.between?(200, 400)
+        @summary[:fail] += 1 if code >= 400
       else
         @summary[:error] += 1
       end
