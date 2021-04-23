@@ -14,13 +14,12 @@ class PingWorker
   include Celluloid
 
   def send_request(uri, keyword = '')
-    rs = Response.new(uri: uri)
+    rs = nil
     begin
       rs = http_req(uri, keyword)
       return if keyword && rs.keyword.nil?
     rescue StandardError => e
-      rs.is_err = true
-      rs.msg = e.to_s
+      rs = Response.new(uri: uri, is_err: true, msg: e.to_s)
     end
     rs
   end
@@ -35,7 +34,7 @@ class PingWorker
     is_keyword = true if keyword && resp.body.include?(keyword)
     Response.new(uri: uri,
                  code: resp.code,
-                 message: resp.message,
+                 msg: resp.message,
                  time: (time.to_f * 1000.0).ceil(1),
                  is_keyword: is_keyword, is_err: false)
   end

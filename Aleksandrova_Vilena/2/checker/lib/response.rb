@@ -7,7 +7,7 @@ class Response
   def initialize(param)
     @uri = param[:uri]
     @code = param[:code]
-    @msg = param[:message]
+    @msg = param[:msg]
     @time = param[:time]
     @is_err = param[:is_err]
     @keyword = param[:keyword]
