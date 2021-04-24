@@ -82,6 +82,7 @@ RSpec.describe Ping do
       expect(subject.responses.select(&:success?).count).to eq 2
       expect(subject.responses.select(&:fail?).count).to eq 1
       expect(subject.responses.select(&:error?).at(0).time).to eq nil
+      expect(subject.responses.select(&:error?).at(0).msg).not_to eq nil
     end
   end
 end
