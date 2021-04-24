@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_23_192044) do
+ActiveRecord::Schema.define(version: 2021_04_24_123019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 2021_04_23_192044) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["word"], name: "index_definitions_on_word", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "telegram_id", null: false
+    t.string "state", default: "registered"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["telegram_id"], name: "index_users_on_telegram_id", unique: true
   end
 
 end
