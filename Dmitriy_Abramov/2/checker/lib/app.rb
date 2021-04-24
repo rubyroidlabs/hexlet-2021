@@ -14,7 +14,7 @@ module Checker
 
     def initialize(options)
       @options = options
-      @requests = { success: [], failed: [], error: [] }
+      @requests = { |hash, key| hash[key] = [] }
 
       @filter = FilterService.new(options)
     end
