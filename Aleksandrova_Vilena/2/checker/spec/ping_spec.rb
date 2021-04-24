@@ -78,9 +78,9 @@ RSpec.describe Ping do
     it 'summary equals' do
       subject.run
       expect(subject.responses.count).to eq 4
-      expect(subject.responses.select(&:error?).count).not_to eq 0
-      expect(subject.responses.select(&:success?).count).to eq 2
-      expect(subject.responses.select(&:fail?).count).to eq 1
+      expect(subject.responses.count(&:error?)).not_to eq 0
+      expect(subject.responses.count(&:success?)).to eq 2
+      expect(subject.responses.count(&:fail?)).to eq 1
       expect(subject.responses.select(&:error?).at(0).time).to eq nil
       expect(subject.responses.select(&:error?).at(0).msg).not_to eq nil
     end

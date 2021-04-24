@@ -41,10 +41,10 @@ class Ping
   end
 
   def print_summary
-    s = @responses.select(&:success?).count
-    f = @responses.select(&:fail?).count
-    e = @responses.select(&:error?).count
-    puts "Total: #{@responses.size}, Success: #{s}, Failed: #{f}, Errored: #{e}"
+    success = @responses.count(&:success?)
+    failed = @responses.count(&:fail?)
+    errored = @responses.count(&:error?)
+    puts "Total: #{@responses.size}, Success: #{success}, Failed: #{failed}, Errored: #{errored}"
   end
 
   def file_exist?(file_path)
