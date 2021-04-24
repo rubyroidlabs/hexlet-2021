@@ -3,21 +3,30 @@
 require 'faraday'
 
 class HttpService
-  def initialize(data, search_word)
+  def initialize(data, search_word, parallel)
     @data = data
     @search_word = search_word
+    @parallel = parallel.to_i
+    @result = []
   end
 
   def fetch_all
-    result = []
-    @data.each do |url|
-      fetched_url = fetch(url)
-      unless fetched_url.nil?
-        Summary::Request.to_s(fetched_url)
-        result << fetched_url
+    queue = Queue.new
+    @data.each { |url| queue << url }
+
+    Array.new(@parallel) do
+      Thread.new do
+        until queue.empty?
+          next_object = queue.shift
+          fetched_url = fetch(next_object)
+          unless fetched_url.nil?
+            Summary::Request.to_s(fetched_url)
+            @result << fetched_url
+          end
+        end
       end
-    end
-    result
+    end.each(&:join)
+    @result
   end
 
   def fetch(url)

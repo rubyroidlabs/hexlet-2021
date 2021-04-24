@@ -17,6 +17,7 @@ class Filter
   def filter_by_options
     subdomains = []
     open_source = []
+
     @options.each_key do |key|
       case key
       when :subdomains
@@ -25,6 +26,7 @@ class Filter
         open_source << filter_opensource
       end
     end
+
     conclusion_subdomains_and_os(subdomains, open_source)
   end
 

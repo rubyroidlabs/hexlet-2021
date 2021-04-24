@@ -25,7 +25,7 @@ class Checker
   end
 
   def responses
-    HttpService.new(filtered_data, search_word).fetch_all
+    HttpService.new(filtered_data, search_word, parallel).fetch_all
   end
 
   def print_out
@@ -34,5 +34,9 @@ class Checker
 
   def search_word
     @options.fetch(:filterword, '')
+  end
+
+  def parallel
+    @options.fetch(:parallel, 1)
   end
 end
