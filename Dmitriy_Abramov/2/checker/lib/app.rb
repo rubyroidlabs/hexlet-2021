@@ -14,7 +14,7 @@ module Checker
 
     def initialize(options)
       @options = options
-      @requests = Hash.new { |hash, key| hash[key] = [] }
+      @requests = { success: [], failed: [], error: [] }
 
       @filter = FilterService.new(options)
     end
@@ -32,6 +32,7 @@ module Checker
 
     def make_request(url)
       request = Request.new(url)
+      request.perform
 
       return unless @filter.selected_content?(request)
 

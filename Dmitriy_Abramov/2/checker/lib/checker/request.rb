@@ -9,8 +9,6 @@ module Checker
     def initialize(host_name)
       @host_name = host_name
       @uri = URI.parse("http://#{@host_name}")
-
-      perform
     end
 
     def code
@@ -33,8 +31,6 @@ module Checker
       status == :error
     end
 
-    private
-
     def perform
       start_time = Time.now.utc
       @response = HTTParty.get(@uri)
@@ -45,6 +41,8 @@ module Checker
     ensure
       set_status
     end
+
+    private
 
     def set_status
       @status = if code.to_s.start_with?('2', '3')
