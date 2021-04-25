@@ -4,23 +4,35 @@ module Fasteng
   class Dispatcher
     include Logging
 
-    def initialize(message, message_sender)
+    def initialize(bot_api, message)
+      @bot_api = bot_api
       @message = message
-      @message_sender = message_sender
+      @user = User.find_or_create_by(telegram_id: message.from.id)
     end
 
     def dispatch
-      if User.exists?(telegram_id: message.from.id)
-        @user = User.find_by(telegram_id: message.from.id)
-        message_sender.answer_message(user)
-      else
-        @user = User.create(telegram_id: message.from.id)
-        message_sender.welcome_message
+      message_sender = MessageSender.new(bot_api, message.chat.id)
+
+      case user.status
+      when 'new'
+        user.update(status: 'registered')
+        message_sender.respond(:welcome)
+      when 'registered'
+        if answer_valid?(message.text)
+          user.update(status: 'scheduled')
+          message_sender.respond(:accept)
+        else
+          message_sender.respond(:welcome_dialog)
+        end
       end
     end
 
     private
 
-    attr_reader :message, :message_sender, :user
+    attr_reader :bot_api, :message, :user
+
+    def answer_valid?(answer)
+      (1..6).map(&:to_s).any?(answer)
+    end
   end
 end
