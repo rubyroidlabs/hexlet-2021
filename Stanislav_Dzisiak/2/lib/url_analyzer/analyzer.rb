@@ -17,9 +17,9 @@ module UrlAnalyzer
     def analyze
       data_format = File.extname(@path_to_csv)[1..]
       content = File.read @path_to_csv
-      raw_urls = Utils::Parser.parse content, data_format
+      raw_urls = Parser.parse content, data_format
 
-      url_list = Utils::UrlList.new raw_urls
+      url_list = UrlList.new raw_urls
       urls = url_list.filter(@options).normalize.urls
 
       send_requests urls

@@ -4,6 +4,6 @@ module UrlAnalyzer
   autoload 'Cli', 'url_analyzer/cli'
   autoload 'Analyzer', 'url_analyzer/analyzer'
   autoload 'Parser', 'url_analyzer/parser'
-  autoload 'Utils', 'url_analyzer/utils'
+  autoload 'UrlList', 'url_analyzer/url_list'
   autoload 'RequestWorker', 'url_analyzer/request_worker'
 end
