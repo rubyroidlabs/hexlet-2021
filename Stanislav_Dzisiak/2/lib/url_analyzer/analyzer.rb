@@ -15,29 +15,27 @@ module UrlAnalyzer
     end
 
     def analyze
-      data_format = File.extname(@path_to_csv)[1..]
-      content = File.read @path_to_csv
-      raw_urls = Parser.parse content, data_format
+      data_format, content = read_file_data(@path_to_csv)
+      raw_urls = Parser.parse(content, data_format)
 
-      url_list = UrlList.new raw_urls
+      url_list = UrlList.new(raw_urls)
       urls = url_list.filter(@options).normalize.urls
 
-      send_requests urls
+      head_only = @options[:filter].empty?
+      pool_size = @options[:parallel]
+      futures = RequestWorker.send_requests(urls, head_only, pool_size)
+      futures.each(&handle_future)
 
       @result_data
     end
 
     private
 
-    def send_requests(urls)
-      request_pool = RequestWorker.pool size: @options[:parallel]
-      head_only = @options[:filter].empty?
-
-      futures = urls.map do |url|
-        request_pool.future.send_request url, head_only
-      end
-
-      futures.each(&handle_future)
+    def read_file_data(file_path)
+      [
+        File.extname(file_path)[1..],
+        File.read(file_path)
+      ]
     end
 
     def handle_future
@@ -49,16 +47,16 @@ module UrlAnalyzer
           next unless data[:body].match?(/#{@options[:filter]}/i)
         end
 
-        aggregate_result data
-        log data
+        aggregate_result(data)
+        log(data)
       end
     end
 
     def aggregate_result(data)
       @result_data[:total] += 1
       if data[:error].nil?
-        @result_data[:success] += 1 if data[:status].between? 200, 399
-        @result_data[:failed] += 1 if data[:status].between? 400, 599
+        @result_data[:success] += 1 if data[:status].between?(200, 399)
+        @result_data[:failed] += 1 if data[:status].between?(400, 599)
       else
         @result_data[:errored] += 1
       end

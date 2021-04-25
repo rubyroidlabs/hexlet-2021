@@ -9,6 +9,14 @@ module UrlAnalyzer
   class RequestWorker
     include Celluloid
 
+    def self.send_requests(urls, head_only, pool_size)
+      request_pool = pool(size: pool_size)
+
+      urls.map do |url|
+        request_pool.future.send_request(url, head_only)
+      end
+    end
+
     def send_request(url, head_only, timeout = 3)
       http_verb = head_only ? :head : :get
       result = { url: url }
