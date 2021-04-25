@@ -17,8 +17,14 @@ module Fasteng
       client.run(ENV['BOT_TOKEN']) do |bot|
         logger.info('Bot has been started')
 
-        bot.listen do |msg|
-          MessageResponder.new(bot, msg).respond
+        bot.listen do |message|
+          logger.info "[#{message.chat.id}] #{message.from.username}: #{message.text}"
+          Thread.new do
+            Dispatcher.new(
+              message,
+              MessageSender.new(bot.api, message)
+            ).dispatch
+          end
         end
       end
     end

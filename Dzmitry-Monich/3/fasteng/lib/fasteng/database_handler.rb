@@ -7,7 +7,7 @@ module Fasteng
     module_function
 
     def sync
-      ActiveRecord::Base.logger = Logger.new('log/db.log')
+      ActiveRecord::Base.logger = Logger.new($stdout)
       setup
     end
 

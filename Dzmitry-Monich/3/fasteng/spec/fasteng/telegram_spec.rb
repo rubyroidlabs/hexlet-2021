@@ -5,8 +5,6 @@ require 'fasteng'
 describe Fasteng::App do
   let(:bot_client) { Telegram::Bot::Client }
   let(:token) { '123456' }
-  let(:bot) { double }
-  let(:message) { double }
   let(:result) { double }
 
   before do
@@ -22,13 +20,8 @@ describe Fasteng::App do
   end
 
   it 'bot-server gets handler' do
-    allow_any_instance_of(Fasteng::MessageResponder)
-      .to receive(:respond)
-      .and_return(result)
-
     expect_any_instance_of(bot_client)
       .to receive(:listen)
-      .and_yield(result)
 
     subject.run
   end
