@@ -4,6 +4,7 @@ require 'shoulda/matchers'
 require 'factory_bot'
 require 'database_cleaner/active_record'
 require 'fasteng'
+require 'whenever/test'
 Dir["#{Fasteng.root_path}/models/**/*.rb"].each { |file| require file }
 
 env = 'test'

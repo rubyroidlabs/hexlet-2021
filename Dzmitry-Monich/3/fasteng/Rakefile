@@ -1,5 +1,16 @@
 # frozen_string_literal: true
 
 require 'standalone_migrations'
-
 StandaloneMigrations::Tasks.load_tasks
+
+require_relative 'lib/fasteng'
+
+namespace :cron do
+  task :notify do
+    Fasteng::NotifyService.call
+  end
+
+  # task :test do
+  #   puts 'Hello!'
+  # end
+end

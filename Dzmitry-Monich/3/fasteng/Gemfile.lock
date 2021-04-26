@@ -124,6 +124,8 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     whenever (1.0.0)
       chronic (>= 0.6.3)
+    whenever-test (1.0.1)
+      whenever
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -142,6 +144,7 @@ DEPENDENCIES
   standalone_migrations (~> 6.0)
   telegram-bot-ruby (~> 0.15.0)
   whenever
+  whenever-test
 
 BUNDLED WITH
    2.2.16

@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require 'dotenv/load'
-require 'telegram/bot'
-require 'yaml'
-require 'active_record'
-
 module Fasteng
   class App
     include Logging

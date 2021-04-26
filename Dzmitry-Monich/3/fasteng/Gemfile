@@ -27,3 +27,4 @@ gem 'factory_bot'
 gem 'database_cleaner-active_record'
 
 gem 'whenever', require: false
+gem 'whenever-test'
