@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: aa31845ed54c25eb2638d716bfddf59771b502aa
+  branch: master
+  specs:
+    faker (2.18.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -115,6 +123,7 @@ GEM
       virtus
     thor (1.1.0)
     thread_safe (0.3.6)
+    timecop (0.9.4)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     virtus (1.0.5)
@@ -136,6 +145,7 @@ DEPENDENCIES
   database_cleaner-active_record
   dotenv (~> 2.7)
   factory_bot
+  faker!
   pg (~> 1.2)
   pry (~> 0.14.1)
   rake (~> 13.0)
@@ -143,6 +153,7 @@ DEPENDENCIES
   shoulda-matchers
   standalone_migrations (~> 6.0)
   telegram-bot-ruby (~> 0.15.0)
+  timecop (~> 0.9.4)
   whenever
   whenever-test
 

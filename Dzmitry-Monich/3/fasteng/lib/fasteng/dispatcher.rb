@@ -15,11 +15,11 @@ module Fasteng
 
       case user.status
       when 'new'
-        user.update(status: 'registered')
+        user.update!(status: 'registered')
         message_sender.respond(:welcome)
       when 'registered'
         if answer_valid?(message.text)
-          user.update(status: 'scheduled')
+          user.add_schedule!(message.text)
           message_sender.respond(:accept)
         else
           message_sender.respond(:welcome_dialog)

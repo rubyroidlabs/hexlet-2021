@@ -25,4 +25,36 @@ describe User, type: :model do
       end
     end
   end
+
+  describe 'Methods' do
+    describe '#add_schedule!' do
+      let(:user) { create(:user, status: 'registered') }
+      let(:schedule_count) { 3 }
+
+      before { Timecop.freeze(2021, 4, 20, 22) }
+
+      it 'adds schedule to user' do
+        user.add_schedule!(schedule_count)
+
+        expect(User.find(user.id)).to have_attributes(
+          status: 'scheduled',
+          schedule: '9,15,21',
+          current_time: 9
+        )
+      end
+    end
+
+    describe '#add_notification!' do
+      let(:user) { create(:user, status: 'scheduled', schedule: '9,15,21', current_time: 21) }
+
+      it 'updates user when notification' do
+        user.add_notification!
+
+        expect(User.find(user.id)).to have_attributes(
+          status: 'waiting',
+          current_time: 9
+        )
+      end
+    end
+  end
 end

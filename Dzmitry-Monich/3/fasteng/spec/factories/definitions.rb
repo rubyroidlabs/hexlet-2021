@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :definition do
-    word { 'one' }
-    description  { 'Good number' }
+    word { Faker::Lorem.word }
+    description { Faker::Lorem.sentence }
   end
 end
