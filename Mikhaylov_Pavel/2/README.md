@@ -26,7 +26,7 @@ Total: 10, Success: 8, Failed: 1, Errored: 1
 
 ### Доступные опции
 
-* Параметр --no-subdomains - игнорирует все доменные имена второго и более уровней и проверяет только домены первого уровня:
+* Параметр ```--no-subdomains``` - игнорирует все доменные имена второго и более уровней и проверяет только домены первого уровня:
 
 ```
 bin/checker --no-subdomains test.csv
@@ -42,7 +42,7 @@ github.com/ohmyzsh/ohmyzsh - 301 (79ms)
 Total: 8, Success: 7, Failed: 0, Errored: 1
 ```
 
-* Параметр --filter=sales, который ищет определенное слово в содержании страниц и выводит их только в случае нахождения этого слова на странице:
+* Параметр ```--filter=sales```, который ищет определенное слово в содержании страниц и выводит их только в случае нахождения этого слова на странице:
 
 ```
 bin/checker test.csv --filter=pageBrowserError
@@ -53,7 +53,7 @@ bin/checker test.csv --filter=pageBrowserError
 Total: 3, Success: 1, Failed: 0, Errored: 2
 ```
 
-* Параметр --exclude-solutions, игнорирует все приложения, которые скорее всего являются различными open source решениями наподобии redmine или gitlab. Логику фильтрации мы оставляем за вами:
+* Параметр ```--exclude-solutions```, игнорирует все приложения, которые скорее всего являются различными open source решениями наподобии redmine или gitlab. Логику фильтрации мы оставляем за вами:
 
 ```
 bin/checker --exclude-solutions test.csv
@@ -71,4 +71,22 @@ bin/checker --exclude-solutions test.csv
 1person.me - ERROR Failed to open TCP connection to 1person.me:80 (getaddrinfo: nodename nor servname provided, or not known)
 alexandraiv.wixsite.com - 404 (265ms)
 Total: 18, Success: 15, Failed: 1, Errored: 2
+```
+
+* Параметр ```--parallel=N``` - проверяет все домены параллельно в N потоков:
+
+```
+bin/checker test.csv --parallel=5
+
+000010.industry-std.com - 301 (615ms)
+0s.m5sxiytpn52hg5dsmfyc4y3pnu.cmle.ru - 200 (1430ms)
+0s.o53xo.mjzg653tmvzhg5dbmnvs4y3pnu.nblz.ru - 200 (418ms)
+1000albergues.com - 200 (226ms)
+100czerwiec.konfeo.com - 301 (82ms)
+101.roomzilla.net - 301 (5541ms)
+108kwiecien.konfeo.com - 301 (87ms)
+1person.me - ERROR Failed to open TCP connection to 1person.me:80 (getaddrinfo: nodename nor servname provided, or not known)
+alexandraiv.wixsite.com - 404 (239ms)
+github.com/ohmyzsh/ohmyzsh - 301 (79ms)
+Total: 10, Success: 8, Failed: 1, Errored: 1
 ```

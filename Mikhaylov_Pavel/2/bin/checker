@@ -16,7 +16,7 @@ OptionParser.new do |opts|
   opts.on('--filter=WORD', 'Find all pages with selected "WORD"') do |w|
     options[:filterword] = w
   end
-  opts.on('--parallel=WORD', 'Parallel request, in the specified number of threads') do |par|
+  opts.on('--parallel=NUMBER', 'Parallel request, in the specified number of threads') do |par|
     options[:parallel] = par
   end
 end.parse!

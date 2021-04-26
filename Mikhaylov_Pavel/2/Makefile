@@ -8,7 +8,10 @@ wo_os:
 	bin/checker --exclude-solutions test.csv
 
 filter:
-	bin/checker test.csv --filter=$(word)
+	bin/checker test.csv --filter=$(filter)
+
+parallel:
+	bin/checker test.csv --parallel=$(parallel)
 
 full:
 	bin/checker test.csv --exclude-solutions --no-subdomains --filter=$(word)
