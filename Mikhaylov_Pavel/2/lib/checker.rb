@@ -16,6 +16,8 @@ class Checker
     print_out
   end
 
+  private
+
   def csv
     CsvReader.new(@csv_path)
   end

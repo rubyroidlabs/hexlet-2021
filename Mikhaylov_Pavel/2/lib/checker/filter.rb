@@ -14,6 +14,8 @@ class Filter
     end
   end
 
+  private
+
   def filter_by_options
     subdomains = []
     open_source = []
