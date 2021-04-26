@@ -7,9 +7,13 @@ require_relative 'checker/http_service'
 require_relative 'checker/printer'
 
 class Checker
+  attr_reader :search_word, :parallel
+
   def initialize(csv_path, options)
     @csv_path = csv_path
     @options = options
+    @search_word = options.fetch(:filterword, '')
+    @parallel = options.fetch(:parallel, 1)
   end
 
   def run
@@ -32,13 +36,5 @@ class Checker
 
   def print_out
     Printer.new(responses).print
-  end
-
-  def search_word
-    @options.fetch(:filterword, '')
-  end
-
-  def parallel
-    @options.fetch(:parallel, 1)
   end
 end
