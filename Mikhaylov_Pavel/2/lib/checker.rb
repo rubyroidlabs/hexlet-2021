@@ -17,24 +17,14 @@ class Checker
   end
 
   def run
-    print_out
+    filtered_data = Filter.new(csv.data, @options).apply_filter
+    responses = HttpService.new(filtered_data, search_word, parallel).fetch_all
+    Printer.new(responses).print
   end
 
   private
 
   def csv
     CsvReader.new(@csv_path)
-  end
-
-  def filtered_data
-    Filter.new(csv.data, @options).apply_filter
-  end
-
-  def responses
-    HttpService.new(filtered_data, search_word, parallel).fetch_all
-  end
-
-  def print_out
-    Printer.new(responses).print
   end
 end
