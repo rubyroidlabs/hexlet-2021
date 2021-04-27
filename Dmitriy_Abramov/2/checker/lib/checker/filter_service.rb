@@ -6,6 +6,8 @@ module Checker
   class FilterService
     include FileLoader
 
+    SUBDOMAIN_SIZE_LIMIT = 3
+
     def initialize(options)
       @options = options
     end
@@ -33,7 +35,8 @@ module Checker
 
     def subdomain?(host_name)
       host_name_arr = host_name.split('.')
-      (host_name_arr.size >= 3) || (host_name_arr.size == 3 && host_name_arr.first != 'www')
+      (host_name_arr.size >= SUBDOMAIN_SIZE_LIMIT) ||
+        (host_name_arr.size == SUBDOMAIN_SIZE_LIMIT && host_name_arr.first != 'www')
     end
 
     def solution?(host_name)
