@@ -9,6 +9,6 @@ describe Whenever::Test::Schedule do
 
   it 'cron is registered' do
     expect(subject.jobs[:rake].first[:task]).to eq 'cron:notify'
-    expect(subject.jobs[:rake].first[:every]).to eq [:minute]
+    expect(subject.jobs[:rake].first[:every]).to eq ['0 0-23 * * 0-6']
   end
 end

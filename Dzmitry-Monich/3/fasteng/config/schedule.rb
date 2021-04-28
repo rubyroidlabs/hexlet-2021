@@ -2,14 +2,11 @@
 
 set :output, 'log/cron.log'
 
-every :minute do
+every '0 0-23 * * 0-6' do
   rake 'cron:notify'
 end
 
-# every '* 0-23 * * 0-6' do
+# test
+# every '0-59 * * * 0-6' do
 #   rake 'cron:notify'
-# end
-
-# every 1.minute do
-#   rake 'cron:test'
 # end

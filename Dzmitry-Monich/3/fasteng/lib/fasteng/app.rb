@@ -14,15 +14,15 @@ module Fasteng
 
         bot.listen do |message|
           logger.info "[#{message.chat.id}] #{message.from.username}: #{message.text}"
-          Thread.new { Dispatcher.new(bot.api, message).dispatch }
+          Thread.new { Dispatcher.call(bot.api, message) }
         end
       end
     end
 
     def init
-      DatabaseHandler.sync
+      DatabaseConnector.sync
       require_models
-      Dictionary.setup
+      DictionaryCreator.setup
       self
     end
 

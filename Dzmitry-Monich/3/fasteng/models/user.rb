@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 class User < ActiveRecord::Base
+  # test
+  # SCHEDULE_TYPES = [
+  #   [20],
+  #   [18, 23],
+  #   [5, 8, 11]
+  # ].freeze
+
   SCHEDULE_TYPES = [
     [15],
     [10, 21],
@@ -13,34 +20,59 @@ class User < ActiveRecord::Base
   validates :telegram_id, presence: true, uniqueness: true
 
   def add_schedule!(count)
-    hours = SCHEDULE_TYPES[count.to_i - 1]
+    sched = SCHEDULE_TYPES[count.to_i - 1]
     update!(
       status: 'scheduled',
-      schedule: stringify_schedule(hours),
-      current_time: init_current(hours)
+      schedule: schedule_to_s(sched),
+      upcoming_time: init_upcoming(sched)
     )
   end
 
-  def add_notification!
-    hours = parse_schedule
-    next_idx = (hours.find_index { |h| h == current_time } + 1) % hours.size
+  def notify!
     update!(
       status: 'waiting',
-      current_time: hours[next_idx]
+      upcoming_time: next_time
     )
+  end
+
+  def upcoming_time_equal?(time)
+    time == upcoming_time
+  end
+
+  def miss_time?(time)
+    puts "#{time} - #{previous_time}"
+    status == 'waiting' && time - previous_time == 2
   end
 
   private
 
-  def init_current(hours)
-    hours.find { |h| h > Time.now.hour } || hours.first
+  def next_time
+    intervals = schedule_to_a
+    next_idx = (intervals.find_index { |i| i == upcoming_time } + 1) % intervals.size
+    intervals[next_idx]
   end
 
-  def stringify_schedule(hours)
-    hours.join(',')
+  def previous_time
+    intervals = schedule_to_a
+    size = intervals.size
+    prev_idx = (intervals.find_index { |i| i == upcoming_time } + (size - 1)) % size
+    intervals[prev_idx]
   end
 
-  def parse_schedule
+  def init_upcoming(intervals)
+    intervals.find { |i| i > actual_time } || intervals.first
+  end
+
+  def schedule_to_s(intervals)
+    intervals.join(',')
+  end
+
+  def schedule_to_a
     schedule.split(',').map(&:to_i)
+  end
+
+  def actual_time
+    Time.now.hour
+    # Time.now.min
   end
 end

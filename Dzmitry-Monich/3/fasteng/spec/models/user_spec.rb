@@ -39,21 +39,61 @@ describe User, type: :model do
         expect(User.find(user.id)).to have_attributes(
           status: 'scheduled',
           schedule: '9,15,21',
-          current_time: 9
+          upcoming_time: 9
         )
       end
     end
 
-    describe '#add_notification!' do
-      let(:user) { create(:user, status: 'scheduled', schedule: '9,15,21', current_time: 21) }
+    describe '#notify!' do
+      let(:user) { create(:user, status: 'scheduled', schedule: '9,15,21', upcoming_time: 21) }
 
       it 'updates user when notification' do
-        user.add_notification!
+        user.notify!
 
         expect(User.find(user.id)).to have_attributes(
           status: 'waiting',
-          current_time: 9
+          upcoming_time: 9
         )
+      end
+    end
+
+    describe '#upcoming_time_equal?' do
+      let(:user) { create(:user, status: 'scheduled', schedule: '9,15,21', upcoming_time: 21) }
+
+      context 'when notification time is correct' do
+        let(:time) { Timecop.freeze(2021, 4, 20, 21).hour }
+
+        it 'check is correct' do
+          expect(user.upcoming_time_equal?(time)).to be true
+        end
+      end
+
+      context 'when notification time is wrong' do
+        let(:time) { Timecop.freeze(2021, 4, 20, 20).hour }
+
+        it 'check failed' do
+          expect(user.upcoming_time_equal?(time)).to be false
+        end
+      end
+    end
+
+    describe '#miss_time?' do
+      let(:user) { create(:user, status: 'waiting', schedule: '9,15,21', upcoming_time: 21) }
+
+      context 'when missed time interval correct' do
+        let(:time) { Timecop.freeze(2021, 4, 20, 17).hour }
+
+        it 'check is correct' do
+          expect(user.miss_time?(time)).to be true
+        end
+      end
+
+      context 'when missed time interval wrong' do
+        let(:time) { Timecop.freeze(2021, 4, 20, 20).hour }
+
+        it 'check failed' do
+          expect(user.miss_time?(time)).to be false
+        end
       end
     end
   end
