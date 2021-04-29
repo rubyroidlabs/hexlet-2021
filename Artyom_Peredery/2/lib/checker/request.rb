@@ -12,14 +12,14 @@ module Checker
     end
 
     def get(path = '/', max_attempts = 3)
-      start_time = Time.now
+      start_time = Time.now.utc
       attempt = 0
       @res = Net::HTTP.get_response(@host, path)
       while attempt <= max_attempts && @res.code == '301'
         @res = Net::HTTP.get_response(URI.parse(res['location']))
         attempt += 1
       end
-      finish_time = Time.now
+      finish_time = Time.now.utc
       @time = time_diff_milli(start_time, finish_time).to_i
     rescue StandardError
       @failed = true
