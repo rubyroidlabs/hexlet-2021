@@ -7,6 +7,11 @@ describe User, type: :model do
     it { should validate_uniqueness_of(:telegram_id) }
   end
 
+  describe 'Associacion' do
+    it { should have_many(:definitions).through(:learned_words) }
+    it { should have_many(:learned_words).dependent(:destroy) }
+  end
+
   describe 'Validation presence' do
     context 'whith not valid' do
       let(:user) { build(:user, telegram_id: '') }
@@ -44,34 +49,40 @@ describe User, type: :model do
       end
     end
 
-    describe '#notify!' do
+    describe '#add_word!' do
       let(:user) { create(:user, status: 'scheduled', schedule: '9,15,21', upcoming_time: 21) }
+      let(:definition) { create(:definition) }
 
-      it 'updates user when notification' do
-        user.notify!
+      it 'adds word to already sent' do
+        expect { user.add_word!(definition) }.to change(LearnedWord, :count).from(0).to(1)
+      end
+
+      it 'updates user' do
+        user.add_word!(definition)
 
         expect(User.find(user.id)).to have_attributes(
           status: 'waiting',
           upcoming_time: 9
         )
+        expect(user.learned_words.first.id).to eq user.id
       end
     end
 
     describe '#upcoming_time_equal?' do
       let(:user) { create(:user, status: 'scheduled', schedule: '9,15,21', upcoming_time: 21) }
 
-      context 'when notification time is correct' do
+      context 'when actual time equal to schedule time' do
         let(:time) { Timecop.freeze(2021, 4, 20, 21).hour }
 
-        it 'check is correct' do
+        it 'returns true' do
           expect(user.upcoming_time_equal?(time)).to be true
         end
       end
 
-      context 'when notification time is wrong' do
+      context 'when actual time not equal to schedule time' do
         let(:time) { Timecop.freeze(2021, 4, 20, 20).hour }
 
-        it 'check failed' do
+        it 'returns false' do
           expect(user.upcoming_time_equal?(time)).to be false
         end
       end
@@ -80,18 +91,18 @@ describe User, type: :model do
     describe '#miss_time?' do
       let(:user) { create(:user, status: 'waiting', schedule: '9,15,21', upcoming_time: 21) }
 
-      context 'when missed time interval correct' do
+      context 'when actual time equal missed time' do
         let(:time) { Timecop.freeze(2021, 4, 20, 17).hour }
 
-        it 'check is correct' do
+        it 'returns true' do
           expect(user.miss_time?(time)).to be true
         end
       end
 
-      context 'when missed time interval wrong' do
+      context 'when actual time not equal missed time' do
         let(:time) { Timecop.freeze(2021, 4, 20, 20).hour }
 
-        it 'check failed' do
+        it 'returns false' do
           expect(user.miss_time?(time)).to be false
         end
       end

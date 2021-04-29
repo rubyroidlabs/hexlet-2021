@@ -7,6 +7,11 @@ describe Definition, type: :model do
     it { should validate_uniqueness_of(:word) }
   end
 
+  describe 'Associacion' do
+    it { should have_many(:users).through(:learned_words) }
+    it { should have_many(:learned_words).dependent(:destroy) }
+  end
+
   describe 'Validation presence' do
     context 'with not valid' do
       before { record.validate }

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   # SCHEDULE_TYPES = [
   #   [20],
   #   [18, 23],
-  #   [5, 8, 11]
+  #   [40, 43, 46, 49]
   # ].freeze
 
   SCHEDULE_TYPES = [
@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
 
   validates :telegram_id, presence: true, uniqueness: true
 
+  has_many :learned_words, dependent: :destroy
+  has_many :definitions, through: :learned_words
+
   def add_schedule!(count)
     sched = SCHEDULE_TYPES[count.to_i - 1]
     update!(
@@ -28,11 +31,11 @@ class User < ActiveRecord::Base
     )
   end
 
-  def notify!
-    update!(
-      status: 'waiting',
-      upcoming_time: next_time
-    )
+  def add_word!(word)
+    transaction do
+      update!(status: 'waiting', upcoming_time: next_time)
+      definitions << word
+    end
   end
 
   def upcoming_time_equal?(time)
@@ -42,6 +45,10 @@ class User < ActiveRecord::Base
   def miss_time?(time)
     puts "#{time} - #{previous_time}"
     status == 'waiting' && time - previous_time == 2
+  end
+
+  def to_s
+    "[#{telegram_id}]: #{status}, #{schedule} / #{upcoming_time}"
   end
 
   private

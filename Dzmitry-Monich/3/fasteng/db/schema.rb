@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_140949) do
+ActiveRecord::Schema.define(version: 2021_04_29_142812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 2021_04_28_140949) do
     t.index ["word"], name: "index_definitions_on_word", unique: true
   end
 
+  create_table "learned_words", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "definition_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["definition_id"], name: "index_learned_words_on_definition_id"
+    t.index ["user_id"], name: "index_learned_words_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "telegram_id", null: false
     t.string "status", default: "new"
@@ -33,4 +42,6 @@ ActiveRecord::Schema.define(version: 2021_04_28_140949) do
     t.index ["telegram_id"], name: "index_users_on_telegram_id", unique: true
   end
 
+  add_foreign_key "learned_words", "definitions"
+  add_foreign_key "learned_words", "users"
 end

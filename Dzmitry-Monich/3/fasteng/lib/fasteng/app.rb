@@ -10,6 +10,7 @@ module Fasteng
 
     def run
       client.run(ENV['BOT_TOKEN']) do |bot|
+        # binding.pry
         logger.info 'Bot has been started'
 
         bot.listen do |message|
@@ -22,7 +23,7 @@ module Fasteng
     def init
       DatabaseConnector.sync
       require_models
-      DictionaryCreator.setup
+      DictionaryManager::DictionaryCreator.setup
       self
     end
 

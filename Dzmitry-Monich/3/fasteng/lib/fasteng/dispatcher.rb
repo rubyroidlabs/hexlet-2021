@@ -17,7 +17,7 @@ module Fasteng
       case user.status
       when 'new' then register!
       when 'registered' then add_schedule!
-      when 'waiting' then process_answer!
+      when 'waiting' then feedback!
       end
     end
 
@@ -33,7 +33,7 @@ module Fasteng
       (1..6).map(&:to_s).any?(answer)
     end
 
-    def notification_accepted?(answer)
+    def word_received?(answer)
       answer == 'done' # replace with emojii
     end
 
@@ -51,8 +51,8 @@ module Fasteng
       end
     end
 
-    def process_answer!
-      return unless notification_accepted?(message.text)
+    def feedback!
+      return unless word_received?(message.text)
 
       user.update!(status: 'scheduled')
       send(:done)
@@ -60,7 +60,6 @@ module Fasteng
 
     def send(message_type)
       MessageSender::ReplyMessage.send(bot_api, message.chat.id, message_type)
-      # MessageSender.sent_by_type(bot_api, message.chat.id, message_type)
     end
   end
 end

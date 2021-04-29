@@ -7,7 +7,7 @@ require_relative 'lib/fasteng'
 
 namespace :cron do
   task :notify do
-    Fasteng::NotifyService.call
+    Fasteng::NotifyHandler.call
   end
 
   # task :test do
