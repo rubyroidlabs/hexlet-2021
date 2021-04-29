@@ -18,8 +18,9 @@ module Checker
       @failed += 1 if  response.failed?
       @successes += 1 if response.successes?
       @total += 1
-      status = response.failed? ? 'Failed' : response.res.code
-      console_print("#{response.host} - #{status} (#{response.time}ms)")
+      status = response.failed? ? response.failed_message : response.res.code
+      response_time = response.failed? ? '' : "(#{response.time}ms)"
+      console_print("#{response.host} - #{status} #{response_time}")
     end
 
     def console_print(message)

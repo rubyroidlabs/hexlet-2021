@@ -4,7 +4,7 @@ require 'net/http'
 
 module Checker
   class Request
-    attr_reader :host, :time, :res
+    attr_reader :host, :time, :res, :failed_message
 
     def initialize(host)
       @host = host
@@ -21,7 +21,8 @@ module Checker
       end
       finish_time = Time.now.utc
       @time = time_diff_milli(start_time, finish_time).to_i
-    rescue StandardError
+    rescue StandardError => e
+      @failed_message = e.message
       @failed = true
     end
 
