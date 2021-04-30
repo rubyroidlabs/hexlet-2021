@@ -44,12 +44,16 @@ module Fasteng
 
     def setup
       DatabaseConnector.sync
-      Dir["#{Fasteng.root_path}/models/**/*.rb"].each { |file| require file }
+      Dir["#{Fasteng.root_path}/models/**/*.rb"].sort.each { |file| require file }
     end
 
+    # rubocop:disable Lint/RedundantCopDisableDirective
+    # rubocop:disable Rails/TimeZone
     def actual_time
       # Time.now.min
       Time.now.hour
     end
+    # rubocop:enable Lint/RedundantCopDisableDirective
+    # rubocop:enable Rails/TimeZone
   end
 end

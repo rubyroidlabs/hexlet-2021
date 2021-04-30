@@ -32,7 +32,7 @@ module Fasteng
     attr_reader :client
 
     def require_models
-      Dir["#{Fasteng.root_path}/models/**/*.rb"].each { |file| require file }
+      Dir["#{Fasteng.root_path}/models/**/*.rb"].sort.each { |file| require file }
     end
   end
 end

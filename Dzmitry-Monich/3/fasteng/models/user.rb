@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# rubocop:disable Lint/RedundantCopDisableDirective
+# rubocop:disable Rails/ApplicationRecord
+
 class User < ActiveRecord::Base
   include Logging
 
@@ -69,8 +72,13 @@ class User < ActiveRecord::Base
     schedule.split(',').map(&:to_i)
   end
 
+  # rubocop:disable Rails/TimeZone
   def actual_time
     Time.now.hour
     # Time.now.min
   end
+  # rubocop:enable Rails/TimeZone
 end
+
+# rubocop:enable Rails/ApplicationRecord
+# rubocop:enable Lint/RedundantCopDisableDirective

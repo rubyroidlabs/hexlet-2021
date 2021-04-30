@@ -8,7 +8,7 @@ require 'whenever/test'
 require 'timecop'
 require 'faker'
 
-Dir["#{Fasteng.root_path}/models/**/*.rb"].each { |file| require file }
+Dir["#{Fasteng.root_path}/models/**/*.rb"].sort.each { |file| require file }
 
 env = 'test'
 configuration = YAML.load_file(Fasteng.root_path.join('db/config.yml'))
