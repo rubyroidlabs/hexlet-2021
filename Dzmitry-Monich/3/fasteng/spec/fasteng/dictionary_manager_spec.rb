@@ -40,7 +40,7 @@ describe Fasteng::DictionaryManager do
     end
   end
 
-  describe 'Select word' do
+  describe 'Select definition' do
     let(:user1) { create(:user) }
     let(:user2) { create(:user) }
     let(:definition) { create(:definition) }
@@ -49,7 +49,7 @@ describe Fasteng::DictionaryManager do
 
     context 'when already learned' do
       it 'word not selected' do
-        word = described_class::DictionarySelector.select_word(user1)
+        word = described_class::DictionarySelector.select(user1)
 
         expect(word).to be_nil
       end
@@ -57,7 +57,7 @@ describe Fasteng::DictionaryManager do
 
     context 'when not learned' do
       it 'word selected' do
-        word = described_class::DictionarySelector.select_word(user2)
+        word = described_class::DictionarySelector.select(user2)
 
         expect(word).to eq definition
       end

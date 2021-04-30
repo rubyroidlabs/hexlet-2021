@@ -23,7 +23,7 @@ module Fasteng
 
     private
 
-    attr_reader :bot_api, :message, :message_sender
+    attr_reader :bot_api, :message
 
     def user
       @user ||= User.find_or_create_by(telegram_id: message.from.id)
@@ -33,8 +33,8 @@ module Fasteng
       (1..6).map(&:to_s).any?(answer)
     end
 
-    def word_received?(answer)
-      answer == 'done' # replace with emojii
+    def definition_received?(answer)
+      answer == '😄'
     end
 
     def register!
@@ -52,7 +52,7 @@ module Fasteng
     end
 
     def feedback!
-      return unless word_received?(message.text)
+      return unless definition_received?(message.text)
 
       user.update!(status: 'scheduled')
       send(:done)

@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 
 class User < ActiveRecord::Base
-  # test
-  # SCHEDULE_TYPES = [
-  #   [20],
-  #   [18, 23],
-  #   [40, 43, 46, 49]
-  # ].freeze
+  include Logging
 
   SCHEDULE_TYPES = [
     [15],
@@ -17,7 +12,7 @@ class User < ActiveRecord::Base
     [8, 11, 14, 17, 20, 23]
   ].freeze
 
-  validates :telegram_id, presence: true, uniqueness: true
+  validates :telegram_id, presence: true, uniqueness: true, case_sensitive: false
 
   has_many :learned_words, dependent: :destroy
   has_many :definitions, through: :learned_words
@@ -31,10 +26,10 @@ class User < ActiveRecord::Base
     )
   end
 
-  def add_word!(word)
+  def receive_definition!(definition)
     transaction do
       update!(status: 'waiting', upcoming_time: next_time)
-      definitions << word
+      definitions << definition
     end
   end
 
@@ -43,12 +38,8 @@ class User < ActiveRecord::Base
   end
 
   def miss_time?(time)
-    puts "#{time} - #{previous_time}"
+    logger.info "miss-time: #{time} - #{previous_time}"
     status == 'waiting' && time - previous_time == 2
-  end
-
-  def to_s
-    "[#{telegram_id}]: #{status}, #{schedule} / #{upcoming_time}"
   end
 
   private

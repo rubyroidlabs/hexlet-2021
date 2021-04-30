@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :user do
-    telegram_id { Faker::Internet.uuid }
+    telegram_id { Faker::Number.number(digits: 9) }
   end
 end

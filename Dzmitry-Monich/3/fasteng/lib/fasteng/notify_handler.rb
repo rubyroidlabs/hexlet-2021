@@ -17,9 +17,9 @@ module Fasteng
       return unless User.any?
 
       User.where(status: %w[scheduled waiting]).find_each do |user|
-        puts "user: #{user.telegram_id} time: #{actual_time} = #{user.upcoming_time}"
+        logger.info "user: #{user.telegram_id} time: #{actual_time} = #{user.upcoming_time}"
 
-        send_word!(user) if user.upcoming_time_equal?(actual_time)
+        send_definition!(user) if user.upcoming_time_equal?(actual_time)
         notify_about_missed_answer(user) if user.miss_time?(actual_time)
       end
     end
@@ -28,11 +28,11 @@ module Fasteng
 
     attr_reader :bot
 
-    def send_word!(user)
-      word = DictionaryManager::DictionarySelector.select_word(user)
-      if word
-        user.add_word!(word)
-        MessageSender::NotifyMessage.send(bot.api, user.telegram_id, word)
+    def send_definition!(user)
+      definition = DictionaryManager::DictionarySelector.select(user)
+      if definition
+        user.receive_definition!(definition)
+        MessageSender::NotifyMessage.send(bot.api, user.telegram_id, definition)
       else
         MessageSender::ReplyMessage.send(bot.api, user.telegram_id, :end_game)
       end
@@ -43,8 +43,8 @@ module Fasteng
     end
 
     def setup
-      Dir["#{Fasteng.root_path}/models/**/*.rb"].each { |file| require file }
       DatabaseConnector.sync
+      Dir["#{Fasteng.root_path}/models/**/*.rb"].each { |file| require file }
     end
 
     def actual_time

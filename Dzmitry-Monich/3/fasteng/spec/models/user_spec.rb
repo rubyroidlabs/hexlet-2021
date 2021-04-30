@@ -4,7 +4,7 @@ describe User, type: :model do
   describe 'Validate uniquness' do
     before { create(:user) }
 
-    it { should validate_uniqueness_of(:telegram_id) }
+    it { should validate_uniqueness_of(:telegram_id).case_insensitive }
   end
 
   describe 'Associacion' do
@@ -49,16 +49,16 @@ describe User, type: :model do
       end
     end
 
-    describe '#add_word!' do
+    describe '#receive_definition!' do
       let(:user) { create(:user, status: 'scheduled', schedule: '9,15,21', upcoming_time: 21) }
       let(:definition) { create(:definition) }
 
       it 'adds word to already sent' do
-        expect { user.add_word!(definition) }.to change(LearnedWord, :count).from(0).to(1)
+        expect { user.receive_definition!(definition) }.to change(LearnedWord, :count).from(0).to(1)
       end
 
       it 'updates user' do
-        user.add_word!(definition)
+        user.receive_definition!(definition)
 
         expect(User.find(user.id)).to have_attributes(
           status: 'waiting',

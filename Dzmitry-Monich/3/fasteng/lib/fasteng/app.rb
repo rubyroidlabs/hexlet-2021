@@ -15,7 +15,7 @@ module Fasteng
 
         bot.listen do |message|
           logger.info "[#{message.chat.id}] #{message.from.username}: #{message.text}"
-          Thread.new { Dispatcher.call(bot.api, message) }
+          Thread.new(message) { |msq| Dispatcher.call(bot.api, msq) }
         end
       end
     end

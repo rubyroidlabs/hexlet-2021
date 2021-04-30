@@ -3,7 +3,7 @@
 require 'fasteng'
 
 describe Fasteng::Dispatcher do
-  let(:from) { double('from', { id: Faker::Internet.uuid }) }
+  let(:from) { double('from', { id: Faker::Number.number(digits: 9) }) }
   let(:chat) { double('chat', { id: from.id }) }
   let(:bot_api) { double('bot_api') }
 
@@ -73,7 +73,7 @@ describe Fasteng::Dispatcher do
 
   describe 'User gets notification (definition)' do
     context 'when user confirms notification' do
-      let(:message) { double('message', text: 'done', from: from, chat: chat) }
+      let(:message) { double('message', text: '😄', from: from, chat: chat) }
       let(:confirm_message) { Fasteng::MessageSender::ReplyMessage::MESSAGES[:done] }
       let!(:user) { create(:user, telegram_id: from.id, status: 'waiting') }
 
