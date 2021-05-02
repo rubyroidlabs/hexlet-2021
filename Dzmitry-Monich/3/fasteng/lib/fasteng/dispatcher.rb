@@ -2,8 +2,6 @@
 
 module Fasteng
   class Dispatcher
-    include Logging
-
     def self.call(*args)
       new(*args).call
     end

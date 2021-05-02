@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
+require 'yaml'
+
 module Fasteng
   module DatabaseConnector
     class << self
-      def sync
+      def call
         ActiveRecord::Base.logger = Logger.new($stdout)
+
         setup
       end
 

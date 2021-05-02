@@ -2,37 +2,28 @@
 
 module Fasteng
   class App
-    include Logging
+    class << self
+      include Logging
 
-    def initialize
-      @client = Telegram::Bot::Client
-    end
+      def run
+        init
 
-    def run
-      client.run(ENV['BOT_TOKEN']) do |bot|
-        # binding.pry
-        logger.info 'Bot has been started'
-
-        bot.listen do |message|
-          logger.info "[#{message.chat.id}] #{message.from.username}: #{message.text}"
-          Thread.new(message) { |msq| Dispatcher.call(bot.api, msq) }
-        end
+        controller = Fasteng.const_get("#{Fasteng.config.controller.capitalize}Controller")
+        logger.info 'Bot starting...'
+        controller.run
       end
-    end
 
-    def init
-      DatabaseConnector.sync
-      require_models
-      DictionaryManager::DictionaryCreator.setup
-      self
-    end
+      private
 
-    private
+      def init
+        DatabaseConnector.call
+        require_models
+        DictionaryManager::DictionaryCreator.call
+      end
 
-    attr_reader :client
-
-    def require_models
-      Dir["#{Fasteng.root_path}/models/**/*.rb"].sort.each { |file| require file }
+      def require_models
+        Dir["#{Fasteng.root_path}/models/**/*.rb"].sort.each { |file| require file }
+      end
     end
   end
 end

@@ -4,7 +4,7 @@ module Fasteng
   module DictionaryManager
     module DictionarySelector
       class << self
-        def select(user)
+        def call(user)
           Definition
             .left_outer_joins(:learned_words)
             .where('user_id is NULL OR user_id NOT IN (?)', user.id)

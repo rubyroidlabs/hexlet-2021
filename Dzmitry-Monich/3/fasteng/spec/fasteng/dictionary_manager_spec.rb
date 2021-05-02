@@ -18,7 +18,7 @@ describe Fasteng::DictionaryManager do
         { word: 'Abattoir', description: 'n. Slaughterhouse. [french abatre fell, as *abate]' }
       ]
 
-      described_class::DictionaryCreator.setup
+      described_class::DictionaryCreator.call
 
       expect(Definition.all).to match_array(
         [have_attributes(expected.first), have_attributes(expected.last)]
@@ -27,15 +27,15 @@ describe Fasteng::DictionaryManager do
 
     context 'whitout data in database' do
       it 'data saved correctly' do
-        expect { described_class::DictionaryCreator.setup }.to change(Definition, :count).from(0).to(2)
+        expect { described_class::DictionaryCreator.call }.to change(Definition, :count).from(0).to(2)
       end
     end
 
     context 'whith data in database' do
       it 'data not saved another time' do
-        described_class::DictionaryCreator.setup
+        described_class::DictionaryCreator.call
 
-        expect { described_class::DictionaryCreator.setup }.not_to change(Definition, :count)
+        expect { described_class::DictionaryCreator.call }.not_to change(Definition, :count)
       end
     end
   end
@@ -49,7 +49,7 @@ describe Fasteng::DictionaryManager do
 
     context 'when already learned' do
       it 'word not selected' do
-        word = described_class::DictionarySelector.select(user1)
+        word = described_class::DictionarySelector.call(user1)
 
         expect(word).to be_nil
       end
@@ -57,7 +57,7 @@ describe Fasteng::DictionaryManager do
 
     context 'when not learned' do
       it 'word selected' do
-        word = described_class::DictionarySelector.select(user2)
+        word = described_class::DictionarySelector.call(user2)
 
         expect(word).to eq definition
       end

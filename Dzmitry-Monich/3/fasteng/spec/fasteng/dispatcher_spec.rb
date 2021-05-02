@@ -43,6 +43,7 @@ describe Fasteng::Dispatcher do
 
       it 'user gets schedule' do
         expect { described_class.call(bot_api, message) }.not_to change(User, :count)
+
         expect(User.find(@user.id).status).to eq 'scheduled'
       end
     end
@@ -71,8 +72,8 @@ describe Fasteng::Dispatcher do
     end
   end
 
-  describe 'User gets notification (definition)' do
-    context 'when user confirms notification' do
+  describe 'User receive definition' do
+    context 'when user make feedback' do
       let(:message) { double('message', text: '😄', from: from, chat: chat) }
       let(:confirm_message) { Fasteng::MessageSender::ReplyMessage::MESSAGES[:done] }
       let!(:user) { create(:user, telegram_id: from.id, status: 'waiting') }

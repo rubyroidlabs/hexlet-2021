@@ -9,7 +9,7 @@ module Fasteng
     end
 
     def initialize
-      @bot = Telegram::Bot::Client.new(ENV['BOT_TOKEN'])
+      @bot = Telegram::Bot::Client.new(Fasteng.config.token)
       setup
     end
 
@@ -29,7 +29,7 @@ module Fasteng
     attr_reader :bot
 
     def send_definition!(user)
-      definition = DictionaryManager::DictionarySelector.select(user)
+      definition = DictionaryManager::DictionarySelector.call(user)
       if definition
         user.receive_definition!(definition)
         MessageSender::NotifyMessage.send(bot.api, user.telegram_id, definition)
@@ -43,7 +43,7 @@ module Fasteng
     end
 
     def setup
-      DatabaseConnector.sync
+      DatabaseConnector.call
       Dir["#{Fasteng.root_path}/models/**/*.rb"].sort.each { |file| require file }
     end
 

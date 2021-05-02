@@ -4,7 +4,7 @@ module Fasteng
   module DictionaryManager
     module DictionaryCreator
       class << self
-        def setup
+        def call
           return if Definition.any?
 
           Definition.create(definitions)
