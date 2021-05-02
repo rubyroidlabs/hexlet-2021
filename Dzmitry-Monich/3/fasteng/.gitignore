@@ -7,3 +7,6 @@
 .env
 .solargraph.yml
 /log/*
+!/log/.keep
+/bin/*
+!/bin/bot
