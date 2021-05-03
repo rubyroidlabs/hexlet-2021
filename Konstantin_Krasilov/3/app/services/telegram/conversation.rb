@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module Telegram
-  # Класс который общаеться с пользователем - реагирует на ответы в зависимости от статуса беседы.
+  # The class that communicates using - reacts to responses depending on the status of the conversation.
   class Conversation
     RESPONSE = {
       welcome: 'Привет! Я бот, который помогает учить новые английские слова каждый день. Давай сперва определимся,' \
-      'сколько слов в день (от 1 до 6 ) ты хочешь узнавать?',
+      'сколько слов в день (от 1 до 6) ты хочешь узнавать?',
       max_word_success: 'Принято!',
       max_word_error: 'Сорри, только 6 слов. Давай еще раз?',
       smiley_success: 'Вижу, что ты заметил слово! Продолжаем учиться дальше!',
@@ -24,7 +24,7 @@ module Telegram
     private
 
     def send_max_word
-      return RESPONSE[:max_word_error] unless (1..6).include?(@message.to_i)
+      return RESPONSE[:max_word_error] unless (1..6).cover?(@message.to_i)
 
       @user.update(max_words: @message, conversation_status: 'conversation_break')
       RESPONSE[:max_word_success]

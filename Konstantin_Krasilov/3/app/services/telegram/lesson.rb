@@ -9,7 +9,7 @@ require_relative '../../models/user_word'
 Dotenv.load
 
 module Telegram
-  # Класс который учит пользователя новым словам. Ищет подходящее слово, отправляет пользователю и ждет реакции.
+  # A class that teaches the user new words. Searches for a suitable word, sends to the user and waits for a reaction.
   class Lesson
     USER_SLEEP = 'Кажется, ты был слишком занят и пропустил слово выше? Дай мне знать, что у тебя все хорошо!'
 
