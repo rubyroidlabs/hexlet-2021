@@ -5,4 +5,8 @@ source 'https://rubygems.org'
 gem 'telegramAPI'
 gem 'sinatra'
 
+gem 'sinatra-activerecord'
+gem 'activerecord'
+gem 'pg'
+
 gem 'dotenv-rails'
