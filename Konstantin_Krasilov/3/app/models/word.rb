@@ -1,3 +1,6 @@
 # frozen_string_literal: true
 
-class Word < ActiveRecord::Base; end
+class Word < ActiveRecord::Base
+  has_many :user_words, dependent: :destroy
+  has_many :users, through: :user_words
+end
