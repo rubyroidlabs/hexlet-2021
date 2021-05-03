@@ -12,11 +12,8 @@ module Fasteng
     end
 
     def call
-      case user.status
-      when 'new' then register!
-      when 'registered' then add_schedule!
-      when 'waiting' then feedback!
-      end
+      action = actions[user.status]
+      action.call(bot_api, user, message)
     end
 
     private
@@ -27,37 +24,12 @@ module Fasteng
       @user ||= User.find_or_create_by(telegram_id: message.from.id)
     end
 
-    def first_answer_valid?(answer)
-      (1..6).map(&:to_s).any?(answer)
-    end
-
-    def definition_received?(answer)
-      answer == '😄'
-    end
-
-    def register!
-      user.update!(status: 'registered')
-      send(:welcome)
-    end
-
-    def add_schedule!
-      if first_answer_valid?(message.text)
-        user.add_schedule!(message.text)
-        send(:accept)
-      else
-        send(:welcome_dialog)
-      end
-    end
-
-    def feedback!
-      return unless definition_received?(message.text)
-
-      user.update!(status: 'scheduled')
-      send(:done)
-    end
-
-    def send(message_type)
-      MessageSender::ReplyMessage.send(bot_api, message.chat.id, message_type)
+    def actions
+      {
+        'new' => Actions::Registerer,
+        'registered' => Actions::Scheduler,
+        'waiting' => Actions::Feedbacker
+      }
     end
   end
 end

@@ -3,7 +3,7 @@
 require 'sinatra/base'
 
 module Fasteng
-  class WebhookController < ApplicationController
+  class WebhookController < BaseController
     class SinatraBase < Sinatra::Base
       configure do
         set :port, 3000

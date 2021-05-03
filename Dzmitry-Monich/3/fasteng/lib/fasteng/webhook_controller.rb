@@ -4,7 +4,7 @@ require 'json'
 require_relative 'webhook_controller/sinatra_base'
 
 module Fasteng
-  class WebhookController < ApplicationController
+  class WebhookController < BaseController
     def initialize
       super
 

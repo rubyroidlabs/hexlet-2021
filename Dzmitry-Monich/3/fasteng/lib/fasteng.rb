@@ -13,10 +13,11 @@ require_relative 'fasteng/dispatcher'
 require_relative 'fasteng/database_connector'
 require_relative 'fasteng/message_sender'
 require_relative 'fasteng/notify_handler'
-require_relative 'fasteng/application_controller'
+require_relative 'fasteng/base_controller'
 require_relative 'fasteng/polling_controller'
 require_relative 'fasteng/webhook_controller'
 require_relative 'fasteng/config'
+require_relative 'fasteng/actions'
 
 module Fasteng
   class << self

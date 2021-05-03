@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Fasteng
-  class ApplicationController
+  class BaseController
     include Logging
 
     def self.run

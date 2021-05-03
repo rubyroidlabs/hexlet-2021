@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Fasteng
-  class PollingController < ApplicationController
+  class PollingController < BaseController
     def run
       setup
 
