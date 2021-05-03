@@ -12,3 +12,6 @@ gem 'pg'
 gem 'dotenv-rails'
 gem 'json'
 gem 'progress_bar'
+
+gem 'whenever', require: false
+gem 'rake'
