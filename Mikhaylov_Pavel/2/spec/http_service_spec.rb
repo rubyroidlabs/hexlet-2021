@@ -2,6 +2,7 @@
 
 require_relative '../lib/checker/http_service'
 require_relative '../lib/checker/printer'
+require_relative '../lib/checker/summary'
 require_relative 'vcr_setup'
 
 describe HttpService do
@@ -18,6 +19,17 @@ describe HttpService do
 
       it 'should fetch with parallel requests' do
         expect(http_service_parallel.fetch_all.size).to eq(6)
+      end
+    end
+
+    context 'with default options' do
+      let(:http_default) { HttpService.new(urls, '', 1) }
+
+      it 'should fetch urls and output it' do
+        responses = http_default.fetch_all
+        expect do
+          Printer.new(responses).print
+        end.to output("Total: 6, Success: 4, Failed: 1, Errored: 1\n").to_stdout
       end
     end
 
