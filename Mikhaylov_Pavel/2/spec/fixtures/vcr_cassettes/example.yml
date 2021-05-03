@@ -1,0 +1,459 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://google.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      location:
+      - http://www.google.com/
+      content-type:
+      - text/html; charset=UTF-8
+      date:
+      - Mon, 03 May 2021 10:09:22 GMT
+      expires:
+      - Wed, 02 Jun 2021 10:09:22 GMT
+      cache-control:
+      - public, max-age=2592000
+      server:
+      - gws
+      content-length:
+      - '219'
+      x-xss-protection:
+      - '0'
+      x-frame-options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: "<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<TITLE>301
+        Moved</TITLE></HEAD><BODY>\n<H1>301 Moved</H1>\nThe document has moved\n<A
+        HREF=\"http://www.google.com/\">here</A>.\r\n</BODY></HTML>\r\n"
+  recorded_at: Mon, 03 May 2021 10:09:22 GMT
+- request:
+    method: get
+    uri: http://alexandraiv.wixsite.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      date:
+      - Mon, 03 May 2021 10:09:22 GMT
+      content-type:
+      - text/html; charset=utf-8
+      connection:
+      - keep-alive
+      x-wix-request-id:
+      - '1620036562.538269630976136216'
+      vary:
+      - Accept-Encoding
+      age:
+      - '0'
+      x-seen-by:
+      - RQvnDyN5n1orR2cJk2hJbg==,sHU62EDOGnH2FBkJkG/Wx8EeXWsWdHrhlvbxtlynkVjctmX8MJ6wE9jK5K7dOdvP,m0j2EEknGIVUW/liY8BLLl5lGwBvY6S6kqNcXrlzUhElJk2S3kV4GhWnrhiCH1G7,2d58ifebGbosy5xc+FRalhHag8+pkBxBGwVKReaftGLt9ISD7Hkj6ld/n7zCSYpcdH8ns/Q7XQ5iYbrrMIE5tw==,2UNV7KOq4oGjA5+PKsX47MnTxOgtnLfgDS6V4b6TH8hYgeUJqUXtid+86vZww+nL,LXlT8qjS5x6WBejJA3+gBSSyAAeBKi3DrHP339ks+eWTzRA6xkSHdTdM1EufzDIPWIHlCalF7YnfvOr2cMPpyw==,adCcrjWN+9jYhIHsscsS5lPerbUfG1E+s9QYC6nXR8/vPKigEARXtNtK10NOEQAoCONUzZLbexpS3PEZaUF96g==
+      x-content-type-options:
+      - nosniff
+      set-cookie:
+      - TS016e3841=0141ccf4857cf597c98133d5ff200815c4b85227cb67cf4339bbdf771a596235a4227e55ad2b2a471d25eebf0a90874a47313f0bb5;
+        Path=/; Domain=.wixsite.com;SameSite=none;Secure
+      transfer-encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |2
+          <!--  -->
+
+        <!doctype html>
+        <!--
+            -->
+        <html ng-app="wixErrorPagesApp">
+        <head>
+          <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <title ng-bind="'page_title' | translate"></title>
+          <meta name="description" content="">
+          <meta name="viewport" content="width=device-width">
+          <meta name="robots" content="noindex, nofollow">
+          <!--  -->
+            <link type="image/png" href="//www.wix.com/favicon.ico" rel="shortcut icon">
+          <!--  -->
+          <link href="//static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css" rel="stylesheet" type="text/css" />
+          <!--  -->
+          <link rel="stylesheet" href="//static.parastorage.com/services/wix-public/1.299.0/styles/error-pages/styles.css">
+          <!--  -->
+        </head>
+        <body lang="en" ng-controller="ErrorPageController as errorPageCtrl" class="error-page-app" ng-class="{'secondary-background': isSecondaryBackground}">
+        <!--[if lt IE 9]>
+        <script src="//static.parastorage.com/services/third-party/es5-shim/2.1.0/es5-shim.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <![endif]-->
+        <!--[if gte IE 9]><!-->
+        <script src="//static.parastorage.com/services/third-party/jquery/2.0.3/jquery.min.js"></script>
+        <!--<![endif]-->
+
+        <script src="//static.parastorage.com/services/third-party/angularjs/1.2.28/angular.min.js"></script>
+          <!--  -->
+        <script src="//static.parastorage.com/services/third-party/angularjs/1.2.28/i18n/angular-locale_en.js"></script>
+        <script src="//static.parastorage.com/services/third-party/angular-translate/1.1.1/angular-translate.min.js"></script>
+
+        <script src="//static.parastorage.com/services/wix-public/1.299.0/scripts/error-pages/locale/messages_en.js"></script>
+          <!--  -->
+        <script src="//static.parastorage.com/services/wix-public/1.299.0/scripts/error-pages/app.js"></script>
+          <!--  -->
+
+        <script>
+          angular.module('wixErrorPagesApp').constant('staticsUrl', '//static.parastorage.com/services/wix-public/1.299.0/');
+          angular.module('wixErrorPagesApp').constant('baseDomain', 'wix.com');
+          angular.module('wixErrorPagesApp').constant('language', 'en');
+          angular.module('wixErrorPagesApp').constant('errorCode', {code: '404'});
+          angular.module('wixErrorPagesApp').constant('data', {});
+          angular.module('wixErrorPagesApp').constant('exceptionName', '');
+          angular.module('wixErrorPagesApp').constant('serverErrorCode', '404');
+        </script>
+        <div ng-cloak ng-include="errorPageCtrl.errorPageUrl">
+          <div class="non-angular-supported-browser-wrapper">
+            <h1 class="non-angular-supported-browser-header">Error 404 occurred</h1>
+            <div class="non-angular-supported-browser-link">
+              <span>Regardless, we recommend you to <a href="http://browsehappy.com/">update your browser.</a></span>
+            </div>
+          </div>
+        </div>
+        <!-- verification -->
+        <!-- end verification -->
+        </body>
+        </html>
+  recorded_at: Mon, 03 May 2021 10:09:22 GMT
+- request:
+    method: get
+    uri: http://hexlet.io
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - text/html; charset=UTF-8
+      referrer-policy:
+      - no-referrer
+      location:
+      - https://hexlet.io/
+      content-length:
+      - '215'
+      date:
+      - Mon, 03 May 2021 10:09:22 GMT
+    body:
+      encoding: UTF-8
+      string: "<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<TITLE>301
+        Moved</TITLE></HEAD><BODY>\n<H1>301 Moved</H1>\nThe document has moved\n<A
+        HREF=\"https://hexlet.io/\">here</A>.\r\n</BODY></HTML>\r\n"
+  recorded_at: Mon, 03 May 2021 10:09:22 GMT
+- request:
+    method: get
+    uri: http://github.com/ohmyzsh/ohmyzsh
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      content-length:
+      - '0'
+      location:
+      - https://github.com/ohmyzsh/ohmyzsh
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 03 May 2021 10:09:22 GMT
+- request:
+    method: get
+    uri: http://vk.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      server:
+      - kittenx
+      date:
+      - Mon, 03 May 2021 10:09:22 GMT
+      content-type:
+      - text/html
+      content-length:
+      - '164'
+      connection:
+      - keep-alive
+      location:
+      - https://vk.com/
+      x-frontend:
+      - front605111
+      access-control-expose-headers:
+      - X-Frontend
+    body:
+      encoding: UTF-8
+      string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301
+        Moved Permanently</h1></center>\r\n<hr><center>kittenx</center>\r\n</body>\r\n</html>\r\n"
+  recorded_at: Mon, 03 May 2021 10:09:22 GMT
+- request:
+    method: get
+    uri: http://google.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      location:
+      - http://www.google.com/
+      content-type:
+      - text/html; charset=UTF-8
+      date:
+      - Mon, 03 May 2021 10:11:28 GMT
+      expires:
+      - Wed, 02 Jun 2021 10:11:28 GMT
+      cache-control:
+      - public, max-age=2592000
+      server:
+      - gws
+      content-length:
+      - '219'
+      x-xss-protection:
+      - '0'
+      x-frame-options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: "<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<TITLE>301
+        Moved</TITLE></HEAD><BODY>\n<H1>301 Moved</H1>\nThe document has moved\n<A
+        HREF=\"http://www.google.com/\">here</A>.\r\n</BODY></HTML>\r\n"
+  recorded_at: Mon, 03 May 2021 10:11:28 GMT
+- request:
+    method: get
+    uri: http://alexandraiv.wixsite.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      date:
+      - Mon, 03 May 2021 10:11:28 GMT
+      content-type:
+      - text/html; charset=utf-8
+      connection:
+      - keep-alive
+      x-wix-request-id:
+      - '1620036688.925830300085525425'
+      vary:
+      - Accept-Encoding
+      age:
+      - '0'
+      x-seen-by:
+      - RQvnDyN5n1orR2cJk2hJbg==,sHU62EDOGnH2FBkJkG/Wx8EeXWsWdHrhlvbxtlynkVgnXWk8izeZCqjtLrJO/k38,m0j2EEknGIVUW/liY8BLLl3+z1LPCVX20aGaUcDWZPzQYjEJxCMSl2Cb+N3EkeV+,2d58ifebGbosy5xc+FRaluLdbtb8lpu0kU1sZuGdryOgkU20LKXMXrdPzV8/obONDRSpv4KesFcRbvxIVJPHyg==,2UNV7KOq4oGjA5+PKsX47MnTxOgtnLfgDS6V4b6TH8hYgeUJqUXtid+86vZww+nL,m7d0zj9X6FBqkyAIyh66vKYxPHBrxDb8qTiBaefGZn6TzRA6xkSHdTdM1EufzDIPWIHlCalF7YnfvOr2cMPpyw==,adCcrjWN+9jYhIHsscsS5qgM0a7I/LsKQhZpUg4pww+6aqSsRAxZ2N/cL37IR0+DVnd8Z4jLK9R467MyhrzM6w==
+      x-content-type-options:
+      - nosniff
+      set-cookie:
+      - TS016e3841=0141ccf485ab866081c2ffc170d372abbcbe6899e730daaf732d6540147113f13dd59faba52aee796309b653c1f538f4cef2dfead5;
+        Path=/; Domain=.wixsite.com;SameSite=none;Secure
+      transfer-encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |2
+          <!--  -->
+
+        <!doctype html>
+        <!--
+            -->
+        <html ng-app="wixErrorPagesApp">
+        <head>
+          <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <title ng-bind="'page_title' | translate"></title>
+          <meta name="description" content="">
+          <meta name="viewport" content="width=device-width">
+          <meta name="robots" content="noindex, nofollow">
+          <!--  -->
+            <link type="image/png" href="//www.wix.com/favicon.ico" rel="shortcut icon">
+          <!--  -->
+          <link href="//static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css" rel="stylesheet" type="text/css" />
+          <!--  -->
+          <link rel="stylesheet" href="//static.parastorage.com/services/wix-public/1.299.0/styles/error-pages/styles.css">
+          <!--  -->
+        </head>
+        <body lang="en" ng-controller="ErrorPageController as errorPageCtrl" class="error-page-app" ng-class="{'secondary-background': isSecondaryBackground}">
+        <!--[if lt IE 9]>
+        <script src="//static.parastorage.com/services/third-party/es5-shim/2.1.0/es5-shim.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <![endif]-->
+        <!--[if gte IE 9]><!-->
+        <script src="//static.parastorage.com/services/third-party/jquery/2.0.3/jquery.min.js"></script>
+        <!--<![endif]-->
+
+        <script src="//static.parastorage.com/services/third-party/angularjs/1.2.28/angular.min.js"></script>
+          <!--  -->
+        <script src="//static.parastorage.com/services/third-party/angularjs/1.2.28/i18n/angular-locale_en.js"></script>
+        <script src="//static.parastorage.com/services/third-party/angular-translate/1.1.1/angular-translate.min.js"></script>
+
+        <script src="//static.parastorage.com/services/wix-public/1.299.0/scripts/error-pages/locale/messages_en.js"></script>
+          <!--  -->
+        <script src="//static.parastorage.com/services/wix-public/1.299.0/scripts/error-pages/app.js"></script>
+          <!--  -->
+
+        <script>
+          angular.module('wixErrorPagesApp').constant('staticsUrl', '//static.parastorage.com/services/wix-public/1.299.0/');
+          angular.module('wixErrorPagesApp').constant('baseDomain', 'wix.com');
+          angular.module('wixErrorPagesApp').constant('language', 'en');
+          angular.module('wixErrorPagesApp').constant('errorCode', {code: '404'});
+          angular.module('wixErrorPagesApp').constant('data', {});
+          angular.module('wixErrorPagesApp').constant('exceptionName', '');
+          angular.module('wixErrorPagesApp').constant('serverErrorCode', '404');
+        </script>
+        <div ng-cloak ng-include="errorPageCtrl.errorPageUrl">
+          <div class="non-angular-supported-browser-wrapper">
+            <h1 class="non-angular-supported-browser-header">Error 404 occurred</h1>
+            <div class="non-angular-supported-browser-link">
+              <span>Regardless, we recommend you to <a href="http://browsehappy.com/">update your browser.</a></span>
+            </div>
+          </div>
+        </div>
+        <!-- verification -->
+        <!-- end verification -->
+        </body>
+        </html>
+  recorded_at: Mon, 03 May 2021 10:11:28 GMT
+- request:
+    method: get
+    uri: http://hexlet.io
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - text/html; charset=UTF-8
+      referrer-policy:
+      - no-referrer
+      location:
+      - https://hexlet.io/
+      content-length:
+      - '215'
+      date:
+      - Mon, 03 May 2021 10:11:29 GMT
+    body:
+      encoding: UTF-8
+      string: "<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<TITLE>301
+        Moved</TITLE></HEAD><BODY>\n<H1>301 Moved</H1>\nThe document has moved\n<A
+        HREF=\"https://hexlet.io/\">here</A>.\r\n</BODY></HTML>\r\n"
+  recorded_at: Mon, 03 May 2021 10:11:28 GMT
+- request:
+    method: get
+    uri: http://github.com/ohmyzsh/ohmyzsh
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      content-length:
+      - '0'
+      location:
+      - https://github.com/ohmyzsh/ohmyzsh
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 03 May 2021 10:11:29 GMT
+- request:
+    method: get
+    uri: http://vk.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      server:
+      - kittenx
+      date:
+      - Mon, 03 May 2021 10:11:29 GMT
+      content-type:
+      - text/html
+      content-length:
+      - '164'
+      connection:
+      - keep-alive
+      location:
+      - https://vk.com/
+      x-frontend:
+      - front512004
+      access-control-expose-headers:
+      - X-Frontend
+    body:
+      encoding: UTF-8
+      string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301
+        Moved Permanently</h1></center>\r\n<hr><center>kittenx</center>\r\n</body>\r\n</html>\r\n"
+  recorded_at: Mon, 03 May 2021 10:11:29 GMT
+recorded_with: VCR 6.0.0
