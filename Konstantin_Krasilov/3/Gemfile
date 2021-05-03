@@ -10,3 +10,5 @@ gem 'activerecord'
 gem 'pg'
 
 gem 'dotenv-rails'
+gem 'json'
+gem 'progress_bar'
