@@ -21,7 +21,6 @@ describe Filter do
       let(:filter) { Filter.new(urls, options_with_subdomains) }
 
       it 'should reduce the number of links' do
-        expect(filter.apply_filter.size).to_not eq(urls.size)
         expect(filter.apply_filter).to_not include('alexandraiv.wixsite.com')
       end
     end
