@@ -8,6 +8,8 @@ class CsvReader
   end
 
   def data
+    raise StandardError, 'File is empty' if CSV.read(@path).empty?
+
     CSV.read(@path).flatten
   end
 end
