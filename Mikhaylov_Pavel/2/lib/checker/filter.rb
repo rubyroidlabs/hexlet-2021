@@ -7,11 +7,9 @@ class Filter
   end
 
   def apply_filter
-    if @options.key?(:subdomains) || @options.key?(:solutions)
-      filter_by_options
-    else
-      @data
-    end
+    return filter_by_options if @options.key?(:subdomains) || @options.key?(:solutions)
+
+    @data
   end
 
   private
