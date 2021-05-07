@@ -10,7 +10,7 @@ RSpec.describe JsonParser do
     "update_id": 210195582,
     "message": {
         "from": {
-            "id": 46938363
+            "id": 11111
 		}
 	}}')
   end
@@ -20,7 +20,7 @@ RSpec.describe JsonParser do
     "update_id": 210195582,
     "message": {
         "from": {
-            "id": 46938363
+            "id": 11111
 		}
 	}}'
   end
