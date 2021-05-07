@@ -26,6 +26,7 @@ gem 'singleton'
 gem 'sqlite3'    # db for testing
 gem 'telegram-bot-ruby'
 gem 'whenever', require: false
+gem 'whenever-test'
 ```
 ### Before executing
 ```

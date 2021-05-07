@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require_relative 'loader'
 require_relative 'reply_factory'
+require 'pry'
 
 class Talking
   def self.send(req)

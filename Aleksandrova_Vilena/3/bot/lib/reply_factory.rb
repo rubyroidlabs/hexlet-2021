@@ -9,6 +9,8 @@ require_relative 'models/definition'
 require 'pry'
 
 class Response
+  attr_reader :telegram_id, :msg
+
   def initialize(req, msg = '')
     @telegram_id = req.message.from.id
     @msg = msg
@@ -65,7 +67,7 @@ class FeedbackResponse < Response
   end
 
   def send_new_word
-    generate_word
+    @msg = generate_word(@telegram_id)
   end
 end
 
@@ -99,7 +101,7 @@ class RegisterResponse < Response
   end
 
   def send_new_word
-    generate_word
+    @msg = generate_word(@telegram_id)
   end
 
   def status_registered?

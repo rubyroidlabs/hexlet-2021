@@ -22,6 +22,8 @@ class Job
   include Answers
   include Generator
 
+  attr_reader :telegram_id, :msg
+
   def initialize
     @api = Telegram::Bot::Api.new(ENV['BOT_API_TOKEN'])
     @answers = load_answers
@@ -44,12 +46,16 @@ class Job
     end
   end
 
+  def generate_definition(telegram_id)
+    @msg = generate_word(telegram_id)
+  end
+
   private
 
   def send_new_word
     @api.sendMessage(chat_id: @telegram_id, text: @answers[:new])
     sleep 1
-    generate_word
+    generate_definition(@telegram_id)
     @api.sendMessage(chat_id: @telegram_id, text: @msg)
   end
 
