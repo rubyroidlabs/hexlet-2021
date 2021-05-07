@@ -1,0 +1,22 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# gem "rails"
+gem 'activerecord'
+gem 'dotenv'     # for using env. variables
+gem 'multi_json'
+gem 'nanoc', '~> 4.12'
+gem 'pry', '~> 0.14.1'
+gem 'puma'
+gem 'rake', '~> 13.0.3'
+gem 'robocop'
+gem 'rspec'      # for running tests
+gem 'sinatra'
+gem 'sinatra-activerecord', '~> 2.0'
+gem 'singleton'
+gem 'sqlite3'    # db for devtesting
+gem 'telegram-bot-ruby'
+gem 'whenever', require: false

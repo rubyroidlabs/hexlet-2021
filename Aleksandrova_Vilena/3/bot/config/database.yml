@@ -1,0 +1,21 @@
+development:
+  adapter: 'sqlite3'
+  database: 'db/learning.db'
+
+#default: &default
+#  adapter: postgresql
+#  encoding: unicode
+#  pool: 5
+#  host: localhost
+
+#development:
+#  <<: *default
+#  database: learning_development
+#  username: admin
+#  password: 1
+
+#production:
+#  <<: *default
+#  database: learning_production
+#  username: admin
+#  password: 1
