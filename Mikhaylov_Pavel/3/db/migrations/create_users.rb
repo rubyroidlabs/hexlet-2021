@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../connection'
+require_relative '../../connection'
 
 class CreateUsers < ActiveRecord::Migration[6.0]
   def up
@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :name
       t.integer :telegram_id, null: false, index: { unique: true }
       t.integer :words_per_day
+      t.string :aasm_state
 
       t.timestamps
     end

@@ -4,9 +4,12 @@ source 'https://rubygems.org'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
+gem 'aasm'
 gem 'activerecord'
+gem 'after_commit_everywhere', '~> 1.0'
 gem 'dotenv'
 gem 'pg'
+gem 'ruby-progressbar'
 gem 'telegram-bot-ruby'
 
 group :development do
