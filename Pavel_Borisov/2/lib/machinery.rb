@@ -3,6 +3,7 @@
 require 'optparse'
 require 'csv'
 require 'net/http'
+require 'nokogiri'
 
 class CliParser
   attr_reader :options, :args
@@ -43,11 +44,11 @@ class DomainChecker
       response = http.get('/')
       end_time = Time.now
       @response_time = "#{((end_time - start_time) * 1000).round}ms"
-      @code = response.code
+      @code = response.code.to_i
       @body = response.body
-      @status = :success
+      @status = :got_response
     rescue SocketError, Timeout::Error => e
-      @status = :failure
+      @status = :errored
       cause = e.cause
       if e.is_a? Timeout::Error
         cause = 'Timeout'
@@ -59,9 +60,9 @@ class DomainChecker
 
   def to_s
     case @status
-    when :success
+    when :got_response
       "#{@domain} - #{@code} (#{@response_time})"
-    when :failure
+    when :errored
       "#{@domain} - #{@error_message}"
     end
   end
@@ -82,12 +83,36 @@ class DomainsList
       reject_solutions!
     end
 
+    @filtered_word = options[:'filter']
     @list = @initial_list.map { |domain| DomainChecker.new(domain) }
   end
 
   def process!
     @list.each { |item| item.check! }
+    if @filtered_word
+      reject_results_with_word!(@filtered_word)
+    end
   end
+
+  def results
+    @list.map(&:to_s)
+  end
+
+  def stats
+    total = @list.count
+    errored = @list.count { |item| item.status == :errored }
+
+    success = @list.count do |item|
+      item.status == :got_response && (200..399).include?(item.code)
+    end
+
+    failed = @list.count do |item|
+      item.status == :got_response && (400..599).include?(item.code)
+    end
+
+    "Total: #{total}, Success: #{success}, Failed: #{failed}, Errored: #{errored}"
+  end
+
 
   private
 
@@ -98,6 +123,13 @@ class DomainsList
   def reject_solutions!
     @initial_list.filter! do |domain|
       !domain.match(/(\bgitlab\b|\bredmine\b|\bgit\b|\brepo\b|\brm\b|\bsource\b|\bsvn\b)/)
+    end
+  end
+
+  def reject_results_with_word!(word)
+    @list.reject! do |response|
+      body_text = Nokogiri::HTML.parse(response.body).css("body").text
+      body_text.downcase.match? word.downcase
     end
   end
 end

@@ -16,20 +16,14 @@ command_line.parse!
 
 domain_list_filename = command_line.args.first
 
-p command_line.options
-p command_line.args
-
-unless !domain_list_filename.nil? && File.exists?(domain_list_filename)
+if domain_list_filename.nil? || !File.exists?(domain_list_filename)
   print command_line.usage
   exit
 end
 
 domains = DomainsList.new(domain_list_filename, command_line.options)
-p domains.list
-p ""
 
 domains.process!
-p domains.list
-
-
-
+domains.results.each { |r| puts r }
+puts ""
+puts domains.stats
