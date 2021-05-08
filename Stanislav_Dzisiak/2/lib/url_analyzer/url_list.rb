@@ -1,46 +1,35 @@
 # frozen_string_literal: true
 
 module UrlAnalyzer
-  class UrlList
-    def initialize(urls)
-      @urls = urls.dup
-      @operations = []
-      @org_url_patterns = [
-        /.org$/i,
-        /github.com$/i,
-        /gitlab.com$/i
-      ].freeze
-      @default_scheme = 'http'
-    end
+  module UrlList
+    ORG_URL_PATTERNS = [
+      /.org$/i,
+      /github.com$/i,
+      /gitlab.com$/i
+    ].freeze
+    DEFAULT_SCHEME = 'http'
 
-    def urls
-      @operations.each(&:call)
-      @operations = []
-      @urls
-    end
+    def self.filter(urls, options)
+      excluded_patterns = []
+      excluded_patterns.push(/\..*\./) if options[:no_subdomains]
+      excluded_patterns.concat(ORG_URL_PATTERNS) if options[:exclude_solutions]
 
-    def filter(options)
-      @operations.push lambda {
-        excluded_patterns = []
-        excluded_patterns.push(/\..*\./) if options[:no_subdomains]
-        excluded_patterns.concat(@org_url_patterns) if options[:exclude_solutions]
-
-        return if excluded_patterns.empty?
-
-        @urls.reject! do |url|
-          excluded_patterns.any? { |pattern| url.match? pattern }
+      filtered_urls =
+        if excluded_patterns.empty?
+          urls
+        else
+          urls.reject do |url|
+            excluded_patterns.any? { |pattern| url.match? pattern }
+          end
         end
-      }
-      self
+
+      normalize(filtered_urls)
     end
 
-    def normalize
-      @operations.push lambda {
-        @urls.map! do |url|
-          url.match?(%r{^(?!.+://).*}) ? "#{@default_scheme}://#{url}" : url
-        end
-      }
-      self
+    def self.normalize(urls)
+      urls.map! do |url|
+        url.match?(%r{^(?!.+://).*}) ? "#{DEFAULT_SCHEME}://#{url}" : url
+      end
     end
   end
 end
