@@ -32,22 +32,27 @@ class DomainChecker
   attr_reader :domain, :code, :response_time, :body, :status
 
   def initialize(domain)
-    @uri = URI("http://#{domain}/")
     @domain = domain
   end
 
   def check!
     begin
+      http = Net::HTTP.new(@domain)
+      http.read_timeout = 1
       start_time = Time.now
-      response = Net::HTTP.get_response(@uri)
+      response = http.get('/')
       end_time = Time.now
       @response_time = "#{((end_time - start_time) * 1000).round}ms"
       @code = response.code
       @body = response.body
       @status = :success
-    rescue SocketError => e
+    rescue SocketError, Timeout::Error => e
       @status = :failure
-      @error_message = "ERROR (#{e.cause})"
+      cause = e.cause
+      if e.is_a? Timeout::Error
+        cause = 'Timeout'
+      end
+      @error_message = "ERROR (#{cause})"
     end
     self
   end
