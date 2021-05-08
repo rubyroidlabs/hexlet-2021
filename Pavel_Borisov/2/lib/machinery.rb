@@ -4,7 +4,7 @@ require 'optparse'
 require 'csv'
 require 'net/http'
 
-class Parser
+class CliParser
   attr_reader :options, :args
 
   def initialize(&block)
@@ -28,40 +28,11 @@ class Parser
 end
 
 
-class DomainsList
-  attr_reader :list
-
-  def initialize(filename, params)
-    @list = CSV.read(filename).map(&:first)
-
-    if params[:'no-subdomains']
-      reject_subdomains!
-    end
-
-    if params[:'exclude-solutions']
-      reject_solutions!
-    end
-  end
-
-  private
-
-  def reject_subdomains!
-    @list.filter!  { |domain| domain.count('.') == 1 }
-  end
-
-  def reject_solutions!
-    @list.filter! do |domain|
-      !domain.match(/(\bgitlab\b|\bredmine\b|\bgit\b|\brepo\b|\brm\b|\bsource\b|\bsvn\b)/)
-    end
-  end
-end
-
-
 class DomainChecker
   attr_reader :domain, :code, :response_time, :body, :status
 
   def initialize(domain)
-    @uri = URI("https://#{domain}/")
+    @uri = URI("http://#{domain}/")
     @domain = domain
   end
 
@@ -86,7 +57,45 @@ class DomainChecker
     when :success
       "#{@domain} - #{@code} (#{@response_time})"
     when :failure
-      "#{domain} - #{error_message}"
+      "#{@domain} - #{@error_message}"
     end
   end
 end
+
+
+class DomainsList
+  attr_reader :list
+
+  def initialize(filename, options)
+    @initial_list = CSV.read(filename).map(&:first)
+
+    if options[:'no-subdomains']
+      reject_subdomains!
+    end
+
+    if options[:'exclude-solutions']
+      reject_solutions!
+    end
+
+    @list = @initial_list.map { |domain| DomainChecker.new(domain) }
+  end
+
+  def process!
+    @list.each { |item| item.check! }
+  end
+
+  private
+
+  def reject_subdomains!
+    @initial_list.filter!  { |domain| domain.count('.') == 1 }
+  end
+
+  def reject_solutions!
+    @initial_list.filter! do |domain|
+      !domain.match(/(\bgitlab\b|\bredmine\b|\bgit\b|\brepo\b|\brm\b|\bsource\b|\bsvn\b)/)
+    end
+  end
+end
+
+
+

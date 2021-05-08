@@ -3,7 +3,7 @@
 require_relative 'lib/machinery'
 require 'pry'
 
-command_line = Parser.new do |opts|
+command_line = CliParser.new do |opts|
   opts.banner = "Usage: #{__FILE__} [options] FILENAME"
   opts.separator ''
   opts.separator 'Available options:'
@@ -24,6 +24,12 @@ unless !domain_list_filename.nil? && File.exists?(domain_list_filename)
   exit
 end
 
+domains = DomainsList.new(domain_list_filename, command_line.options)
+p domains.list
+p ""
+
+domains.process!
+p domains.list
 
 
 
