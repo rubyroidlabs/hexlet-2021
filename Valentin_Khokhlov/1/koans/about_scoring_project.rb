@@ -31,7 +31,8 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 def score(dice)
   # You need to write this method
-  scores = dice.reduce(Array.new(7, 0)) do |acc, die|
+
+  scores = dice.each_with_object(Array.new(7, 0)) do |die, acc|
     acc[die] += 1
     acc
   end
@@ -47,7 +48,7 @@ def score(dice)
     end
   end
 
-  scores.reduce(:+)
+  scores.sum
 end
 
 class AboutScoringProject < Neo::Koan
