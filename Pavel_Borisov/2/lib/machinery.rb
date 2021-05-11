@@ -78,10 +78,16 @@ class DomainsList
   end
 
   def process!
-    @list.each { |item| item.check! }
-    if @filtered_word
-      reject_results_with_word!(@filtered_word)
+    total_count = @list.count
+    processed_count = 0
+    @list.each do |item|
+      item.check!
+      processed_count += 1
+      completion_percentage = (processed_count / total_count.to_f * 100).to_i
+      yield(completion_percentage, item.domain) if block_given?
     end
+    reject_results_with_word!(@filtered_word) if @filtered_word
+    self
   end
 
   def results
