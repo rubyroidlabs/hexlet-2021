@@ -2,7 +2,7 @@
 
 require 'singleton'
 require 'telegram/bot'
-require_relative '../lib/notify_handler'
+require_relative '../lib/cron_worker'
 require_relative '../lib/loader'
 require 'recursive-open-struct'
 

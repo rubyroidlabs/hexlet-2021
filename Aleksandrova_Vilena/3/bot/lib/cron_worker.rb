@@ -9,7 +9,7 @@ require_relative 'models/learned_definition'
 require_relative 'models/definition'
 require 'telegram/bot'
 
-class NotifyHandler
+class CronWorker
   include Logging
   def self.perform
     logger.info 'starting cron notifications'

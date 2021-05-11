@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../notify_handler'
+require_relative '../cron_worker'
 
 namespace :payload do
   desc 'Send out lesson messages'
   task send_messages: :environment do
-    NotifyHandler.perform
+    CronWorker.perform
   end
 end

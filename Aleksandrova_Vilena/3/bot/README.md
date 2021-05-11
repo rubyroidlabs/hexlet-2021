@@ -30,11 +30,11 @@ gem 'whenever-test'
 ```
 ### Before executing
 ```
-Run tunels using ngrok tool for server emulating:
-1. ./ngrok authtoken {ngrok_token}
+1. Run tunels using ngrok tool for server emulating:
+   ./ngrok authtoken {ngrok_token}
    ./ngrok http {port}
-Send post request to telegram API that allows to redirect
-2. curl --location --request POST 'https://api.telegram.org/bot{token}/setWebhook' --header 'Content-Type: application/json' --data-raw '{"url": {url}}'
+2. Send post request to telegram API that allows to redirect
+   curl --location --request POST 'https://api.telegram.org/bot{token}/setWebhook' --header 'Content-Type: application/json' --data-raw '{"url": {url}}'
 ```
 
 ### Executing program
@@ -44,6 +44,10 @@ Send post request to telegram API that allows to redirect
 * Run ``` bundle exec rake db:migrate ```
 * Run ``` bundle exec rake db:seed ```
 * Run ``` rackup -p {port} ```
+
+```
+P.S. In this case it's enough to run: 'bundle install', 'rackup -p {port}'
+```
 
 ### Task for cron
 * Start ``` whenever --update-crontab --set environment='development' ```
