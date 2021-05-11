@@ -5,6 +5,7 @@ require 'csv'
 require 'net/http'
 require 'nokogiri'
 
+# Uses OptionParser to collect options into a hash
 class CliParser
   attr_reader :options, :args
 
@@ -28,6 +29,7 @@ class CliParser
   end
 end
 
+# Runs check for a single domain and contains the result
 class DomainChecker
   attr_reader :domain, :code, :response_time, :body, :status
 
@@ -68,6 +70,9 @@ class DomainChecker
   end
 end
 
+# Reads domains list from a file, filters the list according to the supplied options.
+# Checks the domains using DomainChecker, filters the results if --filter option is specified.
+# Provides methods to format results and stats for output.
 class DomainsList
   attr_reader :list
 
