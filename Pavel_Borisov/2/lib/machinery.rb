@@ -38,6 +38,7 @@ class DomainChecker
   def check!
     begin
       http = Net::HTTP.new(@domain)
+      http.open_timeout = 1
       http.read_timeout = 1
       start_time = Time.now
       response = http.get('/')
@@ -46,7 +47,7 @@ class DomainChecker
       @code = response.code.to_i
       @body = response.body
       @status = :got_response
-    rescue SocketError, Timeout::Error => e
+    rescue StandardError => e
       @status = :errored
       cause = ('Timeout' if e.is_a? Timeout::Error) || e.cause
       @error_message = "ERROR (#{cause})"
