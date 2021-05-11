@@ -26,6 +26,7 @@ domains = DomainsList.new(domain_list_filename, command_line.options)
 domains.process! do |percent, domain|
   print "\e[1000D\e[0K#{percent}% complete – now checking #{domain}"
 end
+print "\e[1000D\e[0K"
 domains.results.each { |r| puts r }
 puts ''
 puts domains.stats
