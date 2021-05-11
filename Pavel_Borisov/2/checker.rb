@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'lib/machinery'
-require 'pry'
 
 command_line = CliParser.new do |opts|
   opts.banner = "Usage: #{__FILE__} [options] FILENAME"
