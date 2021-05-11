@@ -33,6 +33,7 @@ class DomainChecker
 
   def initialize(domain)
     @domain = domain
+    @status = :unchecked
   end
 
   def check!
@@ -55,12 +56,14 @@ class DomainChecker
     self
   end
 
-  def to_s
+  def result
     case @status
     when :got_response
       "#{@domain} - #{@code} (#{@response_time})"
     when :errored
       "#{@domain} - #{@error_message}"
+    when :unchecked
+      "#{@domain} - hasn't been checked"
     end
   end
 end
@@ -92,7 +95,7 @@ class DomainsList
   end
 
   def results
-    @list.map(&:to_s)
+    @list.map(&:result)
   end
 
   def stats
