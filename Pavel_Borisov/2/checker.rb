@@ -16,7 +16,7 @@ command_line.parse!
 
 domain_list_filename = command_line.args.first
 
-if domain_list_filename.nil? || !File.exists?(domain_list_filename)
+if domain_list_filename.nil? || !File.exist?(domain_list_filename)
   print command_line.usage
   exit
 end
@@ -27,5 +27,5 @@ domains.process! do |percent, domain|
   print "\e[1000D\e[0K#{percent}% complete – now checking #{domain}"
 end
 domains.results.each { |r| puts r }
-puts ""
+puts ''
 puts domains.stats
