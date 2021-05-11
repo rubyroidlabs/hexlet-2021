@@ -28,7 +28,6 @@ class CliParser
   end
 end
 
-
 class DomainChecker
   attr_reader :domain, :code, :response_time, :body, :status
 
@@ -49,10 +48,7 @@ class DomainChecker
       @status = :got_response
     rescue SocketError, Timeout::Error => e
       @status = :errored
-      cause = e.cause
-      if e.is_a? Timeout::Error
-        cause = 'Timeout'
-      end
+      cause = ('Timeout' if e.is_a? Timeout::Error) || e.cause
       @error_message = "ERROR (#{cause})"
     end
     self
@@ -68,22 +64,16 @@ class DomainChecker
   end
 end
 
-
 class DomainsList
   attr_reader :list
 
   def initialize(filename, options)
     @initial_list = CSV.read(filename).map(&:first)
 
-    if options[:'no-subdomains']
-      reject_subdomains!
-    end
+    reject_subdomains! if options[:'no-subdomains']
+    reject_solutions! if options[:'exclude-solutions']
 
-    if options[:'exclude-solutions']
-      reject_solutions!
-    end
-
-    @filtered_word = options[:'filter']
+    @filtered_word = options[:filter]
     @list = @initial_list.map { |domain| DomainChecker.new(domain) }
   end
 
@@ -103,21 +93,20 @@ class DomainsList
     errored = @list.count { |item| item.status == :errored }
 
     success = @list.count do |item|
-      item.status == :got_response && (200..399).include?(item.code)
+      item.status == :got_response && (200..399).cover?(item.code)
     end
 
     failed = @list.count do |item|
-      item.status == :got_response && (400..599).include?(item.code)
+      item.status == :got_response && (400..599).cover?(item.code)
     end
 
     "Total: #{total}, Success: #{success}, Failed: #{failed}, Errored: #{errored}"
   end
 
-
   private
 
   def reject_subdomains!
-    @initial_list.filter!  { |domain| domain.count('.') == 1 }
+    @initial_list.filter! { |domain| domain.count('.') == 1 }
   end
 
   def reject_solutions!
@@ -128,11 +117,8 @@ class DomainsList
 
   def reject_results_with_word!(word)
     @list.reject! do |response|
-      body_text = Nokogiri::HTML.parse(response.body).css("body").text
+      body_text = Nokogiri::HTML.parse(response.body).css('body').text
       body_text.downcase.match? word.downcase
     end
   end
 end
-
-
-
