@@ -31,6 +31,50 @@ describe User, type: :model do
     end
   end
 
+  describe 'Validation status' do
+    let(:record) { build(:user, status: status) }
+
+    context 'whith not valid' do
+      let(:status) { 'wrong' }
+
+      it 'status is not valid' do
+        record.validate
+
+        expect(record.errors[:status]).to include('is not included in the list')
+      end
+    end
+
+    context 'with valid' do
+      let(:status) { 'waiting' }
+
+      it 'status is valid' do
+        expect(record).to be_valid
+      end
+    end
+  end
+
+  describe 'Validation words_count' do
+    let(:record) { build(:user, words_count: words_count) }
+
+    context 'whith not valid' do
+      let(:words_count) { 7 }
+
+      it 'words_count is not valid' do
+        record.validate
+
+        expect(record.errors[:words_count]).to include('must be less than or equal to 6')
+      end
+    end
+
+    context 'with valid' do
+      let(:words_count) { 3 }
+
+      it 'words_count is valid' do
+        expect(record).to be_valid
+      end
+    end
+  end
+
   describe 'Methods' do
     describe '#add_schedule!' do
       let(:user) { create(:user, status: 'registered') }
@@ -43,14 +87,14 @@ describe User, type: :model do
 
         expect(User.find(user.id)).to have_attributes(
           status: 'scheduled',
-          schedule: '9,15,21',
+          words_count: 3,
           upcoming_time: 9
         )
       end
     end
 
     describe '#receive_definition!' do
-      let(:user) { create(:user, status: 'scheduled', schedule: '9,15,21', upcoming_time: 21) }
+      let(:user) { create(:user, status: 'scheduled', words_count: 3, upcoming_time: 21) }
       let(:definition) { create(:definition) }
 
       it 'adds word to already sent' do
@@ -69,7 +113,7 @@ describe User, type: :model do
     end
 
     describe '#upcoming_time_equal?' do
-      let(:user) { create(:user, status: 'scheduled', schedule: '9,15,21', upcoming_time: 21) }
+      let(:user) { create(:user, status: 'scheduled', words_count: 3, upcoming_time: 21) }
 
       context 'when actual time equal to schedule time' do
         let(:time) { Timecop.freeze(2021, 4, 20, 21).hour }
@@ -89,7 +133,7 @@ describe User, type: :model do
     end
 
     describe '#miss_time?' do
-      let(:user) { create(:user, status: 'waiting', schedule: '9,15,21', upcoming_time: 21) }
+      let(:user) { create(:user, status: 'waiting', words_count: 3, upcoming_time: 21) }
 
       context 'when actual time equal missed time' do
         let(:time) { Timecop.freeze(2021, 4, 20, 17).hour }

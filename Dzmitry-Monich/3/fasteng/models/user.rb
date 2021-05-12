@@ -15,16 +15,18 @@ class User < ActiveRecord::Base
     [8, 11, 14, 17, 20, 23]
   ].freeze
 
-  validates :telegram_id, presence: true, uniqueness: true, case_sensitive: false
-
   has_many :learned_words, dependent: :destroy
   has_many :definitions, through: :learned_words
+
+  validates :telegram_id, presence: true, uniqueness: true, case_sensitive: false
+  validates :status, inclusion: { in: %w[new registered scheduled waiting] }
+  validates :words_count, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 6 }, allow_nil: true
 
   def add_schedule!(count)
     sched = SCHEDULE_TYPES[count.to_i - 1]
     update!(
       status: 'scheduled',
-      schedule: schedule_to_s(sched),
+      words_count: count.to_i,
       upcoming_time: init_upcoming(sched)
     )
   end
@@ -48,13 +50,13 @@ class User < ActiveRecord::Base
   private
 
   def next_time
-    intervals = schedule_to_a
+    intervals = SCHEDULE_TYPES[words_count - 1]
     next_idx = (intervals.find_index { |i| i == upcoming_time } + 1) % intervals.size
     intervals[next_idx]
   end
 
   def previous_time
-    intervals = schedule_to_a
+    intervals = SCHEDULE_TYPES[words_count - 1]
     size = intervals.size
     prev_idx = (intervals.find_index { |i| i == upcoming_time } + (size - 1)) % size
     intervals[prev_idx]
@@ -62,14 +64,6 @@ class User < ActiveRecord::Base
 
   def init_upcoming(intervals)
     intervals.find { |i| i > actual_time } || intervals.first
-  end
-
-  def schedule_to_s(intervals)
-    intervals.join(',')
-  end
-
-  def schedule_to_a
-    schedule.split(',').map(&:to_i)
   end
 
   # rubocop:disable Rails/TimeZone

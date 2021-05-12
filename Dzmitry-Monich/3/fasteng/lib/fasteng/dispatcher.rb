@@ -21,7 +21,7 @@ module Fasteng
     attr_reader :bot_api, :message
 
     def user
-      @user ||= User.find_or_create_by(telegram_id: message.from.id)
+      @user ||= User.find_or_create_by!(telegram_id: message.from.id)
     end
 
     def actions

@@ -68,7 +68,7 @@ describe Fasteng::Actions do
         described_class::Scheduler.call(bot_api, user, message)
 
         expect(User.find(user.id)).to have_attributes(
-          status: 'registered', schedule: nil, upcoming_time: nil
+          status: 'registered', words_count: nil, upcoming_time: nil
         )
       end
 
@@ -121,7 +121,7 @@ describe Fasteng::Actions do
 
   describe 'User receives definition' do
     let(:definition) { create(:definition) }
-    let(:user) { create(:user, telegram_id: from.id, status: 'scheduled', schedule: '1,2,3', upcoming_time: '2') }
+    let(:user) { create(:user, telegram_id: from.id, status: 'scheduled', words_count: 3, upcoming_time: 15) }
     let(:last_messsage) { Fasteng::MessageSender::ReplyMessage::MESSAGES[:end_game] }
 
     it 'user status changed to waiting' do
