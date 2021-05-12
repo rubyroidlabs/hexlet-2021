@@ -26,7 +26,7 @@ module Learner
 
       users_to_remind = users.select do |user|
         last_word_created_at = LearnedWord.where(user_id: user.id).order(created_at: :desc).first.created_at
-        (Time.current - last_word_created_at) / 3600 < 2
+        (Time.current - last_word_created_at) / 3600 > 2
       end
 
       users_to_remind.each do |user|
