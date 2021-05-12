@@ -40,16 +40,7 @@ class DomainChecker
 
   def check!
     begin
-      http = Net::HTTP.new(@domain)
-      http.open_timeout = 1
-      http.read_timeout = 1
-      start_time = Time.now
-      response = http.get('/')
-      end_time = Time.now
-      @response_time = "#{((end_time - start_time) * 1000).round}ms"
-      @code = response.code.to_i
-      @body = response.body
-      @status = :got_response
+      timed_http_request
     rescue StandardError => e
       @status = :errored
       cause = ('Timeout' if e.is_a? Timeout::Error) || e.cause
@@ -67,6 +58,21 @@ class DomainChecker
     when :unchecked
       "#{@domain} - hasn't been checked"
     end
+  end
+
+  private
+
+  def timed_http_request
+    http = Net::HTTP.new(@domain)
+    http.open_timeout = 1
+    http.read_timeout = 1
+    start_time = Time.now.utc
+    response = http.get('/')
+    end_time = Time.now.utc
+    @response_time = "#{((end_time - start_time) * 1000).round}ms"
+    @code = response.code.to_i
+    @body = response.body
+    @status = :got_response
   end
 end
 
