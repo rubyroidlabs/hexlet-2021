@@ -101,7 +101,7 @@ class DomainsList
       completion_percentage = (processed_count / total_count.to_f * 100).to_i
       yield(completion_percentage, item.domain) if block_given?
     end
-    reject_results_with_word!(@filtered_word) if @filtered_word
+    keep_results_with_word!(@filtered_word) if @filtered_word
     self
   end
 
@@ -136,8 +136,8 @@ class DomainsList
     end
   end
 
-  def reject_results_with_word!(word)
-    @list.reject! do |response|
+  def keep_results_with_word!(word)
+    @list.keep_if do |response|
       body_text = Nokogiri::HTML.parse(response.body).css('body').text
       body_text.downcase.match? word.downcase
     end

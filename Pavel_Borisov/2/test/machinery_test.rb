@@ -50,8 +50,8 @@ class DomainsListTest < Minitest::Test
                  DomainsList.new(TEST_DOMAINS_FILE, { 'exclude-solutions': true }).list.map(&:domain)
   end
 
-  def test_filter_word_rejects_results_with_word_in_body
-    assert_equal ['subdomain.example.com', 'gitlab.com'],
+  def test_filter_word_keeps_only_results_with_word_in_body
+    assert_equal ['example.com'],
                  DomainsList.new(TEST_DOMAINS_FILE, { filter: 'example' }).process!.list.map(&:domain)
   end
 end
