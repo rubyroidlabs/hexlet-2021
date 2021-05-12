@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'telegram/bot'
+require 'yaml'
+require './lib/app'
+
+config = File.open('./config/secrets.yml')
+token = YAML.safe_load(config)['token']
+
+Telegram::Bot::Client.run(token) do |bot|
+  app = App.new
+
+  bot.listen do |message|
+    app.respond(message)
+  end
+end

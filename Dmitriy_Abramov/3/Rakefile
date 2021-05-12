@@ -1,0 +1,46 @@
+# frozen_string_literal: true
+
+# rubocop:disable Rails/RakeEnvironment
+
+require 'active_record'
+require 'telegram/bot'
+require_relative './db/connection'
+require_relative './lib/app'
+require_relative './lib/notifier'
+
+namespace :db do
+  desc 'Migrate the database'
+  task :migrate do
+    context = ActiveRecord::Migration.new.migration_context
+    migrations = context.migrations
+    schema_migration = context.schema_migration
+    ActiveRecord::Migrator.new(:up, migrations, schema_migration).migrate
+    ActiveRecord::SchemaDumper.dump ActiveRecord::Base.connection, File.open('./db/schema.rb', 'w')
+  end
+
+  desc 'Drop the database'
+  task :drop do
+    File.delete('base.db')
+    File.delete('test_base.db')
+    File.delete('./db/schema.rb')
+  end
+
+  desc 'Seed the database with words'
+  task :seed do
+    load('./db/seeds.rb')
+  end
+end
+
+namespace :app do
+  desc 'Send words'
+  task :send do
+    Notifier.send_words
+  end
+
+  desc 'Send reminders'
+  task :remind do
+    Notifier.remind
+  end
+end
+
+# rubocop:enable Rails/RakeEnvironment
