@@ -9,7 +9,7 @@ config = File.open('./config/secrets.yml')
 token = YAML.safe_load(config)['token']
 
 Telegram::Bot::Client.run(token) do |bot|
-  app = App.new
+  app = Learner::App.new
 
   bot.listen do |message|
     app.respond(message)
