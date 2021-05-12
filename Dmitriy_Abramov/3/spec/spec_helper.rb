@@ -8,7 +8,7 @@ require 'database_cleaner/active_record'
 
 connection_details = YAML.load_file('./config/config.yml')['test']
 ActiveRecord::Base.establish_connection(connection_details)
-Dir['./models/*.rb'].each { |model| require model }
+Dir['./models/*.rb'].sort.each { |model| require model }
 load './db/schema.rb'
 
 RSpec.configure do |config|
