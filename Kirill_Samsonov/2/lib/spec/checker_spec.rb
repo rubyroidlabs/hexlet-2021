@@ -21,6 +21,7 @@ describe Checker do
 
   it 'check domain' do
     checker = Checker.new('./source', {})
+    checker.run
     expect(checker).to receive(:print).with(1)
   end
 end
