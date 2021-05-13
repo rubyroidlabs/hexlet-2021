@@ -23,5 +23,4 @@ describe Checker do
     checker = Checker.new('./source', {})
     expect(checker).to receive(:print).with(1)
   end
-
 end
