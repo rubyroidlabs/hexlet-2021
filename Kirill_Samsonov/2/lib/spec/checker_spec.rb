@@ -20,7 +20,7 @@ describe Checker do
   end
 
   it 'check domain' do
-    checker = Checker.new('./source',{})
+    checker = Checker.new('./source', {})
     expect(checker).to receive(:print).with(1)
   end
 
