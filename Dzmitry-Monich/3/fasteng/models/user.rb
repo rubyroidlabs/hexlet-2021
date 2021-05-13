@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
   def receive_definition!(definition)
     transaction do
-      update!(status: 'waiting') if status = 'scheduled'
+      update!(status: 'waiting') if status == 'scheduled'
       definitions << definition
     end
   end

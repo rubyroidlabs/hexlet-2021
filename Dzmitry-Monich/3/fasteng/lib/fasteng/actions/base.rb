@@ -25,7 +25,7 @@ module Fasteng
         MessageSender::NotifyMessage.send(bot_api, user.telegram_id, definition)
       end
 
-      # rubocop:disable lint/redundantcopdisabledirective
+      # rubocop:disable Lint/RedundantCopDisableDirective
       # rubocop:disable Rails/TimeZone
       def actual_time
         # Time.now.min
