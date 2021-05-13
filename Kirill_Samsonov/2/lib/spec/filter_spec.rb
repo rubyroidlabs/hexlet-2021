@@ -21,7 +21,7 @@ describe Filter do
     ]
   end
 
-  describe 'without filters' do
+  context 'without filters' do
     let(:options) { {} }
 
     it "don't change domains list" do
@@ -29,7 +29,7 @@ describe Filter do
     end
   end
 
-  describe 'with no_subdomains option' do
+  context 'with no_subdomains option' do
     let(:options) { { no_subdomains: true } }
 
     it 'remains only first level domains' do
