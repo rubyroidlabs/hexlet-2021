@@ -124,6 +124,8 @@ describe Fasteng::Actions do
     let(:user) { create(:user, telegram_id: from.id, status: 'scheduled', words_count: 3) }
     let(:last_messsage) { Fasteng::MessageSender::ReplyMessage::MESSAGES[:end_game] }
 
+    before { Timecop.freeze(2021, 4, 20, 21) }
+
     it 'user status changed to waiting' do
       allow(Fasteng::MessageSender::NotifyMessage)
         .to receive(:send)
@@ -153,7 +155,9 @@ describe Fasteng::Actions do
 
   describe 'User receives notifiication about missed feedback' do
     let(:message) { Fasteng::MessageSender::ReplyMessage::MESSAGES[:missed] }
-    let(:user) { create(:user, telegram_id: from.id) }
+    let(:user) { create(:user, telegram_id: from.id, status: 'waiting', words_count: 3) }
+
+    before { Timecop.freeze(2021, 4, 20, 23) }
 
     it 'user receives message' do
       expect(bot_api)

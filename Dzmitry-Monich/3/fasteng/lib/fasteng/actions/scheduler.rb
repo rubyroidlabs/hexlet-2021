@@ -4,11 +4,7 @@ module Fasteng
   module Actions
     class Scheduler < Base
       def call
-        if user.add_schedule(message.text)
-          send(:accept)
-        else
-          send(:welcome_dialog)
-        end
+        user.add_schedule(message.text) ? send(:accept) : send(:welcome_dialog)
       end
     end
   end

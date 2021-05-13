@@ -4,9 +4,12 @@ module Fasteng
   module Actions
     class DefinitionSender < Base
       def call
-        if message
-          user.receive_definition!(message)
-          notify(message)
+        return unless user.upcoming_time_equal?(actual_time)
+
+        definition = DictionaryManager::DictionarySelector.call(user)
+        if definition
+          user.receive_definition!(definition)
+          notify(definition)
         else
           send(:end_game)
         end

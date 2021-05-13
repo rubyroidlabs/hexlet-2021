@@ -7,10 +7,10 @@ module Fasteng
         new(*args).call
       end
 
-      def initialize(bot_api, user, message)
+      def initialize(bot_api, user, message = nil)
         @bot_api = bot_api
         @user = user
-        @message = message
+        @message = message if message
       end
 
       protected
@@ -24,6 +24,15 @@ module Fasteng
       def notify(definition)
         MessageSender::NotifyMessage.send(bot_api, user.telegram_id, definition)
       end
+
+      # rubocop:disable lint/redundantcopdisabledirective
+      # rubocop:disable Rails/TimeZone
+      def actual_time
+        # Time.now.min
+        Time.now.hour
+      end
+      # rubocop:enable Rails/TimeZone
+      # rubocop:enable Lint/RedundantCopDisableDirective
     end
   end
 end
