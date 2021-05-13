@@ -97,7 +97,8 @@ class RegisterResponse < Response
 
   def register
     qty = @req.message.text.to_i
-    User.where(telegram_id: @telegram_id).update_all(['status = ?, repeat_qty = ?', User.statuses[:active], qty])
+    user = User.where(telegram_id: @telegram_id).first
+    User.update(user.id, status: User.statuses[:active], repeat_qty: qty)
   end
 
   def send_new_word
