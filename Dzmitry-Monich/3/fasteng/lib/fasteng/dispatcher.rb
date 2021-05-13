@@ -12,6 +12,8 @@ module Fasteng
     end
 
     def call
+      return if user.status == 'scheduled'
+
       action = actions[user.status]
       action.call(bot_api, user, message)
     end

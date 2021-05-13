@@ -76,25 +76,24 @@ describe User, type: :model do
   end
 
   describe 'Methods' do
-    describe '#add_schedule!' do
+    describe '#add_schedule' do
       let(:user) { create(:user, status: 'registered') }
       let(:schedule_count) { 3 }
 
       before { Timecop.freeze(2021, 4, 20, 22) }
 
       it 'adds schedule to user' do
-        user.add_schedule!(schedule_count)
+        user.add_schedule(schedule_count)
 
         expect(User.find(user.id)).to have_attributes(
           status: 'scheduled',
-          words_count: 3,
-          upcoming_time: 9
+          words_count: 3
         )
       end
     end
 
     describe '#receive_definition!' do
-      let(:user) { create(:user, status: 'scheduled', words_count: 3, upcoming_time: 21) }
+      let(:user) { create(:user, status: 'scheduled', words_count: 3) }
       let(:definition) { create(:definition) }
 
       it 'adds word to already sent' do
@@ -105,15 +104,14 @@ describe User, type: :model do
         user.receive_definition!(definition)
 
         expect(User.find(user.id)).to have_attributes(
-          status: 'waiting',
-          upcoming_time: 9
+          status: 'waiting'
         )
         expect(user.learned_words.first.id).to eq user.id
       end
     end
 
     describe '#upcoming_time_equal?' do
-      let(:user) { create(:user, status: 'scheduled', words_count: 3, upcoming_time: 21) }
+      let(:user) { create(:user, status: 'scheduled', words_count: 3) }
 
       context 'when actual time equal to schedule time' do
         let(:time) { Timecop.freeze(2021, 4, 20, 21).hour }
@@ -133,7 +131,7 @@ describe User, type: :model do
     end
 
     describe '#miss_time?' do
-      let(:user) { create(:user, status: 'waiting', words_count: 3, upcoming_time: 21) }
+      let(:user) { create(:user, status: 'waiting', words_count: 3) }
 
       context 'when actual time equal missed time' do
         let(:time) { Timecop.freeze(2021, 4, 20, 17).hour }

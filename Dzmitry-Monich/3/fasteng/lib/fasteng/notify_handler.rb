@@ -17,7 +17,7 @@ module Fasteng
       return unless User.any?
 
       User.where(status: %w[scheduled waiting]).find_each do |user|
-        logger.info "user: #{user.telegram_id} time: #{actual_time} = #{user.upcoming_time}"
+        logger.info "user: #{user.telegram_id} time: #{actual_time}"
 
         send_definition!(user) if user.upcoming_time_equal?(actual_time)
         Actions::Reminder.call(bot.api, user, :missed) if user.miss_time?(actual_time)
