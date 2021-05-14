@@ -12,6 +12,8 @@ gem 'rspec', '~> 3.10'
 
 gem 'activerecord', '~> 6.0'
 
+gem 'aasm'
+
 gem 'standalone_migrations', '~> 6.0'
 
 gem 'rake', '~> 13.0'
@@ -37,5 +39,5 @@ gem 'sinatra'
 gem 'thin'
 
 gem 'rack', '~> 2.2'
-gem 'aasm'
+
 gem 'after_commit_everywhere', '~> 1.0'
