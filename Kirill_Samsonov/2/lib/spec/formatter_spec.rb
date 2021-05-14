@@ -9,7 +9,7 @@ describe Formatter do
     { domain: 'domain.com', status: 200, latency: 1500 }
   end
 
-  it 'format valid domain result' do
+  it 'formats valid domain result' do
     result_string = 'domain.com - 200 (1500ms)'
     expect(subject.format_domain_result(result)).to eq result_string
   end
