@@ -24,7 +24,7 @@ describe Filter do
   context 'without filters' do
     let(:options) { {} }
 
-    it "don't change domains list" do
+    it "doesn't change domains list" do
       expect(subject.filter_domains(domains)).to eq domains
     end
   end
