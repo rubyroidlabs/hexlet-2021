@@ -2,7 +2,7 @@
 
 module Checker
   class Filter
-    OPENSOURCE = %w[github gitlab].freeze
+    OPENSOURCE = %w[github gitlab git gist].freeze
     HOST_FILTER = {
       no_word_content: ->(body, word) { body.include?(word) },
       no_subdomains: ->(host) { host.count('.') > 1 },
