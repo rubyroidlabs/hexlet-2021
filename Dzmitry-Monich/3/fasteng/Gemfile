@@ -37,3 +37,5 @@ gem 'sinatra'
 gem 'thin'
 
 gem 'rack', '~> 2.2'
+gem 'aasm'
+gem 'after_commit_everywhere', '~> 1.0'

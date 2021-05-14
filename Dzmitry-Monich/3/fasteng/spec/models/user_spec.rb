@@ -31,28 +31,6 @@ describe User, type: :model do
     end
   end
 
-  describe 'Validation status' do
-    let(:record) { build(:user, status: status) }
-
-    context 'whith not valid' do
-      let(:status) { 'wrong' }
-
-      it 'status is not valid' do
-        record.validate
-
-        expect(record.errors[:status]).to include('is not included in the list')
-      end
-    end
-
-    context 'with valid' do
-      let(:status) { 'waiting' }
-
-      it 'status is valid' do
-        expect(record).to be_valid
-      end
-    end
-  end
-
   describe 'Validation words_count' do
     let(:record) { build(:user, words_count: words_count) }
 
@@ -103,9 +81,7 @@ describe User, type: :model do
       it 'updates user' do
         user.receive_definition!(definition)
 
-        expect(User.find(user.id)).to have_attributes(
-          status: 'waiting'
-        )
+        expect(User.find(user.id)).to have_state(:waiting)
         expect(user.learned_words.first.id).to eq user.id
       end
     end
@@ -148,6 +124,17 @@ describe User, type: :model do
           expect(user.miss_time?(time)).to be false
         end
       end
+    end
+  end
+
+  describe 'AASM' do
+    let(:user) { build(:user) }
+
+    it 'transitions look good' do
+      expect(user).to transition_from(:new).to(:registered).on_event(:register)
+      expect(user).to transition_from(:registered).to(:scheduled).on_event(:init_schedule)
+      expect(user).to transition_from(:scheduled).to(:waiting).on_event(:get_word)
+      expect(user).to transition_from(:waiting).to(:scheduled).on_event(:learn_word)
     end
   end
 end

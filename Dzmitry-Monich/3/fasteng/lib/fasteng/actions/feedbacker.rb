@@ -6,7 +6,7 @@ module Fasteng
       def call
         return unless definition_received?(message.text)
 
-        user.update!(status: 'scheduled')
+        user.learn_word!
         send(:done)
       end
 

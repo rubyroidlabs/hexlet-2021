@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'pathname'
-require 'fasteng'
 
 describe Fasteng::DictionaryManager do
   let(:filepath) { File.expand_path('../fixtures', __dir__) }

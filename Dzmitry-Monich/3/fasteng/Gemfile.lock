@@ -9,6 +9,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.2.0)
+      concurrent-ruby (~> 1.0)
     actionpack (6.0.3.7)
       actionview (= 6.0.3.7)
       activesupport (= 6.0.3.7)
@@ -33,6 +35,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    after_commit_everywhere (1.0.0)
+      activerecord (>= 4.2)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -157,7 +161,9 @@ PLATFORMS
   x86_64-darwin-18
 
 DEPENDENCIES
+  aasm
   activerecord (~> 6.0)
+  after_commit_everywhere (~> 1.0)
   database_cleaner-active_record
   dotenv (~> 2.7)
   factory_bot

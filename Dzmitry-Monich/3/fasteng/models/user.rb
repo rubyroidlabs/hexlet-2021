@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
+require 'aasm'
 # rubocop:disable Lint/RedundantCopDisableDirective
 # rubocop:disable Rails/ApplicationRecord
 
 class User < ActiveRecord::Base
+  include AASM
   include Logging
 
   SCHEDULE_TYPES = [
@@ -19,8 +21,30 @@ class User < ActiveRecord::Base
   has_many :definitions, through: :learned_words
 
   validates :telegram_id, presence: true, uniqueness: true, case_sensitive: false
-  validates :status, inclusion: { in: %w[new registered scheduled waiting] }
   validates :words_count, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 6 }, allow_nil: true
+
+  aasm column: 'status' do
+    state :new, initial: true
+    state :registered
+    state :scheduled
+    state :waiting
+
+    event :register do
+      transitions from: :new, to: :registered
+    end
+
+    event :init_schedule do
+      transitions from: :registered, to: :scheduled
+    end
+
+    event :get_word do
+      transitions from: :scheduled, to: :waiting
+    end
+
+    event :learn_word do
+      transitions from: :waiting, to: :scheduled
+    end
+  end
 
   def add_schedule(count)
     update(
@@ -31,7 +55,7 @@ class User < ActiveRecord::Base
 
   def receive_definition!(definition)
     transaction do
-      update!(status: 'waiting') if status == 'scheduled'
+      get_word! if scheduled?
       definitions << definition
     end
   end
@@ -41,7 +65,7 @@ class User < ActiveRecord::Base
   end
 
   def miss_time?(time)
-    status == 'waiting' && upcoming_time_equal?(time - 2)
+    waiting? && upcoming_time_equal?(time - 2)
   end
 end
 

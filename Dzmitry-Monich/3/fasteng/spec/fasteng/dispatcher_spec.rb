@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'fasteng'
-
 describe Fasteng::Dispatcher do
   let(:from) { double('from', { id: Faker::Number.number(digits: 9) }) }
   let(:message) { double('message', from: from) }

@@ -3,10 +3,12 @@
 require 'shoulda/matchers'
 require 'factory_bot'
 require 'database_cleaner/active_record'
-require 'fasteng'
 require 'whenever/test'
 require 'timecop'
 require 'faker'
+require 'aasm/rspec'
+
+require 'fasteng'
 
 Dir["#{Fasteng.root_path}/models/**/*.rb"].sort.each { |file| require file }
 

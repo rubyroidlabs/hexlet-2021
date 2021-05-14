@@ -9,7 +9,7 @@ module Fasteng
 
     def initialize
       @token = ENV['BOT_TOKEN']
-      @controller = 'webhook'
+      @controller = 'polling'
     end
 
     def controller=(controller_name)

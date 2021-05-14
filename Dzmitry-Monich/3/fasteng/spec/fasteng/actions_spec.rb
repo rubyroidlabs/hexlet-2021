@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'fasteng'
-
 describe Fasteng::Actions do
   let(:from) { double('from', { id: Faker::Number.number(digits: 9) }) }
   let(:bot_api) { double('bot_api') }
@@ -18,7 +16,7 @@ describe Fasteng::Actions do
 
       described_class::Registerer.call(bot_api, user, message)
 
-      expect(User.first.status).to eq 'registered'
+      expect(User.first).to have_state(:registered)
     end
 
     it 'user gets :welcome message' do
@@ -43,7 +41,7 @@ describe Fasteng::Actions do
 
         described_class::Scheduler.call(bot_api, user, message)
 
-        expect(User.find(user.id).status).to eq 'scheduled'
+        expect(User.find(user.id)).to have_state(:scheduled)
       end
 
       it 'user gets :accept message' do
@@ -96,7 +94,7 @@ describe Fasteng::Actions do
 
         described_class::Feedbacker.call(bot_api, user, message)
 
-        expect(User.find(user.id).status).to eq 'scheduled'
+        expect(User.find(user.id)).to have_state(:scheduled)
       end
 
       it 'user gets :done message' do
@@ -114,7 +112,7 @@ describe Fasteng::Actions do
       it 'user status not changed' do
         described_class::Feedbacker.call(bot_api, user, message)
 
-        expect(User.find(user.id).status).to eq 'waiting'
+        expect(User.find(user.id)).to have_state(:waiting)
       end
     end
   end
@@ -133,7 +131,7 @@ describe Fasteng::Actions do
 
       described_class::DefinitionSender.call(bot_api, user, definition)
 
-      expect(User.find(user.id).status).to eq 'waiting'
+      expect(User.find(user.id)).to have_state(:waiting)
     end
 
     it 'user receives definition' do

@@ -4,7 +4,7 @@ module Fasteng
   module Actions
     class Registerer < Base
       def call
-        user.update!(status: 'registered')
+        user.register!
         send(:welcome)
       end
     end

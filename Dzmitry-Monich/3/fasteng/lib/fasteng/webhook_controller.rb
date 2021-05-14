@@ -9,6 +9,7 @@ module Fasteng
       super
 
       @url = Fasteng.config.url
+      validate_url
     end
 
     def run
@@ -37,6 +38,10 @@ module Fasteng
 
     def setup
       bot.api.set_webhook(url: "#{url}/telegram")
+    end
+
+    def validate_url
+      raise ArgumentError, 'no url for webhook controller' unless url
     end
   end
 end

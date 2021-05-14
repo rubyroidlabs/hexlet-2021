@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'fasteng'
-
 describe Fasteng::Config do
   context 'when passed argument is valid' do
     let(:controller_name) { 'polling' }
