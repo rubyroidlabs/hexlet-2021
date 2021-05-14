@@ -21,7 +21,7 @@ describe Filter do
     ]
   end
 
-  context 'without filters' do
+  context 'when there are no filters' do
     let(:options) { {} }
 
     it "doesn't change domains list" do
