@@ -33,7 +33,7 @@ describe Filter do
     let(:options) { { no_subdomains: true } }
 
     it 'remains only first level domains' do
-      expect(subject.filter_domains(domains)).to eq no_subdomains
+      expect(subject.filter_domains(domains)).to match_array no_subdomains
     end
   end
 end
