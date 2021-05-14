@@ -3,7 +3,7 @@
 require_relative '../domain'
 
 describe Domain do
-  subject { Domain.new(name) }
+  subject { described_class.new(name) }
 
   describe 'first level' do
     let(:name) { 'domain.com' }
