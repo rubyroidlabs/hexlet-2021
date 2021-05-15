@@ -60,4 +60,25 @@ describe User, type: :model do
       expect(user.done_for_today?).to be true
     end
   end
+
+  describe '#need_to_remind?' do
+    let(:user) { create(:user_waiting) }
+    let(:word) { create(:word) }
+
+    context 'just after creation' do
+      before { LearnedWord.create(user_id: user.id, word_id: word.id) }
+
+      it 'has not to be reminded' do
+        expect(user.reload.need_to_remind?).to be false
+      end
+    end
+
+    context 'long time ago' do
+      before { LearnedWord.create(user_id: user.id, word_id: word.id, created_at: 1.day.ago) }
+
+      it 'has to be reminded' do
+        expect(user.reload.need_to_remind?).to be true
+      end
+    end
+  end
 end

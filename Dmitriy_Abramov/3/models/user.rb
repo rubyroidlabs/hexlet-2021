@@ -6,6 +6,8 @@ require 'active_record'
 require 'aasm'
 require_relative './learned_word'
 
+MINUTES_TO_REMIND = 120
+
 class User < ActiveRecord::Base
   include AASM
 
@@ -52,6 +54,13 @@ class User < ActiveRecord::Base
   def done_for_today?
     learned_today = LearnedWord.where(created_at: Time.current.all_day, user_id: id)
     learned_today.size >= daily_words_count
+  end
+
+  def need_to_remind?
+    return unless waiting_for_answer?
+
+    last_word_created_at = LearnedWord.where(user_id: id).order(created_at: :desc).first.created_at
+    (Time.current - last_word_created_at) / 60 > MINUTES_TO_REMIND
   end
 end
 
