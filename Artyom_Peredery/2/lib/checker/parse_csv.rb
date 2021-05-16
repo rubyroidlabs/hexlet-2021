@@ -3,7 +3,7 @@
 require 'csv'
 
 module ParseCSV
-  def self.parse_csv(file_path)
+  def parse_csv(file_path)
     raise 'Specify file' if file_path.nil?
     raise 'Unsupported file format. Should be CSV' unless file_path.include?('.csv')
 
