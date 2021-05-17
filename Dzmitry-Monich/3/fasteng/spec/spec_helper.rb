@@ -30,6 +30,7 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
@@ -46,5 +47,6 @@ Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
     with.library :active_record
+    with.library :active_model
   end
 end

@@ -20,7 +20,7 @@ describe Fasteng::DictionaryManager do
       described_class::DictionaryCreator.call
 
       expect(Definition.all).to match_array(
-        [have_attributes(expected.first), have_attributes(expected.last)]
+        [have_attributes(expected.first), have_attributes(expected.second)]
       )
     end
 

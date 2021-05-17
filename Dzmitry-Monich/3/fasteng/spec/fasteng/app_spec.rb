@@ -8,7 +8,7 @@ describe Fasteng::App do
   end
 
   context 'when configered (by default) long-polling request' do
-    it 'App run PollingController' do
+    it 'App runs PollingController' do
       expect(Fasteng::PollingController).to receive(:run)
 
       described_class.run
@@ -23,7 +23,7 @@ describe Fasteng::App do
         .to raise_error(ArgumentError, 'no url for webhook controller')
     end
 
-    it 'App run WebhookController' do
+    it 'App runs WebhookController' do
       Fasteng.config.url = 'http://webhook'
 
       expect(Fasteng::WebhookController).to receive(:run)

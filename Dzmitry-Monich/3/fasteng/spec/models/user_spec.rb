@@ -1,62 +1,26 @@
 # frozen_string_literal: true
 
 describe User, type: :model do
-  describe 'Validate uniquness' do
+  describe 'Validation' do
     before { create(:user) }
 
     it { should validate_uniqueness_of(:telegram_id).case_insensitive }
+    it { should validate_presence_of(:telegram_id) }
+
+    it { should validate_numericality_of(:words_count).is_less_than_or_equal_to(6) }
+    it { should validate_numericality_of(:words_count).is_greater_than_or_equal_to(1) }
   end
 
-  describe 'Associacion' do
+  describe 'Association' do
     it { should have_many(:definitions).through(:learned_words) }
     it { should have_many(:learned_words).dependent(:destroy) }
   end
 
-  describe 'Validation presence' do
-    context 'whith not valid' do
-      let(:user) { build(:user, telegram_id: '') }
-
-      it 'telegram_id is not valid' do
-        user.validate
-        expect(user.errors[:telegram_id]).to include("can't be blank")
-      end
-    end
-
-    context 'with valid' do
-      let(:user) { build(:user) }
-
-      it 'telegram_id is valid' do
-        expect(user).to be_valid
-      end
-    end
-  end
-
-  describe 'Validation words_count' do
-    let(:record) { build(:user, words_count: words_count) }
-
-    context 'whith not valid' do
-      let(:words_count) { 7 }
-
-      it 'words_count is not valid' do
-        record.validate
-
-        expect(record.errors[:words_count]).to include('must be less than or equal to 6')
-      end
-    end
-
-    context 'with valid' do
-      let(:words_count) { 3 }
-
-      it 'words_count is valid' do
-        expect(record).to be_valid
-      end
-    end
-  end
-
   describe 'Methods' do
+    let(:schedule_count) { 3 }
+
     describe '#add_schedule' do
       let(:user) { create(:user, status: 'registered') }
-      let(:schedule_count) { 3 }
 
       before { Timecop.freeze(2021, 4, 20, 22) }
 
@@ -71,7 +35,7 @@ describe User, type: :model do
     end
 
     describe '#receive_definition!' do
-      let(:user) { create(:user, status: 'scheduled', words_count: 3) }
+      let(:user) { create(:user, status: 'scheduled', words_count: schedule_count) }
       let(:definition) { create(:definition) }
 
       it 'adds word to already sent' do
@@ -87,13 +51,13 @@ describe User, type: :model do
     end
 
     describe '#upcoming_time_equal?' do
-      let(:user) { create(:user, status: 'scheduled', words_count: 3) }
+      let(:user) { create(:user, status: 'scheduled', words_count: schedule_count) }
 
       context 'when actual time equal to schedule time' do
         let(:time) { Timecop.freeze(2021, 4, 20, 21).hour }
 
         it 'returns true' do
-          expect(user.upcoming_time_equal?(time)).to be true
+          expect(user).to be_upcoming_time_equal(time)
         end
       end
 
@@ -101,19 +65,19 @@ describe User, type: :model do
         let(:time) { Timecop.freeze(2021, 4, 20, 20).hour }
 
         it 'returns false' do
-          expect(user.upcoming_time_equal?(time)).to be false
+          expect(user).not_to be_upcoming_time_equal(time)
         end
       end
     end
 
     describe '#miss_time?' do
-      let(:user) { create(:user, status: 'waiting', words_count: 3) }
+      let(:user) { create(:user, status: 'waiting', words_count: schedule_count) }
 
       context 'when actual time equal missed time' do
         let(:time) { Timecop.freeze(2021, 4, 20, 17).hour }
 
         it 'returns true' do
-          expect(user.miss_time?(time)).to be true
+          expect(user).to be_miss_time(time)
         end
       end
 
@@ -121,7 +85,7 @@ describe User, type: :model do
         let(:time) { Timecop.freeze(2021, 4, 20, 20).hour }
 
         it 'returns false' do
-          expect(user.miss_time?(time)).to be false
+          expect(user).not_to be_miss_time(time)
         end
       end
     end
