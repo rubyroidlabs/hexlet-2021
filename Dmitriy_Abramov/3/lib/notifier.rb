@@ -27,9 +27,7 @@ module Learner
       users
         .select(&:need_to_remind?)
         .each do |user|
-          MessageSender.send(user: user, text: '
-    Кажется ты был слишком занят, и пропустил слово выше? Дай мне знать что у тебя все хорошо.
-    ')
+          MessageSender.send(user: user, text: I18n.t(:remind))
         end
     end
   end

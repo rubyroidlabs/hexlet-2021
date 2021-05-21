@@ -9,6 +9,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 gem 'aasm'
 gem 'activerecord'
 gem 'dotenv'
+gem 'i18n'
 gem 'rake'
 gem 'sqlite3'
 gem 'telegram-bot-ruby'

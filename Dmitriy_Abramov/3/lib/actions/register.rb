@@ -12,11 +12,11 @@ module Learner
 
         count = @message.text.to_i
 
-        return MessageSender.send(user: @user, text: 'Я не умею учить больше чем 6 словам. Давай еще раз?') if count > 6
+        return MessageSender.send(user: @user, text: I18n.t(:register_error)) if count > 6
 
         @user.update!(daily_words_count: count)
         @user.register!
-        MessageSender.send(user: @user, text: 'Принято.')
+        MessageSender.send(user: @user, text: I18n.t(:register_success))
       end
     end
   end

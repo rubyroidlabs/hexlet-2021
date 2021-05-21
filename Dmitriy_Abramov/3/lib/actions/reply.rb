@@ -12,9 +12,9 @@ module Learner
 
         @user.recieve_answer!
         if @user.done_for_today?
-          MessageSender.send(user: @user, text: 'На сегодня все. Молодец!')
+          MessageSender.send(user: @user, text: I18n.t(:done_for_today))
         else
-          MessageSender.send(user: @user, text: 'Вижу что ты заметил слово! Продолжаем учиться дальше!')
+          MessageSender.send(user: @user, text: I18n.t(:reply_success))
         end
       end
     end

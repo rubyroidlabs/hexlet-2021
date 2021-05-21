@@ -4,6 +4,7 @@
 require 'telegram/bot'
 require 'yaml'
 require './lib/app'
+require './config/i18n'
 
 config = File.open('./config/secrets.yml')
 token = YAML.safe_load(config)['token']

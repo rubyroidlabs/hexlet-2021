@@ -11,14 +11,13 @@ module Learner
         if @user.unregistred?
           MessageSender.send(
             user: @user,
-            text: "Привет, #{@user.name}! Я бот, который помогает учить новые английские слова каждый день.
-  Давай сперва определимся сколько слов в день ( от 1 до 6 ) ты хочешь узнавать?"
+            text: I18n.t(:greeting_new, name: @user.name)
           )
         elsif @user.session_stopped?
           @user.start_session!
           MessageSender.send(
             user: @user,
-            text: "Привет, #{@user.name}!"
+            text: I18n.t(:greeting, name: @user.name)
           )
         end
         @user
