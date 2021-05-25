@@ -2,26 +2,14 @@
 
 set :output, 'log/cron.log'
 
-every '0 10 * * 1-7' do
-  rake 'telegram:start_lesson[6]'
+every '00 00 * * *' do
+  rake 'telegram:start_new_training_day'
 end
 
-every '0 12 * * 1-7' do
-  rake 'telegram:start_lesson[5]'
+every '00 11-22 * * *' do
+  rake 'telegram:start_lesson'
 end
 
-every '0 14 * * 1-7' do
-  rake 'telegram:start_lesson[4]'
-end
-
-every '0 16 * * 1-7' do
-  rake 'telegram:start_lesson[3]'
-end
-
-every '0 18 * * 1-7' do
-  rake 'telegram:start_lesson[2]'
-end
-
-every '0 20 * * 1-7' do
-  rake 'telegram:start_lesson[1]'
+every '*/5 * * * *' do
+  rake 'telegram:reminder_for_answer'
 end
