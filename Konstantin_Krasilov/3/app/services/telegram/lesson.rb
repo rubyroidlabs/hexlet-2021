@@ -11,18 +11,15 @@ Dotenv.load
 module Telegram
   # A class that teaches the user new words. Searches for a suitable word, sends to the user and waits for a reaction.
   class Lesson
-    USER_SLEEP = 'Кажется, ты был слишком занят и пропустил слово выше? Дай мне знать, что у тебя все хорошо!'
-
     def initialize(user)
       @user = user
-      @user.send_smiley!
       @api = TelegramAPI.new ENV['TELEGRAM_TOKEN']
     end
 
     def call
       find_and_added_word_to_user
       send_word
-      waiting_answer
+      @user.answer_smiley!
     end
 
     private
@@ -34,15 +31,6 @@ module Telegram
 
     def send_word
       @api.sendMessage(@user.telegram_id, @word.to_s)
-    end
-
-    def waiting_answer
-      loop do
-        sleep(600)
-        @user.reload
-
-        @user.conversation_break? ? break : @api.sendMessage(@user.telegram_id, USER_SLEEP)
-      end
     end
   end
 end
