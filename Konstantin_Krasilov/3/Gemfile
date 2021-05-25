@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+gem 'aasm'
 gem 'activerecord'
 gem 'dotenv-rails'
 gem 'factory_bot'
@@ -13,4 +14,5 @@ gem 'rspec'
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'telegramAPI'
+gem 'pry'
 gem 'whenever', require: false
