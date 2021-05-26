@@ -4,8 +4,7 @@ require_relative '../models/word'
 require 'json'
 require 'ruby-progressbar'
 require 'active_record'
-require_relative '../connection'
-
+require_relative '../config/connection'
 
 dictionary = JSON.parse(File.read('dictionary.json'))
 progressbar = ProgressBar.create(title: 'Loaded words', starting_at: 0, total: dictionary.size)

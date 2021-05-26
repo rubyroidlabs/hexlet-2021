@@ -1,0 +1,20 @@
+# frozen_string_literal: true
+
+require 'standalone_migrations'
+require 'dotenv'
+require_relative 'lib/teacher'
+require_relative 'lib/actions'
+
+StandaloneMigrations::Tasks.load_tasks
+
+namespace :bot do
+  desc 'Send words'
+  task send: :environment do
+    Teacher.send_word
+  end
+
+  desc 'Send Reminder'
+  task remind: :environment do
+    Teacher.remind
+  end
+end

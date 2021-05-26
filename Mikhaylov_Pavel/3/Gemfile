@@ -5,12 +5,16 @@ source 'https://rubygems.org'
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem 'aasm'
-gem 'activerecord'
-gem 'after_commit_everywhere', '~> 1.0'
+gem 'activerecord', '~> 6.0'
+gem 'after_commit_everywhere'
 gem 'dotenv'
 gem 'pg'
+gem 'rake'
 gem 'ruby-progressbar'
+gem 'sqlite3'
+gem 'standalone_migrations', '~> 6.0'
 gem 'telegram-bot-ruby'
+gem 'whenever', require: false
 
 group :development do
   gem 'pry'

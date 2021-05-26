@@ -1,9 +1,5 @@
-# frozen_string_literal: true
-
-require_relative '../../connection'
-
 class CreateLearnedWords < ActiveRecord::Migration[6.0]
-  def up
+  def change
     create_table :learned_words do |t|
       t.belongs_to :user, foreign_key: true, null: false
       t.belongs_to :word, foreign_key: true, null: false
@@ -11,11 +7,4 @@ class CreateLearnedWords < ActiveRecord::Migration[6.0]
       t.timestamps
     end
   end
-
-  def down
-    drop_table :learned_words
-  end
 end
-
-# CreateLearnedWords.new.down
-CreateLearnedWords.new.up

@@ -1,2 +1,2 @@
-rdb:
-	ruby migrations/create_users.rb
+run:
+	bundle exec ruby main.rb
