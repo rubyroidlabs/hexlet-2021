@@ -14,7 +14,8 @@ module Actions
     wrong_number: 'Я не умею учить больше чем 6 словам. Давай еще раз?',
     accept: 'Принято',
     remind: 'Кажется ты был слишком занят, и пропустил слово выше? Дай мне знать что у тебя все хорошо.',
-    continue: 'Вижу что ты заметил слово! Продолжаем учиться дальше!'
+    continue: 'Вижу что ты заметил слово! Продолжаем учиться дальше!',
+    stop: 'Пока!'
   }.freeze
 
   BOT = Telegram::Bot::Api.new(ENV['TOKEN'])
@@ -75,9 +76,43 @@ module Actions
     end
 
     def wrong_number
-      bot.api.send_message(
+      Actions::BOT.send_message(
         chat_id: message.chat.id,
         text: Actions::RESPONSES[:wrong_number]
+      )
+    end
+  end
+
+  class Continue
+    include Actions
+
+    def call
+      continue
+      user = User.find_by(telegram_id: message.from.id)
+      user.learn!
+    end
+
+    def continue
+      Actions::BOT.send_message(
+        chat_id: message.chat.id,
+        text: Actions::RESPONSES[:continue]
+      )
+    end
+  end
+
+  class Stop
+    include Actions
+
+    def call
+      user = User.find_by(telegram_id: message.from.id)
+      user.stop!
+      stop
+    end
+
+    def stop
+      Actions::BOT.send_message(
+        chat_id: message.chat.id,
+        text: Actions::RESPONSES[:stop]
       )
     end
   end
