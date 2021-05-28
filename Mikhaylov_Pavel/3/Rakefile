@@ -9,12 +9,12 @@ StandaloneMigrations::Tasks.load_tasks
 
 namespace :bot do
   desc 'Send words'
-  task send: :environment do
+  task :send do
     Teacher.send_word
   end
 
   desc 'Send Reminder'
-  task remind: :environment do
+  task :remind do
     Teacher.remind
   end
 end
