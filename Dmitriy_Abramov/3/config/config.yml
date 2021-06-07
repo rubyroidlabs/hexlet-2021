@@ -1,0 +1,12 @@
+base: &base
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  database: ./base.db
+  <<: *base
+
+test:
+  database: ./test_base.db
+  <<: *base
