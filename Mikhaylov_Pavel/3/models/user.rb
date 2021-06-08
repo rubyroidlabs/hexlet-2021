@@ -2,8 +2,6 @@
 
 require 'aasm'
 require 'active_record'
-require 'pry'
-require 'date'
 require_relative 'learned_word'
 require_relative 'word'
 

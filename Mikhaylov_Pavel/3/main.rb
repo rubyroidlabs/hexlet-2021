@@ -19,7 +19,6 @@ TOKEN = ENV['TOKEN']
 Telegram::Bot::Client.run(TOKEN) do |bot|
   bot.listen do |message|
     options = { bot: bot, message: message }
-    # binding.pry
     MessageSender.new(options).send_answer
   end
 end
