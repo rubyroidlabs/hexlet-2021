@@ -1,0 +1,1993 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://pages.github.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Server:
+      - GitHub.com
+      Content-Type:
+      - text/html
+      Location:
+      - https://pages.github.com/
+      X-Github-Request-Id:
+      - 69C6:1188D:1126B0:11D1A3:60807A6A
+      Content-Length:
+      - '162'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Via:
+      - 1.1 varnish
+      Age:
+      - '397'
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-vie21647-VIE
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Timer:
+      - S1619033079.271838,VS0,VE1
+      Vary:
+      - Accept-Encoding
+      X-Fastly-Request-Id:
+      - 43eb8c1fcd49bc68791ec170b1a63dcbe36ba5c3
+    body:
+      encoding: UTF-8
+      string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301
+        Moved Permanently</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://error.github.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - GitHub.com
+      Content-Type:
+      - text/html; charset=utf-8
+      X-Pages-Interstitial:
+      - '1'
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src
+        'self'
+      X-Github-Request-Id:
+      - 49EE:C25C:2A5D33:2B537F:60807A6A
+      Content-Length:
+      - '5339'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Via:
+      - 1.1 varnish
+      Age:
+      - '397'
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-vie21621-VIE
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Timer:
+      - S1619033079.274468,VS0,VE1
+      Vary:
+      - Accept-Encoding
+      X-Fastly-Request-Id:
+      - cc49d2849f8157ba5978103e65401b250be56097
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+            <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'">
+            <title>Page not found &middot; GitHub Pages</title>
+            <style type="text/css" media="screen">
+              body {
+                background-color: #f1f1f1;
+                margin: 0;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+              }
+
+              .container { margin: 50px auto 40px auto; width: 600px; text-align: center; }
+
+              a { color: #4183c4; text-decoration: none; }
+              a:hover { text-decoration: underline; }
+
+              h1 { width: 800px; position:relative; left: -100px; letter-spacing: -1px; line-height: 60px; font-size: 60px; font-weight: 100; margin: 0px 0 50px 0; text-shadow: 0 1px 0 #fff; }
+              p { color: rgba(0, 0, 0, 0.5); margin: 20px 0; line-height: 1.6; }
+
+              ul { list-style: none; margin: 25px 0; padding: 0; }
+              li { display: table-cell; font-weight: bold; width: 1%; }
+
+              .logo { display: inline-block; margin-top: 35px; }
+              .logo-img-2x { display: none; }
+              @media
+              only screen and (-webkit-min-device-pixel-ratio: 2),
+              only screen and (   min--moz-device-pixel-ratio: 2),
+              only screen and (     -o-min-device-pixel-ratio: 2/1),
+              only screen and (        min-device-pixel-ratio: 2),
+              only screen and (                min-resolution: 192dpi),
+              only screen and (                min-resolution: 2dppx) {
+                .logo-img-1x { display: none; }
+                .logo-img-2x { display: inline-block; }
+              }
+
+              #suggestions {
+                margin-top: 35px;
+                color: #ccc;
+              }
+              #suggestions a {
+                color: #666666;
+                font-weight: 200;
+                font-size: 14px;
+                margin: 0 10px;
+              }
+
+            </style>
+          </head>
+          <body>
+
+            <div class="container">
+
+              <h1>404</h1>
+              <p><strong>There isn't a GitHub Pages site here.</strong></p>
+
+              <p>
+                Did you mean to visit <a href="//error.github.io/">error.github.io</a>?
+                Please note that this site belongs to a GitHub user and is
+                <strong>not an official GitHub site</strong>.
+              </p>
+
+              <p>
+                If you're the owner of this site, please update your links to use <code>error.github.io</code> instead.
+                Subdomains of <code>github.com</code> <a href="https://github.blog/changelog/2021-01-29-github-pages-will-stop-redirecting-pages-sites-from-github-com-after-april-15-2021/">are deprecated</a> for GitHub Pages.
+                They will not redirect to <code>github.io</code> after April 15, 2021.
+              </p>
+
+              <div id="suggestions">
+                <a href="https://github.com/contact">Contact Support</a> &mdash;
+                <a href="https://www.githubstatus.com">GitHub Status</a> &mdash;
+                <a href="https://twitter.com/githubstatus">@githubstatus</a>
+              </div>
+
+              <a href="/" class="logo logo-img-1x">
+                <img width="32" height="32" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFMTZCRDY3REIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFMTZCRDY3RUIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdCQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjdDQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SM9MCAAAA+5JREFUeNrEV11Ik1EY3s4+ddOp29Q5b0opCgKFsoKoi5Kg6CIhuwi6zLJLoYLopq4qsKKgi4i6CYIoU/q5iDAKs6syoS76IRWtyJ+p7cdt7sf1PGOD+e0c3dygAx/67ZzzPM95/877GYdHRg3ZjMXFxepQKNS6sLCwJxqNNuFpiMfjVs4ZjUa/pmmjeD6VlJS8NpvNT4QQ7mxwjSsJiEQim/1+/9lgMHgIr5ohuxG1WCw9Vqv1clFR0dCqBODElV6v90ogEDjGdYbVjXhpaendioqK07CIR7ZAqE49PT09BPL2PMgTByQGsYiZlQD4uMXtdr+JxWINhgINYhGT2MsKgMrm2dnZXgRXhaHAg5jEJodUAHxux4LudHJE9RdEdA+i3Juz7bGHe4mhE9FNrgwBCLirMFV9Okh5eflFh8PR5nK5nDabrR2BNJlKO0T35+Li4n4+/J+/JQCxhmu5h3uJoXNHPbmWZAHMshWB8l5/ipqammaAf0zPDDx1ONV3vurdidqwAQL+pEc8sLcAe1CCvQ3YHxIW8Pl85xSWNC1hADDIv0rIE/o4J0k3kww4xSlwIhcq3EFFOm7KN/hUGOQkt0CFa5WpNJlMvxBEz/IVQAxg/ZRZl9wiHA63yDYieM7DnLP5CiAGsC7I5sgtYKJGWe2A8seFqgFJrJjEPY1Cn3pJ8/9W1e5VWsFDTEmFrBcoDhZJEQkXuhICMyKpjhahqN21hRYATKfUOlDmkygrR4o4C0VOLGJKrOITKB4jijzdXygBKixyC5TDQdnk/Pz8qRw6oOWGlsTKGOQW6OH6FBWsyePxdOXLTgxiyebILZCjz+GLgMIKnXNzc49YMlcRdHXcSwxFVgTInQhC9G33UhNoJLuqq6t345p9y3eUy8OTk5PjAHuI9uo4b07FBaOhsu0A4Unc+T1TU1Nj3KsSSE5yJ65jqF2DDd8QqWYmAZrIM2VlZTdnZmb6AbpdV9V6ec9znf5Q7HjYumdRE0JOp3MjitO4SFa+cZz8Umqe3TCbSLvdfkR/kWDdNQl5InuTcysOcpFT35ZrbBxx4p3JAHlZVVW1D/634VRt+FvLBgK/v5LV9WS+10xMTEwtRw7XvqOL+e2Q8V3AYIOIAXQ26/heWVnZCVfcyKHg2CBgTpmPmjYM8l24GyaUHyaIh7XwfR9ErE8qHoDfn2LTNAVC0HX6MFcBIP8Bi+6F6cdW/DICkANRfx99fEYFQ7Nph5i/uQiA214gno7K+guhaiKg9gC62+M8eR7XsBsYJ4ilam60Fb7r7uAj8wFyuwM1oIOWgfmDy6RXEEQzJMPe23DXrVS7rtyD3Df8z/FPgAEAzWU5Ku59ZAUAAAAASUVORK5CYII=">
+              </a>
+
+              <a href="/" class="logo logo-img-2x">
+                <img width="32" height="32" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEQUM1QkUxRUI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEQUM1QkUxRkI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdGQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjgwQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+hfPRaQAAB6lJREFUeNrsW2mME2UYbodtt+2222u35QheoCCYGBQligIJgkZJNPzgigoaTEj8AdFEMfADfyABkgWiiWcieK4S+QOiHAYUj2hMNKgYlEujpNttu9vttbvdw+chU1K6M535pt3ubHCSyezR+b73eb73+t7vrfXsufOW4bz6+vom9/b23ovnNNw34b5xYGAgODg46Mbt4mesVmsWd1qSpHhdXd2fuP/Afcput5/A88xwymcdBgLqenp6FuRyuWV4zu/v759QyWBjxoz5t76+/gun09mK5xFyakoCAPSaTCazNpvNPoYVbh6O1YKGRF0u13sNDQ27QMzfpiAAKj0lnU6/gBVfAZW2WWpwwVzy0IgP3G73FpjI6REhAGA9qVRqA1b9mVoBVyIC2tDi8Xg24+dUzQiAbS/s7Ox8G2o/3mKCC+Zw0efzPQEfcVjYrARX3dbV1bUtHo8fMgt42f+Mp0yUTVQbdWsAHVsikdiHkHaPxcQXQufXgUBgMRxme9U0AAxfH4vFvjM7eF6UkbJS5qoQwEQGA57Ac5JllFyUVZZ5ckUEgMVxsK2jlSYzI+QXJsiyjzNEAJyJAzb/KQa41jJKL8pODMQiTEAymXw5n8/P0IjD3bh7Rgog59aanxiIRTVvV/oj0tnHca/WMrVwODwB3raTGxzkBg/gnZVapFV62Wy2n5AO70HM/5wbJ0QnXyQSaVPDIuNZzY0V3ntHMwxiwHA0Gj2Np7ecIBDgaDAYXKCQJM1DhrgJ3nhulcPbl8j4NmHe46X/g60fwbz3aewjkqFQaAqebWU1AOqyQwt8Id6qEHMc97zu7u7FGGsn7HAiVuosVw7P35C1nccdgSCxop1dHeZswmfHMnxBo6ZTk+jN8dl/vF7vWofDsa+MLN9oEUBMxOb3+1eoEsBVw6Zmua49r8YmhAKDiEPcMwBsxMiqQ+ixzPFxZyqRpXARG/YOr1ObFJ0gUskXBbamcR1OKmMUvDxHRAu8/LmY3jFLMUpFqz9HxG65smYJdyKyECOxDiEAe/p1gjF2oonivZAsxVgl2daa4EQWCW6J55qFAFFZiJWYLxNQy2qOSUzGRsyXCUDIeliwAHEO4WSlWQBRFoZakXcKmCXmyXAKs0Ve9vl8q42WoIYpJU4hV3hKcNs8m9gl7p/xQ73eF5kB4j5mNrWmTJRNwAzqiV1CxjVTZCIkEq+Z1bZFZSN2CenmVAFVy4Plz8xKAGWjjAKFk6lCBMDR/MJjLLMSQNm43xAiQKTaA+9/wewhDjL+JVI1kkTSSOTcKbMTwPqESAot6dn6Fr1gHwVJju6IRuyiByPuUUBAg5DGkAgBmxlvdgIEK9gDkohdY/BJo4CAG0R8miRSsGABkgVQs4KXu098IgUXSSRsFAoKZiVAVDY2WUiiPTjYRi41KwGisrGsLtlsth8Fiwnz2fBkQvWfRtlE3iF2yW63/yCacXZ1dW02GwGyTFaRd4idJnCKHRaCxYRHoG5LTKT6SyiToP1fJHbmAYPYRR0UnZQtMnA6s0zg+GZBlt0Gdo7EPHgpE3Q6nZ8YyLhc8Xj8MJh/aKTAY+5FPAKHLE7RdwuYJZmNwzyCMkBCYyKROJBMJl9B/PXXCjjmCmDOVzH3fiPpObEWGqoKe4EBl8v1hlqsdLvd23mkxHM9pc9kMpmno9HoeTii7ewbHEZPPx1ztLS1tV3AnGuMjiNjvbQFuHw6zDo5By7dTPAQNBgMLrRarTkSls1mnwT7uwp9virx9QzbW/HuV/j5d/b+6jniKlllP8lkeONJDk+dq9GsQTnC4fB1heO0K47Hwe7WdDr9nAKgXwOBwHI+C45Htj1d6sd429TUNEcmUdc+PRaLHcvn87dXW4ugzdsaGxufL94NFv9zi1J7GVbhlvb2dnaJ3SVrxfc+n2+NTsZ7/H7/Mr3g5XdSIHyJSH1PZ+7fToyl2+ErqilgZ4NaLYB9goVGaHjR93Hv1ZrU4XDsFT20kH3PObzbWk0CgG1jacVIUnAQb9F+VexyLMzkpcLv0IJV7AHQIOCAUYHx7v5qgScmYHtTqSAyZLEJTK22Bie4iq3xsqpm4SAf9Hq9a2DnJ4uLK3SEULcdRvp3i3zHySqpficxEdsQc1NrlYXXvR+O7qASSezXB+h1SuUomgg9LL8BUoV4749EIolKh+EiqWmqVEZlDgHks2pxHw7xTqUQw9J5NcAXOK10AGIoZ6Zli6JY6Z1Q461KoZ4NiKLHarW+KDsxlDUPHZ5zPQZqUVDPJsTqb5n9malbpAh8C2XXDLl62+WZIDFRUlNVOiwencnNU3aQEkL+cDMSoLvZo2fQB7AJssNAuFuvorlDVVkkg2I87+jo2K2QAVphDrfyViK5VqtO34OkaxXCp+7drdDBCAdubm6eidX+2WwqT5komwh4YQLk+H4aE93h8Xg2gvHekQZOGSgLZTLyDTLJ4Lx9/KZWKBSainT4Iy3FqQBfnUZR42PKQFksBr9QKVXCPusD3OiA/RkQ5kP8qV/Jl1WywAp/6+dcmPM2zL1UrUahe4JqfnWWKXIul3uUbfP8njAFLW1OFr3gdFtZ72cNH+PtQT7/brW+NXqJAHh0y9V8/U/A1U7AfwIMAD7mS3pCbuWJAAAAAElFTkSuQmCC">
+              </a>
+            </div>
+          </body>
+        </html>
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://google.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Location:
+      - http://www.google.com/
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Expires:
+      - Fri, 21 May 2021 19:24:39 GMT
+      Cache-Control:
+      - public, max-age=2592000
+      Server:
+      - gws
+      Content-Length:
+      - '219'
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: "<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<TITLE>301
+        Moved</TITLE></HEAD><BODY>\n<H1>301 Moved</H1>\nThe document has moved\n<A
+        HREF=\"http://www.google.com/\">here</A>.\r\n</BODY></HTML>\r\n"
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://digitalocean.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Wed, 21 Apr 2021 20:24:39 GMT
+      Location:
+      - https://www.digitalocean.com/
+      Cf-Request-Id:
+      - '09977d560100002de99b893000000001'
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6438fe6998242de9-KBP
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://acaird.github.io/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Content-Type:
+      - text/html; charset=utf-8
+      Last-Modified:
+      - Thu, 13 Feb 2020 21:25:06 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"5e45beb2-181c"
+      Expires:
+      - Wed, 21 Apr 2021 19:29:05 GMT
+      Cache-Control:
+      - max-age=600
+      X-Proxy-Cache:
+      - MISS
+      X-Github-Request-Id:
+      - 5EE4:C1F0:2A289B:2B1C30:60807AA9
+      Content-Length:
+      - '2500'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Via:
+      - 1.1 varnish
+      Age:
+      - '167'
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-vie21644-VIE
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Timer:
+      - S1619033079.323348,VS0,VE1
+      Vary:
+      - Accept-Encoding
+      X-Fastly-Request-Id:
+      - 94db9aecc79e170ddb4e813d802fb87aad3c89f9
+    body:
+      encoding: ASCII-8BIT
+      string: "\n\n<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n
+        \   <title>For the Love of Suffering</title>\n    \n    <meta name=\"author\"
+        content=\"Andrew Caird\">\n\n    <!-- Enable responsive viewport -->\n    <meta
+        name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n    <!--
+        Le HTML5 shim, for IE6-8 support of HTML elements -->\n    <!--[if lt IE 9]>\n
+        \     <script src=\"http://html5shim.googlecode.com/svn/trunk/html5.js\"></script>\n
+        \   <![endif]-->\n\n    <!-- Le styles -->\n    <link href=\"/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css\"
+        rel=\"stylesheet\">\n    <link href=\"/assets/themes/twitter/css/style.css?body=1\"
+        rel=\"stylesheet\" type=\"text/css\" media=\"all\">\n\n    <!-- Le fav and
+        touch icons -->\n  <!-- Update these with your own images\n    <link rel=\"shortcut
+        icon\" href=\"images/favicon.ico\">\n    <link rel=\"apple-touch-icon\" href=\"images/apple-touch-icon.png\">\n
+        \   <link rel=\"apple-touch-icon\" sizes=\"72x72\" href=\"images/apple-touch-icon-72x72.png\">\n
+        \   <link rel=\"apple-touch-icon\" sizes=\"114x114\" href=\"images/apple-touch-icon-114x114.png\">\n
+        \ -->\n\n    <!-- atom & rss feed -->\n    <link href=\"/atom.xml\" type=\"application/atom+xml\"
+        rel=\"alternate\" title=\"Sitewide ATOM Feed\">\n    <link href=\"/rss.xml\"
+        type=\"application/rss+xml\" rel=\"alternate\" title=\"Sitewide RSS Feed\">\n\n
+        \ </head>\n\n  <body>\n    <div class=\"navbar\">\n      <div class=\"navbar-inner\">\n
+        \       <div class=\"container-narrow\">\n          <a class=\"brand\" href=\"/\">For
+        the Love of Suffering</a>\n          <ul class=\"nav\">\n            \n            \n
+        \           \n\n\n  \n    \n      \n    \n  \n    \n      \n      \t\n      \t<li><a
+        href=\"/archive\">Archive</a></li>\n      \t\n      \n    \n  \n    \n      \n
+        \   \n  \n    \n      \n      \t\n      \t<li><a href=\"/categories\">Categories</a></li>\n
+        \     \t\n      \n    \n  \n    \n      \n    \n  \n    \n      \n    \n  \n
+        \   \n      \n      \t\n      \t<li><a href=\"/pages\">Pages</a></li>\n      \t\n
+        \     \n    \n  \n    \n  \n    \n      \n    \n  \n    \n      \n    \n  \n
+        \   \n      \n      \t\n      \t<li><a href=\"/tags\">Tags</a></li>\n      \t\n
+        \     \n    \n  \n    \n  \n\n\n\n          </ul>\n        </div>\n      </div>\n
+        \   </div>\n\n    <div class=\"container-narrow\">\n\n      <div class=\"content\">\n
+        \       \n\n<div class=\"page-header\">\n  <h1>For the Love of Suffering  <small><br>ways
+        to suffer, and not</small></h1>\n</div>\n\n<div class=\"row-fluid\">\n  <div
+        class=\"span12\">\n    <ul class=\"posts\">\n\n  <div class=\"post_info\">\n
+        \   <li>\n            <a href=\"/computers/2020/02/11/github-google-container-cloud-run\">Using
+        Github Actions to Build and Push Images to Google Container Registry</a>\n
+        \           <span>(2020-02-11)</span>\n    </li>\n    </br> <em><p>\nEven
+        personal projects that make use of Google Cloud Run to minimize\ncosts deserve
+        CI.  And they can get it!\n</p>\n\n </em>\n    </div>\n  \n  <div class=\"post_info\">\n
+        \   <li>\n            <a href=\"/2019/03/24/function-plotting-for-kids\">Plotting
+        Functions for Kids (and Adults) on an Apple Computer</a>\n            <span>(2019-03-24)</span>\n
+        \   </li>\n    </br> <em><p>\nTo plot functions on the computer, you need
+        to install a program\ncalled <code>gnuplot</code>.  See the section below
+        called <a href=\"#org653682b\">Installing gnuplot</a> for\nhow to do that.\n</p>\n\n
+        </em>\n    </div>\n  \n  <div class=\"post_info\">\n    <li>\n            <a
+        href=\"/2019/02/11/docker-web-app-with-azure\">A Simple Web App in Python,
+        Flask, Docker, Kubernetes, Microsoft Azure, and GoDaddy</a>\n            <span>(2019-02-11)</span>\n
+        \   </li>\n    </br> <em><p>\nYou&rsquo;re talking with your wife one d<a
+        href=\"https://www.letterkenny.tv/\">a</a>aayyy&#x2026; and realize that you\ncould
+        improve her life by letting her create printable calendars and\nimportable
+        ICS files for events she has to schedule.  And that should\nbe on the web,
+        because while your wife is very smart, she is not very\ntechnical.\n</p>\n\n
+        </em>\n    </div>\n  \n  <div class=\"post_info\">\n    <li>\n            <a
+        href=\"/2016/06/24/dotplots-with-matplotlib\">Dotplots with Matplotlib</a>\n
+        \           <span>(2016-06-24)</span>\n    </li>\n    </br> <em><p>\nI like
+        the dotplots that R + ggplot2 can make.  There are lots of\nexamples of this
+        on the Internet.  At least one is at <a href=\"http://www.r-bloggers.com/summarising-data-using-dot-plots/\">r-bloggers</a>,
+        but\nPython is useful for many reasons, so I want to make a decent looking,\n<a
+        href=\"https://en.wikipedia.org/wiki/Chartjunk\">chartjunk</a>-free dotplot
+        using matplotlib.\n</p>\n\n </em>\n    </div>\n  \n  <div class=\"post_info\">\n
+        \   <li>\n            <a href=\"/computer/python/datascience/2016/06/18/event-density\">Event
+        Density Plot</a>\n            <span>(2016-06-18)</span>\n    </li>\n    </br>
+        <em><p>\nI want to visualize how many concurrent events exist in a time period\nalong
+        with how frequently they start and end.  I don&rsquo;t need to read\nnumbers
+        off the visualization, I just want to get a relative sense of\nhow many events
+        are starting, ongoing, and ending over a time period\nwith some resolution.
+        \ Something that looks like this:\n</p>\n<div class=\"figure\">\n<p><object
+        type=\"image/svg+xml\" data=\"/assets/edplot.svg\" >\nSorry, your browser
+        does not support SVG.</object>\n</p>\n</div>\n\n </em>\n    </div>\n  \n</ul>\n\n<align=right>\n<p><i>Blog
+        Roll</i><p>\n<p><a href=http://www.r-bloggers.com>R Bloggers</a></p>\n</align>\n\n
+        \ </div>\n</div>\n\n\n      </div>\n      <hr>\n      <footer>\n        <p>&copy;
+        2020 <a href= http://acaird.github.io/about>Andrew Caird</a>\n          with
+        help from <a href=\"http://jekyllbootstrap.com\" target=\"_blank\" title=\"The
+        Definitive Jekyll Blogging Framework\">Jekyll Bootstrap</a>\n          and
+        <a href=\"http://twitter.github.com/bootstrap/\" target=\"_blank\">Twitter
+        Bootstrap</a>\n        </p>\n      </footer>\n\n    </div>\n\n    \n\n\n  <script
+        type=\"text/javascript\">\n  var _gaq = _gaq || [];\n  _gaq.push(['_setAccount',
+        'UA-41367626-1']);\n  _gaq.push(['_trackPageview']);\n\n  (function() {\n
+        \   var ga = document.createElement('script'); ga.type = 'text/javascript';
+        ga.async = true;\n    ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+        : 'http://www') + '.google-analytics.com/ga.js';\n    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);\n  })();\n</script>\n\n\n\n  </body>\n</html>\n\n"
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://about.gitlab.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Server:
+      - Varnish
+      Retry-After:
+      - '0'
+      Location:
+      - https://about.gitlab.com/
+      Content-Length:
+      - '0'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - close
+      X-Served-By:
+      - cache-vie21642-VIE
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '0'
+      X-Timer:
+      - S1619033079.330867,VS0,VE1
+      Vary:
+      - Origin
+      Strict-Transport-Security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://websitesetup.org/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Wed, 21 Apr 2021 20:24:39 GMT
+      Location:
+      - https://websitesetup.org/
+      Cf-Request-Id:
+      - '09977d561e00002313c73fe000000001'
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6438fe69cd332313-KBP
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://docs.digitalocean.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Wed, 21 Apr 2021 20:24:39 GMT
+      Location:
+      - https://docs.digitalocean.com/
+      Cf-Request-Id:
+      - '09977d562200002dea7c9b2000000001'
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6438fe69d8662dea-KBP
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://mateopc12.github.io/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - GitHub.com
+      Content-Type:
+      - text/html; charset=utf-8
+      Etag:
+      - W/"5f7b904d-239b"
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src
+        'self'
+      X-Github-Request-Id:
+      - 207C:E984:298BD1:2A7ECF:60807A6A
+      Content-Length:
+      - '5142'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Via:
+      - 1.1 varnish
+      Age:
+      - '397'
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-vie21625-VIE
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Timer:
+      - S1619033079.339526,VS0,VE0
+      Vary:
+      - Accept-Encoding
+      X-Fastly-Request-Id:
+      - e1ae545f25c6e72cf3488c7ae8394f85d344dd3b
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+            <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'">
+            <title>Site not found &middot; GitHub Pages</title>
+            <style type="text/css" media="screen">
+              body {
+                background-color: #f1f1f1;
+                margin: 0;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+              }
+
+              .container { margin: 50px auto 40px auto; width: 600px; text-align: center; }
+
+              a { color: #4183c4; text-decoration: none; }
+              a:hover { text-decoration: underline; }
+
+              h1 { width: 800px; position:relative; left: -100px; letter-spacing: -1px; line-height: 60px; font-size: 60px; font-weight: 100; margin: 0px 0 50px 0; text-shadow: 0 1px 0 #fff; }
+              p { color: rgba(0, 0, 0, 0.5); margin: 20px 0; line-height: 1.6; }
+
+              ul { list-style: none; margin: 25px 0; padding: 0; }
+              li { display: table-cell; font-weight: bold; width: 1%; }
+
+              .logo { display: inline-block; margin-top: 35px; }
+              .logo-img-2x { display: none; }
+              @media
+              only screen and (-webkit-min-device-pixel-ratio: 2),
+              only screen and (   min--moz-device-pixel-ratio: 2),
+              only screen and (     -o-min-device-pixel-ratio: 2/1),
+              only screen and (        min-device-pixel-ratio: 2),
+              only screen and (                min-resolution: 192dpi),
+              only screen and (                min-resolution: 2dppx) {
+                .logo-img-1x { display: none; }
+                .logo-img-2x { display: inline-block; }
+              }
+
+              #suggestions {
+                margin-top: 35px;
+                color: #ccc;
+              }
+              #suggestions a {
+                color: #666666;
+                font-weight: 200;
+                font-size: 14px;
+                margin: 0 10px;
+              }
+
+            </style>
+          </head>
+          <body>
+
+            <div class="container">
+
+              <h1>404</h1>
+              <p><strong>There isn't a GitHub Pages site here.</strong></p>
+
+              <p>
+                If you're trying to publish one,
+                <a href="https://help.github.com/pages/">read the full documentation</a>
+                to learn how to set up <strong>GitHub Pages</strong>
+                for your repository, organization, or user account.
+              </p>
+
+              <div id="suggestions">
+                <a href="https://githubstatus.com">GitHub Status</a> &mdash;
+                <a href="https://twitter.com/githubstatus">@githubstatus</a>
+              </div>
+
+              <a href="/" class="logo logo-img-1x">
+                <img width="32" height="32" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFMTZCRDY3REIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFMTZCRDY3RUIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdCQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjdDQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SM9MCAAAA+5JREFUeNrEV11Ik1EY3s4+ddOp29Q5b0opCgKFsoKoi5Kg6CIhuwi6zLJLoYLopq4qsKKgi4i6CYIoU/q5iDAKs6syoS76IRWtyJ+p7cdt7sf1PGOD+e0c3dygAx/67ZzzPM95/877GYdHRg3ZjMXFxepQKNS6sLCwJxqNNuFpiMfjVs4ZjUa/pmmjeD6VlJS8NpvNT4QQ7mxwjSsJiEQim/1+/9lgMHgIr5ohuxG1WCw9Vqv1clFR0dCqBODElV6v90ogEDjGdYbVjXhpaendioqK07CIR7ZAqE49PT09BPL2PMgTByQGsYiZlQD4uMXtdr+JxWINhgINYhGT2MsKgMrm2dnZXgRXhaHAg5jEJodUAHxux4LudHJE9RdEdA+i3Juz7bGHe4mhE9FNrgwBCLirMFV9Okh5eflFh8PR5nK5nDabrR2BNJlKO0T35+Li4n4+/J+/JQCxhmu5h3uJoXNHPbmWZAHMshWB8l5/ipqammaAf0zPDDx1ONV3vurdidqwAQL+pEc8sLcAe1CCvQ3YHxIW8Pl85xSWNC1hADDIv0rIE/o4J0k3kww4xSlwIhcq3EFFOm7KN/hUGOQkt0CFa5WpNJlMvxBEz/IVQAxg/ZRZl9wiHA63yDYieM7DnLP5CiAGsC7I5sgtYKJGWe2A8seFqgFJrJjEPY1Cn3pJ8/9W1e5VWsFDTEmFrBcoDhZJEQkXuhICMyKpjhahqN21hRYATKfUOlDmkygrR4o4C0VOLGJKrOITKB4jijzdXygBKixyC5TDQdnk/Pz8qRw6oOWGlsTKGOQW6OH6FBWsyePxdOXLTgxiyebILZCjz+GLgMIKnXNzc49YMlcRdHXcSwxFVgTInQhC9G33UhNoJLuqq6t345p9y3eUy8OTk5PjAHuI9uo4b07FBaOhsu0A4Unc+T1TU1Nj3KsSSE5yJ65jqF2DDd8QqWYmAZrIM2VlZTdnZmb6AbpdV9V6ec9znf5Q7HjYumdRE0JOp3MjitO4SFa+cZz8Umqe3TCbSLvdfkR/kWDdNQl5InuTcysOcpFT35ZrbBxx4p3JAHlZVVW1D/634VRt+FvLBgK/v5LV9WS+10xMTEwtRw7XvqOL+e2Q8V3AYIOIAXQ26/heWVnZCVfcyKHg2CBgTpmPmjYM8l24GyaUHyaIh7XwfR9ErE8qHoDfn2LTNAVC0HX6MFcBIP8Bi+6F6cdW/DICkANRfx99fEYFQ7Nph5i/uQiA214gno7K+guhaiKg9gC62+M8eR7XsBsYJ4ilam60Fb7r7uAj8wFyuwM1oIOWgfmDy6RXEEQzJMPe23DXrVS7rtyD3Df8z/FPgAEAzWU5Ku59ZAUAAAAASUVORK5CYII=">
+              </a>
+
+              <a href="/" class="logo logo-img-2x">
+                <img width="32" height="32" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEQUM1QkUxRUI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEQUM1QkUxRkI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdGQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjgwQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+hfPRaQAAB6lJREFUeNrsW2mME2UYbodtt+2222u35QheoCCYGBQligIJgkZJNPzgigoaTEj8AdFEMfADfyABkgWiiWcieK4S+QOiHAYUj2hMNKgYlEujpNttu9vttbvdw+chU1K6M535pt3ubHCSyezR+b73eb73+t7vrfXsufOW4bz6+vom9/b23ovnNNw34b5xYGAgODg46Mbt4mesVmsWd1qSpHhdXd2fuP/Afcput5/A88xwymcdBgLqenp6FuRyuWV4zu/v759QyWBjxoz5t76+/gun09mK5xFyakoCAPSaTCazNpvNPoYVbh6O1YKGRF0u13sNDQ27QMzfpiAAKj0lnU6/gBVfAZW2WWpwwVzy0IgP3G73FpjI6REhAGA9qVRqA1b9mVoBVyIC2tDi8Xg24+dUzQiAbS/s7Ox8G2o/3mKCC+Zw0efzPQEfcVjYrARX3dbV1bUtHo8fMgt42f+Mp0yUTVQbdWsAHVsikdiHkHaPxcQXQufXgUBgMRxme9U0AAxfH4vFvjM7eF6UkbJS5qoQwEQGA57Ac5JllFyUVZZ5ckUEgMVxsK2jlSYzI+QXJsiyjzNEAJyJAzb/KQa41jJKL8pODMQiTEAymXw5n8/P0IjD3bh7Rgog59aanxiIRTVvV/oj0tnHca/WMrVwODwB3raTGxzkBg/gnZVapFV62Wy2n5AO70HM/5wbJ0QnXyQSaVPDIuNZzY0V3ntHMwxiwHA0Gj2Np7ecIBDgaDAYXKCQJM1DhrgJ3nhulcPbl8j4NmHe46X/g60fwbz3aewjkqFQaAqebWU1AOqyQwt8Id6qEHMc97zu7u7FGGsn7HAiVuosVw7P35C1nccdgSCxop1dHeZswmfHMnxBo6ZTk+jN8dl/vF7vWofDsa+MLN9oEUBMxOb3+1eoEsBVw6Zmua49r8YmhAKDiEPcMwBsxMiqQ+ixzPFxZyqRpXARG/YOr1ObFJ0gUskXBbamcR1OKmMUvDxHRAu8/LmY3jFLMUpFqz9HxG65smYJdyKyECOxDiEAe/p1gjF2oonivZAsxVgl2daa4EQWCW6J55qFAFFZiJWYLxNQy2qOSUzGRsyXCUDIeliwAHEO4WSlWQBRFoZakXcKmCXmyXAKs0Ve9vl8q42WoIYpJU4hV3hKcNs8m9gl7p/xQ73eF5kB4j5mNrWmTJRNwAzqiV1CxjVTZCIkEq+Z1bZFZSN2CenmVAFVy4Plz8xKAGWjjAKFk6lCBMDR/MJjLLMSQNm43xAiQKTaA+9/wewhDjL+JVI1kkTSSOTcKbMTwPqESAot6dn6Fr1gHwVJju6IRuyiByPuUUBAg5DGkAgBmxlvdgIEK9gDkohdY/BJo4CAG0R8miRSsGABkgVQs4KXu098IgUXSSRsFAoKZiVAVDY2WUiiPTjYRi41KwGisrGsLtlsth8Fiwnz2fBkQvWfRtlE3iF2yW63/yCacXZ1dW02GwGyTFaRd4idJnCKHRaCxYRHoG5LTKT6SyiToP1fJHbmAYPYRR0UnZQtMnA6s0zg+GZBlt0Gdo7EPHgpE3Q6nZ8YyLhc8Xj8MJh/aKTAY+5FPAKHLE7RdwuYJZmNwzyCMkBCYyKROJBMJl9B/PXXCjjmCmDOVzH3fiPpObEWGqoKe4EBl8v1hlqsdLvd23mkxHM9pc9kMpmno9HoeTii7ewbHEZPPx1ztLS1tV3AnGuMjiNjvbQFuHw6zDo5By7dTPAQNBgMLrRarTkSls1mnwT7uwp9virx9QzbW/HuV/j5d/b+6jniKlllP8lkeONJDk+dq9GsQTnC4fB1heO0K47Hwe7WdDr9nAKgXwOBwHI+C45Htj1d6sd429TUNEcmUdc+PRaLHcvn87dXW4ugzdsaGxufL94NFv9zi1J7GVbhlvb2dnaJ3SVrxfc+n2+NTsZ7/H7/Mr3g5XdSIHyJSH1PZ+7fToyl2+ErqilgZ4NaLYB9goVGaHjR93Hv1ZrU4XDsFT20kH3PObzbWk0CgG1jacVIUnAQb9F+VexyLMzkpcLv0IJV7AHQIOCAUYHx7v5qgScmYHtTqSAyZLEJTK22Bie4iq3xsqpm4SAf9Hq9a2DnJ4uLK3SEULcdRvp3i3zHySqpficxEdsQc1NrlYXXvR+O7qASSezXB+h1SuUomgg9LL8BUoV4749EIolKh+EiqWmqVEZlDgHks2pxHw7xTqUQw9J5NcAXOK10AGIoZ6Zli6JY6Z1Q461KoZ4NiKLHarW+KDsxlDUPHZ5zPQZqUVDPJsTqb5n9malbpAh8C2XXDLl62+WZIDFRUlNVOiwencnNU3aQEkL+cDMSoLvZo2fQB7AJssNAuFuvorlDVVkkg2I87+jo2K2QAVphDrfyViK5VqtO34OkaxXCp+7drdDBCAdubm6eidX+2WwqT5komwh4YQLk+H4aE93h8Xg2gvHekQZOGSgLZTLyDTLJ4Lx9/KZWKBSainT4Iy3FqQBfnUZR42PKQFksBr9QKVXCPusD3OiA/RkQ5kP8qV/Jl1WywAp/6+dcmPM2zL1UrUahe4JqfnWWKXIul3uUbfP8njAFLW1OFr3gdFtZ72cNH+PtQT7/brW+NXqJAHh0y9V8/U/A1U7AfwIMAD7mS3pCbuWJAAAAAElFTkSuQmCC">
+              </a>
+            </div>
+          </body>
+        </html>
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://memory.de/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Server:
+      - Apache
+      Location:
+      - https://www.ravensburger.de/entdecken/ravensburger-marken/memory/index.html
+      Content-Length:
+      - '283'
+      Connection:
+      - close
+      Content-Type:
+      - text/html; charset=iso-8859-1
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>301 Moved Permanently</title>
+        </head><body>
+        <h1>Moved Permanently</h1>
+        <p>The document has moved <a href="https://www.ravensburger.de/entdecken/ravensburger-marken/memory/index.html">here</a>.</p>
+        </body></html>
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://blabla.nl/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Server:
+      - Apache
+      Location:
+      - http://www.blabla.nl/
+      Content-Length:
+      - '229'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>301 Moved Permanently</title>
+        </head><body>
+        <h1>Moved Permanently</h1>
+        <p>The document has moved <a href="http://www.blabla.nl/">here</a>.</p>
+        </body></html>
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://accounts.crisalid.net/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.17.3
+      Date:
+      - Wed, 21 Apr 2021 19:15:05 GMT
+      Content-Type:
+      - text/html
+      Last-Modified:
+      - Tue, 17 Dec 2019 11:43:26 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Etag:
+      - W/"5df8bf5e-264"
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <title>Welcome to nginx!</title>
+        <style>
+            body {
+                width: 35em;
+                margin: 0 auto;
+                font-family: Tahoma, Verdana, Arial, sans-serif;
+            }
+        </style>
+        </head>
+        <body>
+        <h1>Welcome to nginx!</h1>
+        <p>If you see this page, the nginx web server is successfully installed and
+        working. Further configuration is required.</p>
+
+        <p>For online documentation and support please refer to
+        <a href="http://nginx.org/">nginx.org</a>.<br/>
+        Commercial support is available at
+        <a href="http://nginx.com/">nginx.com</a>.</p>
+
+        <p><em>Thank you for using nginx.</em></p>
+        </body>
+        </html>
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://277-626.oms-suite.de/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Content-Length:
+      - '0'
+      Content-Type:
+      - text/html; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://mail.google.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Location:
+      - "/mail/"
+      Expires:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Cache-Control:
+      - private, max-age=7776000
+      Content-Type:
+      - text/html; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Security-Policy:
+      - frame-ancestors 'self'
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '156'
+      Server:
+      - GSE
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <HTML>
+        <HEAD>
+        <TITLE>Moved Permanently</TITLE>
+        </HEAD>
+        <BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+        <H1>Moved Permanently</H1>
+        The document has moved <A HREF="/mail/">here</A>.
+        </BODY>
+        </HTML>
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://rubygems.org/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Content-Type:
+      - text/html
+      Location:
+      - https://rubygems.org/
+      X-Backend:
+      - F_Rails 44.239.243.6:443
+      Content-Length:
+      - '0'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Via:
+      - 1.1 varnish
+      Age:
+      - '1314'
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-vie21643-VIE
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '2'
+      X-Timer:
+      - S1619033079.375804,VS0,VE0
+      Vary:
+      - Fastly-SSL
+      Server:
+      - RubyGems.org
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://github.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Content-Length:
+      - '0'
+      Location:
+      - https://github.com/
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://gitlab.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Wed, 21 Apr 2021 20:24:39 GMT
+      Location:
+      - https://gitlab.com/
+      Cf-Request-Id:
+      - '09977d563300003274180f8000000001'
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6438fe69e81c3274-KBP
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://ww5.gopageview.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Content-Type:
+      - text/html; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding
+      X-Check:
+      - 3c12dc4d54f8e22d666785b733b0052100c53444
+      Accept-Ch:
+      - viewport-width, dpr, device-memory, rtt, downlink, ect, ua, ua-full-version,
+        ua-platform, ua-platform-version, ua-arch, ua-model, ua-mobile
+      Accept-Ch-Lifetime:
+      - '30'
+      X-Language:
+      - english
+      X-Template:
+      - tpl_CleanPeppermintBlackBlank_twoclick
+      X-Buckets:
+      - bucket108
+      X-Adblock-Key:
+      - MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALquDFETXRn0Hr05fUP7EJT77xYnPmRbpMy4vk8KYiHnkNpednjOANJcaXDXcKQJN0nXKZJL7TciJD8AoHXK158CAwEAAQ==_H7krV72ZzwXOtyFT4u2PTlTYLJ5xGLRq/wL3T37GfY+9Ihe7gzhOfgsks/t7OTJPJbGnANGjHzQHfNCk6a/BYg==
+    body:
+      encoding: ASCII-8BIT
+      string: "<!DOCTYPE html>\n<html data-adblockkey=\"MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALquDFETXRn0Hr05fUP7EJT77xYnPmRbpMy4vk8KYiHnkNpednjOANJcaXDXcKQJN0nXKZJL7TciJD8AoHXK158CAwEAAQ==_H7krV72ZzwXOtyFT4u2PTlTYLJ5xGLRq/wL3T37GfY+9Ihe7gzhOfgsks/t7OTJPJbGnANGjHzQHfNCk6a/BYg==\"
+        xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n<head>\n\t<meta
+        http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n     <meta
+        name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"
+        />\n    <title>gopageview.com</title>\n\t<script src=\"//www.google.com/adsense/domains/caf.js\"
+        type=\"text/javascript\" ></script>\n\t<link href=\"//d1lxhc4jvstzrp.cloudfront.net/themes/assets/style.css\"
+        rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />\n\t<link href=\"//d1lxhc4jvstzrp.cloudfront.net/themes/cleanPeppermintBlank_0f14f9d7/style.css\"
+        rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />\n\t<link href=\"https://fonts.googleapis.com/css?family=Poppins:300\"
+        rel=\"stylesheet\">\n\t<meta name=\"description \" content=\"This domain may
+        be for sale!\" />\n\t</head>\n\n<body id=\"afd\" style=\"visibility:hidden\">\n\n\n\n<div
+        class=\"wrapper1\">\n\t\n<style>\n\t.sale_banner_orange {\n\t\tbackground:#f25b00;\n\t\tbackground:
+        -moz-linear-gradient(top, #f49300 0%, #f25b00 100%);\n\t\tbackground: -webkit-linear-gradient(top,
+        #f49300 0%,#f25b00 100%);\n\t\tbackground: linear-gradient(to bottom, #f49300
+        0%,#f25b00 100%);\n\t\tfilter: progid:DXImageTransform.Microsoft.gradient(
+        startColorstr='#f49300', endColorstr='#f25b00',GradientType=0 );\n\t\tborder-top:
+        1px solid #eee;\n\t\tborder-bottom: 1px solid #eee;\n\t\tcolor: #c8c8c8;\n\t\ttext-align:
+        center;\n\t\tfont: bold 16px/36px sans-serif;\n\t\theight: 36px;\n\t}\n\n\t.sale_banner_orange
+        a {\n\t\tdisplay: block;\n\t\tcolor:#fff;\n\t\ttext-decoration: none;\n\t}\n</style>\n\n\n\t<script
+        src=\"http://c.parkingcrew.net/scripts/sale_form.js\" type=\"text/javascript\"></script>\n\n<div
+        class=\"sale_banner_orange\" style=\"border-top:none\">\n\t\t\t<a href=\"https://www.networksolutions.com/cgi-bin/promo/domain-search?domainNames=gopageview.com&search=premiumlanding&channelid=P13C100S300N0B3A1D0E0000V100\"
+        target=\"_blank\" onmousedown=\"tlink('ing', 'gopageview.com');\">\n\t\t\tBuy
+        this domain.\n\t</a>\n</div>\n    <div class=\"wrapper2\">\n        <div class=\"wrapper3\">\n
+        \                       <div class=\"header\" id=\"domainname\">\n                <h1>gopageview.com</h1>\n
+        \           </div>\n            \n            <div class=\"tcHolder\">\n            \t<div
+        id=\"tc\"></div>\n\t\t\t\t\t\t\t\t<div class=\"searchHolder\">\n\t\t\t\t\t<div
+        id=\"search\"></div>\n\t\t\t\t</div>\n\t\t\t\t            </div>\n        </div>\n
+        \   </div>\n\t<div class=\"footer\">\n\t\t<script type=\"text/javascript\">\n\n
+        \   function showImprint(){\n\n        var imprintwnd = window.open('','pcrew_imprint','width=640,height=480,left=200,top=200,menubar=no,status=yes,toolbar=no');\n
+        \       imprintwnd.document.writeln(\"\");\n        imprintwnd.document.close();\n
+        \   }\n\n    function showPolicy(){\n        var link = 'www.parkingcrew.net';\n
+        \       policywnd = window.open(\n                'http://' + link + '/privacy.html','pcrew_policy','width=890,height=330,left=200,top=200,menubar=no,status=yes,toolbar=no');\n
+        \       policywnd.focus();\n    }\n\n    function showAboutUs(){\n        var
+        link = 'http://'+document.location.host+'/aboutus.php?domain=gopageview.com';\n
+        \       policywnd = window.open(link,'pcrew_policy','width=890,height=330,left=200,top=200,menubar=no,status=yes,toolbar=no');\n
+        \       policywnd.focus();\n    }\n\n</script>\n2021 Copyright.  All Rights
+        Reserved. <br/><br/>\nThe Sponsored Listings displayed above are served automatically
+        by a third party. Neither the service provider nor the domain owner maintain
+        any relationship with the advertisers. In case of trademark issues please
+        contact the domain owner directly (contact information can be found in whois).\n\n<br/><br/>\n<a
+        href=\"javascript:void(0);\" onClick=\"showPolicy();\">Privacy Policy</a>\n<br/><br/>\n<br/><br/>\n\t</div>\n</div>\n\n<script
+        type=\"text/javascript\" language=\"JavaScript\">\nvar tcblock = {\n    //
+        Required and steady\n\t'container' : 'tc',\n\t'type' : 'relatedsearch',\n\t'colorBackground'
+        : 'transparent',\n    \n    'number' : 5,\n    \n\t// Font-Sizes and Line-Heights\n\t'fontSizeAttribution'
+        : 14,\n\t'fontSizeTitle' : 24,\n\t'lineHeightTitle' : 34,\n\t// Colors\n\t'colorAttribution'
+        : '#aaa',\n\t'colorTitleLink' : '#0277bd',\n\t// Alphabetically\n    'horizontalAlignment'
+        : 'center',\n\t'noTitleUnderline': false,\n\t'rolloverLinkColor' : '#01579b',\n\t'verticalSpacing'
+        : 10,\n\t'webFontFamily' : 'Poppins'\n};\nvar searchboxBlock = {\n\t'container'
+        : 'search',\n\t'type' : 'searchbox',\n\t'fontSizeSearchInput' : 12,\n\t'hideSearchInputBorder'
+        : false,\n\t'hideSearchButtonBorder' : true,\n\t'fontSizeSearchButton' : 13,\n\t'colorBackground'
+        : 'transparent',\n\t'colorSearchButton' : '#848484',\n\t'colorSearchButtonText'
+        : '#fff',\n\t'webFontFamily' : 'Roboto'\n};\n</script>\n<script type='text/javascript'
+        language='JavaScript'>\n            var isAdult=false;\n            var xbase='';\n
+        \           var xt_auto_load=0;\n            var ads='',pop_cats='';\n            var
+        rxid='';\n            var pcrewAdloaded=[];\n            var uniqueTrackingID='MTYxOTAzMzA3OS40ODA4OmZlNGI5YjliOWMxMTAxZTBkMjJmMjdjN2IyMjg0NjEyMjAwNmZkMDBhOWM4ZGJlNzczM2VkMTc1ODg4MDA0NDU6NjA4MDdiZjc3NTYxMg==';\n
+        \           var search='';\n            var is_afs=false;\n            var
+        country='ua';\n            var themedata='fENsZWFuUGVwcGVybWludEJsYWNrQmxhbmt8fDA2MGM4fGJ1Y2tldDEwOHx8fHx8fDYwODA3YmY3NzQyODJ8fHwxNjE5MDMzMDc5LjQ4Mjl8NjZjNmE4NzljODJiMTNhZGQ0YjNiYjYyYWFlMjAyMTdlM2U1MGU3M3x8fHx8MXx8MHwwfHx8fDF8fHx8fDB8MHx8fHx8fHx8fHwwfDF8fDB8MHwxfDB8MHxleUp6ZEhsc1pVbGtJam9pTXpRNE5qZzNPRGMxTUNKOXx8MXxXMTA9fDYxY2E5OGFiMzU4OWNkOWJlNzE4MzQ3NGQ0MjE3YTVlNjhjYjJiN2Z8MHxkcC10ZWFtaW50ZXJuZXQwOV8zcGg=';\n
+        \           var domain='gopageview.com';\n            var scriptPath='';\n
+        \           var adtest='off';\n            var useFallbackTerms=false;\n        </script><script
+        type=\"text/javascript\" language=\"JavaScript\">if (top.location!=location){top.location.href=location.protocol
+        + \"//\" + location.host + location.pathname + (location.search ? location.search
+        + \"&\" : \"?\") + \"_xafvr=NTc4MjcwOTA1NGI1NzdmZTdlMTNmMjI0NTdmZWZlZjQwOGZiNzYwNCw2MDgwN2JmNzc1ZTQ0\";}</script><script>if
+        (!window.JSON) { document.write(\"<script src='//d1lxhc4jvstzrp.cloudfront.net/scripts/json3.min.js'
+        type='text/javascript' language='JavaScript'><\\/scr\"+\"ipt>\"); }</script>\n<script
+        src='//d1lxhc4jvstzrp.cloudfront.net/scripts/js3caf.js' type='text/javascript'
+        language='JavaScript'></script>\n<script type='text/javascript' language='JavaScript'>x(pageOptions,{resultsPageBaseUrl:
+        'http://ww5.gopageview.com/?ts=fENsZWFuUGVwcGVybWludEJsYWNrQmxhbmt8fDA2MGM4fGJ1Y2tldDEwOHx8fHx8fDYwODA3YmY3NzQyODJ8fHwxNjE5MDMzMDc5LjQ4NHxhNGNhMThkZjhhNzU1OWRiZDBiY2M3OGNjY2EyZTk3OTAwMDQxMmFjfHx8fHwxfHwwfDB8fHx8MXx8fHx8MHwwfHx8fHx8fHx8fDB8MXx8MHwwfDF8MHwwfGV5SnpkSGxzWlVsa0lqb2lNelE0TmpnM09EYzFNQ0o5fHwxfFcxMD18NjFjYTk4YWIzNTg5Y2Q5YmU3MTgzNDc0ZDQyMTdhNWU2OGNiMmI3ZnwwfGRwLXRlYW1pbnRlcm5ldDA5XzNwaA%3D%3D',
+        hl: 'en', kw: '', terms: '', uiOptimize: true,  channel: '000001,bucket108',
+        pubId: 'dp-teaminternet09_3ph', adtest: 'off', personalizedAds: false, clicktrackUrl:
+        'https://trkpc.net/track.' + 'php?click=caf' + '&domain=gopageview.com&rxid=&uid=MTYxOTAzMzA3OS40ODA4OmZlNGI5YjliOWMxMTAxZTBkMjJmMjdjN2IyMjg0NjEyMjAwNmZkMDBhOWM4ZGJlNzczM2VkMTc1ODg4MDA0NDU6NjA4MDdiZjc3NTYxMg%3D%3D&ts=fENsZWFuUGVwcGVybWludEJsYWNrQmxhbmt8fDA2MGM4fGJ1Y2tldDEwOHx8fHx8fDYwODA3YmY3NzQyODJ8fHwxNjE5MDMzMDc5LjQ4Mzl8ZTg1Mjg1YTQ5N2JmYWJhNjliMjEwZGMwNWM5MDA0YjA4Nzk4YTFkZXx8fHx8MXx8MHwwfHx8fDF8fHx8fDB8MHx8fHx8fHx8fHwwfDF8fDB8MHwxfDB8MHxleUp6ZEhsc1pVbGtJam9pTXpRNE5qZzNPRGMxTUNKOXx8MXxXMTA9fDYxY2E5OGFiMzU4OWNkOWJlNzE4MzQ3NGQ0MjE3YTVlNjhjYjJiN2Z8MHxkcC10ZWFtaW50ZXJuZXQwOV8zcGg%3D&adtest=off'});</script><script
+        type='text/javascript' language='JavaScript'>x(pageOptions,{\"styleId\":3486878750});</script><script
+        type='text/javascript' language='JavaScript'>x(pageOptions,{domainRegistrant:'as-drid-2604889911753328'});</script><script
+        type=\"text/javascript\">function loadFeed(){    var c = google.ads.domains.Caf;
+        \   var a = Array.prototype.slice.call(arguments);    switch (a.length) {
+        \     case 1: return new c(a[0]);      case 2: return new c(a[0], a[1]);      case
+        3: return new c(a[0], a[1], a[2]);      case 4: return new c(a[0], a[1], a[2],
+        a[3]);      case 5: return new c(a[0], a[1], a[2], a[3], a[4]);    }    return
+        c.apply(null, a);}</script><script type=\"text/javascript\" language=\"JavaScript\">function
+        relatedCallback(options){return false;} function relatedFallback(callback){return
+        callback();}</script><script type='text/javascript' language='JavaScript'>if(typeof
+        x == 'undefined' || typeof pageOptions == 'undefined') { var links = document.head.getElementsByTagName('link');
+        for(var i = 0; i < links.length; i++) { links[i].href = links[i].href.replace('//d1lxhc4jvstzrp.cloudfront.net',
+        'http://parkingcrew.net/assets'); } document.body.style.visibility = 'visible';
+        document.getElementById('searchHolder').style.visibility = 'hidden'; }</script>\n<script
+        type=\"text/javascript\">var ls = function(xhr, path, payload) { \n    xhr.open(\"POST\",
+        path + '/ls.p' + 'hp', true);\n    xhr.setRequestHeader(\"Content-Type\",
+        \"application/x-www-form-urlencoded; charset=UTF-8\");\n    xhr.send('_='
+        + payload);\n};\nls(new XMLHttpRequest(), scriptPath, '2001|||60807bf776134eyJvd25lcils96424bd4feI6MjY0OTcsImRvbWFpbiI6ImdvcGFnZXZpZXcuY29tIiwidW5pcUlEIjoiTVRZeE9UQXpNekEzT1M0ME9EQTRPbVpsTkdJNVlqbGlPV014TVRBeFpUQmtNakptTWpkak4ySXlNamcwTmpFeU1qQXdObVprTURCaE9XTTRaR0psTnpjek0yVmtNVGMxT0RnNE1EQTBORFU2TmpBNE1EZGlaamMzTlRZeE1nPT0iLCJiYXNlVW5pcXVlSUQiOiI2MWNhOThhYjM1ODljZDliZTcxODM0NzRkNDIxN2E1ZTY4Y2IyYjdmIiwidW5pcXVlSUQiOiI2MWNhOThhYjM1ODljZDliZTcxODM0NzRkNDIxN2E1ZTY4Y2IyYjdmIiwic2hhcmRLZXkiOiI2MWNhOThhYjM1ODljZDliZTcxODM0NzRkNDIxN2E1ZTY4Y2IyYjdmIiwiYnJvd3NlcmpzIjpmYWxzZSwic3BlY2lhbCI6ZmFsc2UsInJlZGlyIjpmYWxzZSwiZmVlZCI6Imdvb2dsZSIsInN0YW1wIjoxNjE5MDMzMDc5LCJkYXRlIjoiMjAyMS0wNC0yMSIsInRpbWUiOiIxMjoyNDozOSIsInJlZmVyZXIiOmZhbHNlLCJjb3VudHJ5IjoidWEiLCJkZXZpY2UiOjAsInRlbXBsYXRlbmFtZSI6InRwbF9DbGVhblBlcHBlcm1pbnRCbGFja0JsYW5rX3R3b2NsaWNrIiwieEZGIjoiMC4wLjAuMCIsImlwIjoiNzkuMTI1Ljk5LjAiLCJjbGllbnRJUCI6IjM3LjIyOS43Ni4wIiwiaXBfY2l0eSI6IlV6aGdvcm9kIiwiaXBfb3JnYSI6Ikt5aXZzdGFyIiwiaXBIYXNoIjoiYmU5MzVjYWY1NTViNjM0NWNlYmI3MTEzNjZhZjRlNWExMDljNzRlMSIsInVhIjoiRmFyYWRheSB2MS40LjEiLCJiX2xhbmciOiIiLCJpc3VuaXF1ZSI6ZmFsc2UsImFkdGVzdCI6Im9mZiIsImNsaWVudElEIjoiZHAtdGVhbWludGVybmV0MDlfM3BoIiwidHMiOm51bGwsImVuZ2luZSI6IjMtY2FmIiwic2VydmVyIjoid3MtMDYubXVjLnBjcmV3LmlvIiwicnQiOiIwLjAwNzg1ODk5MTYyMyIsImV4dElwIjoiMTg1LjUzLjE3OC4yMjEiLCJxdWlja1RpZXIyIjpmYWxzZSwic3NsIjpmYWxzZSwic3NsSGFzQ2VydCI6bnVsbCwiNTFkZWdyZWVzIjp7IkhhcmR3YXJlRmFtaWx5IjoiRW11bGF0b3IiLCJIYXJkd2FyZU1vZGVsIjoiVW5rbm93biIsIkhhcmR3YXJlTmFtZSI6IkRlc2t0b3AiLCJIYXJkd2FyZVZlbmRvciI6IlVua25vd24iLCJQbGF0Zm9ybU5hbWUiOiJVbmtub3duIiwiUGxhdGZvcm1WZW5kb3IiOiJVbmtub3duIiwiUGxhdGZvcm1WZXJzaW9uIjoiVW5rbm93biIsIkJyb3dzZXJOYW1lIjoiVW5rbm93biIsIkJyb3dzZXJWZW5kb3IiOiJVbmtub3duIiwiQnJvd3NlclZlcnNpb24iOiJVbmtub3duIiwiQ3Jhd2xlck5hbWUiOiJOb3RDcmF3bGVyIiwiSXNDcmF3bGVyIjoiRmFsc2UifSwibmV0d29yayI6IiIsImFkdGl0bGUiOiIiLCJzaXRlIjoiIiwiYnVja2V0IjoiYnVja2V0MTA4IiwiZGF0YWNlbnRlciI6Im11YyIsInN1YmRvbWFpbiI6Ind3NSIsImNoYW5uZWxzIjpbIjAwMDAwMSIsImJ1Y2tldDEwOCJdLCJ1a3ciOm51bGwsImZhbGxiYWNrIjoibWlzc2luZyB0ZW1wbGF0ZSIsImFzeW5jIjp0cnVlfQ==');</script>\n<script
+        type=\"text/javascript\" language=\"JavaScript\">x(pageOptions);new loadFeed(pageOptions,
+        tcblock, searchboxBlock);</script>\n\n</body>\n</html>\n"
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://abelitsia.gr/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Runtime:
+      - '0.115821'
+      X-Request-Id:
+      - c175a344-1a0e-41bb-9c88-2a8dd58e1a4d
+      Date:
+      - Wed, 21 Apr 2021 19:24:36 GMT
+      X-Powered-By:
+      - Phusion Passenger 5.0.5
+      Server:
+      - nginx/1.6.2 + Phusion Passenger 5.0.5
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PCFkb2N0eXBlIGh0bWw+CjxodG1sIGNsYXNzPSJuby1qcyIgbGFuZz0iZW4iIGRpcj0ibHRyIj4KICA8aGVhZD4KICAgIDxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KICAgIDxtZXRhIGh0dHAtZXF1aXY9IngtdWEtY29tcGF0aWJsZSIgY29udGVudD0iaWU9ZWRnZSI+CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI+CiAgICA8dGl0bGU+zpHOvM+AzrXOu865z4TPg865zqwgKFplbGtvdmEgYWJlbGljZWEpPC90aXRsZT4KICAgIDxtZXRhIHByb3BlcnR5PSJvZzp0aXRsZSIgY29udGVudD0iWmVsa292YSBhYmVsaWNlYSIgLz4KICAgIDxtZXRhIG5hbWU9ImRlc2NyaXB0aW9uIiBjb250ZW50PSJJbiBzaXR1IGFuZCBleCBzaXR1IGNvbnNlcnZhdGlvbiBvZiBaZWxrb3ZhIGFiZWxpY2VhIGluIENyZXRlLCBHcmVlY2UiIC8+CiAgICA8bWV0YSBwcm9wZXJ0eT0ib2c6ZGVzY3JpcHRpb24iIGNvbnRlbnQ9IkluIHNpdHUgYW5kIGV4IHNpdHUgY29uc2VydmF0aW9uIG9mIFplbGtvdmEgYWJlbGljZWEgaW4gQ3JldGUsIEdyZWVjZSIgLz4KICAgIDxtZXRhIG5hbWU9ImtleXdvcmRzIiBjb250ZW50PSLOkc68z4DOtc67zrnPhM+DzrnOrCwgzpzOkc6ZzqcsIM66zrHPhM+Dzr/Pjc69zrEsIM6az4HOrs+EzrcsIM+Az4HOv8+Dz4TOsc+Dzq/OsS/OtM65zrHPhM6uz4HOt8+DzrcgzrHOvM+AzrXOu865z4TPg865zqzPgiwgzrXOvc60zrfOvM65zrrPjCwgzpvOtc+FzrrOrCDOjM+BzrcsIM6ozrfOu86/z4HOtc6vz4TOt8+CLCDOms6tzrTPgc6/z4IsIM6Uzq/Ous+EzrcsIM6Yz4HPhc+Az4TOriwgzpXOvc+Ez4zPgiDPhM+Mz4DOv8+FLCDOlc66z4TPjM+CIM+Ez4zPgM6/z4UsIM+Fz4DOtc+BzrLPjM+DzrrOt8+DzrcsIM6xz4DOtc65zrvOv8+NzrzOtc69zr8sIM60zq3Ovc+Ez4HOvywgzrLOv8+Fzr3OrCwgzpTOuc61z4XOuM+Nzr3Pg861zrnPgiDOtM6xz4PPjs69IM6az4HOrs+EzrfPgiwgzpTOrs68zr/PgiDOoM67zrHPhM6xzr3Ouc6sLCDOoM6xzr3Otc+AzrnPg8+Ezq7OvM65zr8gzqbPgc65zrzPgM6/z4XPgc6zzrosIM6VzrvOss61z4TOr86xIFplbGtvdmEsIGFiZWxpY2VhLCBDcmV0ZSwgY29uc2VydmF0aW9uLCBMZWZrYSBPcmksIFBzaWxvcml0aXMsIEtlZHJvcywgRGlrdGksIFRocmlwdGksIHJlbGljdCBzcGVjaWVzLCBlbmRlbWljLCBrYXRzb3VuYSwgYWJlbGl0c2lhLCBDcmV0YW4gbW91bnRhaW5zLCBVbml2ZXJzaXR5IG9mIEZyaWJvdXJnLCBDSUhFQU0sIE1BSUNoLCBGb3Jlc3QgRGlyZWN0b3JhdGVzIG9mIENyZXRlLCBNdW5pY2lwYWxpdHkgb2YgUGxhdGFuaWFzLCBJbiBzaXR1LCBFeCBzaXR1LCBvdmVyZ3JhemluZywgRW5kYW5nZXJlZCBzcGVjaWVzLCBUaHJlYXRlbmVkIHNwZWNpZXMsIHRyZWUiIC8+CiAgICA8IS0tICAtLT4KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iL2Nzc2lpL2ZvdW5kYXRpb24uY3NzIj4KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iL2Nzc2lpL2FwcC5jc3MiPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSIvY3NzaWkvZm91bmRhdGlvbi1pY29ucy5jc3MiIC8+CiAgICA8IS0tIE93bCBTdHlsZXNoZWV0cyAtLT4KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iL293bGlpL293bC5jYXJvdXNlbC5taW4uY3NzIiAvPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSIvb3dsaWkvb3dsLnRoZW1lLmRlZmF1bHQuY3NzIiAvPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSIvY3NzaWkvYW5pbWF0ZS5jc3MiPgoJPCEtLSBHbG9iYWwgc2l0ZSB0YWcgKGd0YWcuanMpIC0gR29vZ2xlIEFuYWx5dGljcyAtLT4KPHNjcmlwdCBhc3luYyBzcmM9Imh0dHBzOi8vd3d3Lmdvb2dsZXRhZ21hbmFnZXIuY29tL2d0YWcvanM/aWQ9VUEtMTIwNDY4ODIyLTEiPjwvc2NyaXB0Pgo8c2NyaXB0PgogIHdpbmRvdy5kYXRhTGF5ZXIgPSB3aW5kb3cuZGF0YUxheWVyIHx8IFtdOwogIGZ1bmN0aW9uIGd0YWcoKXtkYXRhTGF5ZXIucHVzaChhcmd1bWVudHMpO30KICBndGFnKCdqcycsIG5ldyBEYXRlKCkpOwoKICBndGFnKCdjb25maWcnLCAnVUEtMTIwNDY4ODIyLTEnKTsKPC9zY3JpcHQ+CgoKICA8L2hlYWQ+Cjxib2R5PgogIDwhLS0gaW5uZXItd3JhcHBlciAtLT4KICA8ZGl2IGNsYXNzPSJpbm5lci13cmFwcGVyIj4KICAgIDwhLS0gUGFnZS1oZWFkZXIgLS0+CiAgICA8aGVhZGVyIGNsYXNzPSJwYWdlLWhlYWRlciI+CiAgICAgIDxkaXYgY2xhc3M9InJvdyI+CiAgICAgICAgPGRpdiBjbGFzcz0iY29sdW1uIHNtYWxsLTEyIj4KICAgICAgICAgIDxkaXYgY2xhc3M9InRvcC1uYXYiPgogICAgICAgICAgICA8dWwgY2xhc3M9Im1lbnUiPgogICAgICAJICAgIAk8bGk+PGEgaHJlZj0iL2VsLyI+RUw8L2E+PC9saT4KCQk8bGk+PGEgaHJlZj0iL2VuLyI+RU48L2E+PC9saT4KICAgICAgICAgICAgPC91bD4KICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvZGl2PgogICAgICA8L2Rpdj4KICAgICAgPCEtLSByb3cgLS0+CiAgICAgIDxkaXYgY2xhc3M9InJvdyI+CiAgICAgICAgPGRpdiBjbGFzcz0iY29sdW1uIHNtYWxsLTEyIG1lZGl1bS00IGxhcmdlLTMiPgogICAgICAgICAgPGRpdiBpZD0ibG9nby1iIj4KICAgICAgICAgICAgPGEgaHJlZj0iLyI+Q29uc2VydmF0aW9uIG9mIFplbGtvdmEgYWJlbGljZWEgaW4gQ3JldGU8L2E+IAogICAgICAgICAgPC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJ0aXRsZS1iYXIiIGRhdGEtcmVzcG9uc2l2ZS10b2dnbGU9InNpdGUtbWVudSIgZGF0YS1oaWRlLWZvcj0ibWVkaXVtIj4KICAgICAgICAgICAgPGRpdiBzdHlsZT0iY3Vyc29yOiBwb2ludGVyOyIgZGF0YS10b2dnbGU9InNpdGUtbWVudSIgY2xhc3M9InRpdGxlLWJhci10aXRsZSI+TWVudTwvZGl2PgogICAgICAgICAgICA8YnV0dG9uIGNsYXNzPSJtZW51LWljb24iIHR5cGU9ImJ1dHRvbiIgZGF0YS10b2dnbGU9InNpdGUtbWVudSIgdGl0bGU9IlNpdGUgbWVudSI+PC9idXR0b24+IAogICAgICAgICAgPC9kaXY+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0iY29sdW1uIHNtYWxsLTEyIG1lZGl1bS04IGxhcmdlLTkgbWVudS13cmFwcGVyIj4KICAgICAgICAgIDwhLS0gbWFpbi1uYXYgLS0+CiAgICAgICAgICA8bmF2IGNsYXNzPSJtYWluLW1lbnUiPgogICAgICAgICAgICA8dWwgY2xhc3M9InZlcnRpY2FsIG1lZGl1bS1ob3Jpem9udGFsIG1lbnUiIGRhdGEtcmVzcG9uc2l2ZS1tZW51PSJhY2NvcmRpb24gbWVkaXVtLWRyb3Bkb3duIiBpZD0ic2l0ZS1tZW51Ij48bGk+PGEgaHJlZj0iL2VsLyI+zpHPgc+HzrnOus6uPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9lbC9wcm9ncmFtIj4gzqTOvyDOoM+Bz4zOs8+BzrHOvM68zrE8L2E+PHVsIGNsYXNzPSJ2ZXJ0aWNhbCBtZW51Ij48bGk+PGEgaHJlZj0iL2VsL3Byb2dyYW0vcHJvamVjdCI+zpTOuc6xz4TOrs+BzrfPg863IM+EzrfPgiDOkc68z4DOtc67zrnPhM+DzrnOrM+CIM+Dz4TOt869IM6az4HOrs+Ezrc8L2E+PC9saT48bGk+PGEgaHJlZj0iL2VsL3Byb2dyYW0vb2JqZWN0aXZlcyI+zqPPhM+Mz4fOv865PC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9lbC9wcm9ncmFtL2FjdGl2aXRpZXMiPs6Uz4HOrM+DzrXOuc+CPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9lbC9wcm9ncmFtL25hdHVyYWxfcG9wdWxhdGlvbnMiPs6mz4XPg865zrrOv86vIM+AzrvOt864z4XPg868zr/OrzwvYT48L2xpPjwvdWw+PC9saT48bGk+PGEgaHJlZj0iL2VsL3BhcnRuZXJzIj7Olc+EzrHOr8+Bzr/OuTwvYT48L2xpPjxsaT48YSBocmVmPSIvZWwvcHVibGljYXRpb25zIj7OlM63zrzOv8+DzrnOtc+Nz4POtc65z4I8L2E+PHVsIGNsYXNzPSJ2ZXJ0aWNhbCBtZW51Ij48bGk+PGEgaHJlZj0iL2VsL3B1YmxpY2F0aW9ucy9kaXNzX21hdGVyaWFsIj7Olc69zrfOvM61z4HPic+EzrnOus+MIM+FzrvOuc66z4w8L2E+PC9saT48bGk+PGEgaHJlZj0iL2VsL3B1YmxpY2F0aW9ucy9jb25mZXJlbmNlcyI+zqPPhc69zq3OtM+BzrnOsTwvYT48L2xpPjxsaT48YSBocmVmPSIvZWwvcHVibGljYXRpb25zL3B1YmxpY2l0eSI+zpTOt868zr/Pg865z4zPhM63z4TOsTwvYT48L2xpPjxsaT48YSBocmVmPSIvZWwvcHVibGljYXRpb25zL861z4DOuc+Dz4TOt868zr/Ovc65zrrOrc+CX860zrfOvM6/z4POuc61z43Pg861zrnPgiI+zpXPgM65z4PPhM63zrzOv869zrnOus6tz4IgzrTOt868zr/Pg865zrXPjc+DzrXOuc+CPC9hPjwvbGk+PC91bD48L2xpPjxsaT48YSBocmVmPSIvZWwvbmV3cyI+zpXOvc63zrzOrc+Bz4nPg863PC9hPjx1bCBjbGFzcz0idmVydGljYWwgbWVudSI+PGxpPjxhIGhyZWY9Ii9lbC9uZXdzL3Bhc3RfbmV3cyI+zqDOsc67zrHOuc+Mz4TOtc+BzrXPgiDOsc69zrHPgc+EzrfPg861zrnPgjwvYT48L2xpPjwvdWw+PC9saT48bGk+PGEgaHJlZj0iL2VsL3Bob3RvcyI+zqbPic+Ezr/Os8+BzrHPhs6vzrXPgjwvYT48dWwgY2xhc3M9InZlcnRpY2FsIG1lbnUiPjxsaT48YSBocmVmPSIvZWwvcGhvdG9zL3Bob3RvLWdhbGxlcnkiPs6XIM6xzrzPgM61zrvOuc+Ez4POuc6sPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9lbC9waG90b3MvaW5fc2l0dSI+zpTPgc6sz4POtc65z4Igz4DPgc6/z4PPhM6xz4POr86xz4IgKGluIHNpdHUpPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9lbC9waG90b3MvZXhfc2l0dSI+zpTPgc6sz4POtc65z4Igz4DPgc6/z4PPhM6xz4POr86xz4IgKGV4IHNpdHUpPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9lbC9waG90b3MvYWN0aW9uc19kaXNzZW1pbmF0aW9uIj4gzpTPgc6sz4POtc65z4IgzrXPhc6xzrnPg864zrfPhM6/z4DOv86vzrfPg863z4IgLSDOtc69zrfOvM6tz4HPic+DzrfPgjwvYT48L2xpPjwvdWw+PC9saT48bGk+PGEgaHJlZj0iL2VsL25ldHdvcmtpbmciPs6UzrnOus+Ez43Pic+Dzrc8L2E+PC9saT48bGk+PGEgaHJlZj0iL2VsL2NvbnRhY3QiPs6Vz4DOuc66zr/Ouc69z4nOvc6vzrE8L2E+PC9saT48L3VsPgogICAgICAgICAgPC9uYXY+CiAgICAgICAgICA8IS0tIC8vbWFpbi1uYXYgLS0+CiAgICAgICAgPC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8IS0tIC8vcm93IC0tPgogICAgPC9oZWFkZXI+CiAgICA8IS0tIC8vUGFnZS1oZWFkZXIgLS0+CiAgICA8IS0tIHNsaWRlciAtLT4KICAgIDxzZWN0aW9uIGNsYXNzPSJob21lLXNsaWRlciIgc3R5bGU9Im1hcmdpbjowOyBwYWRkaW5nOjA7Ij4KICAgICAgPGRpdiBjbGFzcz0iY29sdW1uIGV4cGFuZGVkIHJvdyBzbWFsbC1jb2xsYXBzZSIgc3R5bGU9Im1heC13aWR0aDoxMDAlOyBwYWRkaW5nOjA7Ij4KICAgICAgICA8ZGl2IGNsYXNzPSJvd2wtY2Fyb3VzZWwgb3dsLXRoZW1lIj4KICAgICAgICAgIDxkaXYgY2xhc3M9Iml0ZW0iPgogICAgICAgICAgICA8aW1nIHNyYz0iL2ltZy9zbGlkZXIvc2wwMS5qcGciPgogICAgICAgICAgICA8ZGl2IGNsYXNzPSJzbGlkZS1jYXB0aW9uIGRhcmsgb3Bvc2l0ZSI+CiAgICAgICAgICAgICAgPGgyIGNsYXNzPSJzbGlkZS1jYXB0aW9uX190aXRsZSI+zpHOvM+AzrXOu865z4TPg865zrEgPGVtIGNsYXNzPSJzdWJoZWFkZXIiPihaZWxrb3ZhIGFiZWxpY2VhKTwvZW0+PC9oMj4KICAgICAgICAgICAgICA8cCBjbGFzcz0ic2xpZGUtY2FwdGlvbl9fZGVzYyI+zqTOvyDOsc+AzrXOuc67zr/Phc68zrXOvc6/LCDOtc69zrTOt868zrnOus6/IM60zrXOvc60z4HOvyDPhM63z4IgzprPgc63z4TOt8+CPC9wPgogICAgICAgICAgICAgIDxhIGhyZWY9Ii9wcm9ncmFtIiBjbGFzcz0iYnRuIj7OoM61z4HOuc+Dz4PPjM+EzrXPgc6xPC9hPgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgIDwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0iaXRlbSI+CiAgICAgICAgICAgIDxpbWcgc3JjPSIvaW1nL3NsaWRlci9zbDA1LmpwZyI+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9InNsaWRlLWNhcHRpb24gZGFyayBvcG9zaXRlIj4KICAgICAgICAgICAgICA8aDIgY2xhc3M9InNsaWRlLWNhcHRpb25fX3RpdGxlIj7Okc68z4DOtc67zrnPhM+DzrnOsSA8ZW0gY2xhc3M9InN1YmhlYWRlciI+KFplbGtvdmEgYWJlbGljZWEpPC9lbT48L2gyPgogICAgICAgICAgICAgIDxwIGNsYXNzPSJzbGlkZS1jYXB0aW9uX19kZXNjIj5WaWRlbyDOs865zrEgz4TOvyDOsc+AzrXOuc67zr/Phc68zrXOvc6/LCDOtc69zrTOt868zrnOus6/IM60zrXOvc60z4HOvyDPhM63z4IgzprPgc63z4TOt8+CPC9wPgogICAgICAgICAgICAgIDxhIGhyZWY9IiNhYlZpZGVvIiBjbGFzcz0iYnRuIj7OoM61z4HOuc+Dz4PPjM+EzrXPgc6xPC9hPgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgIDwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0iaXRlbSI+CiAgICAgICAgICAgIDxpbWcgc3JjPSIvaW1nL3NsaWRlci9zbDAzLmpwZyI+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9InNsaWRlLWNhcHRpb24gZGFyayBvcG9zaXRlIj4KICAgICAgICAgICAgICA8aDIgY2xhc3M9InNsaWRlLWNhcHRpb25fX3RpdGxlIj7Okc68z4DOtc67zrnPhM+DzrnOsSA8ZW0gY2xhc3M9InN1YmhlYWRlciI+KFplbGtvdmEgYWJlbGljZWEpPC9lbT48L2gyPgogICAgICAgICAgICAgIDxwIGNsYXNzPSJzbGlkZS1jYXB0aW9uX19kZXNjIj7OpM6/IM6xz4DOtc65zrvOv8+FzrzOtc69zr8sIM61zr3OtM63zrzOuc66zr8gzrTOtc69zrTPgc6/IM+EzrfPgiDOms+BzrfPhM63z4I8L3A+CiAgICAgICAgICAgICAgPGEgaHJlZj0iL3Byb2dyYW0iIGNsYXNzPSJidG4iPs6gzrXPgc65z4PPg8+Mz4TOtc+BzrE8L2E+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgPC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJpdGVtIj4KICAgICAgICAgICAgPGltZyBzcmM9Ii9pbWcvc2xpZGVyL3NsMDQuanBnIj4KICAgICAgICAgICAgPGRpdiBjbGFzcz0ic2xpZGUtY2FwdGlvbiBkYXJrIG9wb3NpdGUiPgogICAgICAgICAgICAgIDxoMiBjbGFzcz0ic2xpZGUtY2FwdGlvbl9fdGl0bGUiPs6RzrzPgM61zrvOuc+Ez4POuc6xIDxlbSBjbGFzcz0ic3ViaGVhZGVyIj4oWmVsa292YSBhYmVsaWNlYSk8L2VtPjwvaDI+CiAgICAgICAgICAgICAgPHAgY2xhc3M9InNsaWRlLWNhcHRpb25fX2Rlc2MiPs6kzr8gzrHPgM61zrnOu86/z4XOvM61zr3OvywgzrXOvc60zrfOvM65zrrOvyDOtM61zr3OtM+Bzr8gz4TOt8+CIM6az4HOt8+EzrfPgjwvcD4KICAgICAgICAgICAgICA8YSBocmVmPSIvcHJvZ3JhbSIgY2xhc3M9ImJ0biI+zqDOtc+BzrnPg8+Dz4zPhM61z4HOsTwvYT4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICA8L2Rpdj4KICAgICAgICA8L2Rpdj4KICAgICAgPC9kaXY+CiAgICAgPC9zZWN0aW9uPgogICAgPCEtLSAvL3NsaWRlciAtLT4KICAgIDwhLS0gY29udGVudCAtLT4KICAgIDxzZWN0aW9uIGNsYXNzPSJjb250ZW50Ij4KICAgICAgPGRpdiBjbGFzcz0icm93Ij4KICAgICAgICA8IS0tIHBhZ2UtY29udGVudCAtLT4KICAgICAgICA8ZGl2IGNsYXNzPSJwYWdlLWNvbnRlbnQgc21hbGwtMTIgY29sdW1ucyI+CiAgICAgICAgICA8IS0tIHBhZ2UtY29udGVudCAtLT4KICAgICAgICAgIDxkaXYgY2xhc3M9InBhZ2UtY29udGVudCI+CiAgICAgICAgICAgIDxwPiZuYnNwOzwvcD4KICAgICAgICAgICAgPGgxIGNsYXNzPSJsaW5lLWRpdmlkZXIgdGV4dC1jZW50ZXIiPs6RzrzPgM61zrvOuc+Ez4POuc6xIDxzbWFsbD4oPGVtIHN0eWxlPSJ0ZXh0LXRyYW5zZm9ybTpub25lOyI+WmVsa292YSBhYmVsaWNlYTwvZW0+KTwvc21hbGw+PC9oMT4NCg0KPHAgY2xhc3M9InRleHQtY2VudGVyIiBzdHlsZT0iZm9udC1zaXplOjEuMXJlbTsgY29sb3I6IzY2MzMzMzsiPuKAnDxlbT7OoM61z4HOrs+GzrHOvc63IM6xzrzPgM61zrvOuc+Ez4POuc6sJm5ic3A7z4TOv8+FIM+Hz4HPjM69zr/PhSDOvM6sz4HPhM+Fz4HOsSDOvM6/z4UsIM+Gz4XPhM+Bz47Ovc61zrnPgiDPg8+EzrEgz4jOt867zqwgzrLOv8+Fzr3OrCDOus6xzrkgzrzOrc+DzrEgz4PPhM63zr0gzrrOsc+BzrTOuc6sIM68zr/PhTwvZW0+4oCdPC9wPg0KDQo8cCBjbGFzcz0idGV4dC1jZW50ZXIiPs6XIOKAmM6xzrzPgM61zrvOuc+Ez4POuc6s4oCZICg8ZW0+WmVsa292YSBhYmVsaWNlYTwvZW0+KSDOtc6vzr3Osc65IM6tzr3OsSDOtc69zrTOt868zrnOus+MIM60zq3Ovc60z4HOvyDPhM63z4IgzprPgc6uz4TOt8+CLCDOtM63zrvOsc60zq4gzrXOr860zr/PgiDOtM6tzr3OtM+Bzr/PhSDPgM6/z4Ugz4XPgM6sz4HPh861zrkgzrzPjM69zr8gz4PPhM6/IM69zrfPg86vIM66zrHOuSDPgM6/z4XOuM61zr3OrCDOsc67zrvOv8+NIM+Dz4TOv869IM66z4zPg868zr8uIM6Vzq/Ovc6xzrkgzq3Ovc6xIM6xz4DPjCDPhM6xIDYgzrXOr860zrcgz4TOv8+FIM6zzq3Ovc6/z4XPgiA8ZW0+WmVsa292YTwvZW0+IM+Azr/PhSDPhc+AzqzPgc+Hzr/Phc69IM+AzrHOs866zr/Pg868zq/Pic+CIM66zrHOuSDOtyDPgM6xz4HOv8+Fz4POr86xIM+Ezr/PhSDPg8+EzrfOvSDOms+Bzq7PhM63IM+Hz4HOv869zr/Ou86/zrPOtc6vz4TOsc65IM61zrrOsc+Ezr/OvM68z43Pgc65zrEgz4fPgc+Mzr3Ouc6xIM+Az4HOuc69LiDOlyDOsc68z4DOtc67zrnPhM+DzrnOrCDPhs+NzrXPhM6xzrkgz4POtSDPjM67zr/Phc+CIM+Dz4TOv8+Fz4Igzr/Pgc61zrnOvc6/z43PgiDPjM6zzrrOv8+Fz4Igz4TOt8+CIM6az4HOrs+EzrfPgiDOus6xzrkgzr/OuSDPgM67zrfOuM+Fz4POvM6/zq8gz4TOt8+CIM6xz4DOtc65zrvOv8+Nzr3PhM6xzrkgzrHPgM+MIM+EzrfOvSDPhc+AzrXPgc6yz4zPg866zrfPg863LCDPhM6/IM+Azr/OtM6/z4DOrM+EzrfOvM6xIM6xz4DPjCDPhM6xIM62z47OsSwgz4TOtyDOtM65zqzOvc6/zrnOvs63IM6xzrPPgc6/z4TOuc66z47OvSDOtM+Bz4zOvM+Jzr0gzrrOsc65IM+EzrnPgiDOtM6xz4POuc66zq3PgiDPgM+Fz4HOus6xzrPOuc6tz4IuIM6XIM6xzrzPgM61zrvOuc+Ez4POuc6sIM61zq/Ovc6xzrkgz4PPhc69zrTOtc60zrXOvM6tzr3OtyDOvM61IM+EzrfOvSDPgM6xz4HOrM60zr/Pg863IM+EzrfPgiDOms+Bzq7PhM63z4IgzrrOsc64z47PgiDPh8+BzrfPg865zrzOv8+Azr/Ouc6/z43Ovc+EzrHOvSDOs865zrEgz4TOt869IM66zrHPhM6xz4POus61z4XOriDPhM63z4Igz4DOsc+BzrHOtM6/z4POuc6xzrrOrs+CIOKAmM66zrHPhM+Dzr/Pjc69zrHPguKAmC4mbmJzcDs8YnIgLz4NCjxhIGhyZWY9Imh0dHA6Ly93d3cuYWJlbGl0c2lhLmdyL2VsL3Byb2dyYW0vcHJvamVjdCI+zqDOtc+BzrnPg8+Dz4zPhM61z4HOsTwvYT48L3A+DQoNCjxwIHN0eWxlPSJ0ZXh0LWFsaWduOiBqdXN0aWZ5OyI+Jm5ic3A7PC9wPg0KDQo8ZGl2IGNsYXNzPSJyb3ciPg0KPGRpdiBjbGFzcz0ibWVkaXVtLTEyIGNvbHVtbnMiPg0KPHZpZGVvIGNvbnRyb2xzPSIiIGlkPSJhYlZpZGVvIiBwb3N0ZXI9Imh0dHA6Ly9hYmVsaXRzaWEuZ3IvaW1nL3ZpZGVvLWNvdmVyLmpwZyIgc3JjPSIvaW1nL3plbGtvdmEtYWJlbGljZWF2Mi5tcDQiIHN0eWxlPSJkaXNwbGF5OiBibG9jazsgbWFyZ2luOiAwIGF1dG87IG1heC13aWR0aDo5MDBweDsiIHR5cGU9InZpZGVvL21wNCIgd2lkdGg9IjEwMCUiPlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lc24ndCBzdXBwb3J0IEhUTUw1IHZpZGVvLiBIZXJlIGlzIGEgPGEgaHJlZj0iaHR0cHM6Ly95b3V0dS5iZS9vVzM5ekRVZGlqcyI+bGluayB0byB0aGUgdmlkZW88L2E+IGluc3RlYWQuPC92aWRlbz4NCg0KPGhyIC8+DQo8cCBjbGFzcz0iY2VudGVyIj4mbmJzcDs8L3A+DQo8L2Rpdj4NCjwvZGl2Pg0KCiAgICAgICAgICAgIDwhLS0gbmV3cyByb3cgLS0+CiAgICAgICAgICAgICAgPGgyIGNsYXNzPSJsaW5lLWRpdmlkZXIgdGV4dC1jZW50ZXIiIHN0eWxlPSJtYXJnaW4tdG9wOjA7IHBhZGRpbmctdG9wOjA7IG1hcmdpbi1ib3R0b206MXJlbTsiPs6Vzr3Ot868zq3Pgc+Jz4POtyAtIM6dzq3OsTwvaDI+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9InJvdyBzbWFsbC11cC0xIHNlbWktbWVkaXVtLXVwLTIgbWVkaXVtLXVwLTMgaG9tZS1uZXdzIiBkYXRhLWVxdWFsaXplciBkYXRhLWVxdWFsaXplLWJ5LXJvdz0idHJ1ZSI+CiAgICAgICAgICAgICAgPCEtLSBuZXdzIHJvdyBjb2x1bW4tYmxvY2sgLS0+CiAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY29sdW1uIGNvbHVtbi1ibG9jayI+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJuZXdzLWl0ZW0gY2FyZCIgZGF0YS1lcXVhbGl6ZXItd2F0Y2g+CiAgICAgICAgICAgICAgICAgIDxhIGNsYXNzPSJtb3JlIiBocmVmPSIvZWwvbmV3cy9vbmU/ZXZlbnQ9JmlkPTQ3Ij4KICAgICAgICAgICAgICAgICAgICAgIDxpbWcgc3JjPSIvdXBsb2Fkcy9uZXdzX2FuZF9ldmVudHMvNDcvdGh1bWJfYW51dWFsX21lZXRpbmdfMjAyMC5qcGciIGFsdD0iVGh1bWIgYW51dWFsIG1lZXRpbmcgMjAyMCIgLz4KICAgICAgICAgICAgICAgICAgPC9hPgogICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY2FyZC1zZWN0aW9uIj4KICAgICAgICAgICAgICAgICAgPHAgY2xhc3M9ImRhdGUiPjE5IE5vdmVtYmVyIDIwMjA8L3A+CiAgICAgICAgICAgICAgICAgIDxoMyBjbGFzcz0iYXJ0aWNsZS10aXRsZSI+PGEgaHJlZj0iL2VsL25ld3Mvb25lP2V2ZW50PSZpZD00NyI+zpXPhM6uz4POuc6xIM+Dz4XOvc6szr3PhM63z4POtyDOtc+EzrHOr8+Bz4nOvSDOus6xzrkgzrXPgM65z4PPhM63zrzOv869zrnOus6uz4IgzrXPgM65z4TPgc6/z4DOrs+CIM+Ezr/PhSDPgM+Bzr/Os8+BzqzOvM68zrHPhM6/z4IgPC9hPjwvaDM+CiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzPSJhcnRpY2xlLWRlc2MiPs6jz4TOuc+CIDE5IM6dzr/Otc68zrLPgc6vzr/PhSAyMDIwLCDOu8+MzrPPiSDPhM+Jzr0gz4DOtc+BzrnOv8+BzrnPg8+EzrnOus+Ozr0gzrzOrc+Ez4HPic69IM+Dz4TOuc+CIM68zrXPhM6xzrrOuc69zq7Pg861zrnPgiwgz4DPgc6xzrPOvM6xz4TOv8+Azr/Ouc6uzrjOt866zrUgzrzOrc+Dz4kgz4TOt867zrXOtM65zqzPg866zrXPiM63z4IgzrcgzrXPhM6uz4POuc6xIM+Dz4XOvc6szr3PhM63z4POtyDPhM+Jzr0gzrXPhM6xzq/Pgc+Jzr0gzrrOsc65IM+EzrfPgiDOtc+AzrnPg8+EzrfOvM6/zr3Ouc66zq7PgiDOtc+AzrnPhM+Bzr/PgM6uz4Igz4TOv8+FIM+Az4HOv86zz4HOrM68zrzOsc+Ezr/PgiDCq86UzrnOsc+Ezq7Pgc63z4POtyDPhM63z4IgzpHOvM+AzrXOu865z4TPg865zqzPgiDPg8+EzrfOvSDOms+Bzq7PhM63wrsuPC9wPgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjYXJkLWRpdmlkZXIgZmxleC1jb250YWluZXIgYWxpZ24tbWlkZGxlIj4KCQkJPGEgY2xhc3M9Im1vcmUiIGhyZWY9Ii9lbC9uZXdzL29uZT9ldmVudD0maWQ9NDciPs6gzrXPgc65z4PPg8+Mz4TOtc+BzrEuLjwvYT4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iaG92ZXItYm9yZGVyIj4gPC9kaXY+CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICA8IS0tIC8vbmV3cyByb3cgY29sdW1uLWJsb2NrIC0tPgogICAgICAgICAgICAgIDwhLS0gbmV3cyByb3cgY29sdW1uLWJsb2NrIC0tPgogICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbHVtbiBjb2x1bW4tYmxvY2siPgogICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0ibmV3cy1pdGVtIGNhcmQiIGRhdGEtZXF1YWxpemVyLXdhdGNoPgogICAgICAgICAgICAgICAgICA8YSBjbGFzcz0ibW9yZSIgaHJlZj0iL2VsL25ld3Mvb25lP2V2ZW50PSZpZD00NiI+CiAgICAgICAgICAgICAgICAgICAgICA8aW1nIHNyYz0iL3VwbG9hZHMvbmV3c19hbmRfZXZlbnRzLzQ2L3RodW1iX2FmaXNhX2thdG9fc3ltaS5qcGciIGFsdD0iVGh1bWIgYWZpc2Ega2F0byBzeW1pIiAvPgogICAgICAgICAgICAgICAgICA8L2E+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjYXJkLXNlY3Rpb24iPgogICAgICAgICAgICAgICAgICA8cCBjbGFzcz0iZGF0ZSI+MTIgRGVjZW1iZXIgMjAxOTwvcD4KICAgICAgICAgICAgICAgICAgPGgzIGNsYXNzPSJhcnRpY2xlLXRpdGxlIj48YSBocmVmPSIvZWwvbmV3cy9vbmU/ZXZlbnQ9JmlkPTQ2Ij7Olc69zrfOvM61z4HPic+EzrnOus6uIM6/zrzOuc67zq/OsSDOs865zrEgz4TOt869IM6RzrzPgM61zrvOuc+Ez4POuc6sIM+Dz4TOt869IM6azqzPhM+JIM6jz43OvM63IM6Xz4HOsc66zrvOtc6vzr/PhSA8L2E+PC9oMz4KICAgICAgICAgICAgICAgICAgPHAgY2xhc3M9ImFydGljbGUtZGVzYyI+zqTOvyDOnM61z4POv86zzrXOuc6xzrrPjCDOkc6zz4HOv869zr/OvM65zrrPjCDOmc69z4PPhM65z4TOv8+Nz4TOvyDOp86xzr3Or8+Jzr0gKM6czpHOmc6nKSDOus6xzrkgzrcgzpTOuc61z43OuM+Fzr3Pg863IM6UzrHPg8+Ozr0gzpfPgc6xzrrOu861zq/Ov8+FIM+DzrHPgiDPgM+Bzr/Pg866zrHOu86/z43OvSDPg8+EzrfOvSDOtc69zrfOvM61z4HPic+EzrnOus6uIM6/zrzOuc67zq/OsSDCq86RzrzPgM61zrvOuc+Ez4POuc6sOiDPhM6/IM6xz4DOtc65zrvOv8+NzrzOtc69zr8sIM61zr3OtM63zrzOuc66z4wgzrTOrc69zrTPgc6/IM+EzrfPgiDOms+Bzq7PhM63z4LCuywgz4DOv8+FIM64zrEgzrPOr869zrXOuSDPhM63zr0gzqDOrc68z4DPhM63IDEyIM6UzrXOus61zrzOss+Bzq/Ov8+FIDIwMTksIM+Oz4HOsSAxOTozMCwgz4PPhM63zr0gz4TOsc6yzq3Pgc69zrEgwqvOn868zrHOu8+Mz4LCuywgz4PPhM63zr0gzprOrM+Ez4kgzqPPjc68zrcgzpfPgc6xzrrOu861zq/Ov8+FLjwvcD4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY2FyZC1kaXZpZGVyIGZsZXgtY29udGFpbmVyIGFsaWduLW1pZGRsZSI+CgkJCTxhIGNsYXNzPSJtb3JlIiBocmVmPSIvZWwvbmV3cy9vbmU/ZXZlbnQ9JmlkPTQ2Ij7OoM61z4HOuc+Dz4PPjM+EzrXPgc6xLi48L2E+CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImhvdmVyLWJvcmRlciI+IDwvZGl2PgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgPCEtLSAvL25ld3Mgcm93IGNvbHVtbi1ibG9jayAtLT4KICAgICAgICAgICAgICA8IS0tIG5ld3Mgcm93IGNvbHVtbi1ibG9jayAtLT4KICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjb2x1bW4gY29sdW1uLWJsb2NrIj4KICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9Im5ld3MtaXRlbSBjYXJkIiBkYXRhLWVxdWFsaXplci13YXRjaD4KICAgICAgICAgICAgICAgICAgPGEgY2xhc3M9Im1vcmUiIGhyZWY9Ii9lbC9uZXdzL29uZT9ldmVudD0maWQ9NDUiPgogICAgICAgICAgICAgICAgICAgICAgPGltZyBzcmM9Ii91cGxvYWRzL25ld3NfYW5kX2V2ZW50cy80NS90aHVtYl9Bbm51YWxfbWVldGluZ19PbWFsb3MuanBnIiBhbHQ9IlRodW1iIGFubnVhbCBtZWV0aW5nIG9tYWxvcyIgLz4KICAgICAgICAgICAgICAgICAgPC9hPgogICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY2FyZC1zZWN0aW9uIj4KICAgICAgICAgICAgICAgICAgPHAgY2xhc3M9ImRhdGUiPjA3IE5vdmVtYmVyIDIwMTk8L3A+CiAgICAgICAgICAgICAgICAgIDxoMyBjbGFzcz0iYXJ0aWNsZS10aXRsZSI+PGEgaHJlZj0iL2VsL25ld3Mvb25lP2V2ZW50PSZpZD00NSI+zpXPhM6uz4POuc6xIM+Dz4XOvc6szr3PhM63z4POtyDOtc+EzrHOr8+Bz4nOvSDOus6xzrkgzrXPgM65z4PPhM63zrzOv869zrnOus6uz4IgzrXPgM65z4TPgc6/z4DOrs+CIM+Ezr/PhSDPgM+Bzr/Os8+BzqzOvM68zrHPhM6/z4IgPC9hPjwvaDM+CiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzPSJhcnRpY2xlLWRlc2MiPs6kzrfOvSDOoM6tzrzPgM+EzrcgNyDOus6xzrkgz4TOt869IM6gzrHPgc6xz4POus61z4XOriA4IM6dzr/Otc68zrLPgc6vzr/PhSAyMDE5LCDPgM+BzrHOs868zrHPhM6/z4DOv865zq7OuM63zrrOtSDPg8+Ezr8gzpzOkc6ZzqcgzrcgzrXPhM6uz4POuc6xIM+Dz4XOvc6szr3PhM63z4POtyDPhM+Jzr0gzrXPhM6xzq/Pgc+Jzr0gzrrOsc65IM+EzrfPgiDOtc+AzrnPg8+EzrfOvM6/zr3Ouc66zq7PgiDOtc+AzrnPhM+Bzr/PgM6uz4Igz4TOv8+FIM+Az4HOv86zz4HOrM68zrzOsc+Ezr/PgiDCq86UzrnOsc+Ezq7Pgc63z4POtyDPhM63z4IgzpHOvM+AzrXOu865z4TPg865zqzPgiDPg8+EzrfOvSDOms+Bzq7PhM63ICgyMDE3LTIwMjApwrsuPC9wPgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjYXJkLWRpdmlkZXIgZmxleC1jb250YWluZXIgYWxpZ24tbWlkZGxlIj4KCQkJPGEgY2xhc3M9Im1vcmUiIGhyZWY9Ii9lbC9uZXdzL29uZT9ldmVudD0maWQ9NDUiPs6gzrXPgc65z4PPg8+Mz4TOtc+BzrEuLjwvYT4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iaG92ZXItYm9yZGVyIj4gPC9kaXY+CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICA8IS0tIC8vbmV3cyByb3cgY29sdW1uLWJsb2NrIC0tPgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPCEtLSAvL25ld3Mgcm93IC0tPgogICAgICAgICAgICAKICAgICAgICAgICAgPCEtLSBtZW1iZXJzIC0tPgogICAgICAgICAgICA8aDIgY2xhc3M9ImxpbmUtZGl2aWRlciB0ZXh0LWNlbnRlciIgc3R5bGU9Im1hcmdpbi10b3A6IDY0cHg7Ij7Olc+EzrHOr8+Bzr/OuTwvaDI+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9InJvdyBtZW1iZXJzIj4KICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJzbWFsbC0xMiBtZWRpdW0tOCBtZWRpdW0tY2VudGVyZWQgY29sdW1ucyI+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJyb3ciPgogICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJtZWRpdW0tNCBjb2x1bW5zIj4KICAgICAgICAgICAgICAgICAgICA8aDU+zpXPgM65zrrOtc+GzrHOu86uz4IgzpXPhM6xzq/Pgc6/z4I8L2g1PgogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNhcmQiPgogICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY2FyZC1zZWN0aW9uIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGltZyBzcmM9Ii9pbWcvbWVtYmVycy9tYWljaC5wbmciIGFsdD0iTUFJQ2giPgogICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjYXJkLXNlY3Rpb24iPgogICAgICAgICAgICAgICAgICAgICAgICA8cD48YSBocmVmPSIvcGFydG5lcnMiPjxzdHJvbmc+zpzOtc+Dzr/Os861zrnOsc66z4wgzpHOs8+Bzr/Ovc6/zrzOuc66z4wgzpnOvc+Dz4TOuc+Ezr/Pjc+Ezr8gzqfOsc69zrnPjs69ICjOnM6RzpnOpyk8L3N0cm9uZz4gPGJyIC8+zqTOvM6uzrzOsSDOk861z4nPgM67zrfPgc6/z4bOv8+BzrnOus6uz4Igz4PPhM63IM6UzrnOsc+HzrXOr8+BzrnPg863IM6gzrXPgc65zrLOrM67zrvOv869z4TOv8+CPC9hPjwvcD4KICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0ibWVkaXVtLTggY29sdW1ucyI+CiAgICAgICAgICAgICAgICAgICAgPGg1Ps6Vz4TOsc6vz4HOv865PC9oNT4KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJyb3ciPgogICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0ibWVkaXVtLTYgY29sdW1ucyI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNhcmQiPgogICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNhcmQtc2VjdGlvbiI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aW1nIHNyYz0iL2ltZy9tZW1iZXJzL2ZyaWJvdXJnLnBuZyIgYWx0PSJmcmlib3VyZyI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY2FyZC1zZWN0aW9uIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwPjxhIGhyZWY9Ii9wYXJ0bmVycyI+PHN0cm9uZz7OoM6xzr3Otc+AzrnPg8+Ezq7OvM65zr8gRnJpYm91cmcgzpXOu86yzrXPhM6vzrHPgjwvc3Ryb25nPiA8YnIgLz7OpM68zq7OvM6xIM6SzrnOv867zr/Os86vzrHPgiAmIM6Szr/PhM6xzr3Ouc66z4zPgiDOms6uz4DOv8+CPC9hPjwvcD4KICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9Im1lZGl1bS02IGNvbHVtbnMiPgogICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjYXJkIj4KICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjYXJkLXNlY3Rpb24iPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPGltZyBzcmM9Ii9pbWcvbWVtYmVycy9jcmV0ZV9nb3YucG5nIiBhbHQ9ImZyaWJvdXJnIj4KICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjYXJkLXNlY3Rpb24iPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHA+PGEgaHJlZj0iL3BhcnRuZXJzIj48c3Ryb25nPs6Rz4DOv866zrXOvc+Ez4HPic68zq3Ovc63IM6UzrnOv86vzrrOt8+DzrcgzprPgc6uz4TOt8+CPC9zdHJvbmc+IDxiciAvPs6UzrnOtc+FzrjPjc69z4POtc65z4IgzpTOsc+Dz47OvSDOp86xzr3Or8+Jzr0sIM6hzrXOuM+NzrzOvc63z4IsIM6Xz4HOsc66zrvOtc6vzr/PhSwgzpvOsc+DzrnOuM6vzr/PhTwvYT48L3A+CiAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDwvZGl2PgoKICAgICAgICAgICAgPGgyIGNsYXNzPSJsaW5lLWRpdmlkZXIgdGV4dC1jZW50ZXIiIHN0eWxlPSJtYXJnaW4tdG9wOiA2NHB4OyI+zqPPhc69zrXPgc6zzrHOts+MzrzOtc69zr/OuSDOlc+EzrHOr8+Bzr/OuTwvaDI+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9InJvdyBtZW1iZXJzIj4KICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJzbWFsbC0xMiBtZWRpdW0tNSBtZWRpdW0tY2VudGVyZWQgY29sdW1ucyI+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJyb3ciPgogICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJtZWRpdW0tNiBjb2x1bW5zIj4KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjYXJkIj4KICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNhcmQtc2VjdGlvbiI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxpbWcgc3JjPSIvaW1nL21lbWJlcnMvcGxhdGFuaWFzLnBuZyIgYWx0PSJNQUlDaCI+CiAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNhcmQtc2VjdGlvbiI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwPjxhIGhyZWY9Ii9wYXJ0bmVycyI+PHN0cm9uZz7OlM6uzrzOv8+CIM6gzrvOsc+EzrHOvc65zqwgzqfOsc69zq/Pic69PC9zdHJvbmc+PC9hPjwvcD4KICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0ibWVkaXVtLTYgY29sdW1ucyI+CiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY2FyZCI+CiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjYXJkLXNlY3Rpb24iPgogICAgICAgICAgICAgICAgICAgICAgICA8aW1nIHNyYz0iL2ltZy9tZW1iZXJzL2VsZ28ucG5nIiBhbHQ9Ik1BSUNoIj4KICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY2FyZC1zZWN0aW9uIj4KICAgICAgICAgICAgICAgICAgICAgICAgPHA+PGEgaHJlZj0iL3BhcnRuZXJzIj48c3Ryb25nPs6VzrvOu863zr3Ouc66z4zPgiDOk861z4nPgc6zzrnOus+Mz4Igzp/Pgc6zzrHOvc65z4POvM+Mz4IgzpTOl86czpfOpM6hzpE8L3N0cm9uZz48YnIgLz7Olc+BzrPOsc+Dz4TOrs+BzrnOvyDOlM6xz4POuc66zq7PgiDOlc69z4TOv868zr/Ou86/zrPOr86xz4I8L2E+PC9wPgogICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAKICAgICAgICAgICAgPGgyIGNsYXNzPSJsaW5lLWRpdmlkZXIgdGV4dC1jZW50ZXIiIHN0eWxlPSJtYXJnaW4tdG9wOiA2NHB4OyI+zqfPgc63zrzOsc+Ezr/OtM+Mz4TOt8+Dzrc8L2gyPgogICAgICAgICAgICA8ZGl2IGNsYXNzPSJyb3cgbWVtYmVycyI+CiAgICAgICAgICAgICAgPGRpdiBjbGFzcz0ic21hbGwtMTIgbWVkaXVtLTUgbWVkaXVtLWNlbnRlcmVkIGNvbHVtbnMiPgogICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0icm93Ij4KICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0ibWVkaXVtLTEyIGNvbHVtbnMiPgogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNhcmQiPgogICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY2FyZC1zZWN0aW9uIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGltZyBzcmM9Ii9pbWcvZm9uZGF0aW9uZnJhbmtsaW5pYS5wbmciIGFsdD0iZm9uZGF0aW9uIGZyYW5rbGluaWEiPgogICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjYXJkLXNlY3Rpb24iPgogICAgICAgICAgICAgICAgICAgICAgICA8cD48YSBocmVmPSIvcGFydG5lcnMjZnJhbmtsaW5pYSI+PHN0cm9uZz7Ois60z4HPhc68zrEgRnJhbmtsaW5pYTwvc3Ryb25nPjwvYT48L3A+CiAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIAogICAgICAgICAgICA8c3R5bGU+CiAgICAgICAgICAgIDwhLS0KICAgICAgICAgICAgLm1lbWJlcnMgaDUgeyB0ZXh0LWFsaWduOmNlbnRlcjsgZm9udC1zaXplOjEuMDYzcmVtOyBsaW5lLWhlaWdodDoxLjI1OyBtYXJnaW4tYm90dG9tOjFyZW07IHBhZGRpbmctYm90dG9tOjAuNXJlbTsgYm9yZGVyLWJvdHRvbToxcHggc29saWQgI2RjZTQ2MzsgfQogICAgICAgICAgICAubWVtYmVycyBwIHsgZm9udC1zaXplOjAuODc1cmVtOyBwYWRkaW5nLXRvcDowLjc1cmVtOyB9CiAgICAgICAgICAgIC5tZW1iZXJzIHAgYSB7IGNvbG9yOiM1OTYwNzA7IH0KICAgICAgICAgICAgLm1lbWJlcnMgcCBhIHN0cm9uZyB7IGNvbG9yOiMwOTMxODM7IH0KICAgICAgICAgICAgLm1lbWJlcnMgLmNhcmQgeyBib3JkZXI6bm9uZTsgfQogICAgICAgICAgICAubWVtYmVycyAuY2FyZCAuY2FyZC1zZWN0aW9uIHsgdGV4dC1hbGlnbjpjZW50ZXI7IG1hcmdpbjowIGF1dG87IH0KICAgICAgICAgICAgLm1lbWJlcnMgLmNhcmQgPiA6Zmlyc3QtY2hpbGQgeyBwYWRkaW5nLWJvdHRvbTowOyB9CiAgICAgICAgICAgIC5tZW1iZXJzIC5jYXJkID4gOmxhc3QtY2hpbGQgeyBwYWRkaW5nLXRvcDowOyB9CiAgICAgICAgICAgIC0tPgogICAgICAgICAgICA8L3N0eWxlPgogICAgICAgICAgICA8IS0tIG1lbWJlcnMgLS0+CiAgICAgICAgICA8L2Rpdj4KICAgICAgICAgIDwhLS0gLy9wYWdlLWNvbnRlbnQgLS0+CiAgICAgICAgICA8cD4mbmJzcDs8L3A+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPCEtLSAvL3BhZ2UtY29udGVudCAtLT4KICAgICAgPC9kaXY+CiAgICA8L3NlY3Rpb24+CiAgICA8IS0tIC8vY29udGVudCAtLT4KICAgIDwhLS0gZm9vdGVyIC0tPgogICAgPGZvb3RlciBjbGFzcz0iZm9vdGVyLXBhZ2UiPgogICAgICA8IS0tIGZvb3Rlci10b3AgLS0+CiAgICAgIDxkaXYgY2xhc3M9ImZvb3Rlci10b3AiPgogICAgICAgIDxkaXYgY2xhc3M9InJvdyI+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjb2x1bW5zIHNtYWxsLTEyIj4KICAgICAgICAgICAgPHVsIGNsYXNzPSJtZW51IGNlbnRlciI+PGxpPjxhIGhyZWY9Ii9lbC8iPs6Rz4HPh865zrrOtzwvYT48L2xpPjxsaT48YSBocmVmPSIvZWwvcHJvZ3JhbSI+IM6kzr8gzqDPgc6/zrPPgc6xzrzOvM6xPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9lbC9wYXJ0bmVycyI+zpXPhM6xzrnPgc6/zrk8L2E+PC9saT48bGk+PGEgaHJlZj0iL2VsL3B1YmxpY2F0aW9ucyI+zpTOt868zr/Pg865zrXPhc+DzrXOuc+CPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9lbC9uZXdzIj7Olc69zrfOvM61z4HPic+Dzrc8L2E+PC9saT48bGk+PGEgaHJlZj0iL2VsL3Bob3RvcyI+zqbPic+Ezr/Os8+BzrHPhs65zrXPgjwvYT48L2xpPjxsaT48YSBocmVmPSIvZWwvbmV0d29ya2luZyI+zpTOuc66z4TPhc+Jz4POtzwvYT48L2xpPjxsaT48YSBocmVmPSIvZWwvY29udGFjdCI+zpXPgM65zrrOv865zr3Pic69zrnOsTwvYT48L2xpPjwvdWw+CiAgICAgICAgICA8L2Rpdj4KICAgICAgICA8L2Rpdj4KICAgICAgPC9kaXY+CiAgICAgIDwhLS0gLy9mb290ZXItdG9wIC0tPgogICAgICA8IS0tIGZvb3Rlci1ib3R0b20gLS0+CiAgICAgIDxkaXYgY2xhc3M9ImZvb3Rlci1ib3R0b20iPgogICAgICAgIDxkaXYgY2xhc3M9InJvdyI+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjb2x1bW5zIHNtYWxsLTEyIj4KICAgICAgICAgICAgPHVsIGNsYXNzPSJjb3B5Ij4KICAgICAgICAgICAgICA8bGk+JmNvcHk7IGFiZWxpdHNpYS5nciAyMDE3PC9saT4KICAgICAgICAgICAgPC91bD4KICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvZGl2PgogICAgICA8L2Rpdj4KICAgICAgPCEtLSAvL2Zvb3Rlci1ib3R0b20gLS0+CiAgICA8L2Zvb3Rlcj4KICAgIDwhLS0gLy9mb290ZXIgLS0+CiAgPC9kaXY+CiAgPCEtLSAvL2lubmVyLXdyYXBwZXIgLS0+CgogIDxzY3JpcHQgc3JjPSIvanNpaS92ZW5kb3IvanF1ZXJ5LmpzIj48L3NjcmlwdD4KICA8c2NyaXB0IHNyYz0iL2pzaWkvdmVuZG9yL3doYXQtaW5wdXQuanMiPjwvc2NyaXB0PgogIDxzY3JpcHQgc3JjPSIvanNpaS92ZW5kb3IvZm91bmRhdGlvbi5qcyI+PC9zY3JpcHQ+CiAgPHNjcmlwdCBzcmM9Ii9vd2xpaS9vd2wuY2Fyb3VzZWwuanMiPjwvc2NyaXB0PgogIDxzY3JpcHQgc3JjPSIvanNpaS9hcHAuanMiPjwvc2NyaXB0PgogIDxzY3JpcHQ+CiAgICAkKGRvY3VtZW50KS5yZWFkeShmdW5jdGlvbigpIHsKICAgICAgdmFyIG93bCA9ICQoJy5vd2wtY2Fyb3VzZWwnKTsKICAgICAgb3dsLm93bENhcm91c2VsKHsKICAgICAgICBsb29wOiB0cnVlLAogICAgICAgIG5hdjp0cnVlLAogICAgICAgIG5hdlRleHQ6IFsiPCIsICI+Il0sCiAgICAgICAgZG90czogdHJ1ZSwKICAgICAgICBtYXJnaW46IDAsCiAgICAgICAgbmF2UmV3aW5kOiB0cnVlLAogICAgICAgIGxvb3A6IHRydWUsCiAgICAgICAgYXV0b3BsYXk6IHRydWUsCiAgICAgICAgcmVzcG9uc2l2ZTogewogICAgICAgICAgMDogewogICAgICAgICAgICBpdGVtczogMQogICAgICAgICAgfQogICAgICAgIH0KICAgICAgfSkKICAgIH0pCiAgPC9zY3JpcHQ+CjwvYm9keT4KPC9odG1sPgo=
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://natedobbins.net/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Content-Length:
+      - '0'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Server:
+      - Netlify
+      X-Nf-Request-Id:
+      - b82ab2b8-2a65-4a96-bbcc-456b61407342-15173889
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://2youyou2.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Last-Modified:
+      - Mon, 12 Mar 2018 08:49:18 GMT
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"5aa63f0e-d39"
+      Expires:
+      - Wed, 21 Apr 2021 19:34:39 GMT
+      Cache-Control:
+      - max-age=600
+      X-Proxy-Cache:
+      - MISS
+      X-Github-Request-Id:
+      - 9EEA:6EC9:10FA61:16D806:60807BF7
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PCFET0NUWVBFIGh0bWw+PGh0bWwgbGFuZz0iemgtY24iPjxoZWFkPjxtZXRhIGNoYXJzZXQ9InV0Zi04Ij48bWV0YSBuYW1lPSJYLVVBLUNvbXBhdGlibGUiIGNvbnRlbnQ9IklFPWVkZ2UiPjx0aXRsZT4gMnlvdXlvdTI8L3RpdGxlPjxtZXRhIG5hbWU9ImRlc2NyaXB0aW9uIiBjb250ZW50PSJBIEJsb2cgUG93ZXJlZCBCeSBIZXhvIj48bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEiPjxsaW5rIHJlbD0iaWNvbiIgaHJlZj0iL2Zhdmljb24ucG5nIj48bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9Ii9jc3MvYXBvbGxvLmNzcyI+PGxpbmsgcmVsPSJzZWFyY2giIHR5cGU9ImFwcGxpY2F0aW9uL29wZW5zZWFyY2hkZXNjcmlwdGlvbit4bWwiIGhyZWY9Imh0dHA6Ly93d3cuY29jb2tlbGUuY29tL2F0b20ueG1sIiB0aXRsZT0iMnlvdXlvdTIiPjxzY3JpcHQgYXN5bmMgc3JjPSIvL3BhZ2VhZDIuZ29vZ2xlc3luZGljYXRpb24uY29tL3BhZ2VhZC9qcy9hZHNieWdvb2dsZS5qcyI+PC9zY3JpcHQ+PHNjcmlwdD4oYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goewogICAgZ29vZ2xlX2FkX2NsaWVudDogImNhLXB1Yi00ODUyNjY5NTk0ODk0OTI0IiwKICAgIGVuYWJsZV9wYWdlX2xldmVsX2FkczogdHJ1ZQp9KTs8L3NjcmlwdD48L2hlYWQ+PGJvZHk+PGRpdiBjbGFzcz0id3JhcCI+PGhlYWRlcj48YSBocmVmPSIvIiBjbGFzcz0ibG9nby1saW5rIj48aW1nIHNyYz0iL2Zhdmljb24ucG5nIiBhbHQ9ImxvZ28iPjwvYT48dWwgY2xhc3M9Im5hdiBuYXYtbGlzdCI+PGxpIGNsYXNzPSJuYXYtbGlzdC1pdGVtIj48YSBocmVmPSIvIiB0YXJnZXQ9Il9zZWxmIiBjbGFzcz0ibmF2LWxpc3QtbGluayBhY3RpdmUiPkJMT0c8L2E+PC9saT48bGkgY2xhc3M9Im5hdi1saXN0LWl0ZW0iPjxhIGhyZWY9Ii9hcmNoaXZlcy8iIHRhcmdldD0iX3NlbGYiIGNsYXNzPSJuYXYtbGlzdC1saW5rIj5BUkNISVZFPC9hPjwvbGk+PGxpIGNsYXNzPSJuYXYtbGlzdC1pdGVtIj48YSBocmVmPSJodHRwOi8vd2VpYm8uY29tLzI1MTY1Mzk0NjUiIHRhcmdldD0iX2JsYW5rIiBjbGFzcz0ibmF2LWxpc3QtbGluayI+V0VJQk88L2E+PC9saT48bGkgY2xhc3M9Im5hdi1saXN0LWl0ZW0iPjxhIGhyZWY9Imh0dHBzOi8vZ2l0aHViLmNvbS8yeW91eW91MiIgdGFyZ2V0PSJfYmxhbmsiIGNsYXNzPSJuYXYtbGlzdC1saW5rIj5HSVRIVUI8L2E+PC9saT48L3VsPjwvaGVhZGVyPjxtYWluIGNsYXNzPSJjb250YWluZXIiPjx1bCBjbGFzcz0iaG9tZSBwb3N0LWxpc3QiPjxsaSBjbGFzcz0icG9zdC1saXN0LWl0ZW0iPjxhcnRpY2xlIGNsYXNzPSJwb3N0LWJsb2NrIj48aDIgY2xhc3M9InBvc3QtdGl0bGUiPjxhIGhyZWY9Ii8yMDE3LzAxLzIwL2Nob29jaG9vLyIgY2xhc3M9InBvc3QtdGl0bGUtbGluayI+6K+V5rC05LmL5L2c77yaQ2hvb2Nob288L2E+PC9oMj48ZGl2IGNsYXNzPSJwb3N0LWluZm8iPjIwMTflubQx5pyIMjDml6U8L2Rpdj48ZGl2IGNsYXNzPSJwb3N0LWNvbnRlbnQiPjxpbWcgc3JjPSIvMjAxNy8wMS8yMC9jaG9vY2hvby9jaG9vY2hvby5qcGciIGFsdD0iY2hvb2Nob28iIHRpdGxlPSJjaG9vY2hvbyI+CjxibG9ja3F1b3RlPgo8cD7miJHnmoTnrKzkuIDmrL7muLjmiI/vvIzkvb/nlKggQ29jb3NDcmVhdG9yIOWItuS9nOOAgjwvcD4KPHA+QXBwc3RvcmUgOiA8YSBocmVmPSJodHRwczovL2l0dW5lcy5hcHBsZS5jb20vYXBwL2lkMTE4OTQyODI4MyI+aHR0cHM6Ly9pdHVuZXMuYXBwbGUuY29tL2FwcC9pZDExODk0MjgyODM8L2E+PC9wPgo8L2Jsb2NrcXVvdGU+PC9kaXY+PGEgaHJlZj0iLzIwMTcvMDEvMjAvY2hvb2Nob28vIiBjbGFzcz0icmVhZC1tb3JlIj7pmIXor7vlhajmloc8L2E+PC9hcnRpY2xlPjwvbGk+PGxpIGNsYXNzPSJwb3N0LWxpc3QtaXRlbSI+PGFydGljbGUgY2xhc3M9InBvc3QtYmxvY2siPjxoMiBjbGFzcz0icG9zdC10aXRsZSI+PGEgaHJlZj0iLzIwMTcvMDEvMTcvaGVsbG8td29ybGQvIiBjbGFzcz0icG9zdC10aXRsZS1saW5rIj5IZXhvIOS9v+eUqOaMh+WNlzwvYT48L2gyPjxkaXYgY2xhc3M9InBvc3QtaW5mbyI+MjAxN+W5tDHmnIgxN+aXpTwvZGl2PjxkaXYgY2xhc3M9InBvc3QtY29udGVudCI+PHA+V2VsY29tZSB0byA8YSBocmVmPSJodHRwczovL2hleG8uaW8vIj5IZXhvPC9hPiEgVGhpcyBpcyB5b3VyIHZlcnkgZmlyc3QgcG9zdC4gQ2hlY2sgPGEgaHJlZj0iaHR0cHM6Ly9oZXhvLmlvL2RvY3MvIj5kb2N1bWVudGF0aW9uPC9hPiBmb3IgbW9yZSBpbmZvLiBJZiB5b3UgZ2V0IGFueSBwcm9ibGVtcyB3aGVuIHVzaW5nIEhleG8sIHlvdSBjYW4gZmluZCB0aGUgYW5zd2VyIGluIDxhIGhyZWY9Imh0dHBzOi8vaGV4by5pby9kb2NzL3Ryb3VibGVzaG9vdGluZy5odG1sIj50cm91Ymxlc2hvb3Rpbmc8L2E+IG9yIHlvdSBjYW4gYXNrIG1lIG9uIDxhIGhyZWY9Imh0dHBzOi8vZ2l0aHViLmNvbS9oZXhvanMvaGV4by9pc3N1ZXMiPkdpdEh1YjwvYT4uPC9wPjwvZGl2PjxhIGhyZWY9Ii8yMDE3LzAxLzE3L2hlbGxvLXdvcmxkLyIgY2xhc3M9InJlYWQtbW9yZSI+6ZiF6K+75YWo5paHPC9hPjwvYXJ0aWNsZT48L2xpPjwvdWw+PC9tYWluPjxmb290ZXI+PGRpdiBjbGFzcz0icGFnaW5hdG9yIj48L2Rpdj48ZGl2IGNsYXNzPSJjb3B5cmlnaHQiPjxwPkNvcHlyaWdodCDCqSAyMDE3IC0gMjAxOCA8YSBocmVmPSJodHRwOi8vd3d3LmNvY29rZWxlLmNvbSI+MnlvdXlvdTI8L2E+LjwvcD48L2Rpdj48L2Zvb3Rlcj48L2Rpdj48c2NyaXB0IGFzeW5jIHNyYz0iLy9jZG4uYm9vdGNzcy5jb20vbWF0aGpheC8yLjcuMC9NYXRoSmF4LmpzP2NvbmZpZz1UZVgtTU1MLUFNX0NIVE1MIiBpbnRlZ3JpdHk9InNoYTM4NC1jcndJZi9CdWFXTTlyTTY1aU0rZFdGbGRnUTFVbjhqV1pNdWgzcHV4YjhUT1k5K2xpbndMb0k3WkhaVCthZWtXIiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIj48L3NjcmlwdD48c2NyaXB0PihmdW5jdGlvbihiLG8saSxsLGUscil7Yi5Hb29nbGVBbmFseXRpY3NPYmplY3Q9bDtiW2xdfHwoYltsXT1mdW5jdGlvbigpeyhiW2xdLnE9YltsXS5xfHxbXSkucHVzaChhcmd1bWVudHMpfSk7YltsXS5sPStuZXcgRGF0ZTtlPW8uY3JlYXRlRWxlbWVudChpKTtyPW8uZ2V0RWxlbWVudHNCeVRhZ05hbWUoaSlbMF07ZS5zcmM9Jy8vd3d3Lmdvb2dsZS1hbmFseXRpY3MuY29tL2FuYWx5dGljcy5qcyc7ci5wYXJlbnROb2RlLmluc2VydEJlZm9yZShlLHIpfSh3aW5kb3csZG9jdW1lbnQsJ3NjcmlwdCcsJ2dhJykpO2dhKCdjcmVhdGUnLCJVQS05MDQwODg1OS0xIiwnYXV0bycpO2dhKCdzZW5kJywncGFnZXZpZXcnKTs8L3NjcmlwdD48L2JvZHk+PC9odG1sPg==
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://yahoo.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Connection:
+      - keep-alive
+      Server:
+      - ATS
+      Cache-Control:
+      - no-store, no-cache
+      Content-Type:
+      - text/html
+      Content-Language:
+      - en
+      X-Frame-Options:
+      - SAMEORIGIN
+      Location:
+      - https://yahoo.com/
+      Content-Length:
+      - '8'
+    body:
+      encoding: UTF-8
+      string: redirect
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://docs.github.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Server:
+      - Cowboy
+      X-Ratelimit-Limit:
+      - '250'
+      X-Ratelimit-Remaining:
+      - '249'
+      X-Ratelimit-Reset:
+      - '1619033140'
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - 'default-src ''none''; connect-src ''self'' *.algolia.net *.algolianet.com;
+        font-src ''self'' data: githubdocs.azureedge.net; img-src ''self'' data: github.githubassets.com
+        githubdocs.azureedge.net placehold.it *.githubusercontent.com github.com;
+        object-src ''self''; script-src ''self'' data:; frame-src https://graphql-explorer.githubapp.com
+        https://graphql.github.com/ http://localhost:3000 https://www.youtube-nocookie.com;
+        style-src ''self'' ''unsafe-inline''; child-src ''self'''
+      X-Content-Security-Policy:
+      - 'default-src ''none''; connect-src ''self'' *.algolia.net *.algolianet.com;
+        font-src ''self'' data: githubdocs.azureedge.net; img-src ''self'' data: github.githubassets.com
+        githubdocs.azureedge.net placehold.it *.githubusercontent.com github.com;
+        object-src ''self''; script-src ''self'' data:; frame-src https://graphql-explorer.githubapp.com
+        https://graphql.github.com/ http://localhost:3000 https://www.youtube-nocookie.com;
+        style-src ''self'' ''unsafe-inline''; child-src ''self'''
+      X-Webkit-Csp:
+      - 'default-src ''none''; connect-src ''self'' *.algolia.net *.algolianet.com;
+        font-src ''self'' data: githubdocs.azureedge.net; img-src ''self'' data: github.githubassets.com
+        githubdocs.azureedge.net placehold.it *.githubusercontent.com github.com;
+        object-src ''self''; script-src ''self'' data:; frame-src https://graphql-explorer.githubapp.com
+        https://graphql.github.com/ http://localhost:3000 https://www.youtube-nocookie.com;
+        style-src ''self'' ''unsafe-inline''; child-src ''self'''
+      X-Dns-Prefetch-Control:
+      - 'off'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Set-Cookie:
+      - _csrf=xWGsBLybiQWE4s9Kg_CYRi6j; Path=/; HttpOnly; Secure; SameSite=Lax
+      Location:
+      - "/en"
+      Content-Type:
+      - text/plain; charset=utf-8
+      Via:
+      - 1.1 vegur, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '37'
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-vie21638-VIE
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Timer:
+      - S1619033079.271552,VS0,VE422
+      Vary:
+      - Accept, Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: Moved Permanently. Redirecting to /en
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://linux.org/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Content-Type:
+      - text/html
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d54699eb79d9ff1c77487762817cb1c2a1619033079; expires=Fri, 21-May-21
+        19:24:39 GMT; path=/; domain=.linux.org; HttpOnly; SameSite=Lax
+      Location:
+      - https://linux.org/
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - '09977d57130000ed1f1b029000000001'
+      Report-To:
+      - '{"group":"cf-nel","endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=%2BsHKLAcZea9EsdNZe3lOzrZhuoIizxKr4YmhUbIHGiJBwuADFwNwKAPA9W3d%2B8QiKdYGHRZrTNh7wGiCuBBRK3q%2Bw8gF7rLEBaw%3D"}],"max_age":604800}'
+      Nel:
+      - '{"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6438fe6b5888ed1f-SJC
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |
+        <html>
+        <head><title>301 Moved Permanently</title><script src="/cdn-cgi/apps/head/tDLqUt1CigNvpUlB1HaZZyDm9ZY.js"></script></head>
+        <body bgcolor="white">
+        <center><h1>301 Moved Permanently</h1></center>
+        <hr><center>nginx/1.14.0 (Ubuntu)</center>
+        </body>
+        </html>
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://5edmscreen.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Server:
+      - Apache
+      Set-Cookie:
+      - vsid=927vr3665786795806867; expires=Mon, 20-Apr-2026 19:24:39 GMT; Max-Age=157680000;
+        path=/; domain=5edmscreen.com; HttpOnly
+      X-Adblock-Key:
+      - MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKX74ixpzVyXbJprcLfbH4psP4+L2entqri0lzh6pkAaXLPIcclv6DQBeJJjGFWrBIF6QMyFwXT5CCRyjS2penECAwEAAQ==_kM5IBJGln/RzkdZC/DPLKyr+inyMkC3UhkggjmzrmsD10amT9QLalifyiv94ZzOx/pnVZz6Vg3iq5rEk1YyR+w==
+      Content-Type:
+      - text/html; charset=UTF-8
+      Cache-Control:
+      - private
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\r\n<html
+        xmlns=\"http://www.w3.org/1999/xhtml\" data-adblockkey=\"MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKX74ixpzVyXbJprcLfbH4psP4+L2entqri0lzh6pkAaXLPIcclv6DQBeJJjGFWrBIF6QMyFwXT5CCRyjS2penECAwEAAQ==_kM5IBJGln/RzkdZC/DPLKyr+inyMkC3UhkggjmzrmsD10amT9QLalifyiv94ZzOx/pnVZz6Vg3iq5rEk1YyR+w==\">\r\n<head><script
+        type=\"text/javascript\">var abp;</script><script type=\"text/javascript\"
+        src=\"http://5edmscreen.com/px.js?ch=1\"></script><script type=\"text/javascript\"
+        src=\"http://5edmscreen.com/px.js?ch=2\"></script><script type=\"text/javascript\">function
+        handleABPDetect(){try{if(!abp) return;var imglog = document.createElement(\"img\");imglog.style.height=\"0px\";imglog.style.width=\"0px\";imglog.src=\"http://5edmscreen.com/sk-logabpstatus.php?a=WEhNVU1XWlcybldyVzVUVk9YRXQ2UVBOZ3RQM1QxQzhKMmpaeUFRcTUxWXQxUUpRZkRUeWpmUmVuRU8xSDZteG1jUXJkOWx6dVJvdG9Kb3ZhaEFkNWZRV0wvUDFpSXBZd2ZqWWp4TGQ2MW89&b=\"+abp;document.body.appendChild(imglog);if(typeof
+        abperurl !== \"undefined\" && abperurl!=\"\")window.top.location=abperurl;}catch(err){}}</script><meta
+        name=\"tids\" content=\"a='27677' b='31684' c='5edmscreen.com' d='entity_mapped'\"
+        /><title>5edmscreen.com</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html;
+        charset=UTF-8\">\r\n<meta name=\"viewport\" content=\"width=device-width,
+        initial-scale=1, maximum-scale=1, user-scalable = no\">\r\n<link rel=\"icon\"
+        type=\"image/jpg\" href=\"http://i3.cdn-image.com/__media__/pics/468/netsol-favicon-2020.jpg\">\r\n<style
+        type=\"text/css\">\n\n@font-face {font-family: \"open-sans\";src: url(\"http://i3.cdn-image.com/__media__/fonts/open-sans/open-sans.eot\");src:
+        url(\"http://i3.cdn-image.com/__media__/fonts/open-sans/open-sans.eot?#iefix\")
+        format(\"embedded-opentype\"),url(\"http://i3.cdn-image.com/__media__/fonts/open-sans/open-sans.woff\")
+        format(\"woff\"),url(\"http://i3.cdn-image.com/__media__/fonts/open-sans/open-sans.woff2\")
+        format(\"woff2\"),url(\"http://i3.cdn-image.com/__media__/fonts/open-sans/open-sans.ttf\")
+        format(\"truetype\"),url(\"http://i3.cdn-image.com/__media__/fonts/open-sans/open-sans.otf\")
+        format(\"opentype\"),url(\"http://i3.cdn-image.com/__media__/fonts/open-sans/open-sans.svg#open-sans\")
+        format(\"svg\");font-weight: normal;font-style: normal;font-display: swap;}\n@font-face
+        {font-family: \"open-sans-bold\";src: url(\"http://i3.cdn-image.com/__media__/fonts/open-sans-bold/open-sans-bold.eot\");src:
+        url(\"http://i3.cdn-image.com/__media__/fonts/open-sans-bold/open-sans-bold.eot?#iefix\")
+        format(\"embedded-opentype\"),url(\"http://i3.cdn-image.com/__media__/fonts/open-sans-bold/open-sans-bold.woff\")
+        format(\"woff\"),url(\"http://i3.cdn-image.com/__media__/fonts/open-sans-bold/open-sans-bold.woff2\")
+        format(\"woff2\"),url(\"http://i3.cdn-image.com/__media__/fonts/open-sans-bold/open-sans-bold.ttf\")
+        format(\"truetype\"),url(\"http://i3.cdn-image.com/__media__/fonts/open-sans-bold/open-sans-bold.otf\")
+        format(\"opentype\"),url(\"http://i3.cdn-image.com/__media__/fonts/open-sans-bold/open-sans-bold.svg#open-sans-bold\")
+        format(\"svg\");font-weight: normal;font-style: normal;font-display: swap;}\t\t\t\t\t\t\r\n*{margin:0;
+        padding:0}\r\na{text-decoration:none; outline:none}\r\na:hover{text-indent:0;
+        cursor:pointer; outline:0 none;}\r\n.clearfix:after{visibility: hidden;display:block;font-size:
+        0;content: \" \";clear: both;height:0}\r\n* html .clearfix{zoom:1} \r\n*:first-child+html
+        .clearfix{zoom:1}\r\n\r\nbody{font-family:\n  open-sans \n,sans-serif;font-size:12px;
+        background:#fff;font-weight: 400;background: url(http://i3.cdn-image.com/__media__/pics/27587/BG_2.png)
+        no-repeat center bottom; background-size: cover;background-attachment: fixed;}\r\n\r\n.top-strip
+        .main-container{width:1150px; margin:0 auto;position: relative}\r\n.domain-line{color:#fff;
+        padding:5px 0px;  font-size: 12px;}\r\n.backorder{color: #4d4d4d; border-bottom:1px
+        solid #4d4d4d; font-size: 12px}\r\n.domain-line a{color: #b4b4b4; border-bottom:1px
+        solid #b4b4b4}\r\n.top-strip{width: 100%;padding: 12px 0;margin-bottom: 30px;box-shadow:0
+        2px 12px 0 rgba(206, 206, 206, 0.5);\r\n  background-color: #e2e2e2;}\r\n.msgleft{color:
+        #fff;font-size: 25px;width: 50%;word-wrap: break-word; font-weight:600;float:
+        left;position: absolute; top: 50%; transform: translateY(-50%); padding: 0;}
+        \r\n.msgleft a{color: #333}\r\n.msgright{float: right;font-size: 14px;text-align:
+        right; width: 50%}\r\na.logo{display:inline-block;}\r\n.logo-img-wrap {overflow:
+        hidden; /*width: 130px;*/ display: block; float: right; }\r\n.logo-img-wrap
+        img{border:0;outline:none;}\r\n\r\n.msgright .expMsg{color: #4d4d4d;font-size:
+        12px}\r\n.msgright .expMsg a{color: #4d4d4d;font-size: 12px}\r\n.msgright
+        .ucMsg, .msgright .ucMsg a{color: #4d4d4d;font-size: 12px}\r\n.msgright .WhyAmI
+        a {color: #4d4d4d; font-size: 12px; text-decoration: underline}\r\n\r\n.container{width:800px;margin:0
+        auto;}\r\n.searchbox{float:right; width:400px; height:37px;}\r\n.srch-txt{float:
+        left; width: 343px; height: 37px; padding:0 10px;font-size: 16px; background:
+        #fff; color: #000; padding: 0 10px; outline: none; border: none}\r\n.srch-btn{float:
+        right; width: 37px; background: #000000 url(http://i3.cdn-image.com/__media__/pics/27586/searchbtn.png)
+        no-repeat center center;; border: none; height: 37px; margin: 0; cursor: pointer;
+        border-radius: 0;background-size: 15px}\r\n\r\n.content{padding-bottom:10px;}\r\n.frt_arr{float:left;width:200px;
+        height:455px; background: url(http://i3.cdn-image.com/__media__/pics/27587/Right.png)
+        no-repeat top center;background-size: 100%}\r\n.lst_arr{float:right;width:200px;
+        height:455px; background: url(http://i3.cdn-image.com/__media__/pics/27587/Left.png)
+        no-repeat top center;background-size: 100%}\r\n.kwd_bloack{float:left; width:400px;
+        margin-top:60px}\r\n.kwd_bloack h4{font-size:14px; color:#138541; text-transform:
+        uppercase; text-align: center;font-weight: 400}\r\n.kwd_bloack ul, .kwd_bloack
+        ul li{text-align:center;list-style:none}\r\n.kwd_bloack ul{padding-top:9px}\r\n.kwd_bloack
+        ul li{line-height:30px}\r\n.kwd_bloack ul li a{text-decoration:underline;
+        font-size:22px; font-family: \n  open-sans-bold \n,sans-serif; color:#4d4d4d;display:block;
+        word-wrap: break-word; padding: 15px;border-radius: 12px}\r\n.kwd_bloack ul
+        li a:hover{background-color:#0b8040;color: #fff}\r\n\r\n.sale-msg {background:#fff;
+        color:#4b4b4b; text-align:center; font-size:14px; height:40px; width:100%;
+        top:0; left:0}\r\n.sale-msg a {text-decoration: none; color:#079ce9; font-size:14px;
+        line-height:40px}\r\n.sale-msg a:hover, .inquire a:hover{text-decoration:
+        underline}\r\n\r\n#footer-keys-bot{background: #e2e2e2; text-align: center;
+        padding: 35px 0; margin-top: 30px}\r\n.footerwrap{width:1150px; margin:0 auto;}\r\n.foottxt{width:
+        550px; margin: 0 auto; float: left; text-align:left;padding:4px 0;}\r\n.foottxt
+        a{color:#000000; font-size:12px; line-height: 28px; }\r\n.foottxt a:hover{text-decoration:
+        underline}\r\n.foottxt .nobrd{border:0 none;}\r\n.foottxt span{padding:0 10px;border-right:
+        1px solid #016a8e;}\r\n\r\n@media only screen and (max-width:1250px){\r\n
+        \   .top-strip .main-container,.footerwrap{width:95%}\r\n    .foottxt{width:
+        60%}\r\n    .searchbox{width: 39%}\r\n    .srch-txt{width: 80%;padding:0 3%;}\r\n
+        \   .srch-btn{width: 14%}\r\n    /*.arrows{width: 30%;background-size: auto
+        100% !important}\r\n    .kwd_bloack{width: 40%}*/\r\n}\r\n@media only screen
+        and (max-width:990px) {\r\n    .container{width: 95%}\r\n    .msgleft{font-size:
+        19px;width: 33%;padding-top: 10px; padding-bottom: 10px; width: 100%;margin-bottom:
+        10px;text-align: center;position: relative; top: unset; transform: none;}\r\n
+        \   .msgright{width: 100%;text-align: center}\r\n    .top-strip{margin-bottom:
+        40px}\r\n    .logo-img-wrap{float:none;width:auto}\r\n\r\n    .searchbox{margin:0;
+        float:none; width:auto; padding:20px 5px}\r\n    .kwd_bloack{float:none; width:auto;margin:0
+        auto;max-width: 600px}\r\n    .foottxt,.searchbox{max-width: 600px;text-align:
+        center;margin:0 auto;float: none;width: auto}\r\n    .kwd_bloack ul, .kwd_bloack
+        ul li, .kwd_bloack ul li a{float:none; width:auto}\r\n    .arrows, .separator{display:none}\r\n}\r\n@media
+        only screen and (max-width:767px){\r\n    br{display: none}\r\n    #footer-keys-bot{padding:15px
+        0;}\r\n    .kwd_bloack,.foottxt{max-width: 90%}\r\n    .searchbox{max-width:
+        300px;padding: 10px 0}\r\n    .foottxt{padding: 10px 0}\r\n    .searchbox,.srch-txt,.srch-btn{height:
+        35px}\r\n    .srch-txt{line-height: 16px}\r\n    .srch-btn{background-size:
+        18px}\r\n    .foottxt a{font-size: 12px}\r\n\r\n    .kwd_bloack ul li a{font-size:
+        18px;line-height: 22px}\r\n    .top-strip{padding-top:0;margin-bottom: 10px}\r\n
+        \   .msgleft{word-wrap: break-word;width: 100%;margin-bottom: 5px;float: none;text-align:
+        center}\r\n    .msgright{float:none;margin:0 auto;text-align: center}\r\n
+        \   .logo img{width: 100%}\r\n    ul.privacy {text-align:center; padding:
+        15px 0}\r\n    ul.privacy li{display: block;font-size: 12px}\r\n    ul.privacy
+        li a{font-size: 12px}\r\n    .msgright .expMsg, .backorder, .msgright .expMsg
+        a{font-size: 12px}\r\n    .related-searches-custom{font-size: 14px}  \r\n}\r\n</style>\r\n<script
+        language=\"JavaScript\" type=\"text/javascript\" src=\"http://i3.cdn-image.com/__media__/js/min.js?v2.2\"></script>\r\n</head>\r\n<body
+        onload=\"\" onunload=\"\" onBeforeUnload=\"\"><div style=\"visibility:hidden;display:none;\"
+        id=\"divSponAds\"><form name=\"frmSponsAds\" id=\"frmSponsAds\" method=\"get\"
+        action=\"\" target=\"_top\"><input type=\"hidden\" name=\"params\" id=\"params\"
+        /></form></div><div id=\"main-wrap\" class=\"clearfix\">\r\n    <div class=\"top-strip
+        clearfix\">\r\n        <div class=\"main-container clearfix\" id=\"main\">\r\n
+        \           <div class=\"msgleft\">\r\n            <a href=\"http://www.5edmscreen.com\">5edmscreen.com</a>\r\n
+        \           </div>\r\n            <div class=\"msgright\">\r\n                <a
+        href=\"//www.networksolutions.com/\" target=\"_blank\" class=\"logo clearfix\">\r\n
+        \                 <div class=\"logo-img-wrap\"><img src=\"http://i3.cdn-image.com/__media__/pics/10667/netsol-logos-2020-165-50.jpg\"
+        alt=\"networksolutions\"></div>\r\n                </a>\r\n                <div
+        class=\"ucMsg\">\r\n                  This Page Is Under Construction - Coming
+        Soon!                </div>\r\n                <p class=\"WhyAmI\"><a href=\"http://5edmscreen.com/__media__/design/underconstructionnotice.php?d=5edmscreen.com\"
+        onClick=\"return popup(this, 'notes')\"> Why am I seeing this 'Under Construction'
+        page?</a></p>                 <div class=\"expMsg\">\r\n                                    </div>\r\n
+        \           </div>\r\n         </div>\r\n    </div>   \r\n\t<div class=\"container
+        clearfix\">\r\n        <div class=\"content clearfix\">\r\n        \t<div
+        class=\"arrows frt_arr pngFix\"></div>\r\n            <div class=\"kwd_bloack
+        clearfix\">\r\n                <h4>            <span class=\"related-searches-custom\">Related
+        Searches:</span>\r\n        </h4>\r\n                <ul class=\"clearfix\">\r\n
+        \                   <li><a href=\"http://5edmscreen.com/Work_from_Home.cfm?fp=EtYP01y8LtMIl%2FWgCYDHKjusGQN0bthZCLD2pi2sfpJpUiYGx1f530O79%2BQmkHSXsEwQY6WH%2FtsnaQ%2BxEi%2Bnm1tCt38sM20nP%2B4kDwNmxJVbAa9TcsCWkZ9%2Fg2f8GL24JaJdZO1Ngx1%2BWCm66PLKBrhYkI4Sfob0iyoBbSrtCK3savMDacARZXs7nLcGk%2FkT&kbetu=1&maxads=0&kld=1061&prvtof=Btex22R4SM3dcpWncTPUHBEIoOY6zLRkA%2BRjMOau7nc%3D&&&kt=112&&ki=31091533&ktd=0&kld=1061&kp=1\"
+        target=\"_top\" onmouseover=\"changeStatus('Work from Home');return true;\"
+        onmouseout=\"changeStatus('');return true;\" onclick=\"if(typeof(showPop)
+        != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;\" title=\"Work
+        from Home\" id=\"dk1\" name=\"dk1\" >Work from Home</a></li>\r\n                    <li><a
+        href=\"http://5edmscreen.com/Free_Credit_Report.cfm?fp=EtYP01y8LtMIl%2FWgCYDHKjusGQN0bthZCLD2pi2sfpJpUiYGx1f530O79%2BQmkHSXsEwQY6WH%2FtsnaQ%2BxEi%2Bnm1tCt38sM20nP%2B4kDwNmxJVbAa9TcsCWkZ9%2Fg2f8GL24JaJdZO1Ngx1%2BWCm66PLKBrhYkI4Sfob0iyoBbSrtCK3savMDacARZXs7nLcGk%2FkT&kbetu=1&maxads=0&kld=1061&prvtof=Btex22R4SM3dcpWncTPUHBEIoOY6zLRkA%2BRjMOau7nc%3D&&&kt=112&&ki=11539660&ktd=0&kld=1061&kp=2\"
+        target=\"_top\" onmouseover=\"changeStatus('Free Credit Report');return true;\"
+        onmouseout=\"changeStatus('');return true;\" onclick=\"if(typeof(showPop)
+        != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;\" title=\"Free
+        Credit Report\" id=\"dk2\" name=\"dk2\" >Free Credit Report</a></li>\r\n                    <li><a
+        href=\"http://5edmscreen.com/fashion_trends.cfm?fp=EtYP01y8LtMIl%2FWgCYDHKjusGQN0bthZCLD2pi2sfpJpUiYGx1f530O79%2BQmkHSXsEwQY6WH%2FtsnaQ%2BxEi%2Bnm1tCt38sM20nP%2B4kDwNmxJVbAa9TcsCWkZ9%2Fg2f8GL24JaJdZO1Ngx1%2BWCm66PLKBrhYkI4Sfob0iyoBbSrtCK3savMDacARZXs7nLcGk%2FkT&kbetu=1&maxads=0&kld=1061&prvtof=Btex22R4SM3dcpWncTPUHBEIoOY6zLRkA%2BRjMOau7nc%3D&&&kt=112&&ki=10542279&ktd=0&kld=1061&kp=3\"
+        target=\"_top\" onmouseover=\"changeStatus('fashion trends');return true;\"
+        onmouseout=\"changeStatus('');return true;\" onclick=\"if(typeof(showPop)
+        != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;\" title=\"fashion
+        trends\" id=\"dk3\" name=\"dk3\" >fashion trends</a></li>\r\n                    <li><a
+        href=\"http://5edmscreen.com/Parental_Control.cfm?fp=EtYP01y8LtMIl%2FWgCYDHKjusGQN0bthZCLD2pi2sfpJpUiYGx1f530O79%2BQmkHSXsEwQY6WH%2FtsnaQ%2BxEi%2Bnm1tCt38sM20nP%2B4kDwNmxJVbAa9TcsCWkZ9%2Fg2f8GL24JaJdZO1Ngx1%2BWCm66PLKBrhYkI4Sfob0iyoBbSrtCK3savMDacARZXs7nLcGk%2FkT&kbetu=1&maxads=0&kld=1061&prvtof=Btex22R4SM3dcpWncTPUHBEIoOY6zLRkA%2BRjMOau7nc%3D&&&kt=112&&ki=21796090&ktd=0&kld=1061&kp=4\"
+        target=\"_top\" onmouseover=\"changeStatus('Parental Control');return true;\"
+        onmouseout=\"changeStatus('');return true;\" onclick=\"if(typeof(showPop)
+        != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;\" title=\"Parental
+        Control\" id=\"dk4\" name=\"dk4\" >Parental Control</a></li>\r\n                    <li><a
+        href=\"http://5edmscreen.com/find_a_tutor.cfm?fp=EtYP01y8LtMIl%2FWgCYDHKjusGQN0bthZCLD2pi2sfpJpUiYGx1f530O79%2BQmkHSXsEwQY6WH%2FtsnaQ%2BxEi%2Bnm1tCt38sM20nP%2B4kDwNmxJVbAa9TcsCWkZ9%2Fg2f8GL24JaJdZO1Ngx1%2BWCm66PLKBrhYkI4Sfob0iyoBbSrtCK3savMDacARZXs7nLcGk%2FkT&kbetu=1&maxads=0&kld=1061&prvtof=Btex22R4SM3dcpWncTPUHBEIoOY6zLRkA%2BRjMOau7nc%3D&&&kt=112&&ki=10844596&ktd=0&kld=1061&kp=5\"
+        target=\"_top\" onmouseover=\"changeStatus('find a tutor');return true;\"
+        onmouseout=\"changeStatus('');return true;\" onclick=\"if(typeof(showPop)
+        != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;\" title=\"find
+        a tutor\" id=\"dk5\" name=\"dk5\" >find a tutor</a></li>\r\n                </ul>\r\n
+        \           </div>\r\n            <div class=\"arrows lst_arr pngFix\"></div>\r\n
+        \       </div>\r\n    </div>\r\n    \r\n            <div id=\"footer-keys-bot\">\r\n
+        \           <div class=\"footerwrap clearfix\">\r\n\t            <div class=\"foottxt
+        clearfix\">\r\n\t            \t<a href=\"\" onclick=\" window.open('http://5edmscreen.com/__media__/js/trademark.php?d=5edmscreen.com&type=ns',
+        'netsoltrademark', 'directories=0,menubar=0,height=165,width=900');return
+        false;\">Trademark Free Notice</a>  \r\n\t\t\t\t\t<span><a href=\"//customersupport.networksolutions.com/article.php?id=306\"
+        target=\"_blank\">Review our Privacy Policy</a></span>\r\n\t\t\t\t\t<span><a
+        href=\"//www.networksolutions.com/legal/static-service-agreement.jsp\" target=\"_blank\">Service
+        Agreement</a>\r\n                    </span>\r\n\t\t\t\t\t<span class=\"nobrd\"><a
+        href=\"//www.networksolutions.com/legal/legal-notice.jsp\" target=\"_blank\">Legal
+        Notice</a>\r\n                    </span>\r\n\t\t\t\t\t\t            </div>\r\n
+        \               <div class=\"searchbox\">\r\n\t                <form id=\"searchform1\"
+        \  name=\"searchform1\" style=\"visibility:hidden;display:none;\" action=\"http://5edmscreen.com/display.cfm\"
+        method=\"get\" target=\"_top\" onsubmit=\"showPop=0;\" >\r\n\t                    <input
+        name=\"s\" type=\"text\" onClick=\"this.value='';\"  class=\"srch-txt\" />\r\n\t
+        \                   <input name=\"go\" value=\"\" type=\"submit\" class=\"srch-btn
+        brradius\" />\r\n\t                <input type=\"hidden\" name=\"gsp\" value=\"VmgyUjJ4YTVLanBWc2ZHRzBuN3dLK0xhYkR2Q0pnRmR2UUhvV0xlZHZGWkJnZnZwMmt5QWFFQnU5cUtvOUlVRHJyeEZCR21ib2xMRzBlYVNtcjJrcFNFbHRUMlFwaDhsWHZxOUJMN1pKNklUV2poVzJ4UFRxeUlUYWxMT0k1M3YreUs1R0I0N1dwS09UdUVkM0tUU2svZGNQcmRRQk1IWnl0YnNYVnVkcFdBMWNzb0xxKzhhQlEvYkFtUVYrcG9MUGZDNVFNS1c4TFZueFFvNXpkd0dCREF1YzNtRC9FcGtvRllvcGhtVUF2eGhnZUlhdkhUak12N1laL3UxMUxYM05IVDd4d0taSis1ZEt0V2hyRlBIZGU3TTdGSDdKbVJ6bDJzelFIUHBwRGI4MXlNRTN3dDlLQk1DNDl4WUFOZWxkcjB3SjJkSk9ZelV3RE4yaDNRUlFQanpYU3RQUlhXOC9CVWRteVphTlhRPQ%3D%3D\"
+        /></form>\r\n\t            </div>\r\n                \r\n  \t\t\t</div>\r\n
+        \       </div>\r\n\r\n    \r\n</div>\r\n<script type=\"text/javascript\" language=\"javascript\">\ntry{handleABPDetect();}catch(err){}\n</script>\n<div
+        style='display:none;visibility:hidden;'><script language=\"javascript\" >
+        function _bpx_() { try {var saScript = document.createElement(\"script\");
+        saScript.src = location.protocol + \"//pxlgnpgecom-a.akamaihd.net/javascripts/browserfp.min.js?templateId=10&customerId=2CU834316\";
+        \ saScript.async = \"async\"; document.body.appendChild(saScript); saScript.onload
+        = function() {try{var fp_instance = new browserfp();var pageAttr = {};pageAttr.kw_id
+        = '';pageAttr.kw_pos = '0';pageAttr.page_id = 'landing_page';pageAttr.vi_id
+        = '1273665786796206867';pageAttr.vs_id = '927vr3665786795806867';pageAttr.hvs_id
+        = '927vt3665786795806867';pageAttr.req_dom='5edmscreen.com';pageAttr.refUrl=\"\";pageAttr.srcUrl=\"http://5edmscreen.com/\";pageAttr.cust_id='2CU834316';pageAttr.pid
+        = '2PO5N5455';fp_instance.setPageAttr(pageAttr);fp_instance.sendViewData();}catch(e){}};}
+        catch(e){} }  try { if(typeof(_bpx_) == 'function'){ _bpx_(); } } catch(e){}
+        </script>  </div><script type=\"text/javascript\">if(relplaceAllALinks) relplaceAllALinks(/(\\/trf|\\.cfm)\\?/);</script><style>\r\n.footlinks-custom-link-wrap{padding:20px
+        10px;} .footlinks-custom-link{color:#2c2e2d;font-family:Arial,sans-serif;font-size:12px;width:220px;margin:20px
+        auto;padding:7px 10px;background-color:#fff;border-radius:20px;text-align:center}
+        .footlinks-custom-link a{color:#2c2e2d;font-family:Arial,sans-serif;text-decoration:none;font-size:12px}
+        .footlinks-custom-link a:hover{text-decoration:underline} .footlinks-custom-link
+        span{padding:0 4px;display:inline-block} </style>\r\n<div class=\"footlinks-custom-link-wrap
+        clearfix\"> <div class=\"footlinks-custom-link\"> <a href=\"//5edmscreen.com/sk-privacy.php\"
+        target=\"_blank\">Privacy Policy</a> </div> </div><script language=\"javascript\"
+        type=\"text/javascript\" > var __pp = [];  atevt();  </script> </body>\r\n</html>"
+  recorded_at: Wed, 21 Apr 2021 19:24:39 GMT
+- request:
+    method: get
+    uri: http://9luxureestates.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 21 Apr 2021 19:24:39 GMT
+      Server:
+      - Apache
+      Upgrade:
+      - h2,h2c
+      Connection:
+      - Upgrade
+      Last-Modified:
+      - Tue, 02 Feb 2021 05:42:40 GMT
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - max-age=172800
+      Expires:
+      - Fri, 23 Apr 2021 19:24:39 GMT
+      Vary:
+      - Accept-Encoding,User-Agent
+      Content-Length:
+      - '5358'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<!DOCTYPE HTML>\n\n<html>\n\n<head> \n\n\t<title>SVB 9 Luxure Estate
+        | Premium Villa/Plots For Sale Near Mumbai Pune Highway</title>\n\n\t<meta
+        name=\"keywords\" content=\"villa for sale, plots for sale\"/>\n\n\t<meta
+        name=\"description\" content=\"SVB 9 Luxure Estate offers premium plots/villas
+        for sale near Mumbai Pune Highway. Discover luxury living in a world-class
+        gated community.\"/>\n\n\t<meta http-equiv=\"content-type\" content=\"text/html;
+        charset=UTF-8\" />\n\n\t<meta name=\"viewport\" content=\"width=device-width,
+        initial-scale=1.0, maximum-scale=1.0\"/>\n\n\t<!--[if lt IE 9]>\n\n\t<script
+        src=\"https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js\"></script>\n\n\t<script
+        src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>\n\n\t<![endif]-->
+        \n\n  <link rel=\"icon\" type=\"image/png\" href=\"images/favicon.html\">
+        \    \n\n  <link rel=\"canonical\" href=\"index.html\">\n\n  <link rel=\"stylesheet\"
+        type=\"text/css\" href=\"stylesheets/colorbox.css\">\n\n\t<link rel=\"stylesheet\"
+        type=\"text/css\" href=\"stylesheets/style.css\">\n\n  <script type=\"text/javascript\"
+        src=\"include/jquery-latest.js\"></script>\n\n    <!-- Global site tag (gtag.js)
+        - Google Analytics -->\n\n    <script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-74376166-2\"></script>\n\n
+        \   <script>\n\n      window.dataLayer = window.dataLayer || [];\n\n      function
+        gtag(){dataLayer.push(arguments);}\n\n      gtag('js', new Date());\n\n    \n\n
+        \     gtag('config', 'UA-74376166-2');\n\n    </script>\n\n    \n\n    <!--
+        Facebook Pixel Code -->\n\n    <script>\n\n    !function(f,b,e,v,n,t,s)\n\n
+        \   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?\n\n    n.callMethod.apply(n,arguments):n.queue.push(arguments)};\n\n
+        \   if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\n\n    n.queue=[];t=b.createElement(e);t.async=!0;\n\n
+        \   t.src=v;s=b.getElementsByTagName(e)[0];\n\n    s.parentNode.insertBefore(t,s)}(window,document,'script',\n\n
+        \   'https://connect.facebook.net/en_US/fbevents.js');\n\n    fbq('init',
+        '1523745334394746'); \n\n    fbq('track', 'PageView');\n\n    </script>\n\n
+        \   <noscript>\n\n        <img height=\"1\" width=\"1\" src=\"https://www.facebook.com/tr?id=1523745334394746&ev=PageView&noscript=1\"
+        />\n\n    </noscript>\n\n    <!-- End Facebook Pixel Code -->\n\n\n\n\n\n\n\n\n\n\n\n<!--
+        Facebook Pixel Code -->\n\n<script>\n\n!function(f,b,e,v,n,t,s)\n\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\n\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\n\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\n\nn.queue=[];t=b.createElement(e);t.async=!0;\n\nt.src=v;s=b.getElementsByTagName(e)[0];\n\ns.parentNode.insertBefore(t,s)}(window,document,'script',\n\n'https://connect.facebook.net/en_US/fbevents.js');\n\n
+        fbq('init', '2235742873310435'); \n\nfbq('track', 'PageView');\n\n</script>\n\n<noscript>\n\n
+        <img height=\"1\" width=\"1\" \n\nsrc=\"https://www.facebook.com/tr?id=2235742873310435&ev=PageView\n\n&noscript=1\"/>\n\n</noscript>\n\n<!--
+        End Facebook Pixel Code -->\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n\n\n\n    <!--
+        Global site tag (gtag.js) - Google Ads: 766338378 --> \n\n\n\n    <script
+        async src=\"https://www.googletagmanager.com/gtag/js?id=AW-766338378\"></script>\n\n
+        \   <script> \n\n      window.dataLayer = window.dataLayer || []; \n\n      function
+        gtag(){dataLayer.push(arguments);}\n\n      gtag('js', new Date());\n\n      gtag('config',
+        'AW-766338378'); \n\n    </script>\n\n    <!-- Global site tag end  -->\n\n\n\n
+        \   <!-- phone snippet -->\n\n    <script> gtag('config', 'AW-766338378/Yki-CJCM0ZQBEMrKte0C',
+        { 'phone_conversion_number': '074 4742 1951' }); </script>\n\n    <!-- phone
+        snippet -->\n\n    <script type=\"text/javascript\">\n\n  (function() {\n\n
+        \   var mgElement = document.createElement('script');\n\n    mgElement.type
+        = 'text/javascript'; mgElement.async = true;\n\n    //mgElement.src = '//tcdn.metrowidget.com/quasar.min.js';\n\n
+        \   mgElement.src = ('https:' == document.location.protocol ? 'https://' :
+        'http://') + 's3.amazonaws.com/metroleads/quasar.js';\n\n\n\n    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(mgElement, s);\n\n\n\n    // Handle Script loading\n\n
+        \   var done = false;\n\n    var head = document.getElementsByTagName(\"head\")[0]
+        || document.documentElement;\n\n    mgElement.onload = mgElement.onreadystatechange
+        = function() {\n\n      if ( !done && (!this.readyState ||\n\n              this.readyState
+        === \"loaded\" || this.readyState === \"complete\") ) {\n\n          done
+        = true;\n\n          mg = new MG({}, '1c9e0a6f-cb3b-493d-bb4e-603a4dfc7cfd',
+        '6ac00e00-0ee9-45f2-b275-1b71d80aaa04');\n\n          mg.init();\n\n          mgElement.onload
+        = mgElement.onreadystatechange = null;\n\n          if ( head && mgElement.parentNode
+        ) {\n\n              head.removeChild( mgElement );\n\n          }\n\n      }\n\n
+        \   };\n\n  })();\n\n</script>\n\n</head>\n\n<body class=\"index-fullbody-bg\">\n\n<!--
+        Preloader -->\n\n<div id=\"preloader\">\n\n  <div id=\"status\" class=\"animated
+        infinite flipInY \">&nbsp;</div>\n\n</div>\n\n<!-- Preloader -->\n\n<!-- <div
+        class=\"scroll-down\">\n\n  <img src=\"/images/down-arrow.png\" class=\"img-responsive\">\n\n</div>
+        -->\n\n<div class=\"frame\">\n\n  <div class=\"top_frame \">\n\n    <span
+        class=\"left\"></span>\n\n      <div class=\"logo\">\n\n        <a href=\"index.html\"
+        class=\"inhouse\"><img data-event-category=\"Header\" data-event-action=\"Click\"
+        data-event-name=\"logo Click\" src=\"images/logo-2.png\" alt=\"Logo Of SVB
+        9 Luxure Estate Kanhe, Pune\" ></a>\n\n            <div class=\"menu cursor_pointer
+        closeExpaindmenu\" id=\"hamburger\" data-event-category=\"Header\" data-event-action=\"Click\"
+        data-event-name=\"menu Click\">\n\n              <span class=\"bar bar-1\"></span>\n\n
+        \             <span class=\"bar bar-2\" ></span>\n\n              <span class=\"bar
+        bar-3\"></span>\n\n            </div>\n\n            <div class=\"call-section\">\n\n
+        \               <div class=\"pull-right enq-block\">\n\n                   <div
+        class=\"pull-left number\"><span class=\"cell-num  num-bg \"><span class=\"call-none\">Call
+        : <a href=\"tel:7447421951 \" style=\"color: #d1ae54 !important; display:
+        inherit !important;\">+91 744 74 219 51 </a></span></span></div>\n\n                   <a
+        class=\"enq-btn open-form\" href=\"javascript:;\" data-event-category=\"Header\"
+        data-event-action=\"Click\" data-event-name=\"Enquire Now\">Enquire Now</button></a>\n\n
+        \                  <div class=\"form-wrapper\">\n\n                          <div
+        class=\"pull-right text-right close\">Close X</div>\n\n                          <form
+        id=\"frm_enquirenow\" data-ml-form=\"Enquiry Form\" name=\"frm_enquirenow\"
+        action=\"contactUsPost.php\" method=\"POST\">\n\n                            <div
+        class=\"form-group\">\n                              <input type=\"hidden\"
+        id=\"9 Luxure Estate\"  data-ml-field=\"Project\" value=\"9 Luxure Estate\"
+        />\n                              <input value=\"\" data-required=\"true\"
+        placeholder=\"Name *\" type=\"text\" name=\"name\" id=\"name\" class=\"form-control\"
+        maxlength=\"50\" data-ml-field=\"name\"/>\n\n\n                            </div>\n\n
+        \                           <div class=\"form-group\">\n\n                              <input
+        value=\"\" data-required=\"true\" placeholder=\"Email *\" type=\"text\" name=\"email\"
+        id=\"email\" class=\"form-control\" maxlength=\"50\" data-ml-field=\"email\"/>\n\n
+        \                           </div>\n\n                            <div class=\"form-group\">\n\n
+        \                             <input value=\"\" data-required=\"true\" placeholder=\"Phone
+        *\" type=\"text\" name=\"phone\" id=\"phone\" class=\"form-control\" maxlength=\"10\"
+        minlength=\"10\" data-ml-field=\"phone\"/>\n\n                            </div>\n\n
+        \                           <div class=\"form-group\">\n\n                              <textarea
+        placeholder=\"Message\" type=\"text\" name=\"message\" id=\"message\" class=\"form-control\"
+        maxlength=\"500\" data-ml-field=\"message\"></textarea>\n\n                            </div>\n\n
+        \                           <div class=\"form-group\">\n\n                                <input
+        type=\"text\" name=\"robotest\" class=\"robotest\">\n\n                            </div>\n\n
+        \                           <div class=\"form-group\">\n\n                              <input
+        class=\"btn\" type=\"submit\" value=\"Submit\" id=\"btn_submit\">\n\n                            </div>\n\n
+        \                         </form>\n\n                   </div>\n\n                </div>\n\n
+        \           <!-- <div class=\"pull-right call-me\"><div class=\"sell_do_ctc\"></div></div>
+        -->\n\n            </div>\n\n      </div>        \n\n    <span class=\"right\"></span>\n\n
+        \ </div>\n\n  <div class=\"frame_left\"></div>\n\n  <div class=\"frame_bottom\"></div>\n\n
+        \ <div class=\"frame_right\"></div>\n\n</div>\n\n<nav class=\"menuIconwrp_left\">\n\n
+        \   <ul>\n\n        <li><a href=\"index.html\" data-event-category=\"Header\"
+        data-event-action=\"Click\" data-event-name=\"Home\" class=active_nav >Home</a></li>\n\n
+        \       <li><a href=\"luxureoffering.html\" data-event-category=\"Header\"
+        data-event-action=\"Click\" data-event-name=\"The project\"  >Luxure offerings</a></li>\n\n
+        \       <li><a href=\"specifications.html\" data-event-category=\"Header\"
+        data-event-action=\"Click\" data-event-name=\"Specifications\"  >Specifications</a></li>\n\n
+        \       <li><a href=\"why9.html\" data-event-category=\"Header\" data-event-action=\"Click\"
+        data-event-name=\"9 Reasons To Buy\"  >9 Reasons To Buy</a></li>\n\n        <li><a
+        href=\"lifestyle.html\" data-event-category=\"Header\" data-event-action=\"Click\"
+        data-event-name=\"Lifestyle Amenities\"  >Lifestyle Amenities</a></li> \n\n
+        \       <li><a href=\"gallery.html\" data-event-category=\"Header\" data-event-action=\"Click\"
+        data-event-name=\"Gallery\"  >Gallery</a></li> \n\n        <!-- <li><a href=\"/blog\">Blog</a></li>
+        -->  \n\n        <li><a href=\"location.html\" data-event-category=\"Header\"
+        data-event-action=\"Click\" data-event-name=\"Location\"  >Location</a></li>\n\n
+        \       <li><a href=\"legaladvantages.html\" data-event-category=\"Header\"
+        data-event-action=\"Click\" data-event-name=\"Legal Advantages\" >Legal Advantages</a></li>\n\n
+        \       <li><a href=\"aboutus.html\" data-event-category=\"Header\" data-event-action=\"Click\"
+        data-event-name=\"About Us\"  >About Us</a></li> \n\n        <li><a href=\"contactus.html\"
+        data-event-category=\"Header\" data-event-action=\"Click\" data-event-name=\"contact_us\"
+        \ >Contact Us</a></li>\n\n        <li><a href=\"blog.html\" data-event-category=\"Header\"
+        data-event-action=\"Click\" data-event-name=\"Blogs\"  >Blogs</a></li>\n\n
+        \   </ul>\n\n  </nav>\n\n<section class=\"col-12 banner-section relative\"
+        id=\"index\">\n\n  <div class=\"ht-100    \">\n\n      <div class=\"col-12
+        relative ht-100 anim-section  \">\n\n          \n\n<script type=\"text/javascript\">\n\n$(document).ready(function(){\n\n\tvar
+        winHT = $(window).height();\n\n\t$('.home-slider-init').height(winHT);\n\n\t$(\".home-slider-init\").bxSlider({\n\n\t\tauto:
+        true,\n\n\t\tpause:6000,\n\n\t\tpagerCustom: '#bx-pager',\n\n\t\tcontrols:false\n\n\t});\n\n})\n\n</script>\n\n<script
+        type=\"application/ld+json\">\n\n{\n\n  \"@context\": \"http://schema.org\",\n\n
+        \ \"@type\": \"Place\",\n\n  \"geo\": {\n\n    \"@type\": \"GeoCoordinates\",\n\n
+        \   \"latitude\": \"18.756954\",\n\n    \"longitude\": \"73.584129\"\n\n  },\n\n
+        \ \"name\": \"9 LUXURE ESTATES\"\n\n}\n\n</script>\n\n\n\n<section>\n\n\t<div
+        class=\"col-12 relative\">\n\n\t\t<!-- <div class=\"fixed-offer hidden-xs\">\n\n\t\t\t<span>Grand
+        Launch</span>\n\n\t\t</div> -->\n\n\t\t<div class=\"home-slider-init\">\n\n\n\n\t\t\t<div
+        class=\"home-banner2 slide\">\n\n\t\t\t\t<div class=\"banner-tagline absolute
+        shadow-text\"> RESIDENTIAL NA PLOTS AND PREMIUM LUXURE VILLAS<br>\n\nSTARTING
+        FROM RS. 33 LAC* &amp; 59 LAC*<br>\n\n<a href=\"luxureoffering.html\" class=\"banner-btn\"
+        data-event-category=\"section\" data-event-action=\"Click\" data-event-name=\"Explore
+        Project\" style=\"text-shadow:0px 0px 0px #000\">Explore Project</a>\n\n<p>Talegaon,
+        Kanhe</p>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t\t<div class=\"home-banner3
+        slide\">\n\n\t\t\t\t<div class=\"banner-tagline absolute shadow-text\">\n\n\t\t\t\t\tSEAMLESS
+        CONNECTIVITY, SMART LOCATION<BR/> RIGHT ON MUMBAI - PUNE HIGHWAY<br/>\n\n\t\t\t\t\t<a
+        href=\"luxureoffering.html\" class=\"banner-btn\"  data-event-category=\"section\"
+        data-event-action=\"Click\" data-event-name=\"Explore Project\" style=\"text-shadow:0px
+        0px 0px #000\" >Explore Project</a>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"shot-on\">\n\n\t\t\t\t\t<span>Grand
+        Entrance</span>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t\t<div class=\"home-banner1
+        slide\">\n\n\t\t\t\t<div class=\"banner-tagline absolute shadow-text\">\n\n\t\t\t\t\tBUY
+        RARE<BR/> BEST INVESTMENT OPPORTUNITY AND LIMITED COLLECTION<br/>\n\n\t\t\t\t\t<a
+        href=\"luxureoffering.html\" class=\"banner-btn\" data-event-category=\"section\"
+        data-event-action=\"Click\" data-event-name=\"Explore Project\" style=\"text-shadow:0px
+        0px 0px #000\" >Explore Project</a>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"shot-on\">\n\n\t\t\t\t\t<span>Actual
+        Site Image</span>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t\t<div class=\"home-banner4
+        slide\">\n\n\t\t\t\t<div class=\"fixed-offer visible-xs\">\n\n\t\t\t\t<span>Grand
+        Launch</span>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\n\t\t\t<div class=\"home-banner5
+        slide\">\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t\t<div id=\"bx-pager\"><a data-slide-index=\"0\"
+        href=\"#\"></a> <a data-slide-index=\"1\" href=\"#\"></a> <a data-slide-index=\"2\"
+        href=\"#\"></a> <a data-slide-index=\"3\" href=\"#\"></a> <a data-slide-index=\"4\"
+        href=\"#\"></a></div>\n\n\t</div>\n\n</section>\n\n<!-- \n\n\t\t<div class=\"col-12
+        relative ht-100\">\n\n\t\t\t<div class=\"col-6 section-ht text-center anim-block-1
+        anim-block\">\n\n\t\t\t\t<div class=\"table-center col-12 ht-100\">\n\n\t
+        \           \t<div class=\"table-cell-center\">\n\n\t              \t\t<div
+        class=\"text-center\">\n\n\t                \t\t<h1 class=\"head-text font-Montserrat\">ELEGANCE</h1>\n\n\t\t\t\t\t\t\t<p
+        class=\"head-dis\">A built to suit first home <br>bunglow for uncompromised
+        <br>Living</p>\n\n\t              \t\t</div>\n\n\t             \t</div>\n\n
+        \            \t</div>\t\n\n\t\t\t</div> \n\n\t\t\t<div class=\"col-6 section-ht
+        text-center anim-block-2 anim-block\">\n\n\t\t\t\t<div class=\"table-center
+        col-12 ht-100\">\n\n\t            \t<div class=\"table-cell-center\">\n\n\t
+        \             \t\t<div class=\"text-center\">\n\n\t                \t\t<h1
+        class=\"head-text font-Montserrat\">PRESTIGE</h1>\n\n\t\t\t\t\t\t\t<p class=\"head-dis\">An
+        investment in super <br>premium bungalow plot</p>\n\n\t              \t\t</div>\n\n\t
+        \            \t</div>\n\n             \t</div>\n\n\t\t\t</div>\n\n\t\t\t<div
+        class=\"col-6 section-ht text-center anim-block-3 anim-block\">\n\n\t\t\t\t<div
+        class=\"table-center col-12 ht-100\">\n\n\t            \t<div class=\"table-cell-center\">\n\n\t
+        \             \t\t<div class=\"text-center\">\n\n\t                \t\t<h1
+        class=\"head-text font-Montserrat\">LUXURY</h1>\n\n\t\t\t\t\t\t\t<p class=\"head-dis\">A
+        second home villa to relax<br>unwind in scenic landscape</p>\n\n\t              \t\t</div>\n\n\t
+        \            \t</div>\n\n             \t</div>\n\n\t\t\t</div>\n\n\t\t\t<div
+        class=\"col-6 section-ht text-center anim-block-4 anim-block\">\n\n\t\t\t\t<div
+        class=\"table-center col-12 ht-100\">\n\n\t            \t<div class=\"table-cell-center\">\n\n\t
+        \             \t\t<div class=\"text-center \">\n\n\t                \t\t<h1
+        class=\"head-text font-Montserrat\">EXCLUSIVE</h1>\n\n\t\t\t\t\t\t\t<p class=\"head-dis\">All
+        in one Premium Residential<br>LifeStyle</p>\n\n\t              \t\t</div>\n\n\t
+        \            \t</div>\n\n             \t</div>\n\n\t\t\t</div>\n\n\t\t\t<div
+        class=\"banner-logo absolute\"><img src=\"/images/home/center-logo.png\" width=\"100%\"
+        class=\"img-responsive center-logo\"></div>\n\n\t\t</div>  -->\n\n\n\n\n\n\t\t<style
+        type=\"text/css\">\n\n\t\t\t@media all and (max-width: 700px){\n\n\t\t\t\t.hidden-xs
+        { display: none; }\n\n\t\t\t\t.visible-xs {\n\n    display: block !important;\n\n}\n\n\t\t\t}\n\n\t\t</style>\n\n
+        \     </div> \n\n  </div> \n\n</section> \n\n<footer class=\"footer-bg col-12\">\n\n
+        \ <div class=\"\">\n\n    <div class=\"col-12\">\n\n       \n\n      <div
+        class=\"col-6 pull-right text-right mob-none \" style=\"text-transform:uppercase\">\n\n
+        \       National Highway Touch, Talegoan Kanhe, Pune\n\n      </div> \n\n
+        \     <div class=\"col-6 pull-left text-left mob-full mob-text\">\n\n        MahaRERA
+        No. P52100014314 Available at: <a href=\"https://maharera.mahaonline.gov.in/\"
+        target=\"_blank\" style=\"color:#fff; text-transform: lowercase;\">https://maharera.mahaonline.gov.in</a>\n\n
+        \     </div>\n\n\n\n  </div>\n\n  </div>\n\n \t\t \n\n</footer>\n\n\n\n<script
+        type=\"text/javascript\" src=\"javascripts/jquery.bxslider.js\"></script>\n\n<script
+        src =\"include/ecommerce.js\" type=\"text/javascript\"></script>\t\n\n<script
+        type=\"text/javascript\" src=\"javascripts/jquery.colorbox-min.js\"></script>\n\n<script
+        type=\"text/javascript\" src=\"javascripts/app.js\"></script>\n\n<!--<script
+        src='include/t/59436ac33bb2f8eea10003dd.js'></script>-->\n\n\n\n\n\n <script
+        type=\"text/javascript\">\n\n  // <!--.................sell_do js.............-->\n\n\n\n
+        \ /*var _selldo = [];\n\n  _selldo.push({project_id : '5a02fca77c0dac22a237d0d6'});\n\n
+        \ window.sell_do_form_rendered = function(){\n\n\n\n        $(\".form-emi
+        .selldof_row:nth-last-child(2)\").remove();\n\n\n\n        $('.sell_do_virtual_numbers
+        a').attr('data-event-category','Footer');\n\n        $('.sell_do_virtual_numbers
+        a').attr('data-event-action','Click');\n\n        $('.sell_do_virtual_numbers
+        a').attr('data-event-name','Call Number');\n\n\n\n        $('.sell_do_ctc_btn').attr('data-event-category','Header');\n\n
+        \       $('.sell_do_ctc_btn').attr('data-event-action','Click on call me');\n\n
+        \       $('.sell_do_ctc_btn').attr('data-event-name','Click to Call');  \n\n\n\n
+        \       $('.sell_do_form_container .btn').attr('data-event-category','Section');\n\n
+        \       $('.sell_do_form_container .btn').attr('data-event-action','Click');\n\n
+        \       $('.sell_do_form_container .btn').attr('data-event-name','submit');
+        \ \n\n\n\n        var flag = 0;\n\n        $('.open-popup-form').on('click',function(){\n\n
+        \         flag = 1;\n\n          $('.popform-wrapper .sell_do_form_container
+        .btn').val('Download');            \n\n        })\n\n};*/\n\n  //<!--.................//
+        sell_do js.............-->\n\n\n\n\n\n  /*window.sell_do_form_successfully_submitted
+        = function(data, event){\n\n   //<!--.................try catch code.............-->\n\n\n\n
+        \   try{\n\n      dataLayer.push({\n\n        'event' : 'selldo_form_submitted'\n\n
+        \     });\n\n    }catch(err){}\n\n\n\n  //<!--.................//try catch
+        code.............--> \n\n  }*/\n\n</script>\n\n\n\n  <!-- Google Tag Manager
+        -->\n\n<noscript><iframe src=\"http://www.googletagmanager.com/ns.html?id=GTM-M32LFR\"\n\nheight=\"0\"
+        width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n\n<script>\n\n(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n\nnew
+        Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n\n'include/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);\n\n})(window,document,'script','dataLayer','GTM-M32LFR');\n\n</script>\n\n<!--
+        End Google Tag Manager -->\n\n<!-- <script src=\"include/ecommerce.html\"
+        type=\"text/javascript\"></script>   -->\n\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n\n
+        \ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n\n'include/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);\n\n})(window,document,'script','dataLayer','GTM-KRN4SSV');</script>\n\n<!--
+        End Google Tag Manager -->\n\n\n\n<!-- Google Tag Manager (noscript) -->\n\n<noscript><iframe
+        src=\"https://www.googletagmanager.com/ns.html?id=GTM-KRN4SSV\" height=\"0\"
+        width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n\n<!--
+        End Google Tag Manager (noscript) -->\n\n<script src=\"javascripts/jquery.validate.min.js\"></script>\n\n<script
+        src=\"javascripts/validate.js\"></script>\n\n<script type=\"text/javascript\">\n
+        \ (function() {\n    var mgElement = document.createElement('script');\n    mgElement.type
+        = 'text/javascript'; mgElement.async = true;\n    mgElement.src = '//tcdn.metrowidget.com/quasar.min.js';\n
+        \   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mgElement,
+        s);\n\n    // Handle Script loading\n    var done = false;\n    var head =
+        document.getElementsByTagName(\"head\")[0] || document.documentElement;\n
+        \   mgElement.onload = mgElement.onreadystatechange = function() {\n      if
+        ( !done && (!this.readyState ||\n              this.readyState === \"loaded\"
+        || this.readyState === \"complete\") ) {\n          done = true;\n          mg
+        = new MG({}, '1c9e0a6f-cb3b-493d-bb4e-603a4dfc7cfd', '5c74f838-31df-4e9e-b7a3-05b31b9e42a5');\n
+        \         mg.init();\n      }\n    };\n  })();\n  </script>\n\n</body>\n\n</html>\n\n\n\n"
+  recorded_at: Wed, 21 Apr 2021 19:24:40 GMT
+recorded_with: VCR 6.0.0

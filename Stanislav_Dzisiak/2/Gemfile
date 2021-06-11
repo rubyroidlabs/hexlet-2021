@@ -1,0 +1,22 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+gemspec
+
+gem 'celluloid', '~> 0.18.0'
+gem 'faraday', '~> 1.4.0'
+gem 'rake', '~> 13.0'
+gem 'slop', '~> 4.8.2'
+
+group :test do
+  gem 'rspec', '~> 3.0'
+  gem 'vcr', '~> 6.0.0'
+  gem 'webmock', '~> 3.12.2'
+end
+
+group :development, :test do
+  gem 'rubocop', '~> 1.12.1'
+  gem 'rubocop-rake', '~> 0.5.1'
+  gem 'rubocop-rspec', '~> 2.2.0'
+end
