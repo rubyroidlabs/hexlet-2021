@@ -1,0 +1,18 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+gem 'aasm'
+gem 'activerecord'
+gem 'dotenv-rails'
+gem 'factory_bot'
+gem 'json'
+gem 'pg'
+gem 'progress_bar'
+gem 'rake'
+gem 'rspec'
+gem 'sinatra'
+gem 'sinatra-activerecord'
+gem 'telegramAPI'
+gem 'pry'
+gem 'whenever', require: false
