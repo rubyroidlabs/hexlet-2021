@@ -4,7 +4,6 @@ require_relative '../models/user'
 require_relative 'actions'
 require_relative 'emoji_list'
 
-
 class MessageSender
   attr_reader :options, :message
 

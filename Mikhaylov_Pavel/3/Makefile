@@ -1,2 +1,2 @@
 run:
-	bundle exec ruby main.rb
+	bundle exec ruby run.rb

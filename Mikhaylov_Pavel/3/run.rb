@@ -2,7 +2,6 @@
 
 require 'dotenv'
 require 'telegram/bot'
-require 'pry'
 require 'unicode/emoji'
 require_relative 'config/connection'
 require_relative 'lib/message_sender'
@@ -10,7 +9,6 @@ require_relative 'models/learned_word'
 require_relative 'models/user'
 require_relative 'models/word'
 require_relative 'lib/emoji_list'
-
 
 Dotenv.load
 

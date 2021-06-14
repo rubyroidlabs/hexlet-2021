@@ -5,7 +5,6 @@ require_relative '../models/user'
 require_relative '../models/learned_word'
 require_relative '../config/connection'
 require_relative 'actions'
-require 'pry'
 
 class Teacher
   def self.send_word

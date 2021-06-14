@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
 require 'telegram/bot'
 require_relative '../models/user'
 require_relative '../models/word'
@@ -31,11 +30,11 @@ module Actions
     include Actions
 
     def call
-      record_user
+      record_user!
       greeting
     end
 
-    def record_user
+    def record_user!
       User.find_or_create_by!(
         telegram_id: message.from.id,
         name: message.from.first_name
