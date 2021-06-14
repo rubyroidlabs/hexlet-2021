@@ -7,15 +7,7 @@ require_relative '../models/word'
 Dotenv.load
 
 module Actions
-  RESPONSES = {
-    greeting: 'Привет. Я бот, который помогает учить новые английские слова каждый день. ' \
-    'Давай сперва определимся сколько слов в день (от 1 до 6) ты хочешь узнавать?',
-    wrong_number: 'Я не умею учить больше чем 6 словам. Давай еще раз?',
-    accept: 'Принято',
-    remind: 'Кажется ты был слишком занят, и пропустил слово выше? Дай мне знать что у тебя все хорошо.',
-    continue: 'Вижу что ты заметил слово! Продолжаем учиться дальше!',
-    stop: 'Пока!'
-  }.freeze
+  RESPONSES = YAML.safe_load(File.read('phrases.yml')).with_indifferent_access
 
   BOT = Telegram::Bot::Api.new(ENV['TOKEN'])
 
