@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :name, null: false
       t.integer :telegram_id, null: false, index: { unique: true }
       t.integer :words_per_day
-      t.string :aasm_state
+      t.integer :state
 
       t.timestamps
     end

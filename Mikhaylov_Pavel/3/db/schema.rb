@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_193453) do
+ActiveRecord::Schema.define(version: 2021_06_14_120759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_05_08_193453) do
     t.string "name"
     t.integer "telegram_id", null: false
     t.integer "words_per_day"
-    t.string "aasm_state"
+    t.integer "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["telegram_id"], name: "index_users_on_telegram_id", unique: true
