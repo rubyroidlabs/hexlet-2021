@@ -6,6 +6,7 @@ require_relative '../models/learned_word'
 require_relative '../config/connection'
 require_relative 'postman/send_reminder'
 require_relative 'postman/send_word'
+require_relative 'services/new_word_for_user'
 
 class Teacher
   def self.send_word
@@ -13,7 +14,7 @@ class Teacher
       .learning
       .reject(&:done_for_today?)
       .each do |user|
-        word = user.new_word
+        word = NewWordForUser.new(user).call
         Postman::SendWord.send(word, user)
         user.wait!
       end

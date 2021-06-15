@@ -6,7 +6,8 @@ require_relative './base'
 module Actions
   class Continue < Base
     def call
-      find_user.learn!
+      user = find_user
+      user.learn! unless user.learning?
       super
     end
   end
