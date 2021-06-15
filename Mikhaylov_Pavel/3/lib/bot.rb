@@ -9,6 +9,7 @@ class Bot
   def self.token
     token = ENV['TOKEN']
     raise StandardError, 'Token not set' unless token
+
     token
   end
 
