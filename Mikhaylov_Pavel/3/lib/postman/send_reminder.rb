@@ -2,8 +2,6 @@
 
 require_relative '../bot'
 require_relative '../actions/base'
-require_relative '../../models/user'
-require_relative '../../models/word'
 
 module Postman
   class SendReminder < Actions::Base

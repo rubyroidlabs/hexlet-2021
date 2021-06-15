@@ -1,14 +1,9 @@
 # frozen_string_literal: true
 
 require 'telegram/bot'
-require 'unicode/emoji'
 require 'dotenv'
 require_relative 'config/connection'
 require_relative 'lib/message_sender'
-require_relative 'models/learned_word'
-require_relative 'models/user'
-require_relative 'models/word'
-require_relative 'lib/emoji_list'
 require_relative 'lib/bot'
 
 Telegram::Bot::Client.run(Bot.token) do |bot|

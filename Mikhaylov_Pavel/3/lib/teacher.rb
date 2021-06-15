@@ -2,7 +2,6 @@
 
 require_relative '../models/word'
 require_relative '../models/user'
-require_relative '../models/learned_word'
 require_relative '../config/connection'
 require_relative 'postman/send_reminder'
 require_relative 'postman/send_word'
