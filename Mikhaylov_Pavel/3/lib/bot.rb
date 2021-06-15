@@ -7,7 +7,9 @@ Dotenv.load
 
 class Bot
   def self.token
-    ENV['TOKEN']
+    token = ENV['TOKEN']
+    raise StandardError, 'Token not set' unless token
+    token
   end
 
   def self.instance
