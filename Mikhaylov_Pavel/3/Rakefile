@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
+# rubocop:disable Rails/RakeEnvironment
+
 require 'standalone_migrations'
 require 'dotenv'
 require_relative 'lib/teacher'
-require_relative 'lib/actions'
 
 StandaloneMigrations::Tasks.load_tasks
 
@@ -18,3 +19,5 @@ namespace :bot do
     Teacher.remind
   end
 end
+
+# rubocop:enable Rails/RakeEnvironment

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Rails/ApplicationRecord
+
 require 'active_record'
 
 class Word < ActiveRecord::Base
@@ -10,3 +12,5 @@ class Word < ActiveRecord::Base
     "#{value} - #{definition}"
   end
 end
+
+# rubocop:enable Rails/ApplicationRecord

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Rails/ApplicationRecord
+
 require 'aasm'
 require 'active_record'
 require_relative 'learned_word'
@@ -38,7 +40,7 @@ class User < ActiveRecord::Base
     word
   end
 
-  def finished?
+  def done_for_today?
     LearnedWord.where(created_at: Time.current.all_day, user_id: id).count >= words_per_day
   end
 
@@ -47,3 +49,5 @@ class User < ActiveRecord::Base
     (Time.current - last_word_at) / 60 > REMINDER_IN_MINUTES
   end
 end
+
+# rubocop:enable Rails/ApplicationRecord
