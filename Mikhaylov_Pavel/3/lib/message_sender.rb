@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'emoji_list'
+require_relative 'acceptable_emojis'
 require_relative './actions/accept'
 require_relative './actions/greeting'
 require_relative './actions/wrong_number'
@@ -8,6 +8,7 @@ require_relative './actions/continue'
 require_relative './actions/stop'
 
 class MessageSender
+  EMOJIS = AcceptableEmojis.list
   attr_reader :options, :message
 
   def initialize(options)
@@ -31,6 +32,6 @@ class MessageSender
   end
 
   def get_emoji_if_emoji(emoji)
-    emoji if EmojiList.list.include?(message.text)
+    emoji if EMOJIS.include?(message.text)
   end
 end
