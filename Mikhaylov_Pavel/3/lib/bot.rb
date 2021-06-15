@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'dotenv'
+require 'telegram/bot'
 
 Dotenv.load
 

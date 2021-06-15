@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './models/user'
+require_relative '../../models/user'
 require_relative '../bot'
 
 module Actions

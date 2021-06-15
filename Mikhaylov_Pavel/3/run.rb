@@ -2,6 +2,7 @@
 
 require 'telegram/bot'
 require 'unicode/emoji'
+require 'dotenv'
 require_relative 'config/connection'
 require_relative 'lib/message_sender'
 require_relative 'models/learned_word'

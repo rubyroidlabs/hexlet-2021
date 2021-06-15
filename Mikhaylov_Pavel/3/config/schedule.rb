@@ -25,5 +25,5 @@ set :job_template, nil
 
 every '*/10 10-22 * * 1-5' do
   rake 'bot:send'
-  rake 'bot:remid'
+  rake 'bot:remind'
 end
