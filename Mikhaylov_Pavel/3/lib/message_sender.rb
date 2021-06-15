@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../models/user'
-require_relative 'actions'
 require_relative 'emoji_list'
+require_relative './actions/accept'
+require_relative './actions/greeting'
+require_relative './actions/wrong_number'
+require_relative './actions/continue'
+require_relative './actions/stop'
 
 class MessageSender
   attr_reader :options, :message

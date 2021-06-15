@@ -4,16 +4,17 @@ require_relative '../models/word'
 require_relative '../models/user'
 require_relative '../models/learned_word'
 require_relative '../config/connection'
-require_relative 'actions'
+require_relative 'postman/send_word'
+require_relative 'postman/send_reminder'
 
 class Teacher
   def self.send_word
     User
       .learning
-      .reject(&:finished?)
+      .reject(&:done_for_today?)
       .each do |user|
         word = user.new_word
-        Actions::SendWord.send(word, user)
+        Postman::SendWord.send(word, user)
         user.wait!
       end
   end
@@ -23,7 +24,7 @@ class Teacher
       .waiting
       .filter(&:need_to_send_reminder?)
       .each do |user|
-        Actions::SendReminder.send(user)
+        Postman::SendReminder.send(user)
       end
   end
 end
