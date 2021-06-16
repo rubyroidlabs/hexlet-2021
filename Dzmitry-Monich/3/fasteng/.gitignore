@@ -1,0 +1,12 @@
+/.bundle/
+/vendor/bundle
+.DS_Store
+*.gem
+/tmp/
+/.rubocop.yml
+.env
+.solargraph.yml
+/log/*
+!/log/.keep
+/bin/*
+!/bin/bot

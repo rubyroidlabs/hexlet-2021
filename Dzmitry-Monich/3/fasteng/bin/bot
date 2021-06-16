@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'bundler/setup'
+require_relative '../lib/fasteng'
+
+# Fasteng.config.url = ENV['URL']
+# Fasteng.config.controller = 'webhook'
+
+Fasteng::App.run
