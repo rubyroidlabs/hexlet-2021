@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: true
+  database: telegram_eng_bot_dev
+  pool: 5
+  host: localhost
+  username: pavelmikhaylov
+  timeout: 5000
